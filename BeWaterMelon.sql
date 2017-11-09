@@ -10,13 +10,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema BeWaterMelon
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `BeWaterMelons` ;
+DROP SCHEMA IF EXISTS `BeWaterMelon` ;
 
 -- -----------------------------------------------------
 -- Schema BeWaterMelon
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `BeWaterMelon` DEFAULT CHARACTER SET utf8 ;
-USE `BeWaterMelons` ;
+USE `BeWaterMelon` ;
 
 -- -----------------------------------------------------
 -- Table `BeWaterMelon`.`ppl_user`
@@ -273,11 +273,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BeWaterMelon`.`col_member_of`
+-- Table `BeWaterMelon`.`col_member`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `BeWaterMelon`.`col_member_ofs` ;
 
-CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`col_member_ofs` (
+CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`col_members` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `link` VARCHAR(500) NULL,
@@ -334,9 +333,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `BeWaterMelon`.`col_company`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `BeWaterMelon`.`col_companys` ;
+DROP TABLE IF EXISTS `BeWaterMelon`.`col_companies` ;
 
-CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`col_companys` (
+CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`col_companies` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `link` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`id`))
@@ -366,12 +365,12 @@ DROP TABLE IF EXISTS `BeWaterMelon`.`cou_subjects` ;
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`cou_subjects` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  `user_id` INT(5) NOT NULL, --teacher
+  `ppl_user_id` INT(5) NOT NULL,
   `abbreviation` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `id_teacher_idxs` (`user_id` ASC),
+  INDEX `id_teacher_idxs` (`ppl_user_id` ASC),
   CONSTRAINT `teacher`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`ppl_user_id`)
     REFERENCES `BeWaterMelon`.`ppl_users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
@@ -397,20 +396,20 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `BeWaterMelon`.`cou_course_degree_subjects` ;
 
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`cou_course_degree_subjects` (
-  `degree_id` INT(5) NOT NULL,
-  `subject_id` INT(5) NOT NULL,
+  `cou_degree_id` INT(5) NOT NULL,
+  `cou_subject_id` INT(5) NOT NULL,
   `year` YEAR NOT NULL,
-  PRIMARY KEY (`degree_id`, `subject_id`, `year`),
-  INDEX `degree_idxs` (`degree_id` ASC),
-  INDEX `subject_idxs` (`subject_id` ASC),
+  PRIMARY KEY (`cou_degree_id`, `cou_subject_id`, `year`),
+  INDEX `degree_idxs` (`cou_degree_id` ASC),
+  INDEX `subject_idxs` (`cou_subject_id` ASC),
   CONSTRAINT `degree`
-    FOREIGN KEY (`degree_id`)
+    FOREIGN KEY (`cou_degree_id`)
     REFERENCES `BeWaterMelon`.`cou_degrees` (`id`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT `subject`
-    FOREIGN KEY (`id_subject`)
-    REFERENCES `subject_id`.`cou_subjects` (`id`)
+    FOREIGN KEY (`cou_subject_id`)
+    REFERENCES `BeWaterMelon`.`cou_subjects` (`id`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -422,12 +421,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `BeWaterMelon`.`res_project_participants` ;
 
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_project_participants` (
-  `id` INT(5) NOT NULL,
-  `user_id` VARCHAR(200) NOT NULL,
+  `res_project_id` INT(5) NOT NULL,
+  `participant` VARCHAR(200) NOT NULL,
   `link` VARCHAR(500) NULL,
-  PRIMARY KEY (`id`, `user_id`),
+  PRIMARY KEY (`res_project_id`, `participant`),
   CONSTRAINT `project_participant`
-    FOREIGN KEY (`id`)
+    FOREIGN KEY (`res_project_id`)
     REFERENCES `BeWaterMelon`.`res_projects` (`id`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
