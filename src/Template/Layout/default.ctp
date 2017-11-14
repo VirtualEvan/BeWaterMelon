@@ -24,17 +24,19 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('bake.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <?= $this->element('header') ?>
-
     <?= $this->element('navbar') ?>
+
+    <?= $this->element('header') ?>
 
     <?= $this->element('navindex') ?>
 
