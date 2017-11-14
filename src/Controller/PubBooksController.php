@@ -20,9 +20,6 @@ class PubBooksController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Physicals']
-        ];
         $pubBooks = $this->paginate($this->PubBooks);
 
         $this->set(compact('pubBooks'));
@@ -39,7 +36,7 @@ class PubBooksController extends AppController
     public function view($id = null)
     {
         $pubBook = $this->PubBooks->get($id, [
-            'contain' => ['Physicals']
+            'contain' => []
         ]);
 
         $this->set('pubBook', $pubBook);
@@ -63,8 +60,7 @@ class PubBooksController extends AppController
             }
             $this->Flash->error(__('The pub book could not be saved. Please, try again.'));
         }
-        $physicals = $this->PubBooks->Physicals->find('list', ['limit' => 200]);
-        $this->set(compact('pubBook', 'physicals'));
+        $this->set(compact('pubBook'));
         $this->set('_serialize', ['pubBook']);
     }
 
@@ -89,8 +85,7 @@ class PubBooksController extends AppController
             }
             $this->Flash->error(__('The pub book could not be saved. Please, try again.'));
         }
-        $physicals = $this->PubBooks->Physicals->find('list', ['limit' => 200]);
-        $this->set(compact('pubBook', 'physicals'));
+        $this->set(compact('pubBook'));
         $this->set('_serialize', ['pubBook']);
     }
 

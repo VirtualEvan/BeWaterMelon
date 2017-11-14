@@ -24,8 +24,7 @@ class PubBooksTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.pub_books',
-        'app.physicals'
+        'app.pub_books'
     ];
 
     /**

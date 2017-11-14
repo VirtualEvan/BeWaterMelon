@@ -45,8 +45,8 @@
             <td><?= h($pubBook->link) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Physical Id') ?></th>
-            <td><?= h($pubBook->physical_id) ?></td>
+            <th scope="row"><?= __('Physical Identifier') ?></th>
+            <td><?= h($pubBook->physical_identifier) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

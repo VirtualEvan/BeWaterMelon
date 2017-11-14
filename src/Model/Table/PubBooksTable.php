@@ -9,8 +9,6 @@ use Cake\Validation\Validator;
 /**
  * PubBooks Model
  *
- * @property \App\Model\Table\PhysicalsTable|\Cake\ORM\Association\BelongsTo $Physicals
- *
  * @method \App\Model\Entity\PubBook get($primaryKey, $options = [])
  * @method \App\Model\Entity\PubBook newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\PubBook[] newEntities(array $data, array $options = [])
@@ -35,10 +33,6 @@ class PubBooksTable extends Table
         $this->setTable('pub_books');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-
-        $this->belongsTo('Physicals', [
-            'foreignKey' => 'physical_id'
-        ]);
     }
 
     /**
@@ -81,12 +75,17 @@ class PubBooksTable extends Table
         $validator
             ->scalar('isbn')
             ->requirePresence('isbn', 'create')
-            ->notEmpty('isbn');
+            ->notEmpty('isbn')
+            ->add('isbn', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->scalar('link')
             ->allowEmpty('link')
             ->add('link', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+
+        $validator
+            ->scalar('physical_identifier')
+            ->allowEmpty('physical_identifier');
 
         return $validator;
     }
@@ -100,7 +99,7 @@ class PubBooksTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['physical_id'], 'Physicals'));
+        $rules->add($rules->isUnique(['isbn']));
         $rules->add($rules->isUnique(['link']));
 
         return $rules;

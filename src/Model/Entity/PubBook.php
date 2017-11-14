@@ -14,9 +14,7 @@ use Cake\ORM\Entity;
  * @property string $country
  * @property string $isbn
  * @property string $link
- * @property string $physical_id
- *
- * @property \App\Model\Entity\Physical $physical
+ * @property string $physical_identifier
  */
 class PubBook extends Entity
 {
@@ -38,7 +36,6 @@ class PubBook extends Entity
         'country' => true,
         'isbn' => true,
         'link' => true,
-        'physical_id' => true,
-        'physical' => true
+        'physical_identifier' => true
     ];
 }

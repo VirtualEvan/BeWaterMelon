@@ -11,7 +11,7 @@
     </ul>
 </nav>
 <div class="pplPhds form large-9 medium-8 columns content">
-    <?= $this->Form->create($pplPhd) ?>
+    <?= $this->Form->create($pplPhd, ['name' => 'add']) ?>
     <fieldset>
         <legend><?= __('Add Ppl Phd') ?></legend>
         <?php

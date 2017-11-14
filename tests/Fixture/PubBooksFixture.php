@@ -25,10 +25,10 @@ class PubBooksFixture extends TestFixture
         'country' => ['type' => 'string', 'length' => 45, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'isbn' => ['type' => 'string', 'length' => 17, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'link' => ['type' => 'string', 'length' => 500, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'physical_id' => ['type' => 'string', 'length' => 8, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'physical_identifier' => ['type' => 'string', 'length' => 8, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'physical_id_UNIQUEs' => ['type' => 'unique', 'columns' => ['physical_id'], 'length' => []],
+            'isbn_UNIQUEs' => ['type' => 'unique', 'columns' => ['isbn'], 'length' => []],
             'link_UNIQUEs' => ['type' => 'unique', 'columns' => ['link'], 'length' => []],
         ],
         '_options' => [
@@ -53,7 +53,7 @@ class PubBooksFixture extends TestFixture
             'country' => 'Lorem ipsum dolor sit amet',
             'isbn' => 'Lorem ipsum dol',
             'link' => 'Lorem ipsum dolor sit amet',
-            'physical_id' => 'Lorem '
+            'physical_identifier' => 'Lorem '
         ],
     ];
 }

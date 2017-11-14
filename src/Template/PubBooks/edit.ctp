@@ -28,7 +28,7 @@
             echo $this->Form->control('country');
             echo $this->Form->control('isbn');
             echo $this->Form->control('link');
-            echo $this->Form->control('physical_id');
+            echo $this->Form->control('physical_identifier');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

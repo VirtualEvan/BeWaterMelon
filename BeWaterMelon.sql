@@ -165,9 +165,9 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`pub_books` (
   `country` VARCHAR(45) NOT NULL,
   `isbn` VARCHAR(17) NOT NULL,
   `link` VARCHAR(500) NULL,
-  `physical_id` VARCHAR(8) NULL,
+  `physical_identifier` VARCHAR(8) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `physical_id_UNIQUEs` (`physical_id` ASC),
+  UNIQUE INDEX `isbn_UNIQUEs` (`isbn` ASC),
   UNIQUE INDEX `link_UNIQUEs` (`link` ASC))
 ENGINE = InnoDB;
 

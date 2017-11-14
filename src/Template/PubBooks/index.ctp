@@ -23,7 +23,7 @@
                 <th scope="col"><?= $this->Paginator->sort('country') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('isbn') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('link') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('physical_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('physical_identifier') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,7 +38,7 @@
                 <td><?= h($pubBook->country) ?></td>
                 <td><?= h($pubBook->isbn) ?></td>
                 <td><?= h($pubBook->link) ?></td>
-                <td><?= h($pubBook->physical_id) ?></td>
+                <td><?= h($pubBook->physical_identifier) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $pubBook->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pubBook->id]) ?>
