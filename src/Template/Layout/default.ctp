@@ -38,7 +38,7 @@
 
     <?= $this->element('navindex') ?>
 
-    <article class="maincontent">
+    <article class="container">
       <?= $this->fetch('content') ?>
     </article>
 
