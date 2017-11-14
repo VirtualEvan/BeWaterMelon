@@ -3,6 +3,6 @@
   use Cake\I18n\I18n;
 ?>
 
-<footer style="background-color:red;">
+<footer style="background-color:red;" class="col-md-12">
 footer
 </footer>

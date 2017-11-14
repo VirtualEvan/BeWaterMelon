@@ -24,25 +24,26 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <!--<?  //$this->Html->css('base.css') ?>
+    <? //$this->Html->css('cake.css') ?> -->
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
-    <?= $this->element('header') ?>
+<body class="container">
+    <div class="row">
+        <?= $this->element('navbar') ?>
 
-    <?= $this->element('navbar') ?>
+        <?= $this->element('header') ?>
 
-    <?= $this->element('navindex') ?>
+        <article class="col-md-9" style="background-color:pink;">
+            <?= $this->fetch('content') ?>
+        </article>
 
-    <article class="maincontent">
-      <?= $this->fetch('content') ?>
-    </article>
-
-    <?= $this->element('footer') ?>
-
+        <?= $this->element('navindex') ?>
+        <?= $this->element('footer') ?>
+    </div>
 </body>
 </html>
