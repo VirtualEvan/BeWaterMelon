@@ -25,20 +25,14 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
-<<<<<<< HEAD
-    <?=  $this->Html->css('cake.css') ?>
-    <!--<? //$this->Html->css('cake.css') ?> -->
-=======
     <?= $this->Html->css('bake.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
->>>>>>> afd7884098ab4f4f5fe8d223ed83f18f359d956e
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<<<<<<< HEAD
 <body class="container">
     <div class="row">
         <?= $this->element('navbar') ?>
@@ -50,20 +44,6 @@
 
             <?= $this->fetch('content') ?>
         </article>
-=======
-<body>
-    <?= $this->element('navbar') ?>
-
-    <?= $this->element('header') ?>
-
-    <?= $this->element('navindex') ?>
-
-    <article class="container">
-      <?= $this->fetch('content') ?>
-    </article>
-
-    <?= $this->element('footer') ?>
->>>>>>> afd7884098ab4f4f5fe8d223ed83f18f359d956e
 
         <?= $this->element('navindex') ?>
         <?= $this->element('footer') ?>
