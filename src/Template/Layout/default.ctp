@@ -25,8 +25,8 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
-    <!--<?  //$this->Html->css('base.css') ?>
-    <? //$this->Html->css('cake.css') ?> -->
+    <?=  $this->Html->css('cake.css') ?>
+    <!--<? //$this->Html->css('cake.css') ?> -->
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -39,6 +39,8 @@
         <?= $this->element('header') ?>
 
         <article class="col-md-9" style="background-color:pink;">
+            <?= $this->Flash->render() ?>
+
             <?= $this->fetch('content') ?>
         </article>
 

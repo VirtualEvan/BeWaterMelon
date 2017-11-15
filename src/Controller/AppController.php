@@ -16,6 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\I18n\I18n;
+use Cake\Core\Configure;
 
 /**
  * Application Controller
@@ -44,12 +46,62 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
+        // TODO: Especificar las redireccionas del login cuando haya una portada
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'controller' => 'ppl_users',
+                'action' => 'login'
+            ],
+            'loginRedirect' => [
+                'controller' => 'ppl_users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'ppl_users',
+                'action' => 'index'
+            ],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password'],
+                    'userModel' => 'ppl_users'
+                ]
+            ]
+        ]);
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+    }
+
+    public function isAuthorized($user)
+    {
+        // Default deny
+        return false;
+    }
+
+    /**
+     * Before render callback.
+     *
+     * @param \Cake\Event\Event $event The beforeRender event.
+     * @return \Cake\Network\Response|null|void
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['setLanguage']);
+
+        if( !$this->request->session()->read('Config.language') !== NULL){
+          I18n::locale($this->request->session()->read('Config.language'));
+        }
+    }
+
+    public function setLanguage($language){
+        $this->request->session()->write('Config.language', $language);
+
+        $this->redirect($this->referer());
     }
 
     /**
