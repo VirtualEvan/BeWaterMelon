@@ -70,11 +70,41 @@ class PplUsersController extends AppController
      */
     public function index()
     {
-        // TODO: quitar la password de aquí
+        // TODO: quitar password de aquí
+        // Members
         $pplUsers = $this->paginate($this->PplUsers);
-
         $this->set(compact('pplUsers'));
         $this->set('_serialize', ['pplUsers']);
+
+        // Phds
+        $this->loadModel('PplPhds');
+        $pplPhds = $this->paginate($this->PplPhds);
+        $this->set(compact('pplPhds'));
+        $this->set('_serialize', ['pplPhds']);
+
+        // Postdoc
+        $this->loadModel('PplPostdocs');
+        $pplPostdocs = $this->paginate($this->PplPostdocs);
+        $this->set(compact('pplPostdocs'));
+        $this->set('_serialize', ['pplPostdocs']);
+
+        // Visiors
+        $this->loadModel('PplVisitors');
+        $pplVisitors = $this->paginate($this->PplVisitors);
+        $this->set(compact('pplVisitors'));
+        $this->set('_serialize', ['pplVisitors']);
+
+        // Past phds
+        $this->loadModel('PplPastPhds');
+        $pplPastPhds = $this->paginate($this->PplPastPhds);
+        $this->set(compact('pplPastPhds'));
+        $this->set('_serialize', ['pplPastPhds']);
+
+        // Collaborators
+        $this->loadModel('PplCollaborators');
+        $pplCollaborators = $this->paginate($this->PplCollaborators);
+        $this->set(compact('pplCollaborators'));
+        $this->set('_serialize', ['pplCollaborators']);
     }
 
     /**
