@@ -12,7 +12,7 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-
+// TODO: Pasar todo el layout a CakePHP
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,8 +25,7 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
-    <?= $this->Html->css('bake.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('font-awesome.min.css') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
 
     <?= $this->fetch('meta') ?>
@@ -39,7 +38,7 @@
 
         <?= $this->element('header') ?>
 
-        <article class="col-md-9" style="background-color:pink;">
+        <article class="col-md-9" style="background-color:white;">
             <?= $this->Flash->render() ?>
 
             <?= $this->fetch('content') ?>

@@ -88,7 +88,7 @@ class PplUsersController extends AppController
         $this->set(compact('pplPostdocs'));
         $this->set('_serialize', ['pplPostdocs']);
 
-        // Visiors
+        // Visitors
         $this->loadModel('PplVisitors');
         $pplVisitors = $this->paginate($this->PplVisitors);
         $this->set(compact('pplVisitors'));
