@@ -38,7 +38,7 @@
 
         <?= $this->element('header') ?>
 
-        <article class="col-md-9" style="background-color:white;">
+        <article class="col-md-9">
             <?= $this->Flash->render() ?>
 
             <?= $this->fetch('content') ?>

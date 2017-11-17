@@ -4,30 +4,25 @@
  * @var \App\Model\Entity\PplUser $pplUser
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Ppl Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Cou Subjects'), ['controller' => 'CouSubjects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Cou Subject'), ['controller' => 'CouSubjects', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="pplUsers form large-9 medium-8 columns content">
-    <?= $this->Form->create($pplUser) ?>
-    <fieldset>
-        <legend><?= __('Add Ppl User') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('lastname');
-            echo $this->Form->control('rol');
-            echo $this->Form->control('email');
-            echo $this->Form->control('phone');
-            echo $this->Form->control('bio');
-            echo $this->Form->control('password');
-            echo $this->Form->control('fax');
-            echo $this->Form->control('link');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+<div class="container">
+    <div class="row">
+        <?= $this->Form->create($pplUser, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+        <fieldset>
+            <legend><?= __('Add Ppl User') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['class' => 'form-control']);
+                echo $this->Form->control('lastname', ['class' => 'form-control']);
+                echo $this->Form->input('rol', ['class' => 'form-control', 'options' => ['admin' => 'Admin', 'reg' => 'Registered']]);
+                echo $this->Form->control('email', ['class' => 'form-control']);
+                echo $this->Form->control('phone', ['class' => 'form-control']);
+                echo $this->Form->control('bio', ['class' => 'form-control']);
+                echo $this->Form->control('password', ['class' => 'form-control']);
+                echo $this->Form->control('fax', ['class' => 'form-control']);
+                echo $this->Form->control('link', ['class' => 'form-control']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>
