@@ -105,6 +105,16 @@ class PplUsersController extends AppController
         $pplCollaborators = $this->paginate($this->PplCollaborators);
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
+
+        $relateds = array(
+            [ 'name' => __('Members'), 'controller' => 'ppl_users'],
+            [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
+            [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
+            [ 'name' => __('Visitors'), 'controller' => 'ppl_visitors'],
+            [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
+            [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
+        );
+        $this->set(compact('relateds'));
     }
 
     /**
