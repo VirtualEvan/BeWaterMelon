@@ -10,13 +10,13 @@
             <a class="nav-link" href="#"><?= __('Home') ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('People') ?></a>
+            <p class="nav-link"><?php echo $this->Html->link(__('People'), ['controller' => 'ppl-users','action' => 'index']); ?></p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Press') ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Publications') ?></a>
+            <p class="nav-link"><?php echo $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index']); ?></p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Activities') ?></a>
