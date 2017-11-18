@@ -4,52 +4,37 @@
  * @var \App\Model\Entity\PplPastPhd[]|\Cake\Collection\CollectionInterface $pplPastPhds
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Ppl Past Phd'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="pplPastPhds index large-9 medium-8 columns content">
-    <h3><?= __('Ppl Past Phds') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('lastname') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('thesis_date') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('thesis_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('thesis_link') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($pplPastPhds as $pplPastPhd): ?>
-            <tr>
-                <td><?= $this->Number->format($pplPastPhd->id) ?></td>
-                <td><?= h($pplPastPhd->name) ?></td>
-                <td><?= h($pplPastPhd->lastname) ?></td>
-                <td><?= h($pplPastPhd->thesis_date) ?></td>
-                <td><?= h($pplPastPhd->thesis_name) ?></td>
-                <td><?= h($pplPastPhd->thesis_link) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pplPastPhd->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pplPastPhd->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $pplPastPhd->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pplPastPhd->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
-</div>
+<div class='container'>
+    <h3>
+        <?= __('Past PhD Students') ?>
+        <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+    </h3>
+    <?php // TODO: darle formato a esto
+    foreach ($pplPastPhds as $pplPastPhd): ?>
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-1">
+                        <div class="row">
+                            <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit', $pplPastPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                        </div>
+                        <div class="row">
+                            <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', $pplPastPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                        </div>
+                    </div>
+                    <div class="col-md-11 my-auto">
+                        <?php
+                            echo h($pplPastPhd->name);
+                            echo ', ';
+                            echo h($pplPastPhd->lastname);
+                            echo '(';
+                            echo h($pplPastPhd->thesis_date);
+                            echo '). ';
+                            echo h($pplPastPhd->thesis_name);
+                            echo '. ';
+                            echo $this->Html->link('info', ['link' => $pplPastPhd->thesis_name], ['class' => 'btn btn-info']);
+                        ?>
+                    </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</di>

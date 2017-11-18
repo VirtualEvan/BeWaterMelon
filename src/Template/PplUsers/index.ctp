@@ -4,170 +4,40 @@
  * @var \App\Model\Entity\PplUser[]|\Cake\Collection\CollectionInterface $pplUsers
  */
 ?>
-<h3> <?= __('Members') ?> <?= $this->Html->link(null, ['action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
-<div class="row">
-    <?php foreach ($pplUsers as $pplUser): ?>
-        <div class="card col-md-6">
-          <div class="card-block">
-                <div class="container">
-                    <div class="row">
-                            <div class="col-md-1">
-                                <div class="row">
-                                    <?= $this->Html->link(null, ['action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+<div class='container'>
+    <h3> <?= __('Members') ?> <?= $this->Html->link(null, ['action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
+    <div class="row">
+        <?php foreach ($pplUsers as $pplUser): ?>
+            <div class="card col-md-6">
+              <div class="card-block">
+                    <div class="container">
+                        <div class="row">
+                                <div class="col-md-1">
+                                    <div class="row">
+                                        <?= $this->Html->link(null, ['action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                    </div>
+                                    <div class="row">
+                                        <?= $this->Html->link(null, ['action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <?= $this->Html->link(null, ['action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                <div class="col-md-4">
+                                    <img src="#" width="100px" height="100px"></img>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="#" width="100px" height="100px"></img>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <?= h($pplUser->name) ?>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <?= h($pplUser->name) ?>
+                                    </div>
+                                    <div class="row">
+                                        <?= h($pplUser->email) ?>
+                                    </div>
+                                    <div class="row">
+                                        <?= h($pplUser->rol) ?>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <?= h($pplUser->email) ?>
-                                </div>
-                                <div class="row">
-                                    <?= h($pplUser->rol) ?>
-                                </div>
-                            </div>
+                        </div>
                     </div>
-                </div>
-          </div>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<!-- Phds info -->
-<h3>
-    <?= __('PhD Students') ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-</h3>
-<div class="row">
-    <?php foreach ($pplPhds as $pplPhd): ?>
-        <div class="card col-md-6">
-          <div class="card-block">
-                <div class="container">
-                    <div class="row">
-                            <div class="col-md-1">
-                                <div class="row">
-                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-                                </div>
-                                <div class="row">
-                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="#" width="100px" height="100px"></img>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <?= h($pplPhd->name) ?>
-                                </div>
-                                <div class="row">
-                                    <?= h($pplPhd->lastname) ?>
-                                </div>
-                                <div class="row">
-                                    <?= h($pplPhd->thesis_name) ?>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-          </div>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<!-- Postdocs info -->
-
-<h3>
-    <?= __('Postdocs') ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-</h3>
-<div class="container">
-    <div class="row">
-        <?php
-            foreach ($pplPostdocs as $key => $pplPostdoc): ?>
-                <?php
-                    echo h($pplPostdoc->name) . ' ' . h($pplPostdoc->lastname);
-                    if($key != sizeof($pplPostdocs)-1){
-                        echo ', ';
-                    }
-                ?>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-
-<!-- Phds visitors -->
-
-<h3>
-    <?= __('Visitors') ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-</h3>
-<div class="container">
-    <div class="row">
-        <?php foreach ($pplVisitors as $key => $pplVisitor): ?>
-            <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, ['link' => $pplVisitor->link]) ?>
-            <?php //TODO: Poner los espacios bien, tienen alt+255
-                if ($pplVisitor->doctor){
-                    echo ' (PhD)';
-                }
-                if($key != sizeof($pplVisitors)-1){
-                    echo ', ';
-                }
-            ?>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-<!-- Past phds info -->
-<h3>
-    <?= __('Past PhD Students') ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', ''], ['class' => 'btn btn-danger fa fa-trash']) ?>
-</h3>
-<div class="container">
-    <div class="row">
-        <?php // TODO: darle formato a esto
-        foreach ($pplPastPhds as $pplPastPhd): ?>
-            <?= h($pplPastPhd->name) ?>
-            <?= h($pplPastPhd->lastname) ?>
-            <?= h($pplPastPhd->thesis_date) ?>
-            <?= h($pplPastPhd->thesis_name) ?>
-            <?= h($pplPastPhd->thesis_link) ?>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-
-<!-- Collaborators info -->
-<h3>
-    <?= __('Collaborators') ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-</h3>
-<div class="container">
-    <div class="row">
-        <?php foreach ($pplCollaborators as $key => $pplCollaborator): ?>
-        <tr>
-            <?= h($pplCollaborator->name) . ' ' . h($pplCollaborator->lastname) ?>
-            <?php
-                if ($pplCollaborator->doctor){
-                    echo ' (PhD)';
-                }
-                if($key != sizeof($pplCollaborators)-1){
-                    echo ' - ';
-                }
-            ?>
+              </div>
+            </div>
         <?php endforeach; ?>
     </div>
 </div>

@@ -10,7 +10,7 @@
             <a class="nav-link" href="#"><?= __('Home') ?></a>
           </li>
           <li class="nav-item">
-            <p class="nav-link"><?php echo $this->Html->link(__('People'), ['controller' => 'ppl-users','action' => 'index']); ?></p>
+            <p class="nav-link"><?php echo $this->Html->link(__('People'), ['controller' => 'people','action' => 'index']); ?></p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Press') ?></a>

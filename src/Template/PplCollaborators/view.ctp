@@ -4,18 +4,10 @@
  * @var \App\Model\Entity\PplCollaborator $pplCollaborator
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Ppl Collaborator'), ['action' => 'edit', $pplCollaborator->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Ppl Collaborator'), ['action' => 'delete', $pplCollaborator->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pplCollaborator->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ppl Collaborators'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ppl Collaborator'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="pplCollaborators view large-9 medium-8 columns content">
+
+<div class="container">
     <h3><?= h($pplCollaborator->name) ?></h3>
-    <table class="vertical-table">
+    <table class="table-striped">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($pplCollaborator->name) ?></td>
