@@ -4,48 +4,41 @@
  * @var \App\Model\Entity\PplPhd[]|\Cake\Collection\CollectionInterface $pplPhds
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Ppl Phd'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="pplPhds index large-9 medium-8 columns content">
-    <h3><?= __('Ppl Phds') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('lastname') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('thesis_name') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($pplPhds as $pplPhd): ?>
-            <tr>
-                <td><?= $this->Number->format($pplPhd->id) ?></td>
-                <td><?= h($pplPhd->name) ?></td>
-                <td><?= h($pplPhd->lastname) ?></td>
-                <td><?= h($pplPhd->thesis_name) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pplPhd->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pplPhd->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $pplPhd->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pplPhd->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+<h3>
+    <?= __('PhD Students') ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+</h3>
+<div class="row">
+    <?php foreach ($pplPhds as $pplPhd): ?>
+        <div class="card col-md-6">
+          <div class="card-block">
+                <div class="container">
+                    <div class="row">
+                            <div class="col-md-1">
+                                <div class="row">
+                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                </div>
+                                <div class="row">
+                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="#" width="100px" height="100px"></img>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <?= h($pplPhd->name) ?>
+                                </div>
+                                <div class="row">
+                                    <?= h($pplPhd->lastname) ?>
+                                </div>
+                                <div class="row">
+                                    <?= h($pplPhd->thesis_name) ?>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    <?php endforeach; ?>
 </div>

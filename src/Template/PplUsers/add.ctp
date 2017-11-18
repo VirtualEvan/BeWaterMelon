@@ -9,7 +9,7 @@
     <div class="row">
         <?= $this->Form->create($pplUser, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
         <fieldset>
-            <legend><?= __('Add Ppl User') ?></legend>
+            <legend><?= __('Add User') ?></legend>
             <?php
                 echo $this->Form->control('name', ['class' => 'form-control']);
                 echo $this->Form->control('lastname', ['class' => 'form-control']);

@@ -44,8 +44,6 @@
 <h3>
     <?= __('Ppl Phds') ?>
     <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
 </h3>
 <div class="row">
     <?php foreach ($pplPhds as $pplPhd): ?>
@@ -55,10 +53,10 @@
                     <div class="row">
                             <div class="col-md-1">
                                 <div class="row">
-                                    <a class="btn btn-warning fa fa-pencil"></a>
+                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
                                 </div>
                                 <div class="row">
-                                    <a class="btn btn-danger fa fa-trash"></a>
+                                    <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -84,21 +82,25 @@
 
 <!-- Postdocs info -->
 
-    <h3>
-        <?= __('Ppl Postdocs') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-    </h3>
-    <div class="container">
-        <div class="row">
-            <?php foreach ($pplPostdocs as $pplPostdoc): ?>
-                <?= h($pplPostdoc->name) ?>
-                <?= ', ' ?>
-                <?= h($pplPostdoc->lastname) ?>
-            <?php endforeach; ?>
-        </div>
+<h3>
+    <?= __('Ppl Postdocs') ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+</h3>
+<div class="container">
+    <div class="row">
+        <?php
+            foreach ($pplPostdocs as $key => $pplPostdoc): ?>
+                <?php
+                    echo h($pplPostdoc->name) . ' ' . h($pplPostdoc->lastname);
+                    if($key != sizeof($pplPostdocs)-1){
+                        echo ', ';
+                    }
+                ?>
+        <?php endforeach; ?>
     </div>
+</div>
 
 
 <!-- Phds visitors -->
