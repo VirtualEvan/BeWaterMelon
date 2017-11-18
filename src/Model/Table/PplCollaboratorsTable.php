@@ -58,7 +58,7 @@ class PplCollaboratorsTable extends Table
             ->notEmpty('lastname');
 
         $validator
-            ->scalar('doctor')
+            ->boolean('doctor')
             ->requirePresence('doctor', 'create')
             ->notEmpty('doctor');
 

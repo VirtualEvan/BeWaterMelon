@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $lastname
- * @property string $doctor
+ * @property bool $doctor
  */
 class PplCollaborator extends Entity
 {

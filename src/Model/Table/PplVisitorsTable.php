@@ -64,7 +64,7 @@ class PplVisitorsTable extends Table
             ->add('link', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-            ->scalar('doctor')
+            ->boolean('doctor')
             ->requirePresence('doctor', 'create')
             ->notEmpty('doctor');
 

@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $lastname
  * @property string $link
- * @property string $doctor
+ * @property bool $doctor
  */
 class PplVisitor extends Entity
 {

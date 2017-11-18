@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`ppl_visitors` (
   `name` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `link` VARCHAR(500) NOT NULL,
-  `doctor` VARCHAR(45) BINARY NOT NULL,
+  `doctor` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `web_UNIQUEs` (`link` ASC))
 ENGINE = InnoDB;
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`ppl_collaborators` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
-  `doctor` VARCHAR(45) BINARY NOT NULL,
+  `doctor` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

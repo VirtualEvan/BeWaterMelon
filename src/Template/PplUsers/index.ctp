@@ -42,7 +42,7 @@
 
 <!-- Phds info -->
 <h3>
-    <?= __('Ppl Phds') ?>
+    <?= __('PhD Students') ?>
     <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
 </h3>
 <div class="row">
@@ -83,7 +83,7 @@
 <!-- Postdocs info -->
 
 <h3>
-    <?= __('Ppl Postdocs') ?>
+    <?= __('Postdocs') ?>
     <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
     <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
     <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
@@ -105,63 +105,69 @@
 
 <!-- Phds visitors -->
 
-    <h3>
-        <?= __('Ppl Visitors') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-    </h3>
-    <div class="container">
-        <div class="row">
-            <?php foreach ($pplVisitors as $pplVisitor): ?>
-                <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, ['link' => $pplVisitor->link], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                <?php
-                    if ($pplVisitor->doctor){
-                        echo ' (PhD)';
-                    }
-                ?>
-            <?php endforeach; ?>
-        </div>
+<h3>
+    <?= __('Visitors') ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+</h3>
+<div class="container">
+    <div class="row">
+        <?php foreach ($pplVisitors as $key => $pplVisitor): ?>
+            <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, ['link' => $pplVisitor->link]) ?>
+            <?php //TODO: Poner los espacios bien, tienen alt+255
+                if ($pplVisitor->doctor){
+                    echo ' (PhD)';
+                }
+                if($key != sizeof($pplVisitors)-1){
+                    echo ', ';
+                }
+            ?>
+        <?php endforeach; ?>
     </div>
+</div>
 
 <!-- Past phds info -->
-    <h3>
-        <?= __('Ppl Past Phds') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', ''], ['class' => 'btn btn-danger fa fa-trash']) ?>
-    </h3>
-    <div class="container">
-        <div class="row">
-            <?php // TODO: darle formato a esto
-            foreach ($pplPastPhds as $pplPastPhd): ?>
-                <?= h($pplPastPhd->name) ?>
-                <?= h($pplPastPhd->lastname) ?>
-                <?= h($pplPastPhd->thesis_date) ?>
-                <?= h($pplPastPhd->thesis_name) ?>
-                <?= h($pplPastPhd->thesis_link) ?>
-            <?php endforeach; ?>
-        </div>
+<h3>
+    <?= __('Past PhD Students') ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', ''], ['class' => 'btn btn-danger fa fa-trash']) ?>
+</h3>
+<div class="container">
+    <div class="row">
+        <?php // TODO: darle formato a esto
+        foreach ($pplPastPhds as $pplPastPhd): ?>
+            <?= h($pplPastPhd->name) ?>
+            <?= h($pplPastPhd->lastname) ?>
+            <?= h($pplPastPhd->thesis_date) ?>
+            <?= h($pplPastPhd->thesis_name) ?>
+            <?= h($pplPastPhd->thesis_link) ?>
+        <?php endforeach; ?>
     </div>
+</div>
 
 
 <!-- Collaborators info -->
-    <h3>
-        <?= __('Ppl Collaborators') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
-    </h3>
-    <div class="container">
-        <div class="row">
-            <?php foreach ($pplCollaborators as $pplCollaborator): ?>
-            <tr>
-                <?= h($pplCollaborator->name) . ' ' . h($pplCollaborator->lastname) ?>
-                <?php
-                    if ($pplCollaborator->doctor){
-                        echo ' (PhD)';
-                    }
-                ?>
-            <?php endforeach; ?>
-        </div>
+<h3>
+    <?= __('Collaborators') ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+    <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+</h3>
+<div class="container">
+    <div class="row">
+        <?php foreach ($pplCollaborators as $key => $pplCollaborator): ?>
+        <tr>
+            <?= h($pplCollaborator->name) . ' ' . h($pplCollaborator->lastname) ?>
+            <?php
+                if ($pplCollaborator->doctor){
+                    echo ' (PhD)';
+                }
+                if($key != sizeof($pplCollaborators)-1){
+                    echo ' - ';
+                }
+            ?>
+        <?php endforeach; ?>
     </div>
+</div>

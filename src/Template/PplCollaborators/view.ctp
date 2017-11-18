@@ -25,12 +25,12 @@
             <td><?= h($pplCollaborator->lastname) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Doctor') ?></th>
-            <td><?= h($pplCollaborator->doctor) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($pplCollaborator->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Doctor') ?></th>
+            <td><?= $pplCollaborator->doctor ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>
