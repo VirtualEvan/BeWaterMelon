@@ -1,3 +1,4 @@
+<!-- Journals info -->
 <h3> <?= __('Journals') ?> <?= $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
 <div class="row">
     <?php foreach ($pubJournals as $pubJournal): ?>
@@ -22,6 +23,8 @@
         </div>
     <?php endforeach; ?>
 </div>
+
+<!-- Conferences info -->
 <h3> <?= __('Conferences') ?> <?= $this->Html->link(null, ['controller' => 'pub_conferences', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
 <div class="row">
     <?php foreach ($pubConferences as $pubConference): ?>
@@ -45,6 +48,8 @@
         </div>
     <?php endforeach; ?>
 </div>
+
+<!-- Books info -->
 <h3> <?= __('Books') ?> <?= $this->Html->link(null, ['controller' => 'pub_books', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
 <div class="row">
     <?php foreach ($pubBooks as $pubBook): ?>

@@ -43,5 +43,12 @@ class PublicationsController extends AppController
         $pubBooks = $this->paginate($this->PubBooks);
         $this->set(compact('pubBooks'));
         $this->set('_serialize', ['pubBooks']);
+
+        $relateds = array(
+            [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
+            [ 'name' => __('Conferences'), 'controller' => 'pub_conferences'],
+            [ 'name' => __('Books'), 'controller' => 'pub_books'],
+        );
+        $this->set(compact('relateds'));
     }
 }

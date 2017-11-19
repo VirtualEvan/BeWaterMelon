@@ -4,18 +4,9 @@
  * @var \App\Model\Entity\PubBook $pubBook
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Pub Book'), ['action' => 'edit', $pubBook->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Pub Book'), ['action' => 'delete', $pubBook->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pubBook->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Pub Books'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pub Book'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="pubBooks view large-9 medium-8 columns content">
+<div class="contanier">
     <h3><?= h($pubBook->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table-striped">
         <tr>
             <th scope="row"><?= __('Book Name') ?></th>
             <td><?= h($pubBook->book_name) ?></td>

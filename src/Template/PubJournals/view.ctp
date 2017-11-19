@@ -4,18 +4,9 @@
  * @var \App\Model\Entity\PubJournal $pubJournal
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Pub Journal'), ['action' => 'edit', $pubJournal->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Pub Journal'), ['action' => 'delete', $pubJournal->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pubJournal->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Pub Journals'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pub Journal'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="pubJournals view large-9 medium-8 columns content">
+<div class="container">
     <h3><?= h($pubJournal->name) ?></h3>
-    <table class="vertical-table">
+    <table class="table-striped">
         <tr>
             <th scope="row"><?= __('Author') ?></th>
             <td><?= h($pubJournal->author) ?></td>
