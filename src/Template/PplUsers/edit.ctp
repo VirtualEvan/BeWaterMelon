@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pplUser, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+        <?= $this->Form->create($pplUser, ['enctype' => 'multipart/form-data', 'templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
         <fieldset>
             <legend><?= __('Edit User') ?></legend>
             <?php
@@ -20,6 +20,7 @@
                 echo $this->Form->control('password', ['class' => 'form-control']);
                 echo $this->Form->control('fax', ['class' => 'form-control']);
                 echo $this->Form->control('link', ['class' => 'form-control']);
+                echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

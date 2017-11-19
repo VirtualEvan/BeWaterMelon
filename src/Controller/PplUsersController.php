@@ -144,12 +144,32 @@ class PplUsersController extends AppController
         $pplUser = $this->PplUsers->newEntity();
         if ($this->request->is('post')) {
             $pplUser = $this->PplUsers->patchEntity($pplUser, $this->request->getData());
+            //var_dump($this->request->data);die;
             if ($this->PplUsers->save($pplUser)) {
-                $this->Flash->success(__('The ppl user has been saved.'));
+
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $pplUser->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/ppl_users/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
+
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $this->set(compact('pplUser'));
         $this->set('_serialize', ['pplUser']);
@@ -170,11 +190,29 @@ class PplUsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pplUser = $this->PplUsers->patchEntity($pplUser, $this->request->getData());
             if ($this->PplUsers->save($pplUser)) {
-                $this->Flash->success(__('The ppl user has been saved.'));
+
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $pplUser->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/ppl_users/' . $imgName);
+                    }else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
+
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $this->set(compact('pplUser'));
         $this->set('_serialize', ['pplUser']);
@@ -192,9 +230,13 @@ class PplUsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplUser = $this->PplUsers->get($id);
         if ($this->PplUsers->delete($pplUser)) {
-            $this->Flash->success(__('The ppl user has been deleted.'));
+            if(file_exists(WWW_ROOT . 'img/ppl_users/' . $pplUser->id))
+            {
+              unlink(WWW_ROOT . 'img/ppl_users/' . $pplUser->id);
+            }
+            $this->Flash->success(__('The user has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
