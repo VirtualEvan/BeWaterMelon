@@ -26,6 +26,13 @@ class PubJournalsController extends AppController
 
         $this->set(compact('pubJournals'));
         $this->set('_serialize', ['pubJournals']);
+
+        $relateds = array(
+            [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
+            [ 'name' => __('Conferences'), 'controller' => 'pub_conferences'],
+            [ 'name' => __('Books'), 'controller' => 'pub_books'],
+        );
+        $this->set(compact('relateds'));
     }
 
     /**
@@ -117,7 +124,7 @@ class PubJournalsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout', 'edit']);
+        $this->Auth->allow(['index', 'view', 'logout']);
     }
 
     public function isAuthorized($user)

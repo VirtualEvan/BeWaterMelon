@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * PubBooks Controller
@@ -24,6 +25,13 @@ class PubBooksController extends AppController
 
         $this->set(compact('pubBooks'));
         $this->set('_serialize', ['pubBooks']);
+
+        $relateds = array(
+            [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
+            [ 'name' => __('Conferences'), 'controller' => 'pub_conferences'],
+            [ 'name' => __('Books'), 'controller' => 'pub_books'],
+        );
+        $this->set(compact('relateds'));
     }
 
     /**
