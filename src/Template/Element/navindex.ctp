@@ -9,13 +9,13 @@
         <button class="btn btn-outline-success fa fa-search" type="submit"></button>
     </form>
 
-    <?php if (!empty($relateds)): ?>
+    <?php if (!empty($related)): ?>
         <div class="list-group">
             <?= $this->Html->link(__('Related'),['action' => '#'] , ['class' => 'list-group-item active']) ?>
 
             <?php
-                foreach ($relateds as $related){
-                    echo $this->Html->link($related['name'],['controller' => $related['controller']] , ['class' => 'list-group-item']);
+                foreach ($related as $rel){
+                    echo $this->Html->link($rel['name'],['controller' => $rel['controller']] , ['class' => 'list-group-item']);
                 }
             ?>
         </div>

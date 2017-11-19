@@ -17,7 +17,7 @@
                                         <?= $this->Html->link(null, ['action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
                                     </div>
                                     <div class="row">
-                                        <?= $this->Html->link(null, ['action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                        <?= $this->Form->postLink(null, ['action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4">

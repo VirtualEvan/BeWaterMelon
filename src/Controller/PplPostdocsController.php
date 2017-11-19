@@ -47,6 +47,16 @@ class PplPostdocsController extends AppController
 
         $this->set(compact('pplPostdocs'));
         $this->set('_serialize', ['pplPostdocs']);
+
+        $related = array(
+            [ 'name' => __('Members'), 'controller' => 'ppl_users'],
+            [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
+            [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
+            [ 'name' => __('Visitors'), 'controller' => 'ppl_visitors'],
+            [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
+            [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
+        );
+        $this->set(compact('related'));
     }
 
     /**
@@ -96,10 +106,10 @@ class PplPostdocsController extends AppController
      */
     public function edit($id = null)
     {
-        $pplPostdoc = $this->PplPostdocs->get($id, [
-            'contain' => []
-        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $pplPostdoc = $this->PplPostdocs->get($id, [
+                'contain' => []
+            ]);
             $pplPostdoc = $this->PplPostdocs->patchEntity($pplPostdoc, $this->request->getData());
             if ($this->PplPostdocs->save($pplPostdoc)) {
                 $this->Flash->success(__('The ppl postdoc has been saved.'));
@@ -108,6 +118,20 @@ class PplPostdocsController extends AppController
             }
             $this->Flash->error(__('The ppl postdoc could not be saved. Please, try again.'));
         }
+
+        $pplPostdocs = $this->paginate($this->PplPostdocs);
+        $this->set(compact('pplPostdocs'));
+        $this->set('_serialize', ['pplPostdocs']);
+
+        if(isset($this->request->params['pass'][0])){
+            $pplPostdoc = $this->PplPostdocs->get($id, [
+                'contain' => []
+            ]);
+        }
+        else {
+            $pplPostdoc = $this->PplPostdocs->newEntity();
+        }
+
         $this->set(compact('pplPostdoc'));
         $this->set('_serialize', ['pplPostdoc']);
     }

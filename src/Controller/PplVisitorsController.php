@@ -55,6 +55,16 @@ class PplVisitorsController extends AppController
 
         $this->set(compact('pplVisitors'));
         $this->set('_serialize', ['pplVisitors']);
+
+        $related = array(
+            [ 'name' => __('Members'), 'controller' => 'ppl_users'],
+            [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
+            [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
+            [ 'name' => __('Visitors'), 'controller' => 'ppl_visitors'],
+            [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
+            [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
+        );
+        $this->set(compact('related'));
     }
 
     /**
@@ -104,10 +114,10 @@ class PplVisitorsController extends AppController
      */
     public function edit($id = null)
     {
-        $pplVisitor = $this->PplVisitors->get($id, [
-            'contain' => []
-        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $pplVisitor = $this->PplVisitors->get($id, [
+                'contain' => []
+            ]);
             $pplVisitor = $this->PplVisitors->patchEntity($pplVisitor, $this->request->getData());
             if ($this->PplVisitors->save($pplVisitor)) {
                 $this->Flash->success(__('The ppl visitor has been saved.'));
@@ -116,6 +126,19 @@ class PplVisitorsController extends AppController
             }
             $this->Flash->error(__('The ppl visitor could not be saved. Please, try again.'));
         }
+        $pplVisitors = $this->paginate($this->PplVisitors);
+        $this->set(compact('pplVisitors'));
+        $this->set('_serialize', ['pplVisitors']);
+
+        if(isset($this->request->params['pass'][0])){
+            $pplVisitor = $this->PplVisitors->get($id, [
+                'contain' => []
+            ]);
+        }
+        else {
+            $pplVisitor = $this->PplVisitors->newEntity();
+        }
+
         $this->set(compact('pplVisitor'));
         $this->set('_serialize', ['pplVisitor']);
     }

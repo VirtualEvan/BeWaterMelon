@@ -55,6 +55,16 @@ class PplCollaboratorsController extends AppController
 
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
+
+        $related = array(
+            [ 'name' => __('Members'), 'controller' => 'ppl_users'],
+            [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
+            [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
+            [ 'name' => __('Visitors'), 'controller' => 'ppl_visitors'],
+            [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
+            [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
+        );
+        $this->set(compact('related'));
     }
 
     /**
@@ -104,10 +114,11 @@ class PplCollaboratorsController extends AppController
      */
     public function edit($id = null)
     {
-        $pplCollaborator = $this->PplCollaborators->get($id, [
-            'contain' => []
-        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $pplCollaborator = $this->PplCollaborators->get($id, [
+                'contain' => []
+            ]);
+
             $pplCollaborator = $this->PplCollaborators->patchEntity($pplCollaborator, $this->request->getData());
             if ($this->PplCollaborators->save($pplCollaborator)) {
                 $this->Flash->success(__('The ppl collaborator has been saved.'));
@@ -116,6 +127,20 @@ class PplCollaboratorsController extends AppController
             }
             $this->Flash->error(__('The ppl collaborator could not be saved. Please, try again.'));
         }
+
+        $pplCollaborators = $this->paginate($this->PplCollaborators);
+        $this->set(compact('pplCollaborators'));
+        $this->set('_serialize', ['pplCollaborators']);
+
+        if(isset($this->request->params['pass'][0])){
+            $pplCollaborator = $this->PplCollaborators->get($id, [
+                'contain' => []
+            ]);
+        }
+        else {
+            $pplCollaborator = $this->PplCollaborators->newEntity();
+        }
+
         $this->set(compact('pplCollaborator'));
         $this->set('_serialize', ['pplCollaborator']);
     }

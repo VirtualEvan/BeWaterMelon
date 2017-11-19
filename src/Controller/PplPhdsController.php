@@ -47,6 +47,16 @@ class PplPhdsController extends AppController
 
         $this->set(compact('pplPhds'));
         $this->set('_serialize', ['pplPhds']);
+
+        $related = array(
+            [ 'name' => __('Members'), 'controller' => 'ppl_users'],
+            [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
+            [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
+            [ 'name' => __('Visitors'), 'controller' => 'ppl_visitors'],
+            [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
+            [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
+        );
+        $this->set(compact('related'));
     }
 
     /**

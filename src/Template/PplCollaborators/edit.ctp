@@ -3,12 +3,26 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\PplCollaborator $pplCollaborator
  */
+//
+foreach ($pplCollaborators as   $pplCol) {
+    $collaborators[$pplCol->id] = $pplCol->name . ' ' . $pplCol->lastname;
+}
+$collaborators[0] = __('Select Collaborator');
 ?>
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pplCollaborator, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+
+        <?= $this->Form->create($pplCollaborator , ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
         <fieldset>
-            <legend><?= __('Edit Collaborator') ?></legend>
+            <legend>
+                <?= __('Edit Collaborator') ?>
+                <?php
+                    if(!$pplCollaborator->isNew()){
+                        echo $this->Form->postLink(null, ['controller' => 'ppl_collaborators', 'action' => 'delete', $pplCollaborator->id], ['class' => 'btn btn-danger fa fa-trash']);
+                    }
+                ?>
+                <?= $this->Form->select('collaborator', $collaborators, ['class' => 'form-control', 'default' => 0, 'disabled' => array(0), 'onchange' => "window.location.replace('/ppl-collaborators/edit/'+this.value)"]) ?>
+            </legend>
             <?php
                 echo $this->Form->control('name', ['class' => 'form-control']);
                 echo $this->Form->control('lastname', ['class' => 'form-control']);

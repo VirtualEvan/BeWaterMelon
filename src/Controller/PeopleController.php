@@ -62,7 +62,7 @@ class PeopleController extends AppController
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
 
-        $relateds = array(
+        $related = array(
             [ 'name' => __('Members'), 'controller' => 'ppl_users'],
             [ 'name' => __('PhD Students'), 'controller' => 'ppl_phds'],
             [ 'name' => __('Postdoc'), 'controller' => 'ppl_postdocs'],
@@ -70,6 +70,6 @@ class PeopleController extends AppController
             [ 'name' => __('Past PhD Students'), 'controller' => 'ppl_past_phds'],
             [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
         );
-        $this->set(compact('relateds'));
+        $this->set(compact('related'));
     }
 }

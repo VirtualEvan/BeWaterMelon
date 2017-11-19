@@ -18,7 +18,7 @@
                             <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit', $pplPastPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
                         </div>
                         <div class="row">
-                            <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', $pplPastPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                            <?= $this->Form->postLink(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', $pplPastPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
                         </div>
                     </div>
                     <div class="col-md-11 my-auto">
