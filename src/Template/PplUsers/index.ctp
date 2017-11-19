@@ -34,7 +34,7 @@
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_users/' . $pplUser['id'])): ?>
                                         <?= $this->Html->image('ppl_users/'.$pplUser['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
                                     <?php else: ?>
-                                        <?= $this->Html->image('ppl_users/profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->image('profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
