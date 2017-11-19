@@ -6,14 +6,14 @@
 ?>
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pplPhd, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
+        <?= $this->Form->create($pplPhd, ['enctype' => 'multipart/form-data', 'templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
         <fieldset>
             <legend><?= __('Edit PhD') ?></legend>
             <?php
-                echo $this->Html->div(null,$this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']));
                 echo $this->Form->control('name', ['class' => 'form-control']);
                 echo $this->Form->control('lastname', ['class' => 'form-control']);
                 echo $this->Form->control('thesis_name', ['class' => 'form-control']);
+                echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

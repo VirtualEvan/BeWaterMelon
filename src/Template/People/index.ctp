@@ -82,7 +82,11 @@
                                     </div>
                                 <?php endif; ?>
                                 <div class="col-md-4">
-                                    <img src="#" width="100px" height="100px"></img>
+                                    <?php if(file_exists(WWW_ROOT . 'img/ppl_phds/' . $pplPhd['id'])): ?>
+                                        <?= $this->Html->image('ppl_phds/'.$pplPhd['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                    <?php else: ?>
+                                        <?= $this->Html->image('profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="row">
