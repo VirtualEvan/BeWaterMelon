@@ -87,6 +87,24 @@ class PplPhdsController extends AppController
         if ($this->request->is('post')) {
             $pplPhd = $this->PplPhds->patchEntity($pplPhd, $this->request->getData());
             if ($this->PplPhds->save($pplPhd)) {
+
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $pplPhd->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/ppl_phds/' . $imgName);
+                    }else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
+
                 $this->Flash->success(__('The ppl phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -112,6 +130,24 @@ class PplPhdsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pplPhd = $this->PplPhds->patchEntity($pplPhd, $this->request->getData());
             if ($this->PplPhds->save($pplPhd)) {
+
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $pplPhd->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/ppl_phds/' . $imgName);
+                    }else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
+
                 $this->Flash->success(__('The ppl phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -134,6 +170,10 @@ class PplPhdsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplPhd = $this->PplPhds->get($id);
         if ($this->PplPhds->delete($pplPhd)) {
+            if(file_exists(WWW_ROOT . 'img/ppl_phds/' . $pplPhd->id))
+            {
+              unlink(WWW_ROOT . 'img/ppl_phds/' . $pplPhd->id);
+            }
             $this->Flash->success(__('The ppl phd has been deleted.'));
         } else {
             $this->Flash->error(__('The ppl phd could not be deleted. Please, try again.'));
