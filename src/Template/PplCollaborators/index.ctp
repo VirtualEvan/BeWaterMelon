@@ -3,13 +3,18 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\PplCollaborator[]|\Cake\Collection\CollectionInterface $pplCollaborators
  */
+ $currentuser = $this->request->session()->read('Auth.User');
 ?>
 <div class='container'>
     <h3>
         <?= __('Collaborators') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
+            }
+        ?>
     </h3>
     <div class="container">
         <div class="row">

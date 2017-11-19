@@ -3,23 +3,32 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\PplUser[]|\Cake\Collection\CollectionInterface $pplUsers
  */
+ $currentuser = $this->request->session()->read('Auth.User');
 ?>
 <div class='container'>
-    <h3> <?= __('Members') ?> <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?> </h3>
+    <h3> <?= __('Members') ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+            }
+        ?>
+    </h3>
     <div class="row">
         <?php foreach ($pplUsers as $pplUser): ?>
             <div class="card col-md-6">
               <div class="card-block">
                     <div class="container">
                         <div class="row">
-                                <div class="col-md-1">
-                                    <div class="row">
-                                        <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                <?php if($currentuser['rol'] == 'admin'): ?>
+                                    <div class="col-md-1">
+                                        <div class="row">
+                                            <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                        </div>
+                                        <div class="row">
+                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                                    </div>
-                                </div>
+                                <?php endif; ?>
                                 <div class="col-md-4">
                                     <img src="#" width="100px" height="100px"></img>
                                 </div>
@@ -46,7 +55,11 @@
 <div class='container'>
     <h3>
         <?= __('PhD Students') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+            }
+        ?>
     </h3>
     <div class="row">
         <?php foreach ($pplPhds as $pplPhd): ?>
@@ -54,14 +67,16 @@
               <div class="card-block">
                     <div class="container">
                         <div class="row">
-                                <div class="col-md-1">
-                                    <div class="row">
-                                        <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                <?php if($currentuser['rol'] == 'admin'): ?>
+                                    <div class="col-md-1">
+                                        <div class="row">
+                                            <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                                        </div>
+                                        <div class="row">
+                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <?= $this->Form->postLink(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                                    </div>
-                                </div>
+                                <?php endif; ?>
                                 <div class="col-md-4">
                                     <img src="#" width="100px" height="100px"></img>
                                 </div>
@@ -89,9 +104,13 @@
 <div class='container'>
     <h3>
         <?= __('Postdocs') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
+                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
+            }
+        ?>
     </h3>
     <div class="container">
         <div class="row">
@@ -114,9 +133,13 @@
 <div class='container'>
     <h3>
         <?= __('Visitors') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
+                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
+            }
+        ?>
     </h3>
     <div class="container">
         <div class="row">
@@ -139,20 +162,26 @@
 <div class='container'>
     <h3>
         <?= __('Past PhD Students') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+            }
+        ?>
     </h3>
     <?php // TODO: darle formato a esto
     foreach ($pplPastPhds as $pplPastPhd): ?>
         <div class="container">
             <div class="row">
-                    <div class="col-md-1">
-                        <div class="row">
-                            <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit', $pplPastPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                    <?php if($currentuser['rol'] == 'admin'): ?>
+                        <div class="col-md-1">
+                            <div class="row">
+                                <?= $this->Html->link(null, ['controller' => 'ppl_past_phds', 'action' => 'edit', $pplPastPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
+                            </div>
+                            <div class="row">
+                                <?= $this->Form->postLink(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', $pplPastPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                            </div>
                         </div>
-                        <div class="row">
-                            <?= $this->Form->postLink(null, ['controller' => 'ppl_past_phds', 'action' => 'delete', $pplPastPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                     <div class="col-md-11 my-auto">
                         <?php
                             echo h($pplPastPhd->name);
@@ -176,9 +205,13 @@
 <div class='container'>
     <h3>
         <?= __('Collaborators') ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-        <?= $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']) ?>
+        <?php
+            if($currentuser['rol'] == 'admin'){
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
+                echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
+            }
+        ?>
     </h3>
     <div class="container">
         <div class="row">

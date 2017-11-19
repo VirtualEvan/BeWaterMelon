@@ -5,5 +5,5 @@
 
 <footer style="background-color:red;" class="col-md-12 footer">
     <?= $this->Html->link('Login', ['controller' => 'ppl_users', 'action' => 'login']); ?>
-    <?= $this->Html->link('Logout', ['controller' => 'ppl_users', 'action' => 'logot']); ?>
+    <?= $this->Html->link('Logout', ['controller' => 'ppl_users', 'action' => 'logout']); ?>
 </footer>
