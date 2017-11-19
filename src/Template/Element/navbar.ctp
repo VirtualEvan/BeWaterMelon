@@ -4,8 +4,8 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav navbar-center">
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Home') ?></a>
           </li>
