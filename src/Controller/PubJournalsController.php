@@ -27,12 +27,12 @@ class PubJournalsController extends AppController
         $this->set(compact('pubJournals'));
         $this->set('_serialize', ['pubJournals']);
 
-        $relateds = array(
+        $related = array(
             [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
             [ 'name' => __('Conferences'), 'controller' => 'pub_conferences'],
             [ 'name' => __('Books'), 'controller' => 'pub_books'],
         );
-        $this->set(compact('relateds'));
+        $this->set(compact('related'));
     }
 
     /**
@@ -71,6 +71,12 @@ class PubJournalsController extends AppController
         }
         $this->set(compact('pubJournal'));
         $this->set('_serialize', ['pubJournal']);
+
+        //Authors
+        $this->loadModel('PplUsers');
+        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $this->set(compact('authors'));
+        $this->set('_serialize', ['authors']);
     }
 
     /**
@@ -96,6 +102,12 @@ class PubJournalsController extends AppController
         }
         $this->set(compact('pubJournal'));
         $this->set('_serialize', ['pubJournal']);
+
+        //Authors
+        $this->loadModel('PplUsers');
+        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $this->set(compact('authors'));
+        $this->set('_serialize', ['authors']);
     }
 
     /**

@@ -11,7 +11,7 @@
             <legend><?= __('Edit Book') ?></legend>
             <?php
                 echo $this->Form->control('book_name', ['class' => 'form-control']);
-                echo $this->Form->control('author', ['class' => 'form-control']);
+                echo $this->Form->input('author', array('multiple' => 'multiple','type' => 'select','options' => $aut));
                 echo $this->Form->control('editorial', ['class' => 'form-control']);
                 echo $this->Form->control('year', ['class' => 'form-control']);
                 echo $this->Form->control('country', ['class' => 'form-control']);
