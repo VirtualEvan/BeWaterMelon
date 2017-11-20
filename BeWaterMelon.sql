@@ -484,7 +484,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`pre_presses` (
 ENGINE = InnoDB;
 
 INSERT INTO `BeWaterMelon`.`ppl_users` (`name`,`lastname`,`rol`,`email`,`phone`,`bio`,`password`,`fax`,`link`)
-VALUES ('Javier','Rodeiro','admin','admin@admin.com','654456645','Soy el profesor','$2y$10$6mqUPDGs1jBdJeFrEPRPiOldP4.nC4.zdqC6caSHcHkfx2QkzRT5','654456645','link');
+VALUES ('Javier','Rodeiro','admin','admin@admin.com','654456645','Soy el profesor','$2y$10$6mqUPDGs1jBdJeFrEPRPiOldP4.nC4.zdqC6caSHcHkfx2QkzRT5i','654456645','link');
 
 
 
