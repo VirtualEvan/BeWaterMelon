@@ -1,0 +1,33 @@
+{
+  "/BeWaterMelon/pub-conferences/edit": {
+    "edit": {
+        "name":{
+            "": false,
+            "Journal name": true,
+            "a": false,
+            "12143": true,
+            "ababababababababababababababababababbabasa": false
+
+        },
+        "country":{
+            "": false,
+            "2432": false,
+            "Cuba": true,
+            "ababababababababababababababababababbabasa": false
+        },
+        "city":{
+            "": false,
+            "Ourense": true,
+            "A coruña": true,
+            "3423": false,
+            "ababababababababababababababababababbabasa": false
+        },
+        "link":{
+            "": true,
+            "sadasdsad": false,
+            "http://www.google.com": true,
+            "google.com": true
+        }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "/BeWaterMelon/pub-journals/edit": {
+    "edit": {
+        "publication_name":{
+            "": false,
+            "Nombre de la publicacion": true,
+            "a": false,
+            "12143": true
+
+        },
+        "name":{
+            "": false,
+            "Journal name": true,
+            "a": false,
+            "12143": true
+
+        },
+        "location":{
+            "": false,
+            "Aceptado para publicación": true,
+            "Vol. 21": true,
+            "ababababababababababababababababababbabasa": false
+        },
+        "publication_date":{
+            "": false,
+            "2016": true,
+            "abcd": false,
+            "23": false,
+            "22222": false
+        },
+        "online_issn":{
+            "": false,
+            "0395-2037": true,
+            "18623833": false,
+            "2321-231": false
+        },
+        "link":{
+            "": true,
+            "sadasdsad": false,
+            "http://www.google.com": true,
+            "google.com": true
+        },
+        "print_issn":{
+            "": true,
+            "0395-2037": true,
+            "18623833": false,
+            "2321-231": false
+        }
+    }
+  }
+}
