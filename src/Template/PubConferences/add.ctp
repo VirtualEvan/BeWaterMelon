@@ -10,7 +10,7 @@
  ?>
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pubConference, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+        <?= $this->Form->create($pubConference, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
         <fieldset>
             <legend><?= __('Add Conference') ?></legend>
             <?php
