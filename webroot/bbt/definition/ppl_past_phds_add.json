@@ -1,0 +1,34 @@
+{
+  "/ppl-past-phds/add": {
+    "add": {
+      "name": {
+        "": false,
+        "Manolo": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "lastname": {
+        "": false,
+        "Perez Martinez": true,
+        "aa": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "thesis_name": {
+        "": false,
+        "demostración de que todas 8": true,
+        "todaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas": false
+      },
+      "thesis_date": {
+        "": false,
+        "mil novecientos noventa": false,
+        "1990": true
+      },
+      "thesis_link": {
+        "": false,
+        "sadasdsad": false,
+        "http://google.com": true,
+        "google.com": true
+      }
+    }
+  }
+}

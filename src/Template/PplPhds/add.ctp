@@ -10,9 +10,9 @@
         <fieldset>
             <legend><?= __('Add PhD') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control']);
-                echo $this->Form->control('lastname', ['class' => 'form-control']);
-                echo $this->Form->control('thesis_name', ['class' => 'form-control']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('thesis_name', ['class' => 'form-control', 'pattern' => '.{6,60}']);
                 echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>

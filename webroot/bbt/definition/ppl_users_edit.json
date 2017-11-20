@@ -1,0 +1,54 @@
+{
+  "/ppl-users/edit/2": {
+    "edit": {
+      "name": {
+        "": false,
+        "Ana Garriga": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "lastname": {
+        "": false,
+        "Alvarez Asuriaga": true,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "rol": {
+        "": false,
+        "admin": true,
+        "reg": true,
+        "other": false
+      },
+      "email": {
+        "": false,
+        "sad": false,
+        "sad@": false,
+        "sad@sad": true,
+        "sad@sad.com": true
+      },
+      "phone": {
+        "": false,
+        "asdasdasd": false,
+        "12312312123123123123123123": false,
+        "963852741": true
+      },
+      "password": {
+        "": false,
+        "sad": false,
+        "assadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasdassadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasdassadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasdassadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasdassadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasdassadsadasdasdsadsadsadasdsadasdsadsadsadasdsadsadasdasdasdasdasdasdasdasdasdasdsadasd": false,
+        "test_password": true
+      },
+      "fax": {
+        "": true,
+        "asdasdasd": false,
+        "12312312123123123123123123": false,
+        "963852741": true
+      },
+      "link": {
+        "": true,
+        "sadasdsad": false,
+        "http://google.com": true,
+        "google.com": true
+      }
+    }
+  }
+}

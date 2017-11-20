@@ -3,21 +3,20 @@
     "add": {
       "name": {
         "": false,
-        "Ana Garriga": true,
+        "Manolo": true,
         "a": false,
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
       },
       "lastname": {
         "": false,
-        "Alvarez Asuriaga": true,
-        "aaaa": false,
+        "Perez Martinez": true,
+        "aa": false,
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
       },
       "thesis_name": {
-        "futbol,,baloncesto": true,
-        "futbol": false,
         "": false,
-        "futbol,,baloncesto,,tenis,,ciclismo": false
+        "demostración de que todas 8": true,
+        "todaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas": false
       }
     }
   }
