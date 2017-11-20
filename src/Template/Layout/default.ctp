@@ -27,6 +27,7 @@
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('bewatermelon.css') ?>
     <?= $this->Html->css('font-awesome.min.css') ?>
+    <?= $this->Html->script('jquery.min.js') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
 
     <?= $this->fetch('meta') ?>

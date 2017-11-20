@@ -60,8 +60,10 @@ class PubJournalsController extends AppController
     public function add()
     {
         $pubJournal = $this->PubJournals->newEntity();
+        //var_dump($pubJournal);
         if ($this->request->is('post')) {
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
+            $pubJournal->author = implode(',', $this->request->getData()['author']);
             if ($this->PubJournals->save($pubJournal)) {
                 $this->Flash->success(__('The pub journal has been saved.'));
 
@@ -74,7 +76,7 @@ class PubJournalsController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $authors = $this->paginate($this->PplUsers);
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
     }
@@ -93,6 +95,7 @@ class PubJournalsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
+            $pubJournal->author = implode(',', $this->request->getData()['author']);
             if ($this->PubJournals->save($pubJournal)) {
                 $this->Flash->success(__('The pub journal has been saved.'));
 
@@ -105,7 +108,7 @@ class PubJournalsController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $authors = $this->paginate($this->PplUsers);
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
     }
