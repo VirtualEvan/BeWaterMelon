@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pubJournal, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+        <?= $this->Form->create($pubJournal, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'edit']) ?>
         <fieldset>
             <legend><?= __('Edit Journal') ?></legend>
             <?php

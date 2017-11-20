@@ -11,7 +11,7 @@ foreach ($authors as $author) {
 
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($pubJournal, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>']]) ?>
+        <?= $this->Form->create($pubJournal, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
         <fieldset>
             <legend><?= __('Add Journal') ?></legend>
             <?php

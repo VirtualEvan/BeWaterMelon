@@ -11,7 +11,7 @@
         <fieldset>
             <legend><?= __('Add User') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '.{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z]{3,20}']);
                 echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '.{3,20}']);
                 echo $this->Form->input('rol', ['class' => 'form-control', 'options' => ['admin' => 'Admin', 'reg' => 'Registered']]);
                 echo $this->Form->control('email', ['class' => 'form-control']);
