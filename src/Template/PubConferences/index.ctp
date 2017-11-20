@@ -26,8 +26,13 @@
                     <?php endif; ?>
                     <div class="col-md-12">
                         <div class="row">
-                            <?= h($pubConference->author) ?>
-                            <a href="<?= h($pubConference->link) ?>"><?= h($pubConference->name) ?></a>
+                            <?php foreach($authors as $autor)
+                                if(in_array($autor->id, explode(',', $pubConference->author))){
+                                    echo $autor->name . ' ' . $autor->lastname;
+                                    echo ', ';
+                                }
+                            ?>
+                            <a href="<?= h($pubConference->link) ?>"> <?= h($pubConference->name) ?> </a>
                             <?= h($pubConference->date) ?> <?= h($pubConference->city) ?>
                             <?= h($pubConference->country) ?>
                         </div>

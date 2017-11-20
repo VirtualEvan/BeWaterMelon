@@ -26,6 +26,12 @@ class PubBooksController extends AppController
         $this->set(compact('pubBooks'));
         $this->set('_serialize', ['pubBooks']);
 
+        //Authors
+        $this->loadModel('PplUsers');
+        $authors = $this->paginate($this->PplUsers);
+        $this->set(compact('authors'));
+        $this->set('_serialize', ['authors']);
+
         $related = array(
             [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
             [ 'name' => __('Conferences'), 'controller' => 'pub_conferences'],
@@ -61,6 +67,7 @@ class PubBooksController extends AppController
         $pubBook = $this->PubBooks->newEntity();
         if ($this->request->is('post')) {
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
+            $pubBook->author = implode(',', $this->request->getData()['author']);
             if ($this->PubBooks->save($pubBook)) {
                 $this->Flash->success(__('The pub book has been saved.'));
 
@@ -73,7 +80,7 @@ class PubBooksController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $authors = $this->paginate($this->PplUsers);
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
     }
@@ -92,6 +99,7 @@ class PubBooksController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
+            $pubBook->author = implode(',', $this->request->getData()['author']);
             if ($this->PubBooks->save($pubBook)) {
                 $this->Flash->success(__('The pub book has been saved.'));
 
@@ -104,7 +112,7 @@ class PubBooksController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all', array('conditions'=>array('PplUsers.rol'=>'reg')));
+        $authors = $this->paginate($this->PplUsers);
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
     }

@@ -19,15 +19,19 @@
                             </div>
                         </div>
                     <?php endif; ?>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <?= h($pubJournal->author) ?> (<?= h($pubJournal->publication_date) ?>)
-                                <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?></a>
-                                <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
-                                <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
-                                <?php if(!isEmpty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
-                            </div>
-                        </div>
+                    <div class="row">
+                        <?php foreach($authors as $autor)
+                            if(in_array($autor->id, explode(',', $pubJournal->author))){
+                                echo $autor->name . ' ' . $autor->lastname;
+                                echo ', ';
+                            }
+                        ?>
+                        <?= '(' . h($pubJournal->publication_date) . ') ' ?>
+                        <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?> </a>
+                        <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
+                        <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
+                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -54,8 +58,13 @@
                     <?php endif; ?>
                     <div class="col-md-12">
                         <div class="row">
-                            <?= h($pubConference->author) ?>
-                            <a href="<?= h($pubConference->link) ?>"><?= h($pubConference->name) ?></a>
+                            <?php foreach($authors as $autor)
+                                if(in_array($autor->id, explode(',', $pubConference->author))){
+                                    echo $autor->name . ' ' . $autor->lastname;
+                                    echo ', ';
+                                }
+                            ?>
+                            <a href="<?= h($pubConference->link) ?>"> <?= h($pubConference->name) ?> </a>
                             <?= h($pubConference->date) ?> <?= h($pubConference->city) ?>
                             <?= h($pubConference->country) ?>
                         </div>
@@ -86,8 +95,12 @@
                     <?php endif; ?>
                     <div class="col-md-12">
                         <div class="row">
-                            <?= h($pubBook->book_name) ?>
-                            <a href="<?= h($pubBook->link) ?>"><?= h($pubBook->author) ?></a>
+                            <?php foreach($authors as $autor)
+                                if(in_array($autor->id, explode(',', $pubBook->author))){
+                                    echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['link' => $pubBook->author]);
+                                    echo ', ';
+                                }
+                            ?>
                             <?= h($pubBook->editorial) ?> <?= h($pubBook->year) ?>
                             <?= h($pubBook->country) ?> <?= h($pubBook->isbn) ?>
                             <?= h($pubBook->physical_identifier) ?>

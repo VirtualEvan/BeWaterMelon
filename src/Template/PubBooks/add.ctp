@@ -7,7 +7,6 @@
  foreach ($authors as $author) {
      $aut[$author->id] = $author->name . ' ' . $author->lastname;
  }
- $aut[0] = __('Select Authors');
 ?>
 <div class="contanier">
     <div class="row">
@@ -16,7 +15,7 @@
             <legend><?= __('Add Book') ?></legend>
             <?php
                 echo $this->Form->control('book_name', ['class' => 'form-control']);
-                echo $this->Form->input('author', array('multiple' => 'multiple','type' => 'select','options' => $aut));
+                echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
                 echo $this->Form->control('editorial', ['class' => 'form-control']);
                 echo $this->Form->control('year', ['class' => 'form-control']);
                 echo $this->Form->control('country', ['class' => 'form-control']);
@@ -29,3 +28,7 @@
         <?= $this->Form->end() ?>
     </div>
 </div>
+
+<?= $this->Html->css('bootstrap-select.css') ?>
+<?= $this->Html->script('bootstrap.bundle.min.js') ?>
+<?= $this->Html->script('bootstrap-select.js') ?>

@@ -25,11 +25,17 @@
                         </div>
                     <?php endif; ?>
                     <div class="row">
-                        <?= h($pubJournal->author) ?> (<?= h($pubJournal->publication_date) ?>)
-                        <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?></a>
+                        <?php foreach($authors as $autor)
+                            if(in_array($autor->id, explode(',', $pubJournal->author))){
+                                echo $autor->name . ' ' . $autor->lastname;
+                                echo ', ';
+                            }
+                        ?>
+                        <?= '(' . h($pubJournal->publication_date) . ') ' ?>
+                        <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?> </a>
                         <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
                         <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
-                        <?php if(!isEmpty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
+                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
                     </div>
                 </div>
             </div>

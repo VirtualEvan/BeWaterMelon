@@ -26,8 +26,12 @@
                     <?php endif; ?>
                     <div class="col-md-12">
                         <div class="row">
-                            <?= h($pubBook->book_name) ?>
-                            <a href="<?= h($pubBook->link) ?>"><?= h($pubBook->author) ?></a>
+                            <?php foreach($authors as $autor)
+                                if(in_array($autor->id, explode(',', $pubBook->author))){
+                                    echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['link' => $pubBook->author]);
+                                    echo ', ';
+                                }
+                            ?>
                             <?= h($pubBook->editorial) ?> <?= h($pubBook->year) ?>
                             <?= h($pubBook->country) ?> <?= h($pubBook->isbn) ?>
                             <?= h($pubBook->physical_identifier) ?>

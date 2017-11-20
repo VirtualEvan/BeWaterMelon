@@ -33,6 +33,12 @@ class PubJournalsController extends AppController
             [ 'name' => __('Books'), 'controller' => 'pub_books'],
         );
         $this->set(compact('related'));
+
+        //Authors
+        $this->loadModel('PplUsers');
+        $authors = $this->paginate($this->PplUsers);
+        $this->set(compact('authors'));
+        $this->set('_serialize', ['authors']);
     }
 
     /**
