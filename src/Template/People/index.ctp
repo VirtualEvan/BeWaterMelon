@@ -16,7 +16,7 @@
     <div class="row">
         <?php foreach ($pplUsers as $pplUser): ?>
             <div class="card col-md-6">
-              <div class="card-block">
+                <div class="card-block">
                     <div class="container">
                         <div class="row">
                                 <?php if($currentuser['rol'] == 'admin'): ?>
@@ -49,7 +49,7 @@
                                 </div>
                         </div>
                     </div>
-              </div>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
