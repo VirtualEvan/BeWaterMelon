@@ -24,7 +24,6 @@ class PplVisitorsFixture extends TestFixture
         'doctor' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'web_UNIQUEs' => ['type' => 'unique', 'columns' => ['link'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

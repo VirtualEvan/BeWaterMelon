@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`ppl_users` (
   `fax` VARCHAR(45) NULL,
   `link` VARCHAR(500) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `web_UNIQUEs` (`link` ASC),
   UNIQUE INDEX `email_UNIQUEs` (`email` ASC),
   UNIQUE INDEX `phone_UNIQUEs` (`phone` ASC))
 ENGINE = InnoDB;
@@ -79,8 +78,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`ppl_visitors` (
   `lastname` VARCHAR(45) NOT NULL,
   `link` VARCHAR(500) NOT NULL,
   `doctor` BOOLEAN NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `web_UNIQUEs` (`link` ASC))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -146,8 +144,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`pub_conferences` (
   `city` VARCHAR(45) NOT NULL,
   `country` VARCHAR(45) NOT NULL,
   `link` VARCHAR(500) NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `link_UNIQUEs` (`link` ASC))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -167,8 +164,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`pub_books` (
   `link` VARCHAR(500) NULL,
   `physical_identifier` VARCHAR(8) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `isbn_UNIQUEs` (`isbn` ASC),
-  UNIQUE INDEX `link_UNIQUEs` (`link` ASC))
+  UNIQUE INDEX `isbn_UNIQUEs` (`isbn` ASC))
 ENGINE = InnoDB;
 
 

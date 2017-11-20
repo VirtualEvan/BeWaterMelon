@@ -80,8 +80,7 @@ class PubBooksTable extends Table
 
         $validator
             ->scalar('link')
-            ->allowEmpty('link')
-            ->add('link', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->allowEmpty('link');
 
         $validator
             ->scalar('physical_identifier')
@@ -100,7 +99,6 @@ class PubBooksTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['isbn']));
-        $rules->add($rules->isUnique(['link']));
 
         return $rules;
     }

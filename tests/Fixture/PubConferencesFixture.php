@@ -26,7 +26,6 @@ class PubConferencesFixture extends TestFixture
         'link' => ['type' => 'string', 'length' => 500, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'link_UNIQUEs' => ['type' => 'unique', 'columns' => ['link'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -45,7 +44,7 @@ class PubConferencesFixture extends TestFixture
             'id' => 1,
             'author' => 'Lorem ipsum dolor sit amet',
             'name' => 'Lorem ipsum dolor sit amet',
-            'date' => '2017-11-09',
+            'date' => '2017-11-20',
             'city' => 'Lorem ipsum dolor sit amet',
             'country' => 'Lorem ipsum dolor sit amet',
             'link' => 'Lorem ipsum dolor sit amet'

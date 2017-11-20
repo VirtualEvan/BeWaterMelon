@@ -29,7 +29,6 @@ class PubBooksFixture extends TestFixture
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'isbn_UNIQUEs' => ['type' => 'unique', 'columns' => ['isbn'], 'length' => []],
-            'link_UNIQUEs' => ['type' => 'unique', 'columns' => ['link'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

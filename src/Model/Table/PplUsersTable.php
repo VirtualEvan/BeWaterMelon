@@ -96,8 +96,7 @@ class PplUsersTable extends Table
 
         $validator
             ->scalar('link')
-            ->allowEmpty('link')
-            ->add('link', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->allowEmpty('link');
 
         return $validator;
     }
@@ -113,7 +112,6 @@ class PplUsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['phone']));
-        $rules->add($rules->isUnique(['link']));
 
         return $rules;
     }
