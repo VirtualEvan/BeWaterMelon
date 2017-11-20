@@ -20,7 +20,7 @@
                         <div class="col-md-2">
                             <div class="row">
                                 <?= $this->Html->link(null, ['controller' => 'pub_books', 'action' => 'edit', $pubBook->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-                                <?= $this->Html->link(null, ['controller' => 'pub_books', 'action' => 'delete', $pubBook->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
+                                <?= $this->Form->postLink(null, ['controller' => 'pub_books', 'action' => 'delete', $pubBook->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
                             </div>
                         </div>
                     <?php endif; ?>
