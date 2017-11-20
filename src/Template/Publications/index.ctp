@@ -21,11 +21,11 @@
                     <?php endif; ?>
                         <div class="col-md-12">
                             <div class="row">
-                                <?= h($pubJournal->author) ?>
+                                <?= h($pubJournal->author) ?> (<?= h($pubJournal->publication_date) ?>)
                                 <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?></a>
                                 <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
-                                <?= h($pubJournal->publication_date) ?> <?= h($pubJournal->online_issn) ?>
-                                <?= h($pubJournal->print_issn) ?>
+                                <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
+                                <?php if(!isEmpty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
                             </div>
                         </div>
                 </div>
