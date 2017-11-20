@@ -15,11 +15,11 @@
             <legend><?= __('Add Conference') ?></legend>
             <?php
                 echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
-                echo $this->Form->control('name', ['class' => 'form-control']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
                 echo $this->Form->control('date', ['class' => 'form-control']);
-                echo $this->Form->control('city', ['class' => 'form-control']);
-                echo $this->Form->control('country', ['class' => 'form-control']);
-                echo $this->Form->control('link', ['class' => 'form-control']);
+                echo $this->Form->control('city', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
+                echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
+                echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

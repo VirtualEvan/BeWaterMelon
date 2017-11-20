@@ -5,22 +5,19 @@
             "": false,
             "Journal name": true,
             "a": false,
-            "12143": true,
-            "ababababababababababababababababababbabasa": false
+            "12143": true
 
         },
         "country":{
             "": false,
             "2432": false,
-            "Cuba": true,
-            "ababababababababababababababababababbabasa": false
+            "Cuba": true
         },
         "city":{
             "": false,
             "Ourense": true,
-            "A coruña": true,
-            "3423": false,
-            "ababababababababababababababababababbabasa": false
+            "La habana": true,
+            "3423": false
         },
         "link":{
             "": true,

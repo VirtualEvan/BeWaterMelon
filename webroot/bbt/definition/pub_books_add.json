@@ -1,37 +1,36 @@
 {
-  "/BeWaterMelon/pub-journals/add": {
+  "/BeWaterMelon/pub-books/add": {
     "add": {
-        "publication_name":{
+        "book_name":{
             "": false,
-            "Nombre de la publicacion": true,
+            "Nombre de libro": true,
             "a": false,
             "12143": true
 
         },
-        "name":{
+        "editorial":{
             "": false,
-            "Journal name": true,
+            "Editorial name": true,
             "a": false,
-            "12143": true
+            "12143": false
 
         },
-        "location":{
+        "country":{
             "": false,
-            "Aceptado para publicación": true,
-            "Vol. 21": true
+            "2432": false,
+            "Cuba": true
         },
-        "publication_date":{
+        "year":{
             "": false,
             "2016": true,
             "abcd": false,
             "23": false,
             "22222": false
         },
-        "online_issn":{
+        "isbn":{
             "": false,
-            "0395-2037": true,
-            "18623833": false,
-            "2321-231": false
+            "978-3-319-60816-7": true,
+            "18623833": false
         },
         "link":{
             "": true,
@@ -39,11 +38,11 @@
             "http://www.google.com": true,
             "google.com": true
         },
-        "print_issn":{
+        "physical_identifier":{
             "": true,
-            "0395-2037": true,
-            "18623833": false,
-            "2321-231": false
+            "03952037": true,
+            "186235833": false,
+            "232": false
         }
     }
   }
