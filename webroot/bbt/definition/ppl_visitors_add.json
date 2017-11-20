@@ -1,0 +1,29 @@
+{
+  "/ppl-visitors/add": {
+    "add": {
+      "name": {
+        "": false,
+        "Manolo": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "lastname": {
+        "": false,
+        "Perez Martinez": true,
+        "aa": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "link": {
+        "": false,
+        "sadasdsad": false,
+        "http://google.com": true,
+        "google.com": true
+      },
+      "doctor": {
+        "": true,
+        "1": true,
+        "0": true
+      }
+    }
+  }
+}

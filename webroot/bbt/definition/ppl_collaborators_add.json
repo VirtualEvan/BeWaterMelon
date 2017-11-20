@@ -1,0 +1,23 @@
+{
+  "/ppl-collaborators/add": {
+    "add": {
+      "name": {
+        "": false,
+        "Manolo": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "lastname": {
+        "": false,
+        "Perez Martinez": true,
+        "aa": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "doctor": {
+        "": true,
+        "1": true,
+        "0": true
+      }
+    }
+  }
+}
