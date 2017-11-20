@@ -8,6 +8,7 @@
 /vendor/*
 /webroot/img/ppl_phds/*
 /webroot/img/ppl_users/*
+/webroot/wbt/*
 
 # OS generated files #
 ######################
