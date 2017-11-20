@@ -1,0 +1,24 @@
+{
+  "/ppl-phds/add": {
+    "add": {
+      "name": {
+        "": false,
+        "Ana Garriga": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "lastname": {
+        "": false,
+        "Alvarez Asuriaga": true,
+        "aaaa": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "thesis_name": {
+        "futbol,,baloncesto": true,
+        "futbol": false,
+        "": false,
+        "futbol,,baloncesto,,tenis,,ciclismo": false
+      }
+    }
+  }
+}
