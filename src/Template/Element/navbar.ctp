@@ -1,22 +1,34 @@
 <?php
   //$currentuser = $this->request->session()->read('Auth.User');
   use Cake\I18n\I18n;
+
+  $active = array(
+      'home' => '',
+      'People' => '',
+      'Press' => '',
+      'Publications' => '',
+      'Pctivities' => '',
+      'rd' => '',
+      'Software' => '',
+      'Teaching' => '',
+      'Colaborations' => '',
+  );
+  $active[$this->request->params['controller']] = 'active'
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
-    <div class="navbar-collapse collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav navbar-center">
+<nav class='mx-auto'>
+    <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Home') ?></a>
           </li>
           <li class="nav-item">
-            <p class="nav-link"><?php echo $this->Html->link(__('People'), ['controller' => 'people','action' => 'index']); ?></p>
+            <?= $this->Html->link(__('People'), ['controller' => 'people','action' => 'index'], ['class' => 'nav-link ' . $active['People']]) ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Press') ?></a>
           </li>
           <li class="nav-item">
-            <p class="nav-link"><?php echo $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index']); ?></p>
+            <?= $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index'], ['class' => 'nav-link ' . $active['Publications']]) ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Activities') ?></a>
@@ -33,6 +45,5 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Colaborations') ?></a>
           </li>
-        </ul>
-    </div>
+    </ul>
 </nav>

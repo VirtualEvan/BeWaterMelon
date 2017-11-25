@@ -1,5 +1,5 @@
 {
-  "/BeWaterMelon/pub-books/add": {
+  "/pub-books/add": {
     "add": {
         "book_name":{
             "": false,
