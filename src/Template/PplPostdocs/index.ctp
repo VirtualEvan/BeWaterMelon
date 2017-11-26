@@ -5,17 +5,20 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class='container'>
-    <h3>
-        <?= __('Ppl Postdocs') ?>
-        <?php
-            if($currentuser['rol'] == 'admin'){
-                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
-                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
-                echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
-            }
-        ?>
-    </h3>
+<div class='container part'>
+    <h4>
+        <?= __('Postdocs') ?>
+    </h4>
+    <?php
+        if($currentuser['rol'] == 'admin'){
+            echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+            echo ' ';
+            echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-info btn-sm fa fa-pencil']);
+            echo ' ';
+            echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'edit'], ['class' => 'btn btn-info btn-sm fa fa-trash']);
+        }
+    ?>
+    <hr/>
     <div class="container">
         <div class="row">
             <?php

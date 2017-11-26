@@ -5,15 +5,16 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class='container'>
-    <h3>
+<div class='container part'>
+    <h4>
         <?= __('PhD Students') ?>
-        <?php
-            if($currentuser['rol'] == 'admin'){
-                echo $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
-            }
-        ?>
-    </h3>
+    </h4>
+    <?php
+        if($currentuser['rol'] == 'admin'){
+            echo $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+        }
+    ?>
+    <hr/>
     <div class="row">
         <?php foreach ($pplPhds as $pplPhd): ?>
             <div class="card col-md-6">
@@ -21,13 +22,9 @@
                     <div class="container">
                         <div class="row">
                                 <?php if($currentuser['rol'] == 'admin'): ?>
-                                    <div class="col-md-1">
-                                        <div class="row">
-                                            <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-                                        </div>
-                                        <div class="row">
-                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                                        </div>
+                                    <div class="col-md-1 p-0">
+                                            <?= $this->Html->link(null, ['controller' => 'ppl_phds', 'action' => 'edit', $pplPhd->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_phds', 'action' => 'delete', $pplPhd->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                     </div>
                                 <?php endif; ?>
                                 <div class="col-md-4">

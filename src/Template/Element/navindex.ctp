@@ -4,9 +4,11 @@
 ?>
 
 <nav class="col-md-3 sidebar-offcanvas">
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success fa fa-search" type="submit"></button>
+    <form class="input-group mb-3">
+        <input class="form-control" type="text" placeholder="<?= __('Search') ?>">
+        <span class="input-group-btn">
+            <button class="btn btn-outline-info" type="submit"><div class="fa fa-search"></div></button>
+        </span>
     </form>
 
     <?php if (!empty($related)): ?>

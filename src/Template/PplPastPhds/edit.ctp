@@ -17,7 +17,7 @@
                 echo $this->Form->control('thesis_link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

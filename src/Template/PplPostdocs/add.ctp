@@ -14,7 +14,7 @@
                 echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

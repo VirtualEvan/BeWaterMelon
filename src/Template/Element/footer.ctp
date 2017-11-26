@@ -1,15 +1,16 @@
 <?php
-  //$currentuser = $this->request->session()->read('Auth.User');
+  $currentuser = $this->request->session()->read('Auth.User');
   use Cake\I18n\I18n;
 ?>
 
-<footer style="background-color:grey;" class="col-md-12 footer">
-
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-      <?= __('Login') ?>
-    </button>
-    <?= $this->Html->link('Login', ['controller' => 'ppl_users', 'action' => 'login']); ?>
-    <?= $this->Html->link('Logout', ['controller' => 'ppl_users', 'action' => 'logout']); ?>
+<footer class="col-md-12 footer text-center">
+    <?php if ($currentuser): ?>
+        <?= $this->Html->link('Logout', ['controller' => 'ppl_users', 'action' => 'logout'], ['class' => 'btn btn-secondary']); ?>
+    <?php else: ?>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+            <?= __('Login') ?>
+        </button>
+    <?php endif;?>
 </footer>
 
 <!-- The Modal -->

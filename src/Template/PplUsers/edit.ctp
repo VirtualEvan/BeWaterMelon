@@ -23,7 +23,7 @@
                 echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

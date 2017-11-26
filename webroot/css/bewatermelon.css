@@ -2,3 +2,22 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.part {
+    margin-bottom: 50px;
+}
+
+hr {
+  margin-top: 0rem;
+}
+
+h4 {
+    display: inline ;
+    vertical-align: middle;
+}
+
+header {
+    background:linear-gradient(180deg, white,#A0A0A0);
+    border-radius: 25px;
+    margin-bottom: 25px;
+}

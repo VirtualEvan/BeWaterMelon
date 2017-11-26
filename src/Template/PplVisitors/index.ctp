@@ -5,16 +5,20 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class='container'>
-    <h3>
+<div class='container part'>
+    <h4>
         <?= __('Visitors') ?>
-        <?php
-            if($currentuser['rol'] == 'admin'){
-                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
-                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-warning fa fa-pencil']);
-                echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-danger fa fa-trash']);
-            }
-        ?>    </h3>
+    </h4>
+    <?php
+        if($currentuser['rol'] == 'admin'){
+            echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+            echo ' ';
+            echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-info btn-sm fa fa-pencil']);
+            echo ' ';
+            echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'edit'], ['class' => 'btn btn-info btn-sm fa fa-trash']);
+        }
+    ?>
+    <hr/>
     <div class="container">
         <div class="row">
             <?php foreach ($pplVisitors as $key => $pplVisitor): ?>

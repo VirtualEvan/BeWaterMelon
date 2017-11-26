@@ -5,29 +5,24 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class='container'>
-    <h3>
-        <?= __('Members') ?>
-        <?php
-            if($currentuser['rol'] == 'admin'){
-                echo $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
-            }
-        ?>
-    </h3>
+<div class='container part'>
+    <h4> <?= __('Members') ?> </h4>
+    <?php
+        if($currentuser['rol'] == 'admin'){
+            echo $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+        }
+    ?>
+    <hr/>
     <div class="row">
         <?php foreach ($pplUsers as $pplUser): ?>
             <div class="card col-md-6">
-              <div class="card-block">
+                <div class="card-block">
                     <div class="container">
                         <div class="row">
                                 <?php if($currentuser['rol'] == 'admin'): ?>
-                                    <div class="col-md-1">
-                                        <div class="row">
-                                            <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-                                        </div>
-                                        <div class="row">
-                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                                        </div>
+                                    <div class="col-md-1 p-0">
+                                            <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                     </div>
                                 <?php endif; ?>
                                 <div class="col-md-4">
@@ -50,7 +45,7 @@
                                 </div>
                         </div>
                     </div>
-              </div>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
