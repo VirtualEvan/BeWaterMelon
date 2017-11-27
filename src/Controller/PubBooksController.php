@@ -13,7 +13,35 @@ use Cake\Event\Event;
  */
 class PubBooksController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+
+        // Deny everything else
+        return parent::isAuthorized($user);
+    }
     /**
      * Index method
      *
@@ -135,35 +163,5 @@ class PubBooksController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        // Allow users to register and logout.
-        // You should not add the "login" action to allow list. Doing so would
-        // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
-    }
-
-    public function isAuthorized($user)
-    {
-        // Admins can manage users
-        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
-            if ($user['rol'] == 'admin') {
-                return true;
-            }
-        }
-
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
-        }
-
-        // Deny everything else
-        return parent::isAuthorized($user);
     }
 }

@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * ProProducts Controller
  *
@@ -12,7 +12,32 @@ use App\Controller\AppController;
  */
 class ProProductsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -54,6 +79,23 @@ class ProProductsController extends AppController
         if ($this->request->is('post')) {
             $proProduct = $this->ProProducts->patchEntity($proProduct, $this->request->getData());
             if ($this->ProProducts->save($proProduct)) {
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $proProduct->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/pro_products/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
                 $this->Flash->success(__('The pro product has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -79,6 +121,23 @@ class ProProductsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proProduct = $this->ProProducts->patchEntity($proProduct, $this->request->getData());
             if ($this->ProProducts->save($proProduct)) {
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $proProduct->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/pro_products/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                }
                 $this->Flash->success(__('The pro product has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -101,6 +160,10 @@ class ProProductsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $proProduct = $this->ProProducts->get($id);
         if ($this->ProProducts->delete($proProduct)) {
+            if(file_exists(WWW_ROOT . 'img/pro_products/' . $proProduct->id))
+            {
+              unlink(WWW_ROOT . 'img/pro_products/' . $proProduct->id);
+            }
             $this->Flash->success(__('The pro product has been deleted.'));
         } else {
             $this->Flash->error(__('The pro product could not be deleted. Please, try again.'));

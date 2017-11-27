@@ -25,7 +25,7 @@
                 echo $this->Form->control('print_issn', ['class' => 'form-control', 'pattern' => '[0-9]{4}-[0-9]{4}']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

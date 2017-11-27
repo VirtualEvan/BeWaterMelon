@@ -4,29 +4,20 @@
  * @var \App\Model\Entity\ProProduct $proProduct
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $proProduct->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $proProduct->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Pro Products'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="proProducts form large-9 medium-8 columns content">
-    <?= $this->Form->create($proProduct) ?>
-    <fieldset>
-        <legend><?= __('Edit Pro Product') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('description');
-            echo $this->Form->control('link');
-            echo $this->Form->control('detailed_description');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="container">
+    <div class="row">
+        <?= $this->Form->create($proProduct, ['enctype' => 'multipart/form-data', 'templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'edit']) ?>
+        <fieldset>
+            <legend><?= __('Edit Product') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
+                echo $this->Form->control('description', ['type' => 'textarea', 'rows' => '3', 'class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,500}']);
+                echo $this->Form->control('detailed_description', ['type' => 'textarea', 'rows' => '7', 'class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,5000}']);
+                echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
+                echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>

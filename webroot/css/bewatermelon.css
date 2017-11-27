@@ -21,3 +21,12 @@ header {
     border-radius: 25px;
     margin-bottom: 25px;
 }
+
+textarea {
+   resize: none;
+}
+
+.link-product:visited, .link-product:link {
+    text-decoration: none;
+    color: black;
+}

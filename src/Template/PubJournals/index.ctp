@@ -5,26 +5,25 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class='container'>
-    <h3> <?= __('Journals') ?> </h3>
+<div class='container part'>
+    <h4> <?= __('Journals') ?> </h4>
     <?php
     if($currentuser['rol'] == 'admin'){
-        echo $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'add'], ['class' => 'btn btn-success fa fa-plus']);
+        echo $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
     }
     ?>
+    <hr/>
     <div class="row">
         <?php foreach ($pubJournals as $pubJournal): ?>
             <div class="container">
                 <div class="row">
                     <?php if($currentuser['rol'] == 'admin'): ?>
-                        <div class="col-md-2">
-                            <div class="row">
-                                <?= $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'edit', $pubJournal->id], ['class' => 'btn btn-warning fa fa-pencil']) ?>
-                                <?= $this->Form->postLink(null, ['controller' => 'pub_journals', 'action' => 'delete', $pubJournal->id], ['class' => 'btn btn-danger fa fa-trash']) ?>
-                            </div>
+                        <div class="col-md-1">
+                                <?= $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'edit', $pubJournal->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                <?= $this->Form->postLink(null, ['controller' => 'pub_journals', 'action' => 'delete', $pubJournal->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                         </div>
                     <?php endif; ?>
-                    <div class="row">
+                    <div class="col-md-11 my-auto p-0">
                         <?php foreach($authors as $autor)
                             if(in_array($autor->id, explode(',', $pubJournal->author))){
                                 echo $autor->name . ' ' . $autor->lastname;

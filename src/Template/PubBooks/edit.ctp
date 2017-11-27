@@ -24,7 +24,7 @@
                 echo $this->Form->control('physical_identifier', ['class' => 'form-control', 'pattern' => '[0-9]{8}']);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>

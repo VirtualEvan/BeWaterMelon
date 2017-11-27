@@ -9,7 +9,7 @@
       'Publications' => '',
       'Pctivities' => '',
       'rd' => '',
-      'Software' => '',
+      'Products' => '',
       'Teaching' => '',
       'Colaborations' => '',
   );
@@ -37,7 +37,7 @@
             <a class="nav-link" href="#"><?= __('R & D') ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Software') ?></a>
+            <?= $this->Html->link(__('Products'), ['controller' => 'pro_products','action' => 'index'], ['class' => 'nav-link ' . $active['Products']]) ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><?= __('Teaching') ?></a>
