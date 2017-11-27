@@ -25,11 +25,11 @@
                                 echo ', ';
                             }
                         ?>
-                        <?= '(' . h($pubJournal->publication_date) . ') ' ?>
-                        <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?> </a>
-                        <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
-                        <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
-                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
+                        <?= '(' . h($pubJournal->publication_date) . '). ' ?>
+                        <a href="<?= h($pubJournal->link) . '. ' ?>"><?= h($pubJournal->publication_name) . '. ' ?> </a>
+                        <?= h($pubJournal->name) . '. ' ?> <?= h($pubJournal->location) . '. ' ?>
+                        <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) . '. ' ?>
+                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) . '. ' ?>
                     </div>
                 </div>
             </div>
@@ -61,9 +61,9 @@
                                 echo ', ';
                             }
                         ?>
-                        <a href="<?= h($pubConference->link) ?>"> <?= h($pubConference->name) ?> </a>
-                        <?= h($pubConference->date) ?> <?= h($pubConference->city) ?>
-                        <?= h($pubConference->country) ?>
+                        <a href="<?= h($pubConference->link) . '. ' ?>"> <?= h($pubConference->name) . '. ' ?> </a>
+                        <?= h($pubConference->date) . '. ' ?> <?= h($pubConference->city) . '. ' ?>
+                        <?= h($pubConference->country) . '. ' ?>
                     </div>
                 </div>
             </div>
@@ -95,9 +95,9 @@
                                 echo ', ';
                             }
                         ?>
-                        <?= h($pubBook->editorial) ?> <?= h($pubBook->year) ?>
-                        <?= h($pubBook->country) ?> <?= __('ISBN') ?>: <?= h($pubBook->isbn) ?>
-                        <?php if(!empty($pubBook->physical_identifier)): echo __('Physical identifier:'); endif;?> <?= h($pubBook->physical_identifier) ?>
+                        <?= h($pubBook->editorial) . '. ' ?> <?= h($pubBook->year) . '. ' ?>
+                        <?= h($pubBook->country) . '. ' ?> <?= __('ISBN') ?>: <?= h($pubBook->isbn) . '. ' ?>
+                        <?php if(!empty($pubBook->physical_identifier)): echo __('Physical identifier:'); endif;?> <?= h($pubBook->physical_identifier) . '. ' ?>
                     </div>
             </div>
             </div>

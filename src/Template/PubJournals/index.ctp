@@ -31,10 +31,10 @@
                             }
                         ?>
                         <?= '(' . h($pubJournal->publication_date) . ') ' ?>
-                        <a href="<?= h($pubJournal->link) ?>"><?= h($pubJournal->publication_name) ?> </a>
-                        <?= h($pubJournal->name) ?> <?= h($pubJournal->location) ?>
-                        <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) ?>
-                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) ?>
+                        <a href="<?= h($pubJournal->link) . '. ' ?>"><?= h($pubJournal->publication_name) . '. ' ?> </a>
+                        <?= h($pubJournal->name) . '. ' ?> <?= h($pubJournal->location) . '. ' ?>
+                        <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) . '. ' ?>
+                        <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) . '. ' ?>
                     </div>
                 </div>
             </div>

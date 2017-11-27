@@ -30,9 +30,9 @@
                                 echo ', ';
                             }
                         ?>
-                        <?= h($pubBook->editorial) ?> <?= h($pubBook->year) ?>
-                        <?= h($pubBook->country) ?> <?= __('ISBN') ?>: <?= h($pubBook->isbn) ?>
-                        <?php if(!empty($pubBook->physical_identifier)): echo __('Physical identifier:'); endif;?> <?= h($pubBook->physical_identifier) ?>
+                        <?= h($pubBook->editorial) . '. ' ?> <?= h($pubBook->year) . '. ' ?>
+                        <?= h($pubBook->country) . '. ' ?> <?= __('ISBN') ?>: <?= h($pubBook->isbn) . '. ' ?>
+                        <?php if(!empty($pubBook->physical_identifier)): echo __('Physical identifier:'); endif;?> <?= h($pubBook->physical_identifier) . '. ' ?>
                     </div>
             </div>
             </div>

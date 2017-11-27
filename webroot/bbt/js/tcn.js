@@ -151,7 +151,7 @@
             if (!isNaN(maxLength) && maxLength < valor.length){
                 return false;
             }
-            
+
             $campo.val(valor);
             simularEventosInput($campo.get(0));
         }
@@ -172,7 +172,7 @@
      'martin' : true,
      }
      }
-     
+
      resultadoFormulario = {
      nombre : [
      {

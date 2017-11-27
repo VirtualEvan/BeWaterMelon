@@ -1,0 +1,29 @@
+{
+  "/pro-products/edit/1": {
+    "edit": {
+      "name": {
+        "": false,
+        "Jason": true,
+        "Jason no Jasón": true,
+        "a": false,
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": false
+      },
+      "description": {
+        "": false,
+        "descripcion corta del producto": true,
+        "aa": false
+      },
+      "link": {
+        "": false,
+        "sadasdsad": false,
+        "http://google.com": true,
+        "google.com": true
+      },
+      "detailed_description": {
+        "": true,
+        "descripcion larga del producto": true,
+        "a": false
+      }
+    }
+  }
+}

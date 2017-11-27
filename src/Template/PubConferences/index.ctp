@@ -30,9 +30,9 @@
                                 echo ', ';
                             }
                         ?>
-                        <a href="<?= h($pubConference->link) ?>"> <?= h($pubConference->name) ?> </a>
-                        <?= h($pubConference->date) ?> <?= h($pubConference->city) ?>
-                        <?= h($pubConference->country) ?>
+                        <a href="<?= h($pubConference->link) . '. ' ?>"> <?= h($pubConference->name) . '. ' ?> </a>
+                        <?= h($pubConference->date) . '. ' ?> <?= h($pubConference->city) . '. ' ?>
+                        <?= h($pubConference->country) . '. ' ?>
                     </div>
                 </div>
             </div>

@@ -8,22 +8,22 @@
 }
 
 hr {
-  margin-top: 0rem;
+    margin-top: 0rem;
 }
 
 h4 {
-    display: inline ;
+    display: inline;
     vertical-align: middle;
 }
 
 header {
-    background:linear-gradient(180deg, white,#A0A0A0);
+    background: linear-gradient(180deg, white, #A0A0A0);
     border-radius: 25px;
     margin-bottom: 25px;
 }
 
 textarea {
-   resize: none;
+    resize: none;
 }
 
 .link-product:visited, .link-product:link {
