@@ -94,7 +94,9 @@ class ProProductsController extends AppController
                     else {
                       $this->Flash->error(__('Invalid image format.'));
                     }
-
+                }
+                else{
+                    $this->Flash->error(__('Image must be selected.'));
                 }
                 $this->Flash->success(__('The pro product has been saved.'));
 
@@ -136,7 +138,9 @@ class ProProductsController extends AppController
                     else {
                       $this->Flash->error(__('Invalid image format.'));
                     }
-
+                }
+                else {
+                  $this->Flash->error(__('Invalid image format.'));
                 }
                 $this->Flash->success(__('The pro product has been saved.'));
 
