@@ -31,7 +31,12 @@
                             }
                         ?>
                         <?= '(' . h($pubJournal->publication_date) . ') ' ?>
-                        <a href="<?= h($pubJournal->link) . '. ' ?>"><?= h($pubJournal->publication_name) . '. ' ?> </a>
+                        <?php
+                        if (substr($pubJournal->link, 0, 4) != "http"){
+                          $pubJournal->link = "http://".$pubJournal->link;
+                        }
+                        ?>
+                        <?= $this->Html->link($pubJournal->publication_name . '. ', $pubJournal->link) ?>
                         <?= h($pubJournal->name) . '. ' ?> <?= h($pubJournal->location) . '. ' ?>
                         <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) . '. ' ?>
                         <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) . '. ' ?>

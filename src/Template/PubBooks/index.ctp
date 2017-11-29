@@ -26,7 +26,7 @@
                     <div class="col-md-11 my-auto p-0">
                         <?php foreach($authors as $autor)
                             if(in_array($autor->id, explode(',', $pubBook->author))){
-                                echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['link' => $pubBook->author]);
+                                echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['controller' => 'ppl_users', 'action' => 'view', $autor->id]);
                                 echo ', ';
                             }
                         ?>

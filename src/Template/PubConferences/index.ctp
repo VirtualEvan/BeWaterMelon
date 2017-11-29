@@ -30,7 +30,12 @@
                                 echo ', ';
                             }
                         ?>
-                        <a href="<?= h($pubConference->link) . '. ' ?>"> <?= h($pubConference->name) . '. ' ?> </a>
+                        <?php
+                        if (substr($pubConference->link, 0, 4) != "http"){
+                          $pubConference->link = "http://".$pubConference->link;
+                        }
+                        ?>
+                        <?= $this->Html->link($pubConference->name . '. ', $pubConference->link) ?>
                         <?= h($pubConference->date) . '. ' ?> <?= h($pubConference->city) . '. ' ?>
                         <?= h($pubConference->country) . '. ' ?>
                     </div>

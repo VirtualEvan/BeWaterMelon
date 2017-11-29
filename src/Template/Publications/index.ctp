@@ -26,7 +26,12 @@
                             }
                         ?>
                         <?= '(' . h($pubJournal->publication_date) . '). ' ?>
-                        <a href="<?= h($pubJournal->link) . '. ' ?>"><?= h($pubJournal->publication_name) . '. ' ?> </a>
+                        <?php
+                        if (substr($pubJournal->link, 0, 4) != "http"){
+                          $pubJournal->link = "http://".$pubJournal->link;
+                        }
+                        ?>
+                        <?= $this->Html->link($pubJournal->publication_name . '. ', $pubJournal->link) ?>
                         <?= h($pubJournal->name) . '. ' ?> <?= h($pubJournal->location) . '. ' ?>
                         <?= __('e-ISSN') ?>: <?= h($pubJournal->online_issn) . '. ' ?>
                         <?php if(!empty($pubJournal->print_issn)): echo __('ISSN:'); endif;?> <?= h($pubJournal->print_issn) . '. ' ?>
@@ -61,8 +66,12 @@
                                 echo ', ';
                             }
                         ?>
-                        <a href="<?= h($pubConference->link) . '. ' ?>"> <?= h($pubConference->name) . '. ' ?> </a>
-                        <?= h($pubConference->date) . '. ' ?> <?= h($pubConference->city) . '. ' ?>
+                        <?php
+                        if (substr($pubConference->link, 0, 4) != "http"){
+                          $pubConference->link = "http://".$pubConference->link;
+                        }
+                        ?>
+                        <?= $this->Html->link($pubConference->name . '. ', $pubConference->link) ?>                        <?= h($pubConference->date) . '. ' ?> <?= h($pubConference->city) . '. ' ?>
                         <?= h($pubConference->country) . '. ' ?>
                     </div>
                 </div>
@@ -91,7 +100,7 @@
                     <div class="col-md-11 my-auto p-0">
                         <?php foreach($authors as $autor)
                             if(in_array($autor->id, explode(',', $pubBook->author))){
-                                echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['link' => $pubBook->author]);
+                                echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['controller' => 'ppl_users', 'action' => 'view', $autor->id]);
                                 echo ', ';
                             }
                         ?>
