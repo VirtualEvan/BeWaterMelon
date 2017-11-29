@@ -27,9 +27,9 @@
                                 <?php endif; ?>
                                 <div class="col-md-4">
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_users/' . $pplUser['id'])): ?>
-                                        <?= $this->Html->image('ppl_users/'.$pplUser['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->link($this->Html->image('ppl_users/'.$pplUser['id'], ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id], ['escape' => false]); ?>
                                     <?php else: ?>
-                                        <?= $this->Html->image('profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->link($this->Html->image('profile_img.svg', ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id], ['escape' => false]); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">

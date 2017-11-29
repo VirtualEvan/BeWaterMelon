@@ -22,7 +22,12 @@
     <div class="container">
         <div class="row">
             <?php foreach ($pplVisitors as $key => $pplVisitor): ?>
-                <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, ['link' => $pplVisitor->link]) ?>
+                <?php
+                if (substr($pplVisitor->link, 0, 4) != "http"){
+                  $pplVisitor->link = "http://".$pplVisitor->link;
+                }
+                ?>
+                <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, $pplVisitor->link) ?>
                 <?php //TODO: Poner los espacios bien, tienen alt+255
                     if ($pplVisitor->doctor){
                         echo ' (PhD)';

@@ -29,13 +29,13 @@
                         <div class="col-md-3 my-auto">
                             <!--TODO si la url no existe se queda cargando indefinidamente-->
                             <?php //$this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]), ['escape' => false]) ?>
-                            <?php if (substr($proProduct->link, 0, 4) != "http"){
+                            <?php
+                            if (substr($proProduct->link, 0, 4) != "http"){
                               $proProduct->link = "http://".$proProduct->link;
                             }
-                            echo $proProduct->link;
                             ?>
 
-                            <?= $this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['height' => '150px', 'width' => '150px']), $proProduct->link, array('escape' => false)); ?>
+                            <?= $this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['height' => '150px', 'width' => '150px']), $proProduct->link, ['escape' => false]); ?>
                         </div>
                 </div>
             </div>

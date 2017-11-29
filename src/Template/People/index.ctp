@@ -27,9 +27,9 @@
                                 <?php endif; ?>
                                 <div class="col-md-4">
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_users/' . $pplUser['id'])): ?>
-                                        <?= $this->Html->image('ppl_users/'.$pplUser['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                      <?= $this->Html->link($this->Html->image('ppl_users/'.$pplUser['id'], ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id], ['escape' => false]); ?>
                                     <?php else: ?>
-                                        <?= $this->Html->image('profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->link($this->Html->image('profile_img.svg', ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id], ['escape' => false]); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
@@ -76,9 +76,9 @@
                                 <?php endif; ?>
                                 <div class="col-md-4">
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_phds/' . $pplPhd['id'])): ?>
-                                        <?= $this->Html->image('ppl_phds/'.$pplPhd['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->link($this->Html->image('ppl_phds/'.$pplPhd['id'], ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_phds', 'action' => 'view', $pplPhd->id], ['escape' => false]); ?>
                                     <?php else: ?>
-                                        <?= $this->Html->image('profile_img.svg', ['width' => '100px', 'height' => '100px', 'escape' => false]) ?>
+                                        <?= $this->Html->link($this->Html->image('profile_img.svg', ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_phds', 'action' => 'view', $pplPhd->id], ['escape' => false]); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
@@ -151,7 +151,12 @@
     <div class="container">
         <div class="row">
             <?php foreach ($pplVisitors as $key => $pplVisitor): ?>
-                <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, ['link' => $pplVisitor->link]) ?>
+                <?php
+                if (substr($pplVisitor->link, 0, 4) != "http"){
+                  $pplVisitor->link = "http://".$pplVisitor->link;
+                }
+                ?>
+                <?= $this->Html->link($pplVisitor->name . ' ' . $pplVisitor->lastname, $pplVisitor->link) ?>
                 <?php //TODO: Poner los espacios bien, tienen alt+255
                     if ($pplVisitor->doctor){
                         echo ' (PhD)';
@@ -196,7 +201,10 @@
                             echo '). ';
                             echo h($pplPastPhd->thesis_name);
                             echo '. ';
-                            echo $this->Html->link('info', ['link' => $pplPastPhd->thesis_name], ['class' => 'btn btn-info btn-sm']);
+                            if (substr($pplPastPhd->thesis_link, 0, 4) != "http"){
+                              $pplPastPhd->thesis_link = "http://".$pplPastPhd->thesis_link;
+                            }
+                            echo $this->Html->link('info', $pplPastPhd->thesis_link, ['class' => 'btn btn-info btn-sm']);
                         ?>
                     </div>
             </div>

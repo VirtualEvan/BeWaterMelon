@@ -35,7 +35,10 @@
                             echo '). ';
                             echo h($pplPastPhd->thesis_name);
                             echo '. ';
-                            echo $this->Html->link('info', ['link' => $pplPastPhd->thesis_name], ['class' => 'btn btn-info btn-sm']);
+                            if (substr($pplPastPhd->thesis_link, 0, 4) != "http"){
+                              $pplPastPhd->thesis_link = "http://".$pplPastPhd->thesis_link;
+                            }
+                            echo $this->Html->link('info', $pplPastPhd->thesis_link, ['class' => 'btn btn-info btn-sm']);
                         ?>
                     </div>
             </div>
