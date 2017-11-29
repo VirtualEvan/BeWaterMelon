@@ -27,9 +27,15 @@
                             <?= h($proProduct->description) ?>
                         </div>
                         <div class="col-md-3 my-auto">
-                            <!--TODO link en imagen a pagina externa-->
+                            <!--TODO si la url no existe se queda cargando indefinidamente-->
                             <?php //$this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]), ['escape' => false]) ?>
-                            <?= $this->Html->image('pro_products/'.$proProduct['id'], ['width' => '150px', 'height' => '150px', 'escape' => false]) ?>
+                            <?php if (substr($proProduct->link, 0, 4) != "http"){
+                              $proProduct->link = "http://".$proProduct->link;
+                            }
+                            echo $proProduct->link;
+                            ?>
+
+                            <?= $this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['height' => '150px', 'width' => '150px']), $proProduct->link, array('escape' => false)); ?>
                         </div>
                 </div>
             </div>

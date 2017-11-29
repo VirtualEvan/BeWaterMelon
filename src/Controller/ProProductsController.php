@@ -97,8 +97,9 @@ class ProProductsController extends AppController
                 }
                 else{
                     $this->Flash->error(__('Image must be selected.'));
+                    return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->success(__('The pro product has been saved.'));
+                $this->Flash->success(__('The product has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
