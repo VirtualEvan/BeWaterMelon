@@ -26,6 +26,7 @@ class ResProjectParticipant extends Entity
      */
     protected $_accessible = [
         'link' => true,
+        'participant' => true,
         'res_project' => true
     ];
 }

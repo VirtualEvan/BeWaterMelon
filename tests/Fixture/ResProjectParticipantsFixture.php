@@ -39,7 +39,7 @@ class ResProjectParticipantsFixture extends TestFixture
     public $records = [
         [
             'res_project_id' => 1,
-            'participant' => 'f7fb1637-d396-45df-b194-c462335f59db',
+            'participant' => '7409def7-f9b1-4cf3-b485-aa763290ae5c',
             'link' => 'Lorem ipsum dolor sit amet'
         ],
     ];

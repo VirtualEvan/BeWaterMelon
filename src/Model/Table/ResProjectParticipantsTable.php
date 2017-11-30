@@ -34,7 +34,7 @@ class ResProjectParticipantsTable extends Table
 
         $this->setTable('res_project_participants');
         $this->setDisplayField('res_project_id');
-        $this->setPrimaryKey(['res_project_id', 'participant']);
+        $this->setPrimaryKey(['res_project_id','participant']);
 
         $this->belongsTo('ResProjects', [
             'foreignKey' => 'res_project_id',
@@ -51,12 +51,18 @@ class ResProjectParticipantsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
+            ->scalar('res_project_id')
+            ->allowEmpty('res_project_id', 'create');
+
+        $validator
             ->scalar('participant')
-            ->allowEmpty('participant', 'create');
+            ->requirePresence('participant', 'create')
+            ->notEmpty('participant');
 
         $validator
             ->scalar('link')
-            ->allowEmpty('link');
+            ->requirePresence('link', 'create')
+            ->notEmpty('link');
 
         return $validator;
     }

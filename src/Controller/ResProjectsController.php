@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ResProjects Controller
@@ -12,7 +13,35 @@ use App\Controller\AppController;
  */
 class ResProjectsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+
+        // Deny everything else
+        return parent::isAuthorized($user);
+    }
     /**
      * Index method
      *
@@ -20,10 +49,17 @@ class ResProjectsController extends AppController
      */
     public function index()
     {
-        $resProjects = $this->paginate($this->ResProjects);
+        $resProjects = $this->ResProjects->find('all')->contain(['ResProjectParticipants']);
 
         $this->set(compact('resProjects'));
         $this->set('_serialize', ['resProjects']);
+
+        $related = array(
+            [ 'name' => __('Projects'), 'controller' => 'res_projects'],
+            [ 'name' => __('Contracts'), 'controller' => 'res_contracts'],
+            [ 'name' => __('Patents'), 'controller' => 'res_patents'],
+        );
+        $this->set(compact('related'));
     }
 
     /**
@@ -51,11 +87,18 @@ class ResProjectsController extends AppController
     public function add()
     {
         $resProject = $this->ResProjects->newEntity();
+        $this->loadModel('ResProjectParticipants');
+        //$resProject->resProjectParticipants =  $this->ResProjectParticipants->newEntity();
+        //var_dump($this->request->getData());
+        $a = ['link' => ['aaa'], 'participant' => ['tds']];
         if ($this->request->is('post')) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
-            if ($this->ResProjects->save($resProject)) {
+            $resProject->resProjectParticipants = $this->ResProjectParticipants->newEntity($a);
+            //$resProject->dirty('resProjectParticipants', true);
+            //var_dump($resProject->resProjectParticipants);//die;
+            //$resProject->resProjectParticipants = $this->ResProjectParticipants->patchEntity($resProjectParticipants, $this->request->getData());
+            if ($this->ResProjects->save($resProject->resProjectParticipants)) {
                 $this->Flash->success(__('The res project has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The res project could not be saved. Please, try again.'));
