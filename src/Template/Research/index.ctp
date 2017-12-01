@@ -75,7 +75,37 @@
                         </div>
                     <?php endif; ?>
                     <div class="col-md-11 my-auto p-0">
-
+                        <table>
+                            <th>
+                                <?= h($resContract->name) ?>
+                            </th>
+                            <tr>
+                                <td><?= __('Code: ') ?></td>
+                                <td><?= h($resContract->code) ?></td>
+                            </tr>
+                            <tr>
+                                <td><?= __('Participants: ') ?> </td>
+                                <td>
+                                <?php foreach ($resContract->res_contract_participants as $key => $contractParticipants): ?>
+                                    <?= h($contractParticipants->participant) ?>
+                                    <?= h($contractParticipants->link) ?>
+                                    <?php
+                                        if($key != sizeof($contractParticipants)-1){
+                                            echo ' and ';
+                                        }
+                                    ?>
+                                <?php endforeach; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?= __('Scheduling: ') ?> </td>
+                                <td><?= h($resContract->scheduling) ?> </td>
+                            </tr>
+                            <tr>
+                                <td><?= __('Founded by: ') ?> </td>
+                                <td><?= h($resContract->sponsor_link) ?> </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
