@@ -6,7 +6,7 @@
 ?>
 <div class="container">
     <div class="row">
-        <?= $this->Form->create($resPatent, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
+        <?= $this->Form->create($resPatent, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'edit']) ?>
         <fieldset>
             <legend><?= __('Edit Patent') ?></legend>
             <?php
