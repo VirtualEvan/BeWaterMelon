@@ -1,0 +1,32 @@
+{
+  "/res-patent/add": {
+    "add": {
+        "name":{
+            "": false,
+            "Nombre de la patente": true,
+            "a": false,
+            "12143": true
+
+        },
+        "code":{
+            "": false,
+            "P200400578": true,
+            "1P2345": false,
+            "abcd": false
+        },
+        "date":{
+            "": false,
+            "2016": true,
+            "abcd": false,
+            "23": false,
+            "22222": false
+        },
+        "link":{
+            "": true,
+            "sadasdsad": false,
+            "http://www.google.com": true,
+            "google.com": true
+        }
+    }
+  }
+}

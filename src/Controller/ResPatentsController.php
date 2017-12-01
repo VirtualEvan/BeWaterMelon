@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * ResPatents Controller
  *
@@ -18,6 +18,36 @@ class ResPatentsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+     public function beforeFilter(Event $event)
+     {
+         parent::beforeFilter($event);
+         // Allow users to register and logout.
+         // You should not add the "login" action to allow list. Doing so would
+         // cause problems with normal functioning of AuthComponent.
+         $this->Auth->allow(['index', 'view', 'logout']);
+     }
+
+     public function isAuthorized($user)
+     {
+         // Admins can manage users
+         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+             if ($user['rol'] == 'admin') {
+                 return true;
+             }
+         }
+
+         // Registered users can edit their own info
+         if ($this->request->action === 'edit') {
+             $userId = (int)$this->request->params['pass'][0];
+             if ($userId == $user['id']) {
+                 return true;
+             }
+         }
+
+         // Deny everything else
+         return parent::isAuthorized($user);
+     }
+
     public function index()
     {
         $resPatents = $this->paginate($this->ResPatents);
@@ -54,11 +84,11 @@ class ResPatentsController extends AppController
         if ($this->request->is('post')) {
             $resPatent = $this->ResPatents->patchEntity($resPatent, $this->request->getData());
             if ($this->ResPatents->save($resPatent)) {
-                $this->Flash->success(__('The res patent has been saved.'));
+                $this->Flash->success(__('The patent has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res patent could not be saved. Please, try again.'));
+            $this->Flash->error(__('The patent could not be saved. Please, try again.'));
         }
         $this->set(compact('resPatent'));
         $this->set('_serialize', ['resPatent']);

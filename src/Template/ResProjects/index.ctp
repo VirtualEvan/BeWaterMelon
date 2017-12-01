@@ -25,7 +25,7 @@
                     <?php endif; ?>
                     <table>
                         <th>
-                            <?= __('Name') ?>: <?= h($resProject->name) ?>
+                            <?= h($resProject->name) ?>
                         </th>
                         <tr>
                             <td><?= __('Code: ') ?></td>
