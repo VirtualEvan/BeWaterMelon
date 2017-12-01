@@ -33,7 +33,7 @@ class ResContractsTable extends Table
         parent::initialize($config);
 
         $this->setTable('res_contracts');
-        $this->setDisplayField('id');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->hasMany('ResContractParticipants', [
@@ -52,6 +52,11 @@ class ResContractsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->scalar('name')
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
 
         $validator
             ->scalar('code')
