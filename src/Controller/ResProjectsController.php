@@ -88,16 +88,9 @@ class ResProjectsController extends AppController
     {
         $resProject = $this->ResProjects->newEntity();
         $this->loadModel('ResProjectParticipants');
-        //$resProject->resProjectParticipants =  $this->ResProjectParticipants->newEntity();
-        //var_dump($this->request->getData());
-        $a = ['link' => ['aaa'], 'participant' => ['tds']];
         if ($this->request->is('post')) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
-            $resProject->resProjectParticipants = $this->ResProjectParticipants->newEntity($a);
-            //$resProject->dirty('resProjectParticipants', true);
-            //var_dump($resProject->resProjectParticipants);//die;
-            //$resProject->resProjectParticipants = $this->ResProjectParticipants->patchEntity($resProjectParticipants, $this->request->getData());
-            if ($this->ResProjects->save($resProject->resProjectParticipants)) {
+            if ($this->ResProjects->save($resProject)) {
                 $this->Flash->success(__('The res project has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -117,10 +110,11 @@ class ResProjectsController extends AppController
     public function edit($id = null)
     {
         $resProject = $this->ResProjects->get($id, [
-            'contain' => []
+            'contain' => ['ResProjectParticipants']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
+            $resProject->dirty('res_project_participants', true);
             if ($this->ResProjects->save($resProject)) {
                 $this->Flash->success(__('The res project has been saved.'));
 

@@ -424,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_project_participants` (
   CONSTRAINT `project_participant`
     FOREIGN KEY (`res_project_id`)
     REFERENCES `BeWaterMelon`.`res_projects` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 

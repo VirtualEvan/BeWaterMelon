@@ -4,31 +4,21 @@
  * @var \App\Model\Entity\ResProject $resProject
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $resProject->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $resProject->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Res Projects'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Res Project Participants'), ['controller' => 'ResProjectParticipants', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Res Project Participant'), ['controller' => 'ResProjectParticipants', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="resProjects form large-9 medium-8 columns content">
-    <?= $this->Form->create($resProject) ?>
-    <fieldset>
-        <legend><?= __('Edit Res Project') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('code');
-            echo $this->Form->control('scheduling');
-            echo $this->Form->control('sponsor_link');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="container">
+    <div class="row">
+        <?= $this->Form->create($resProject, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'edit']) ?>
+        <fieldset>
+            <legend><?= __('Edit Project') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['class' => 'form-control']);
+                echo $this->Form->control('code', ['class' => 'form-control']);
+                echo $this->Form->control('res_project_participants.0.participant', ['class' => 'form-control', 'type' => 'text']);
+                echo $this->Form->control('res_project_participants.0.link', ['class' => 'form-control']);
+                echo $this->Form->control('scheduling', ['class' => 'form-control']);
+                echo $this->Form->control('sponsor_link', ['class' => 'form-control']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>

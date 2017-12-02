@@ -12,8 +12,8 @@
             <?php
                 echo $this->Form->control('name', ['class' => 'form-control']);
                 echo $this->Form->control('code', ['class' => 'form-control']);
-                echo $this->Form->control('ResProjectParticipants.0.participant', ['class' => 'form-control']);
-                echo $this->Form->control('ResProjectParticipants.0.link', ['class' => 'form-control']);
+                echo $this->Form->control('res_project_participants.0.participant', ['class' => 'form-control', 'type' => 'text']);
+                echo $this->Form->control('res_project_participants.0.link', ['class' => 'form-control']);
                 echo $this->Form->control('scheduling', ['class' => 'form-control']);
                 echo $this->Form->control('sponsor_link', ['class' => 'form-control']);
             ?>

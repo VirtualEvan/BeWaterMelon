@@ -34,9 +34,10 @@ class ResProjectParticipantsTable extends Table
 
         $this->setTable('res_project_participants');
         $this->setDisplayField('res_project_id');
-        $this->setPrimaryKey(['res_project_id','participant']);
+        $this->setPrimaryKey(['res_project_id', 'participant']);
 
         $this->belongsTo('ResProjects', [
+            'property_name' => 'res_project_participants',
             'foreignKey' => 'res_project_id',
             'joinType' => 'INNER'
         ]);
