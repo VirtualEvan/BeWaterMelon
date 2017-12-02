@@ -87,7 +87,6 @@ class ResProjectsController extends AppController
     public function add()
     {
         $resProject = $this->ResProjects->newEntity();
-        $this->loadModel('ResProjectParticipants');
         if ($this->request->is('post')) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
             if ($this->ResProjects->save($resProject)) {

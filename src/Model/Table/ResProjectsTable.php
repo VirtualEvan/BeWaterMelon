@@ -37,7 +37,8 @@ class ResProjectsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('ResProjectParticipants', [
-            'foreignKey' => 'res_project_id'
+            'foreignKey' => 'res_project_id',
+            'saveStrategy' => 'replace'
         ]);
     }
 
