@@ -3,51 +3,44 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\ResPatent[]|\Cake\Collection\CollectionInterface $resPatents
  */
+  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Res Patent'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="resPatents index large-9 medium-8 columns content">
-    <h3><?= __('Res Patents') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('code') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('year') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('link') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($resPatents as $resPatent): ?>
-            <tr>
-                <td><?= $this->Number->format($resPatent->id) ?></td>
-                <td><?= h($resPatent->name) ?></td>
-                <td><?= h($resPatent->code) ?></td>
-                <td><?= h($resPatent->year) ?></td>
-                <td><?= h($resPatent->link) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $resPatent->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $resPatent->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $resPatent->id], ['confirm' => __('Are you sure you want to delete # {0}?', $resPatent->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+<div class='container part'>
+    <h4> <?= __('Patents') ?> </h4>
+    <?php
+    if($currentuser['rol'] == 'admin'){
+        echo $this->Html->link(null, ['controller' => 'res_patents', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+    }
+    ?>
+    <hr/>
+    <div class="row">
+        <?php foreach ($resPatents as $resPatent): ?>
+            <div class="container">
+                <div class="row">
+                    <?php if($currentuser['rol'] == 'admin'): ?>
+                        <div class="col-md-1">
+                                <?= $this->Html->link(null, ['controller' => 'res_patents', 'action' => 'edit', $resPatent->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                <?= $this->Form->postLink(null, ['controller' => 'res_patents', 'action' => 'delete', $resPatent->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="col-md-11 my-auto p-0">
+                        <table>
+                            <th>
+                                <?= h($resPatent->name) ?>
+                            </th>
+                            <tr>
+                                <td><?= __('Code: ') ?></td>
+                                <!-- TODO link doesn't work-->
+                                <td><?= $this->Html->link(h($resPatent->code), $resPatent->link) ?> </td>
+                            </tr>
+                            <tr>
+                                <td><?= __('Year: ') ?> </td>
+                                <td><?= h($resPatent->year) ?> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

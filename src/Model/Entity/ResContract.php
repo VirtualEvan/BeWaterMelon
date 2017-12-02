@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * ResContract Entity
  *
  * @property int $id
+ * @property string $name
  * @property string $code
  * @property string $scheduling
  * @property string $sponsor_link
@@ -26,6 +27,7 @@ class ResContract extends Entity
      * @var array
      */
     protected $_accessible = [
+        'name' => true,
         'code' => true,
         'scheduling' => true,
         'sponsor_link' => true,

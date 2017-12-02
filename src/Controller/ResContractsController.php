@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ResContracts Controller
@@ -12,6 +13,35 @@ use App\Controller\AppController;
  */
 class ResContractsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+
+        // Deny everything else
+        return parent::isAuthorized($user);
+    }
 
     /**
      * Index method
@@ -20,10 +50,17 @@ class ResContractsController extends AppController
      */
     public function index()
     {
-        $resContracts = $this->paginate($this->ResContracts);
+        $resContracts = $this->ResContracts->find('all')->contain(['ResContractParticipants']);
 
         $this->set(compact('resContracts'));
         $this->set('_serialize', ['resContracts']);
+
+        $related = array(
+            [ 'name' => __('Projects'), 'controller' => 'res_projects'],
+            [ 'name' => __('Contracts'), 'controller' => 'res_contracts'],
+            [ 'name' => __('Patents'), 'controller' => 'res_patents'],
+        );
+        $this->set(compact('related'));
     }
 
     /**

@@ -37,7 +37,7 @@ class ResearchController extends AppController
 
         //Contracts
         $this->loadModel('ResContracts');
-        $resContracts = $this->paginate($this->ResContracts);
+        $resContracts = $this->ResContracts->find('all')->contain(['ResContractParticipants']);
         $this->set(compact('resContracts'));
         $this->set('_serialize', ['resContracts']);
 

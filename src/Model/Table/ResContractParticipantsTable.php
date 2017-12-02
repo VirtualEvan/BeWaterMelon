@@ -51,12 +51,18 @@ class ResContractParticipantsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
+            ->scalar('res_contract_id')
+            ->allowEmpty('res_contract_id', 'create');
+
+        $validator
             ->scalar('participant')
-            ->allowEmpty('participant', 'create');
+            ->requirePresence('participant', 'create')
+            ->notEmpty('participant');
 
         $validator
             ->scalar('link')
-            ->allowEmpty('link');
+            ->requirePresence('link', 'create')
+            ->notEmpty('link');
 
         return $validator;
     }

@@ -246,6 +246,7 @@ DROP TABLE IF EXISTS `BeWaterMelon`.`res_contracts` ;
 
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_contracts` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(200) NOT NULL,
   `code` VARCHAR(45) NOT NULL,
   `scheduling` VARCHAR(45) NOT NULL,
   `sponsor_link` VARCHAR(500) NULL,
