@@ -42,8 +42,8 @@
         <?= $this->element('header') ?>
 
         <article class="col-md-9">
-            <p><?= $this->Html->link(__(' Back'), $this->request->referer(), ['class' => 'btn btn-info btn-sm fa fa-arrow-left']) ?></p>
-            
+            <p><?= $this->Form->button(__(' Back'), ['class' => 'btn btn-info btn-sm fa fa-arrow-left', 'onclick' => 'history.back()']) ?></p>
+
             <?= $this->Flash->render() ?>
 
             <?= $this->fetch('content') ?>
