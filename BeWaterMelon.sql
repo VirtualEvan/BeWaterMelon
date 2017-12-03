@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_contracts` (
   `name` VARCHAR(200) NOT NULL,
   `code` VARCHAR(45) NOT NULL,
   `scheduling` VARCHAR(45) NOT NULL,
-  `sponsor_link` VARCHAR(500) NULL,
+  `sponsor_link` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -461,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_contract_participants` (
   CONSTRAINT `contract_participant`
     FOREIGN KEY (`res_contract_id`)
     REFERENCES `BeWaterMelon`.`res_contracts` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

@@ -90,10 +90,10 @@ class ResProjectsController extends AppController
         if ($this->request->is('post')) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
             if ($this->ResProjects->save($resProject)) {
-                $this->Flash->success(__('The res project has been saved.'));
+                $this->Flash->success(__('The project has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res project could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
         $this->set(compact('resProject'));
         $this->set('_serialize', ['resProject']);
@@ -115,11 +115,11 @@ class ResProjectsController extends AppController
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
             $resProject->dirty('res_project_participants', true);
             if ($this->ResProjects->save($resProject)) {
-                $this->Flash->success(__('The res project has been saved.'));
+                $this->Flash->success(__('The project has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res project could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
         $this->set(compact('resProject'));
         $this->set('_serialize', ['resProject']);
@@ -137,9 +137,9 @@ class ResProjectsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resProject = $this->ResProjects->get($id);
         if ($this->ResProjects->delete($resProject)) {
-            $this->Flash->success(__('The res project has been deleted.'));
+            $this->Flash->success(__('The project has been deleted.'));
         } else {
-            $this->Flash->error(__('The res project could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The project could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

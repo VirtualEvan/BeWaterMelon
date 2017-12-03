@@ -91,11 +91,11 @@ class ResContractsController extends AppController
         if ($this->request->is('post')) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
             if ($this->ResContracts->save($resContract)) {
-                $this->Flash->success(__('The res contract has been saved.'));
+                $this->Flash->success(__('The contract has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res contract could not be saved. Please, try again.'));
+            $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
         $this->set(compact('resContract'));
         $this->set('_serialize', ['resContract']);
@@ -111,16 +111,16 @@ class ResContractsController extends AppController
     public function edit($id = null)
     {
         $resContract = $this->ResContracts->get($id, [
-            'contain' => []
+            'contain' => ['ResContractParticipants']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
             if ($this->ResContracts->save($resContract)) {
-                $this->Flash->success(__('The res contract has been saved.'));
+                $this->Flash->success(__('The contract has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res contract could not be saved. Please, try again.'));
+            $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
         $this->set(compact('resContract'));
         $this->set('_serialize', ['resContract']);
@@ -138,9 +138,9 @@ class ResContractsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resContract = $this->ResContracts->get($id);
         if ($this->ResContracts->delete($resContract)) {
-            $this->Flash->success(__('The res contract has been deleted.'));
+            $this->Flash->success(__('The contract has been deleted.'));
         } else {
-            $this->Flash->error(__('The res contract could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The contract could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -37,6 +37,7 @@ class ResContractParticipantsTable extends Table
         $this->setPrimaryKey(['res_contract_id', 'participant']);
 
         $this->belongsTo('ResContracts', [
+            'property_name' => 'res_contract_participants',
             'foreignKey' => 'res_contract_id',
             'joinType' => 'INNER'
         ]);
