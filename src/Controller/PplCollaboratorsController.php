@@ -99,7 +99,7 @@ class PplCollaboratorsController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl collaborator could not be saved. Please, try again.'));
+            $this->Flash->error(__('The collaborator could not be saved. Please, try again.'));
         }
         $this->set(compact('pplCollaborator'));
         $this->set('_serialize', ['pplCollaborator']);
@@ -121,11 +121,11 @@ class PplCollaboratorsController extends AppController
 
             $pplCollaborator = $this->PplCollaborators->patchEntity($pplCollaborator, $this->request->getData());
             if ($this->PplCollaborators->save($pplCollaborator)) {
-                $this->Flash->success(__('The ppl collaborator has been saved.'));
+                $this->Flash->success(__('The collaborator has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl collaborator could not be saved. Please, try again.'));
+            $this->Flash->error(__('The collaborator could not be saved. Please, try again.'));
         }
 
         $pplCollaborators = $this->paginate($this->PplCollaborators);
@@ -157,9 +157,9 @@ class PplCollaboratorsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplCollaborator = $this->PplCollaborators->get($id);
         if ($this->PplCollaborators->delete($pplCollaborator)) {
-            $this->Flash->success(__('The ppl collaborator has been deleted.'));
+            $this->Flash->success(__('The collaborator has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl collaborator could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The collaborator could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

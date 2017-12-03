@@ -103,7 +103,7 @@ class ProProductsController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pro product could not be saved. Please, try again.'));
+            $this->Flash->error(__('Th product could not be saved. Please, try again.'));
         }
         $this->set(compact('proProduct'));
         $this->set('_serialize', ['proProduct']);
@@ -143,11 +143,11 @@ class ProProductsController extends AppController
                 else {
                   $this->Flash->error(__('Invalid image format.'));
                 }
-                $this->Flash->success(__('The pro product has been saved.'));
+                $this->Flash->success(__('The product has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pro product could not be saved. Please, try again.'));
+            $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
         $this->set(compact('proProduct'));
         $this->set('_serialize', ['proProduct']);
@@ -169,9 +169,9 @@ class ProProductsController extends AppController
             {
               unlink(WWW_ROOT . 'img/pro_products/' . $proProduct->id);
             }
-            $this->Flash->success(__('The pro product has been deleted.'));
+            $this->Flash->success(__('The product has been deleted.'));
         } else {
-            $this->Flash->error(__('The pro product could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The product could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

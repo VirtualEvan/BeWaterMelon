@@ -47,12 +47,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><?= __('Scheduling: ') ?> </td>
-                                <td><?= h($resContract->scheduling) ?> </td>
+                                <td> <?= __('Scheduling: ') ?> </td>
+                                <td> <?= h($resContract->scheduling) ?> </td>
                             </tr>
                             <tr>
-                                <td><?= __('Founded by: ') ?> </td>
-                                <td><?= h($resContract->sponsor_link) ?> </td>
+                                <td> <?= __('Founded by: ') ?> </td>
+                                <td> <?= $this->Html->link($this->Html->image('res_contracts/'.$resContract['id'], ['height' => '50px', 'width' => '50px']), $resContract->sponsor_link, ['escape' => false]); ?> </td>
+
                             </tr>
                         </table>
                     </div>

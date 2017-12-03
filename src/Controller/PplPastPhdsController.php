@@ -87,11 +87,11 @@ class PplPastPhdsController extends AppController
         if ($this->request->is('post')) {
             $pplPastPhd = $this->PplPastPhds->patchEntity($pplPastPhd, $this->request->getData());
             if ($this->PplPastPhds->save($pplPastPhd)) {
-                $this->Flash->success(__('The ppl past phd has been saved.'));
+                $this->Flash->success(__('The past phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl past phd could not be saved. Please, try again.'));
+            $this->Flash->error(__('The past phd could not be saved. Please, try again.'));
         }
         $this->set(compact('pplPastPhd'));
         $this->set('_serialize', ['pplPastPhd']);
@@ -112,11 +112,11 @@ class PplPastPhdsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pplPastPhd = $this->PplPastPhds->patchEntity($pplPastPhd, $this->request->getData());
             if ($this->PplPastPhds->save($pplPastPhd)) {
-                $this->Flash->success(__('The ppl past phd has been saved.'));
+                $this->Flash->success(__('The past phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl past phd could not be saved. Please, try again.'));
+            $this->Flash->error(__('The past phd could not be saved. Please, try again.'));
         }
         $this->set(compact('pplPastPhd'));
         $this->set('_serialize', ['pplPastPhd']);
@@ -134,9 +134,9 @@ class PplPastPhdsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplPastPhd = $this->PplPastPhds->get($id);
         if ($this->PplPastPhds->delete($pplPastPhd)) {
-            $this->Flash->success(__('The ppl past phd has been deleted.'));
+            $this->Flash->success(__('The past phd has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl past phd could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The past phd could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

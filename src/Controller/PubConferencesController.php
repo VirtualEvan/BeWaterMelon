@@ -97,11 +97,11 @@ class PubConferencesController extends AppController
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
             $pubConference->author = implode(',', $this->request->getData()['author']);
             if ($this->PubConferences->save($pubConference)) {
-                $this->Flash->success(__('The pub conference has been saved.'));
+                $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
         }
         $this->set(compact('pubConference'));
         $this->set('_serialize', ['pubConference']);
@@ -129,11 +129,11 @@ class PubConferencesController extends AppController
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
             $pubConference->author = implode(',', $this->request->getData()['author']);
             if ($this->PubConferences->save($pubConference)) {
-                $this->Flash->success(__('The pub conference has been saved.'));
+                $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
         }
         $this->set(compact('pubConference'));
         $this->set('_serialize', ['pubConference']);
@@ -157,9 +157,9 @@ class PubConferencesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pubConference = $this->PubConferences->get($id);
         if ($this->PubConferences->delete($pubConference)) {
-            $this->Flash->success(__('The pub conference has been deleted.'));
+            $this->Flash->success(__('The conference has been deleted.'));
         } else {
-            $this->Flash->error(__('The pub conference could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The conference could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

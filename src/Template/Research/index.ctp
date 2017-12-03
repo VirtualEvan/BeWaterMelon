@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <td><?= __('Founded by: ') ?> </td>
-                                <td><?= h($resProject->sponsor_link) ?> </td>
+                                <td><?= $this->Html->link($this->Html->image('res_projects/'.$resProject['id'], ['height' => '50px', 'width' => '50px']), $resProject->sponsor_link, ['escape' => false]); ?> </td>
                             </tr>
                         </table>
                     </div>
@@ -103,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td><?= __('Founded by: ') ?> </td>
-                                <td><?= h($resContract->sponsor_link) ?> </td>
+                                <td><?= $this->Html->link($this->Html->image('res_contracts/'.$resContract['id'], ['height' => '50px', 'width' => '50px']), $resContract->sponsor_link, ['escape' => false]); ?> </td>
                             </tr>
                         </table>
                     </div>

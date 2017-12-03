@@ -95,11 +95,11 @@ class PplVisitorsController extends AppController
         if ($this->request->is('post')) {
             $pplVisitor = $this->PplVisitors->patchEntity($pplVisitor, $this->request->getData());
             if ($this->PplVisitors->save($pplVisitor)) {
-                $this->Flash->success(__('The ppl visitor has been saved.'));
+                $this->Flash->success(__('The visitor has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl visitor could not be saved. Please, try again.'));
+            $this->Flash->error(__('The visitor could not be saved. Please, try again.'));
         }
         $this->set(compact('pplVisitor'));
         $this->set('_serialize', ['pplVisitor']);
@@ -120,11 +120,11 @@ class PplVisitorsController extends AppController
             ]);
             $pplVisitor = $this->PplVisitors->patchEntity($pplVisitor, $this->request->getData());
             if ($this->PplVisitors->save($pplVisitor)) {
-                $this->Flash->success(__('The ppl visitor has been saved.'));
+                $this->Flash->success(__('The visitor has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl visitor could not be saved. Please, try again.'));
+            $this->Flash->error(__('The visitor could not be saved. Please, try again.'));
         }
         $pplVisitors = $this->paginate($this->PplVisitors);
         $this->set(compact('pplVisitors'));
@@ -155,9 +155,9 @@ class PplVisitorsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplVisitor = $this->PplVisitors->get($id);
         if ($this->PplVisitors->delete($pplVisitor)) {
-            $this->Flash->success(__('The ppl visitor has been deleted.'));
+            $this->Flash->success(__('The visitor has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl visitor could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The visitor could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

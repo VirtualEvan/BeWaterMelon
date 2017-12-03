@@ -87,11 +87,11 @@ class PplPostdocsController extends AppController
         if ($this->request->is('post')) {
             $pplPostdoc = $this->PplPostdocs->patchEntity($pplPostdoc, $this->request->getData());
             if ($this->PplPostdocs->save($pplPostdoc)) {
-                $this->Flash->success(__('The ppl postdoc has been saved.'));
+                $this->Flash->success(__('The postdoc has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl postdoc could not be saved. Please, try again.'));
+            $this->Flash->error(__('The postdoc could not be saved. Please, try again.'));
         }
         $this->set(compact('pplPostdoc'));
         $this->set('_serialize', ['pplPostdoc']);
@@ -112,11 +112,11 @@ class PplPostdocsController extends AppController
             ]);
             $pplPostdoc = $this->PplPostdocs->patchEntity($pplPostdoc, $this->request->getData());
             if ($this->PplPostdocs->save($pplPostdoc)) {
-                $this->Flash->success(__('The ppl postdoc has been saved.'));
+                $this->Flash->success(__('The postdoc has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl postdoc could not be saved. Please, try again.'));
+            $this->Flash->error(__('The postdoc could not be saved. Please, try again.'));
         }
 
         $pplPostdocs = $this->paginate($this->PplPostdocs);
@@ -148,9 +148,9 @@ class PplPostdocsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pplPostdoc = $this->PplPostdocs->get($id);
         if ($this->PplPostdocs->delete($pplPostdoc)) {
-            $this->Flash->success(__('The ppl postdoc has been deleted.'));
+            $this->Flash->success(__('The postdoc has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl postdoc could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The postdoc could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

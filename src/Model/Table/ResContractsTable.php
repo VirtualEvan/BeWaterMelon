@@ -37,7 +37,8 @@ class ResContractsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('ResContractParticipants', [
-            'foreignKey' => 'res_contract_id'
+            'foreignKey' => 'res_contract_id',
+            'saveStrategy' => 'replace'
         ]);
     }
 
@@ -69,8 +70,9 @@ class ResContractsTable extends Table
             ->notEmpty('scheduling');
 
         $validator
-            ->scalar('sponsor_link')
-            ->allowEmpty('sponsor_link');
+        ->scalar('sponsor_link')
+        ->requirePresence('sponsor_link', 'create')
+        ->notEmpty('sponsor_link');
 
         return $validator;
     }
