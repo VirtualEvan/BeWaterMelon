@@ -91,6 +91,26 @@ class ResContractsController extends AppController
         if ($this->request->is('post')) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
             if ($this->ResContracts->save($resContract)) {
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $resContract->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/res_contracts/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                else{
+                    $this->Flash->error(__('Image must be selected.'));
+                    return $this->redirect(['action' => 'index']);
+                }
                 $this->Flash->success(__('The contract has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -116,6 +136,26 @@ class ResContractsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
             if ($this->ResContracts->save($resContract)) {
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $resContract->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/res_contracts/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                else{
+                    $this->Flash->error(__('Image must be selected.'));
+                    return $this->redirect(['action' => 'index']);
+                }
                 $this->Flash->success(__('The contract has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -138,6 +178,10 @@ class ResContractsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resContract = $this->ResContracts->get($id);
         if ($this->ResContracts->delete($resContract)) {
+            if(file_exists(WWW_ROOT . 'img/res_contracts/' . $resContract->id))
+            {
+              unlink(WWW_ROOT . 'img/res_contracts/' . $resContract->id);
+            }
             $this->Flash->success(__('The contract has been deleted.'));
         } else {
             $this->Flash->error(__('The contract could not be deleted. Please, try again.'));

@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td><?= __('Founded by: ') ?> </td>
-                            <td><?= h($resProject->sponsor_link) ?> </td>
+                            <td> <?= $this->Html->link($this->Html->image('res_projects/'.$resProject['id'], ['height' => '50px', 'width' => '50px']), $resProject->sponsor_link, ['escape' => false]); ?> </td>
                         </tr>
                     </table>
                 </div>
