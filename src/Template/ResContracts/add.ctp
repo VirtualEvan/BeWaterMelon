@@ -16,7 +16,7 @@
                 echo $this->Form->control('res_contract_participants.0.link', ['class' => 'form-control']);
                 echo $this->Form->control('scheduling', ['class' => 'form-control']);
                 echo $this->Form->control('sponsor_link', ['class' => 'form-control']);
-                echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
+                echo $this->Form->input('upload', ['label' => __('Image'), 'class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>

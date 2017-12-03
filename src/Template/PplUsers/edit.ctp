@@ -20,7 +20,7 @@
                 echo $this->Form->control('password', ['class' => 'form-control', 'pattern' => '.{6,40}']);
                 echo $this->Form->control('fax', ['class' => 'form-control', 'pattern' => '[0-9]{9}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
-                echo $this->Form->input('upload', ['class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data', 'type' => 'file', 'enctype' => 'multipart/form-data']);
+                echo $this->Form->input('upload', ['label' => __('Image'), 'class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
