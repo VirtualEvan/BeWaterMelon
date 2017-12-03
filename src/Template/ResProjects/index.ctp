@@ -24,9 +24,11 @@
                         </div>
                     <?php endif; ?>
                     <table>
-                        <th>
-                            <?= h($resProject->name) ?>
-                        </th>
+                        <tr>
+                            <th colspan="2">
+                                <?= h($resProject->name) ?>
+                            </th>
+                        </tr>
                         <tr>
                             <td><?= __('Code: ') ?></td>
                             <td><?= h($resProject->code) ?></td>
@@ -34,9 +36,12 @@
                         <tr>
                             <td><?= __('Participants: ') ?> </td>
                             <td>
-                            <?php foreach ($resProject->res_project_participants as $key => $projectParticipants): ?>
-                                <?= h($projectParticipants->participant) ?>
-                                <?= h($projectParticipants->link) ?>
+                            <?php foreach ($resProject->res_project_participants as $key => $projectParticipants):
+                                if (substr($projectParticipants->link, 0, 4) != "http"){
+                                  $projectParticipants->link = "http://".$projectParticipants->link;
+                                }
+                                ?>
+                                <?= $this->Html->link($projectParticipants->participant, $projectParticipants->link) ?>
                                 <?php
                                     if($key != sizeof($projectParticipants)-1){
                                         echo ' and ';

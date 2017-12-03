@@ -108,7 +108,7 @@ class ResProjectsController extends AppController
                 }
                 else{
                     $this->Flash->error(__('Image must be selected.'));
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect($this->referer());
                 }
                 $this->Flash->success(__('The project has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -133,6 +133,7 @@ class ResProjectsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
+            //debug($this->request->getData());die;
             $resProject->dirty('res_project_participants', true);
             if ($this->ResProjects->save($resProject)) {
                 if (!empty($this->request->data['upload']['name'])) {
@@ -153,7 +154,7 @@ class ResProjectsController extends AppController
                 }
                 else{
                     $this->Flash->error(__('Image must be selected.'));
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect($this->referer());
                 }
                 $this->Flash->success(__('The project has been saved.'));
 
