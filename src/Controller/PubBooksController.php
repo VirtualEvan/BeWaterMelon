@@ -97,11 +97,11 @@ class PubBooksController extends AppController
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
             $pubBook->author = implode(',', $this->request->getData()['author']);
             if ($this->PubBooks->save($pubBook)) {
-                $this->Flash->success(__('The pub book has been saved.'));
+                $this->Flash->success(__('The book has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub book could not be saved. Please, try again.'));
+            $this->Flash->error(__('The book could not be saved. Please, try again.'));
         }
         $this->set(compact('pubBook'));
         $this->set('_serialize', ['pubBook']);
@@ -129,11 +129,11 @@ class PubBooksController extends AppController
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
             $pubBook->author = implode(',', $this->request->getData()['author']);
             if ($this->PubBooks->save($pubBook)) {
-                $this->Flash->success(__('The pub book has been saved.'));
+                $this->Flash->success(__('The book has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub book could not be saved. Please, try again.'));
+            $this->Flash->error(__('The book could not be saved. Please, try again.'));
         }
         $this->set(compact('pubBook'));
         $this->set('_serialize', ['pubBook']);
@@ -157,9 +157,9 @@ class PubBooksController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pubBook = $this->PubBooks->get($id);
         if ($this->PubBooks->delete($pubBook)) {
-            $this->Flash->success(__('The pub book has been deleted.'));
+            $this->Flash->success(__('The book has been deleted.'));
         } else {
-            $this->Flash->error(__('The pub book could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The book could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -99,11 +99,11 @@ class PubJournalsController extends AppController
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
             $pubJournal->author = implode(',', $this->request->getData()['author']);
             if ($this->PubJournals->save($pubJournal)) {
-                $this->Flash->success(__('The pub journal has been saved.'));
+                $this->Flash->success(__('The journal has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub journal could not be saved. Please, try again.'));
+            $this->Flash->error(__('The journal could not be saved. Please, try again.'));
         }
         $this->set(compact('pubJournal'));
         $this->set('_serialize', ['pubJournal']);
@@ -131,11 +131,11 @@ class PubJournalsController extends AppController
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
             $pubJournal->author = implode(',', $this->request->getData()['author']);
             if ($this->PubJournals->save($pubJournal)) {
-                $this->Flash->success(__('The pub journal has been saved.'));
+                $this->Flash->success(__('The journal has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pub journal could not be saved. Please, try again.'));
+            $this->Flash->error(__('The journal could not be saved. Please, try again.'));
         }
         $this->set(compact('pubJournal'));
         $this->set('_serialize', ['pubJournal']);
@@ -159,9 +159,9 @@ class PubJournalsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pubJournal = $this->PubJournals->get($id);
         if ($this->PubJournals->delete($pubJournal)) {
-            $this->Flash->success(__('The pub journal has been deleted.'));
+            $this->Flash->success(__('The journal has been deleted.'));
         } else {
-            $this->Flash->error(__('The pub journal could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The journal could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

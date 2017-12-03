@@ -54,11 +54,11 @@ class PrePressesController extends AppController
         if ($this->request->is('post')) {
             $prePress = $this->PrePresses->patchEntity($prePress, $this->request->getData());
             if ($this->PrePresses->save($prePress)) {
-                $this->Flash->success(__('The pre press has been saved.'));
+                $this->Flash->success(__('The press has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pre press could not be saved. Please, try again.'));
+            $this->Flash->error(__('The press could not be saved. Please, try again.'));
         }
         $this->set(compact('prePress'));
         $this->set('_serialize', ['prePress']);
@@ -79,11 +79,11 @@ class PrePressesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $prePress = $this->PrePresses->patchEntity($prePress, $this->request->getData());
             if ($this->PrePresses->save($prePress)) {
-                $this->Flash->success(__('The pre press has been saved.'));
+                $this->Flash->success(__('The press has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pre press could not be saved. Please, try again.'));
+            $this->Flash->error(__('The press could not be saved. Please, try again.'));
         }
         $this->set(compact('prePress'));
         $this->set('_serialize', ['prePress']);
@@ -101,9 +101,9 @@ class PrePressesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $prePress = $this->PrePresses->get($id);
         if ($this->PrePresses->delete($prePress)) {
-            $this->Flash->success(__('The pre press has been deleted.'));
+            $this->Flash->success(__('The press has been deleted.'));
         } else {
-            $this->Flash->error(__('The pre press could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The press could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

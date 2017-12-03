@@ -105,11 +105,11 @@ class PplPhdsController extends AppController
 
                 }
 
-                $this->Flash->success(__('The ppl phd has been saved.'));
+                $this->Flash->success(__('The phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl phd could not be saved. Please, try again.'));
+            $this->Flash->error(__('The phd could not be saved. Please, try again.'));
         }
         $this->set(compact('pplPhd'));
         $this->set('_serialize', ['pplPhd']);
@@ -148,11 +148,11 @@ class PplPhdsController extends AppController
 
                 }
 
-                $this->Flash->success(__('The ppl phd has been saved.'));
+                $this->Flash->success(__('The phd has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ppl phd could not be saved. Please, try again.'));
+            $this->Flash->error(__('The phd could not be saved. Please, try again.'));
         }
         $this->set(compact('pplPhd'));
         $this->set('_serialize', ['pplPhd']);
@@ -174,9 +174,9 @@ class PplPhdsController extends AppController
             {
               unlink(WWW_ROOT . 'img/ppl_phds/' . $pplPhd->id);
             }
-            $this->Flash->success(__('The ppl phd has been deleted.'));
+            $this->Flash->success(__('The phd has been deleted.'));
         } else {
-            $this->Flash->error(__('The ppl phd could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The phd could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

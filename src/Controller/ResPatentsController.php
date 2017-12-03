@@ -109,11 +109,11 @@ class ResPatentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resPatent = $this->ResPatents->patchEntity($resPatent, $this->request->getData());
             if ($this->ResPatents->save($resPatent)) {
-                $this->Flash->success(__('The res patent has been saved.'));
+                $this->Flash->success(__('The patent has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res patent could not be saved. Please, try again.'));
+            $this->Flash->error(__('The patent could not be saved. Please, try again.'));
         }
         $this->set(compact('resPatent'));
         $this->set('_serialize', ['resPatent']);
@@ -131,9 +131,9 @@ class ResPatentsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resPatent = $this->ResPatents->get($id);
         if ($this->ResPatents->delete($resPatent)) {
-            $this->Flash->success(__('The res patent has been deleted.'));
+            $this->Flash->success(__('The patent has been deleted.'));
         } else {
-            $this->Flash->error(__('The res patent could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The patent could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
