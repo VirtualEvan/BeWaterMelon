@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ColGroups Controller
@@ -12,7 +13,32 @@ use App\Controller\AppController;
  */
 class ColGroupsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -53,12 +79,32 @@ class ColGroupsController extends AppController
         $colGroup = $this->ColGroups->newEntity();
         if ($this->request->is('post')) {
             $colGroup = $this->ColGroups->patchEntity($colGroup, $this->request->getData());
-            if ($this->ColGroups->save($colGroup)) {
-                $this->Flash->success(__('The col group has been saved.'));
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ColGroups->save($colGroup)) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
 
-                return $this->redirect(['action' => 'index']);
+                    $imgName = $colGroup->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_groups/' . $imgName);
+                    }
+                    else {
+                        $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                    $this->Flash->success(__('The group has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
             }
-            $this->Flash->error(__('The col group could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
+            }
+            $this->Flash->error(__('The group could not be saved. Please, try again.'));
         }
         $this->set(compact('colGroup'));
         $this->set('_serialize', ['colGroup']);
@@ -79,11 +125,27 @@ class ColGroupsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $colGroup = $this->ColGroups->patchEntity($colGroup, $this->request->getData());
             if ($this->ColGroups->save($colGroup)) {
-                $this->Flash->success(__('The col group has been saved.'));
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $colGroup->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_groups/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                $this->Flash->success(__('The group has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The col group could not be saved. Please, try again.'));
+            $this->Flash->error(__('The group could not be saved. Please, try again.'));
         }
         $this->set(compact('colGroup'));
         $this->set('_serialize', ['colGroup']);
@@ -101,9 +163,13 @@ class ColGroupsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $colGroup = $this->ColGroups->get($id);
         if ($this->ColGroups->delete($colGroup)) {
-            $this->Flash->success(__('The col group has been deleted.'));
+            if(file_exists(WWW_ROOT . 'img/col_groups/' . $colGroup->id))
+            {
+              unlink(WWW_ROOT . 'img/col_groups/' . $colGroup->id);
+            }
+            $this->Flash->success(__('The group has been deleted.'));
         } else {
-            $this->Flash->error(__('The col group could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The group could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

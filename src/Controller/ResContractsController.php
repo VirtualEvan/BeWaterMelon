@@ -104,13 +104,14 @@ class ResContractsController extends AppController
                         move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/res_contracts/' . $imgName);
                     }
                     else {
-                      $this->Flash->error(__('Invalid image format.'));
+                        $this->Flash->error(__('Invalid image format.'));
                     }
-                }
-                else{
+
                     $this->Flash->success(__('The contract has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
+            }
+            else{
                 $this->Flash->error(__('Image must be selected.'));
                 return $this->redirect($this->referer());
             }
@@ -134,6 +135,7 @@ class ResContractsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
+            $resContract->dirty('res_contract_participants', true);
             if ($this->ResContracts->save($resContract)) {
                 if (!empty($this->request->data['upload']['name'])) {
                     $file = $this->request->data['upload'];
@@ -150,10 +152,6 @@ class ResContractsController extends AppController
                     else {
                       $this->Flash->error(__('Invalid image format.'));
                     }
-                }
-                else{
-                    $this->Flash->error(__('Image must be selected.'));
-                    return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->success(__('The contract has been saved.'));
 

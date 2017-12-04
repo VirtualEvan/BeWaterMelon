@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property string $doctor
+ * @property bool $doctor
  * @property string $department
  * @property string $position
  * @property string $company

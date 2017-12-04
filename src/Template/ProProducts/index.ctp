@@ -27,8 +27,6 @@
                             <?= h($proProduct->description) ?>
                         </div>
                         <div class="col-md-3 my-auto">
-                            <!--TODO si la url no existe se queda cargando indefinidamente-->
-                            <?php //$this->Html->link($this->Html->image('pro_products/'.$proProduct['id'], ['width' => '100px', 'height' => '100px', 'escape' => false]), ['escape' => false]) ?>
                             <?php
                             if (substr($proProduct->link, 0, 4) != "http"){
                               $proProduct->link = "http://".$proProduct->link;

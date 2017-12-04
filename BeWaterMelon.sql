@@ -288,7 +288,7 @@ DROP TABLE IF EXISTS `BeWaterMelon`.`col_colleagues` ;
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`col_colleagues` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `doctor` VARCHAR(45) BINARY NOT NULL,
+  `doctor` BOOLEAN NOT NULL,
   `department` VARCHAR(100) NOT NULL,
   `position` VARCHAR(100) NOT NULL,
   `company` VARCHAR(100) NOT NULL,

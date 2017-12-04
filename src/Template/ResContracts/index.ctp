@@ -25,7 +25,7 @@
                     <?php endif; ?>
                     <div class="col-md-11 my-auto p-0">
                         <table>
-                            <th>
+                            <th colspan="2">
                                 <?= h($resContract->name) ?>
                             </th>
                             <tr>

@@ -11,7 +11,7 @@
       'R & D' => '',
       'Products' => '',
       'Teaching' => '',
-      'Colaborations' => '',
+      'Collaborations' => '',
   );
   $active[$this->request->params['controller']] = 'active'
 ?>
@@ -43,7 +43,7 @@
             <a class="nav-link" href="#"><?= __('Teaching') ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Colaborations') ?></a>
+            <?= $this->Html->link(__('Collaborations'), ['controller' => 'collaborations','action' => 'index'], ['class' => 'nav-link ' . $active['Collaborations']]) ?>
           </li>
     </ul>
 </nav>

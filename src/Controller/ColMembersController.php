@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ColMembers Controller
@@ -12,7 +13,32 @@ use App\Controller\AppController;
  */
 class ColMembersController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -53,12 +79,32 @@ class ColMembersController extends AppController
         $colMember = $this->ColMembers->newEntity();
         if ($this->request->is('post')) {
             $colMember = $this->ColMembers->patchEntity($colMember, $this->request->getData());
-            if ($this->ColMembers->save($colMember)) {
-                $this->Flash->success(__('The col member has been saved.'));
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ColMembers->save($colMember)) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
 
-                return $this->redirect(['action' => 'index']);
+                    $imgName = $colMember->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_members/' . $imgName);
+                    }
+                    else {
+                        $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                    $this->Flash->success(__('The member has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
             }
-            $this->Flash->error(__('The col member could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
+            }
+            $this->Flash->error(__('The member could not be saved. Please, try again.'));
         }
         $this->set(compact('colMember'));
         $this->set('_serialize', ['colMember']);
@@ -79,11 +125,27 @@ class ColMembersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $colMember = $this->ColMembers->patchEntity($colMember, $this->request->getData());
             if ($this->ColMembers->save($colMember)) {
-                $this->Flash->success(__('The col member has been saved.'));
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $colMember->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_members/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                $this->Flash->success(__('The member has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The col member could not be saved. Please, try again.'));
+            $this->Flash->error(__('The member could not be saved. Please, try again.'));
         }
         $this->set(compact('colMember'));
         $this->set('_serialize', ['colMember']);
@@ -101,9 +163,13 @@ class ColMembersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $colMember = $this->ColMembers->get($id);
         if ($this->ColMembers->delete($colMember)) {
-            $this->Flash->success(__('The col member has been deleted.'));
+            if(file_exists(WWW_ROOT . 'img/col_members/' . $colMember->id))
+            {
+              unlink(WWW_ROOT . 'img/col_members/' . $colMember->id);
+            }
+            $this->Flash->success(__('The member has been deleted.'));
         } else {
-            $this->Flash->error(__('The col member could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The member could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

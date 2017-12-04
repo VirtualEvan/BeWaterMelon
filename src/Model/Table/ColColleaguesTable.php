@@ -53,7 +53,7 @@ class ColColleaguesTable extends Table
             ->notEmpty('name');
 
         $validator
-            ->scalar('doctor')
+            ->boolean('doctor')
             ->requirePresence('doctor', 'create')
             ->notEmpty('doctor');
 
