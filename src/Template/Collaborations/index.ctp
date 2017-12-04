@@ -10,20 +10,25 @@
     <hr/>
     <div class="row">
         <?php foreach ($colMembers as $colMember): ?>
-            <div class="container">
-                <div class="row">
-                    <?php if($currentuser['rol'] == 'admin'): ?>
-                        <div class="col-md-1">
-                                <?= $this->Html->link(null, ['controller' => 'col_members', 'action' => 'edit', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
-                                <?= $this->Form->postLink(null, ['controller' => 'col_members', 'action' => 'delete', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+            <div class="col-md-4">
+                <div class="container">
+                    <div class="row">
+                        <?php if($currentuser['rol'] == 'admin'): ?>
+                            <div class="col-md-1">
+                                    <?= $this->Html->link(null, ['controller' => 'col_members', 'action' => 'edit', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                    <?= $this->Form->postLink(null, ['controller' => 'col_members', 'action' => 'delete', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="col-md-3">
+                            <?php
+                            if (substr($colMember->link, 0, 4) != "http"){
+                              $colMember->link = "http://".$colMember->link;
+                            }
+                            ?>
+                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px']), $colMember->link, ['escape' => false]) ?>
+                            <h5 class="text-center"><?= h($colMember->name) ?></h5>
                         </div>
-                    <?php endif; ?>
-                    <div class="col-md-11 my-auto p-0">
-                        <table>
-                            <tr>
-                                <td>
-                                </td>
-                            </tr>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

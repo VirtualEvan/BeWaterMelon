@@ -3,47 +3,39 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\ColMember[]|\Cake\Collection\CollectionInterface $colMembers
  */
+ $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Col Member'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="colMembers index large-9 medium-8 columns content">
-    <h3><?= __('Col Members') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('link') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($colMembers as $colMember): ?>
-            <tr>
-                <td><?= $this->Number->format($colMember->id) ?></td>
-                <td><?= h($colMember->name) ?></td>
-                <td><?= h($colMember->link) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $colMember->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $colMember->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $colMember->id], ['confirm' => __('Are you sure you want to delete # {0}?', $colMember->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+<div class='container'>
+    <h4> <?= __('Member of') ?> </h4>
+    <?php
+    if($currentuser['rol'] == 'admin'){
+      echo $this->Html->link(null, ['controller' => 'col_members', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+    }
+    ?>
+    <hr/>
+    <div class="row">
+        <?php foreach ($colMembers as $colMember): ?>
+            <div class="col-md-4">
+                <div class="container">
+                    <div class="row">
+                        <?php if($currentuser['rol'] == 'admin'): ?>
+                            <div class="col-md-1">
+                                    <?= $this->Html->link(null, ['controller' => 'col_members', 'action' => 'edit', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                    <?= $this->Form->postLink(null, ['controller' => 'col_members', 'action' => 'delete', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="col-md-3">
+                            <?php
+                            if (substr($colMember->link, 0, 4) != "http"){
+                              $colMember->link = "http://".$colMember->link;
+                            }
+                            ?>
+                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px']), $colMember->link, ['escape' => false]) ?>
+                            <h5 class="text-center"><?= h($colMember->name) ?></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
