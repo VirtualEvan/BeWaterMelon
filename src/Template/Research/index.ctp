@@ -37,7 +37,7 @@
                                     ?>
                                     <?= $this->Html->link($projectParticipants->participant, $projectParticipants->link) ?>
                                     <?php
-                                        if($key != sizeof($projectParticipants)-1){
+                                        if($key != sizeof($resProject->res_project_participants)-1){
                                             echo ' and ';
                                         }
                                     ?>
@@ -99,7 +99,7 @@
                                     ?>
                                     <?= $this->Html->link($contractParticipants->participant, $contractParticipants->link) ?>
                                     <?php
-                                        if($key != sizeof($contractParticipants)-1){
+                                        if($key != sizeof($resContract->res_contract_participants)-1){
                                             echo ' and ';
                                         }
                                     ?>
