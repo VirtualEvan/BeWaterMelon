@@ -4,27 +4,15 @@
  * @var \App\Model\Entity\ColMember $colMember
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $colMember->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $colMember->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Col Members'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="colMembers form large-9 medium-8 columns content">
-    <?= $this->Form->create($colMember) ?>
-    <fieldset>
-        <legend><?= __('Edit Col Member') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('link');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+<div class="container">
+    <?= $this->Form->create($colMember, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'edit']) ?>
+        <div class="row">
+            <legend><?= __('Edit Member') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,45}']);
+                echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
+            ?>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
     <?= $this->Form->end() ?>
 </div>

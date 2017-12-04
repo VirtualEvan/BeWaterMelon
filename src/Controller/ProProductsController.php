@@ -103,7 +103,7 @@ class ProProductsController extends AppController
                 $this->Flash->error(__('Image must be selected.'));
                 return $this->redirect($this->referer());
             }
-            $this->Flash->error(__('Th product could not be saved. Please, try again.'));
+            $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
         $this->set(compact('proProduct'));
         $this->set('_serialize', ['proProduct']);

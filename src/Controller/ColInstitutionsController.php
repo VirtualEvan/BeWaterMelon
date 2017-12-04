@@ -12,7 +12,32 @@ use App\Controller\AppController;
  */
 class ColInstitutionsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -53,12 +78,32 @@ class ColInstitutionsController extends AppController
         $colInstitution = $this->ColInstitutions->newEntity();
         if ($this->request->is('post')) {
             $colInstitution = $this->ColInstitutions->patchEntity($colInstitution, $this->request->getData());
-            if ($this->ColInstitutions->save($colInstitution)) {
-                $this->Flash->success(__('The col institution has been saved.'));
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ColInstitutions->save($colInstitution)) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
 
-                return $this->redirect(['action' => 'index']);
+                    $imgName = $colInstitution->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_institutions/' . $imgName);
+                    }
+                    else {
+                        $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                    $this->Flash->success(__('The institution has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
             }
-            $this->Flash->error(__('The col institution could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
+            }
+            $this->Flash->error(__('The institution could not be saved. Please, try again.'));
         }
         $this->set(compact('colInstitution'));
         $this->set('_serialize', ['colInstitution']);
@@ -79,11 +124,27 @@ class ColInstitutionsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $colInstitution = $this->ColInstitutions->patchEntity($colInstitution, $this->request->getData());
             if ($this->ColInstitutions->save($colInstitution)) {
-                $this->Flash->success(__('The col institution has been saved.'));
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $colInstitution->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_institutions/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                $this->Flash->success(__('The institution has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The col institution could not be saved. Please, try again.'));
+            $this->Flash->error(__('The institution could not be saved. Please, try again.'));
         }
         $this->set(compact('colInstitution'));
         $this->set('_serialize', ['colInstitution']);
@@ -101,9 +162,13 @@ class ColInstitutionsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $colInstitution = $this->ColInstitutions->get($id);
         if ($this->ColInstitutions->delete($colInstitution)) {
-            $this->Flash->success(__('The col institution has been deleted.'));
+            if(file_exists(WWW_ROOT . 'img/col_institutions/' . $colInstitution->id))
+            {
+              unlink(WWW_ROOT . 'img/col_institutions/' . $colInstitution->id);
+            }
+            $this->Flash->success(__('The institution has been deleted.'));
         } else {
-            $this->Flash->error(__('The col institution could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The institution could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

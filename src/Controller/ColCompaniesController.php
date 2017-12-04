@@ -12,7 +12,32 @@ use App\Controller\AppController;
  */
 class ColCompaniesController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
 
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -53,12 +78,32 @@ class ColCompaniesController extends AppController
         $colCompany = $this->ColCompanies->newEntity();
         if ($this->request->is('post')) {
             $colCompany = $this->ColCompanies->patchEntity($colCompany, $this->request->getData());
-            if ($this->ColCompanies->save($colCompany)) {
-                $this->Flash->success(__('The col company has been saved.'));
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ColCompanies->save($colCompany)) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
 
-                return $this->redirect(['action' => 'index']);
+                    $imgName = $colCompany->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_companies/' . $imgName);
+                    }
+                    else {
+                        $this->Flash->error(__('Invalid image format.'));
+                    }
+
+                    $this->Flash->success(__('The company has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
             }
-            $this->Flash->error(__('The col company could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
+            }
+            $this->Flash->error(__('The company could not be saved. Please, try again.'));
         }
         $this->set(compact('colCompany'));
         $this->set('_serialize', ['colCompany']);
@@ -79,11 +124,27 @@ class ColCompaniesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $colCompany = $this->ColCompanies->patchEntity($colCompany, $this->request->getData());
             if ($this->ColCompanies->save($colCompany)) {
-                $this->Flash->success(__('The col company has been saved.'));
+                if (!empty($this->request->data['upload']['name'])) {
+                    $file = $this->request->data['upload'];
+                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+                    $imgName = $colCompany->id;
+
+                    if (in_array($extension, $allowedExtensions)) {
+                        //do the actual uploading of the file. First arg is the tmp name, second arg is
+                        //where we are putting it
+                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/col_companies/' . $imgName);
+                    }
+                    else {
+                      $this->Flash->error(__('Invalid image format.'));
+                    }
+                }
+                $this->Flash->success(__('The company has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The col company could not be saved. Please, try again.'));
+            $this->Flash->error(__('The company could not be saved. Please, try again.'));
         }
         $this->set(compact('colCompany'));
         $this->set('_serialize', ['colCompany']);
@@ -101,9 +162,13 @@ class ColCompaniesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $colCompany = $this->ColCompanies->get($id);
         if ($this->ColCompanies->delete($colCompany)) {
-            $this->Flash->success(__('The col company has been deleted.'));
+            if(file_exists(WWW_ROOT . 'img/col_companies/' . $colCompany->id))
+            {
+              unlink(WWW_ROOT . 'img/col_companies/' . $colCompany->id);
+            }
+            $this->Flash->success(__('The company has been deleted.'));
         } else {
-            $this->Flash->error(__('The col company could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The company could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
