@@ -67,20 +67,18 @@
                             <?= $this->Form->postLink(null, ['controller' => 'col_groups', 'action' => 'delete', $colGroup->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                     </div>
                 <?php endif; ?>
-                <div class="col-md-11 my-auto p-0">
-                    <div class="col-md-4">
-                        <?php
-                        if (substr($colGroup->link, 0, 4) != "http"){
-                          $colGroup->link = "http://".$colGroup->link;
-                        }
-                        ?>
-                        <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '150px', 'width' => '150px']), $colGroup->link, ['escape' => false]) ?>
-                    </div>
-                    <div class="col-md-5">
-                        <p class="text-center"> <?= h($colGroup->name) ?> </p>
-                        <p class="text-center"> <?= h($colGroup->department) ?> </p>
-                        <p class="text-center"> <?= h($colGroup->company) ?> </p>
-                    </div>
+                <div class="col-md-3">
+                    <?php
+                    if (substr($colGroup->link, 0, 4) != "http"){
+                      $colGroup->link = "http://".$colGroup->link;
+                    }
+                    ?>
+                    <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '150px', 'width' => '150px']), $colGroup->link, ['escape' => false]) ?>
+                </div>
+                <div class="col-md-6">
+                    <h5> <?= h($colGroup->name) ?> </h5>
+                    <h6> <?= h($colGroup->department) ?> </h6>
+                    <h6> <?= h($colGroup->company) ?> </h6>
                 </div>
             </div>
         </div>
