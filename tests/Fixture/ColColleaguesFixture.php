@@ -19,7 +19,7 @@ class ColColleaguesFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 5, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'name' => ['type' => 'string', 'length' => 45, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'doctor' => ['type' => 'string', 'length' => 45, 'null' => false, 'default' => null, 'collate' => 'utf8_bin', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'doctor' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'department' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'position' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'company' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -44,7 +44,7 @@ class ColColleaguesFixture extends TestFixture
         [
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
-            'doctor' => 'Lorem ipsum dolor sit amet',
+            'doctor' => 1,
             'department' => 'Lorem ipsum dolor sit amet',
             'position' => 'Lorem ipsum dolor sit amet',
             'company' => 'Lorem ipsum dolor sit amet',

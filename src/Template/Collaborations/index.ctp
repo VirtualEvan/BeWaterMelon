@@ -45,6 +45,7 @@
     <?php foreach ($colColleagues as $colColleague): ?>
         <div class="container">
             <div class="row">
+
             </div>
         </div>
     <?php endforeach; ?>
@@ -60,7 +61,27 @@
     <?php foreach ($colGroups as $colGroup): ?>
         <div class="container">
             <div class="row">
-
+                <?php if($currentuser['rol'] == 'admin'): ?>
+                    <div class="col-md-1">
+                            <?= $this->Html->link(null, ['controller' => 'col_groups', 'action' => 'edit', $colGroup->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                            <?= $this->Form->postLink(null, ['controller' => 'col_groups', 'action' => 'delete', $colGroup->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                    </div>
+                <?php endif; ?>
+                <div class="col-md-11 my-auto p-0">
+                    <div class="col-md-4">
+                        <?php
+                        if (substr($colGroup->link, 0, 4) != "http"){
+                          $colGroup->link = "http://".$colGroup->link;
+                        }
+                        ?>
+                        <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '150px', 'width' => '150px']), $colGroup->link, ['escape' => false]) ?>
+                    </div>
+                    <div class="col-md-5">
+                        <p class="text-center"> <?= h($colGroup->name) ?> </p>
+                        <p class="text-center"> <?= h($colGroup->department) ?> </p>
+                        <p class="text-center"> <?= h($colGroup->company) ?> </p>
+                    </div>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
