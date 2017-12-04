@@ -30,7 +30,9 @@
                             </th>
                             <tr>
                                 <td><?= __('Code: ') ?></td>
-                                <!-- TODO link doesn't work-->
+                                <?php if (substr($resPatent->link, 0, 4) != "http"){
+                                        $resPatent->link = "http://".$resPatent->link;
+                                    } ?>
                                 <td><?= $this->Html->link(h($resPatent->code), $resPatent->link) ?> </td>
                             </tr>
                             <tr>

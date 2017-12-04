@@ -43,7 +43,7 @@
                                 ?>
                                 <?= $this->Html->link($projectParticipants->participant, $projectParticipants->link) ?>
                                 <?php
-                                    if($key != sizeof($projectParticipants)-1){
+                                    if($key != sizeof($resProject->res_project_participants)-1){
                                         echo ' and ';
                                     }
                                 ?>
@@ -56,6 +56,9 @@
                         </tr>
                         <tr>
                             <td><?= __('Founded by: ') ?> </td>
+                            <?php if (substr($resProject->sponsor_link, 0, 4) != "http"){
+                                    $resProject->sponsor_link = "http://".$resProject->sponsor_link;
+                                } ?>
                             <td> <?= $this->Html->link($this->Html->image('res_projects/'.$resProject['id'], ['height' => '50px', 'width' => '50px']), $resProject->sponsor_link, ['escape' => false]); ?> </td>
                         </tr>
                     </table>
