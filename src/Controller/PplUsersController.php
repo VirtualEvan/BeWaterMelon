@@ -74,6 +74,7 @@ class PplUsersController extends AppController
         // TODO: quitar password de aquí
         // Members
         $pplUsers = $this->paginate($this->PplUsers);
+        unset($pplUser->password);
         $this->set(compact('pplUsers'));
         $this->set('_serialize', ['pplUsers']);
 
@@ -130,7 +131,7 @@ class PplUsersController extends AppController
         $pplUser = $this->PplUsers->get($id, [
             'contain' => ['CouSubjects']
         ]);
-
+        unset($pplUser->password);
         $this->set('pplUser', $pplUser);
         $this->set('_serialize', ['pplUser']);
     }
@@ -188,6 +189,7 @@ class PplUsersController extends AppController
         $pplUser = $this->PplUsers->get($id, [
             'contain' => []
         ]);
+        unset($pplUser->password);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pplUser = $this->PplUsers->patchEntity($pplUser, $this->request->getData());
             if ($this->PplUsers->save($pplUser)) {

@@ -30,7 +30,7 @@
                             echo h($pplPastPhd->name);
                             echo ', ';
                             echo h($pplPastPhd->lastname);
-                            echo '(';
+                            echo ' (';
                             echo h($pplPastPhd->thesis_date);
                             echo '). ';
                             echo h($pplPastPhd->thesis_name);

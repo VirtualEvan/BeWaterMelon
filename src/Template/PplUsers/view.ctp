@@ -33,20 +33,12 @@
             <td><?= h($pplUser->bio) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($pplUser->password) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Fax') ?></th>
             <td><?= h($pplUser->fax) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Link') ?></th>
             <td><?= h($pplUser->link) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($pplUser->id) ?></td>
         </tr>
     </table>
 
