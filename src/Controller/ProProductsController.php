@@ -78,8 +78,8 @@ class ProProductsController extends AppController
         $proProduct = $this->ProProducts->newEntity();
         if ($this->request->is('post')) {
             $proProduct = $this->ProProducts->patchEntity($proProduct, $this->request->getData());
-            if ($this->ProProducts->save($proProduct)) {
-                if (!empty($this->request->data['upload']['name'])) {
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ProProducts->save($proProduct)) {
                     $file = $this->request->data['upload'];
                     $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
                     $allowedExtensions = array('jpg', 'jpeg', 'png');
@@ -96,12 +96,11 @@ class ProProductsController extends AppController
                     }
                 }
                 else{
-                    $this->Flash->error(__('Image must be selected.'));
+                    $this->Flash->success(__('The product has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->success(__('The product has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
             }
             $this->Flash->error(__('Th product could not be saved. Please, try again.'));
         }

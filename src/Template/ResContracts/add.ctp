@@ -5,21 +5,32 @@
  */
 ?>
 <div class="container">
-    <div class="row">
-        <?= $this->Form->create($resContract, ['enctype' => 'multipart/form-data', 'templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
-        <fieldset>
+    <?= $this->Form->create($resContract, ['enctype' => 'multipart/form-data', 'templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'add']) ?>
+        <div class="row">
             <legend><?= __('Add Contract') ?></legend>
             <?php
                 echo $this->Form->control('name', ['class' => 'form-control']);
                 echo $this->Form->control('code', ['class' => 'form-control']);
-                echo $this->Form->control('res_contract_participants.0.participant', ['class' => 'form-control', 'type' => 'text']);
-                echo $this->Form->control('res_contract_participants.0.link', ['class' => 'form-control']);
+            ?>
+
+            <?= $this->Form->button(null, ['escape' => true, 'class' => 'btn btn-info btn-sm fa fa-plus add_field_button ml-3']) ?>
+            <div class="input_fields_wrap col-md-12 row m-0 p-0">
+                <?= $this->Form->control('res_contract_participants.0.participant', ['class' => 'form-control', 'type' => 'text']) ?>
+                <?= $this->Form->control('res_contract_participants.0.link', ['class' => 'form-control']) ?>
+            </div>
+
+            <?php
                 echo $this->Form->control('scheduling', ['class' => 'form-control']);
                 echo $this->Form->control('sponsor_link', ['class' => 'form-control']);
                 echo $this->Form->input('upload', ['label' => __('Image'), 'class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
             ?>
-        </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
-        <?= $this->Form->end() ?>
-    </div>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+    <?= $this->Form->end() ?>
 </div>
+
+<script type="text/javascript">
+    var x = 1;
+</script>
+
+<?= $this->Html->script('dynamic-inputs.js') ?>

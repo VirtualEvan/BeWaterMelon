@@ -90,8 +90,8 @@ class ResContractsController extends AppController
         $resContract = $this->ResContracts->newEntity();
         if ($this->request->is('post')) {
             $resContract = $this->ResContracts->patchEntity($resContract, $this->request->getData());
-            if ($this->ResContracts->save($resContract)) {
-                if (!empty($this->request->data['upload']['name'])) {
+            if (!empty($this->request->data['upload']['name'])) {
+                if ($this->ResContracts->save($resContract)) {
                     $file = $this->request->data['upload'];
                     $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
                     $allowedExtensions = array('jpg', 'jpeg', 'png');
@@ -108,12 +108,11 @@ class ResContractsController extends AppController
                     }
                 }
                 else{
-                    $this->Flash->error(__('Image must be selected.'));
+                    $this->Flash->success(__('The contract has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->success(__('The contract has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->error(__('Image must be selected.'));
+                return $this->redirect($this->referer());
             }
             $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
