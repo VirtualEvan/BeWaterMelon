@@ -39,8 +39,8 @@
 </div>
 
 <script type="text/javascript">
-    <?php end($resProject->res_project_participants) ?>
-    var x = <?= key($resProject->res_project_participants)+1 ?>;
+    <?php end($resContract->res_contract_participants) ?>
+    var x = <?= key($resContract->res_contract_participants)+1 ?>;
 </script>
 
 <?= $this->Html->script('dynamic-inputs-contracts.js') ?>
