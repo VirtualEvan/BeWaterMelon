@@ -92,13 +92,14 @@ class ProProductsController extends AppController
                         move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/pro_products/' . $imgName);
                     }
                     else {
-                      $this->Flash->error(__('Invalid image format.'));
+                        $this->Flash->error(__('Invalid image format.'));
                     }
-                }
-                else{
+
                     $this->Flash->success(__('The product has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
+            }
+            else{
                 $this->Flash->error(__('Image must be selected.'));
                 return $this->redirect($this->referer());
             }
@@ -138,9 +139,6 @@ class ProProductsController extends AppController
                     else {
                       $this->Flash->error(__('Invalid image format.'));
                     }
-                }
-                else {
-                  $this->Flash->error(__('Invalid image format.'));
                 }
                 $this->Flash->success(__('The product has been saved.'));
 
