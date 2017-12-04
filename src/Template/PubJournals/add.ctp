@@ -1,33 +1,30 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\PubJournal $pubJournal
+ * @var \App\Model\Entity\PubBook $pubBook
  */
 
-foreach ($authors as $author) {
-    $aut[$author->id] = $author->name . ' ' . $author->lastname;
-}
+ foreach ($authors as $author) {
+     $aut[$author->id] = $author->name . ' ' . $author->lastname;
+ }
 ?>
-
-<div class="container">
-    <div class="row">
-        <?= $this->Form->create($pubJournal, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
-        <fieldset>
-            <legend><?= __('Add Journal') ?></legend>
+<div class="contanier">
+    <?= $this->Form->create($pubBook, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'edit']) ?>
+        <div class="row">
+            <legend><?= __('Edit Book') ?></legend>
             <?php
+                echo $this->Form->control('book_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
                 echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
-                echo $this->Form->control('publication_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
-                echo $this->Form->control('location', ['class' => 'form-control', 'pattern' => '.{3,40}']);
-                echo $this->Form->control('publication_date', ['class' => 'form-control', 'pattern' => '[0-9]{4}']);
-                echo $this->Form->control('online_issn', ['class' => 'form-control', 'pattern' => '[0-9]{4}-[0-9]{4}']);
+                echo $this->Form->control('editorial', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
+                echo $this->Form->control('year', ['class' => 'form-control', 'pattern' => '[0-9]{4}']);
+                echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
+                echo $this->Form->control('isbn', ['class' => 'form-control', 'pattern' => '[0-9\-]{17}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
-                echo $this->Form->control('print_issn', ['class' => 'form-control', 'pattern' => '[0-9]{4}-[0-9]{4}']);
+                echo $this->Form->control('physical_identifier', ['class' => 'form-control', 'pattern' => '[0-9]{8}']);
             ?>
-        </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
-        <?= $this->Form->end() ?>
-    </div>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+    <?= $this->Form->end() ?>
 </div>
 
 <?= $this->Html->css('bootstrap-select.css') ?>

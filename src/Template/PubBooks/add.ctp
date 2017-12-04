@@ -9,9 +9,8 @@
  }
 ?>
 <div class="contanier">
-    <div class="row">
-        <?= $this->Form->create($pubBook, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
-        <fieldset>
+    <?= $this->Form->create($pubBook, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'add']) ?>
+        <div class="row">
             <legend><?= __('Add Book') ?></legend>
             <?php
                 echo $this->Form->control('book_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
@@ -23,10 +22,9 @@
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                 echo $this->Form->control('physical_identifier', ['class' => 'form-control', 'pattern' => '[0-9]{8}']);
             ?>
-        </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
-        <?= $this->Form->end() ?>
-    </div>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+    <?= $this->Form->end() ?>
 </div>
 
 <?= $this->Html->css('bootstrap-select.css') ?>
