@@ -9,9 +9,8 @@
  }
  ?>
 <div class="container">
-    <div class="row">
-        <?= $this->Form->create($pubConference, ['templates' => ['inputContainer' => '<div class="form-group" >{{content}}</div>'], 'name' => 'add']) ?>
-        <fieldset>
+    <?= $this->Form->create($pubConference, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'add']) ?>
+        <div class="row">
             <legend><?= __('Add Conference') ?></legend>
             <?php
                 echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
@@ -21,10 +20,9 @@
                 echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
-        </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
-        <?= $this->Form->end() ?>
-    </div>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+    <?= $this->Form->end() ?>
 </div>
 
 <?= $this->Html->css('bootstrap-select.css') ?>
