@@ -25,6 +25,7 @@ class ActConferenceYear extends Entity
      * @var array
      */
     protected $_accessible = [
+        'year' => true,
         'link' => true,
         'act_conference' => true
     ];

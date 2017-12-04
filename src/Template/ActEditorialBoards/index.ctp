@@ -3,67 +3,53 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\ActEditorialBoard[]|\Cake\Collection\CollectionInterface $actEditorialBoards
  */
+$currentuser = $this->request->session()->read('Auth.User');
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Act Editorial Board'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="actEditorialBoards index large-9 medium-8 columns content">
-    <h3><?= __('Act Editorial Boards') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('journal_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('link') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('online_issn') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('online_issn_year') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('h_index') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sjr') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sjr_year') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sjr_quartile') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('print_issn') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impact_factor') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impact_factor_quartile') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impact_factor_year') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($actEditorialBoards as $actEditorialBoard): ?>
-            <tr>
-                <td><?= $this->Number->format($actEditorialBoard->id) ?></td>
-                <td><?= h($actEditorialBoard->journal_name) ?></td>
-                <td><?= h($actEditorialBoard->link) ?></td>
-                <td><?= h($actEditorialBoard->online_issn) ?></td>
-                <td><?= h($actEditorialBoard->online_issn_year) ?></td>
-                <td><?= h($actEditorialBoard->h_index) ?></td>
-                <td><?= $this->Number->format($actEditorialBoard->sjr) ?></td>
-                <td><?= h($actEditorialBoard->sjr_year) ?></td>
-                <td><?= h($actEditorialBoard->sjr_quartile) ?></td>
-                <td><?= h($actEditorialBoard->print_issn) ?></td>
-                <td><?= $this->Number->format($actEditorialBoard->impact_factor) ?></td>
-                <td><?= h($actEditorialBoard->impact_factor_quartile) ?></td>
-                <td><?= h($actEditorialBoard->impact_factor_year) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $actEditorialBoard->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $actEditorialBoard->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $actEditorialBoard->id], ['confirm' => __('Are you sure you want to delete # {0}?', $actEditorialBoard->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+<div class='container part'>
+    <h4> <?= __('Editorial Boards') ?> </h4>
+    <?php
+    if($currentuser['rol'] == 'admin'){
+        echo $this->Html->link(null, ['controller' => 'act_editorial_boards', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+    }
+    ?>
+    <hr/>
+    <div class="row">
+        <?php foreach ($actEditorialBoards as $actEditorialBoard): ?>
+            <div class="container">
+                <div class="row">
+                    <?php if($currentuser['rol'] == 'admin'): ?>
+                        <div class="col-md-1">
+                                <?= $this->Html->link(null, ['controller' => 'act_editorial_boards', 'action' => 'edit', $actEditorialBoard->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                <?= $this->Form->postLink(null, ['controller' => 'act_editorial_boards', 'action' => 'delete', $actEditorialBoard->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="col-md-11 my-auto p-0">
+                        <?php
+                            if (substr($actEditorialBoard->link, 0, 4) != "http"){
+                              $actEditorialBoard->link = "http://".$actEditorialBoard->link;
+                            }
+                            echo $this->Html->link($actEditorialBoard->journal_name, $actEditorialBoard->link);
+                            echo ', ISSN: ';
+                            if(!empty($actEditorialBoard->print_issn)){
+                                echo $actEditorialBoard->print_issn . ' (Print), ';
+                            }
+                            echo $actEditorialBoard->online_issn . ' (Online) ';
+                            echo '(' . __('since') . ' ' . $actEditorialBoard->online_issn_year .')';
+                            echo '<br>';
+                            if(!empty($actEditorialBoard->impact_factor)){
+                                echo 'Impact Factor (' . $actEditorialBoard->impact_factor_year . '): ';
+                                echo $actEditorialBoard->impact_factor;
+                                echo ' [Q' . $actEditorialBoard->impact_factor_quartile . ']';
+                                echo '<br>';
+                            }
+                            echo 'SCImago Journal Rank (SJR ' . $actEditorialBoard->sjr_year . '): ' . $actEditorialBoard->sjr. '; ';
+                            echo 'H-index: ' . $actEditorialBoard->h_index . '; ';
+                            echo __('SJR Best Quartile: Q') . $actEditorialBoard->sjr_quartile;
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

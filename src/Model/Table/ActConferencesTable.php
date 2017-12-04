@@ -37,7 +37,8 @@ class ActConferencesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('ActConferenceYears', [
-            'foreignKey' => 'act_conference_id'
+            'foreignKey' => 'act_conference_id',
+            'saveStrategy' => 'replace'
         ]);
     }
 

@@ -68,9 +68,9 @@ class ActJournalsTable extends Table
             ->notEmpty('online_issn_year');
 
         $validator
-            ->numeric('impacr_factor')
-            ->requirePresence('impacr_factor', 'create')
-            ->notEmpty('impacr_factor');
+            ->numeric('impact_factor')
+            ->requirePresence('impact_factor', 'create')
+            ->notEmpty('impact_factor');
 
         $validator
             ->scalar('impact_factor_quartile')

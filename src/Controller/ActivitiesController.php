@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 
-class PublicationsController extends AppController
+class ActivitiesController extends AppController
 {
 
     public function beforeFilter(Event $event)
@@ -26,10 +26,10 @@ class PublicationsController extends AppController
     public function index()
     {
         //Editorials
-        $this->loadModel('ActEditorials');
-        $actEditorials = $this->paginate($this->ActEditorials);
-        $this->set(compact('actEditorials'));
-        $this->set('_serialize', ['actEditorials']);
+        $this->loadModel('ActEditorialBoards');
+        $actEditorialBoards = $this->paginate($this->ActEditorialBoards);
+        $this->set(compact('actEditorialBoards'));
+        $this->set('_serialize', ['actEditorialBoards']);
 
         //Journals
         $this->loadModel('ActJournals');
@@ -39,12 +39,12 @@ class PublicationsController extends AppController
 
         //Conferences
         $this->loadModel('ActConferences');
-        $actConferences = $this->paginate($this->ActConferences);
+        $actConferences = $this->ActConferences->find('all')->contain(['actConferenceYears']);
         $this->set(compact('actConferences'));
         $this->set('_serialize', ['actConferences']);
 
         $related = array(
-            [ 'name' => __('Editorials'), 'controller' => 'act_editorials'],
+            [ 'name' => __('Editorials'), 'controller' => 'act_editorial_boards'],
             [ 'name' => __('Journals'), 'controller' => 'act_journals'],
             [ 'name' => __('Conferences'), 'controller' => 'act_conferences'],
         );

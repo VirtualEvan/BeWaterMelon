@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`act_journals` (
   `link` VARCHAR(500) NOT NULL,
   `online_issn` VARCHAR(9) NOT NULL,
   `online_issn_year` YEAR NOT NULL,
-  `impacr_factor` FLOAT(3) NOT NULL,
+  `impact_factor` FLOAT(3) NOT NULL,
   `impact_factor_quartile` VARCHAR(2) NOT NULL,
   `impact_factor_year` YEAR NOT NULL,
   `print_issn` VARCHAR(9) NULL,
@@ -219,7 +219,6 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`act_conferences` (
   `id` INT(5) NOT NULL AUTO_INCREMENT,
   `acronym` VARCHAR(45) NOT NULL,
   `name` VARCHAR(200) NOT NULL,
-  `link` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -443,8 +442,8 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`act_conference_years` (
   CONSTRAINT `conference_year`
     FOREIGN KEY (`act_conference_id`)
     REFERENCES `BeWaterMelon`.`act_conferences` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

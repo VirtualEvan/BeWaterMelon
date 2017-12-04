@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $link
  * @property string $online_issn
  * @property string $online_issn_year
- * @property float $impacr_factor
+ * @property float $impact_factor
  * @property string $impact_factor_quartile
  * @property string $impact_factor_year
  * @property string $print_issn
@@ -33,7 +33,7 @@ class ActJournal extends Entity
         'link' => true,
         'online_issn' => true,
         'online_issn_year' => true,
-        'impacr_factor' => true,
+        'impact_factor' => true,
         'impact_factor_quartile' => true,
         'impact_factor_year' => true,
         'print_issn' => true
