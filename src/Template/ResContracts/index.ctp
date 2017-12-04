@@ -35,9 +35,12 @@
                             <tr>
                                 <td><?= __('Participants: ') ?> </td>
                                 <td>
-                                <?php foreach ($resContract->res_contract_participants as $key => $contractParticipants): ?>
-                                    <?= h($contractParticipants->participant) ?>
-                                    <?= h($contractParticipants->link) ?>
+                                <?php foreach ($resContract->res_contract_participants as $key => $contractParticipants):
+                                    if (substr($contractParticipants->link, 0, 4) != "http"){
+                                      $contractParticipants->link = "http://".$contractParticipants->link;
+                                    }
+                                    ?>
+                                    <?= $this->Html->link($contractParticipants->participant, $contractParticipants->link) ?>
                                     <?php
                                         if($key != sizeof($contractParticipants)-1){
                                             echo ' and ';
@@ -52,6 +55,9 @@
                             </tr>
                             <tr>
                                 <td> <?= __('Founded by: ') ?> </td>
+                                <?php if (substr($resContract->sponsor_link, 0, 4) != "http"){
+                                        $resContract->sponsor_link = "http://".$resContract->sponsor_link;
+                                    } ?>
                                 <td> <?= $this->Html->link($this->Html->image('res_contracts/'.$resContract['id'], ['height' => '50px', 'width' => '50px']), $resContract->sponsor_link, ['escape' => false]); ?> </td>
 
                             </tr>

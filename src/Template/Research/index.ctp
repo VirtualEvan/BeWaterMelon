@@ -30,9 +30,12 @@
                             <tr>
                                 <td><?= __('Participants: ') ?> </td>
                                 <td>
-                                <?php foreach ($resProject->res_project_participants as $key => $projectParticipants): ?>
-                                    <?= h($projectParticipants->participant) ?>
-                                    <?= h($projectParticipants->link) ?>
+                                <?php foreach ($resProject->res_project_participants as $key => $projectParticipants):
+                                    if (substr($projectParticipants->link, 0, 4) != "http"){
+                                      $projectParticipants->link = "http://".$projectParticipants->link;
+                                    }
+                                    ?>
+                                    <?= $this->Html->link($projectParticipants->participant, $projectParticipants->link) ?>
                                     <?php
                                         if($key != sizeof($projectParticipants)-1){
                                             echo ' and ';
@@ -47,6 +50,9 @@
                             </tr>
                             <tr>
                                 <td><?= __('Founded by: ') ?> </td>
+                                <?php if (substr($resProject->sponsor_link, 0, 4) != "http"){
+                                        $resProject->sponsor_link = "http://".$resProject->sponsor_link;
+                                    } ?>
                                 <td><?= $this->Html->link($this->Html->image('res_projects/'.$resProject['id'], ['height' => '50px', 'width' => '50px']), $resProject->sponsor_link, ['escape' => false]); ?> </td>
                             </tr>
                         </table>
@@ -86,9 +92,12 @@
                             <tr>
                                 <td><?= __('Participants: ') ?> </td>
                                 <td>
-                                <?php foreach ($resContract->res_contract_participants as $key => $contractParticipants): ?>
-                                    <?= h($contractParticipants->participant) ?>
-                                    <?= h($contractParticipants->link) ?>
+                                <?php foreach ($resContract->res_contract_participants as $key => $contractParticipants):
+                                    if (substr($contractParticipants->link, 0, 4) != "http"){
+                                      $contractParticipants->link = "http://".$contractParticipants->link;
+                                    }
+                                    ?>
+                                    <?= $this->Html->link($contractParticipants->participant, $contractParticipants->link) ?>
                                     <?php
                                         if($key != sizeof($contractParticipants)-1){
                                             echo ' and ';
@@ -103,6 +112,9 @@
                             </tr>
                             <tr>
                                 <td><?= __('Founded by: ') ?> </td>
+                                <?php if (substr($resContract->sponsor_link, 0, 4) != "http"){
+                                        $resContract->sponsor_link = "http://".$resContract->sponsor_link;
+                                    } ?>
                                 <td><?= $this->Html->link($this->Html->image('res_contracts/'.$resContract['id'], ['height' => '50px', 'width' => '50px']), $resContract->sponsor_link, ['escape' => false]); ?> </td>
                             </tr>
                         </table>
@@ -137,7 +149,9 @@
                             </th>
                             <tr>
                                 <td><?= __('Code: ') ?></td>
-                                <!-- TODO link doesn't work-->
+                                <?php if (substr($resPatent->link, 0, 4) != "http"){
+                                        $resPatent->link = "http://".$resPatent->link;
+                                    } ?>
                                 <td><?= $this->Html->link(h($resPatent->code), $resPatent->link) ?> </td>
                             </tr>
                             <tr>
