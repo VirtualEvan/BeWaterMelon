@@ -16,10 +16,17 @@
 
             <?= $this->Form->button(null, ['escape' => true, 'class' => 'btn btn-info btn-sm fa fa-plus add_field_button ml-3']) ?>
             <div class="input_fields_wrap col-md-12 row m-0 p-0">
-                <!-- TODO: PODER MODIFICAR CORRECTAMENTE -->
+
+                <?php
+                    echo $this->Form->control('res_project_participants.0.participant', ['class' => 'form-control', 'type' => 'text']);
+                    echo $this->Form->control('res_project_participants.0.link', ['class' => 'form-control']);
+                    unset($resProject->res_project_participants[0]);
+                 ?>
+
                 <?php foreach ($resProject->res_project_participants as $key => $projectParticipants) {
-                    echo $this->Form->control('res_project_participants.'.$key.'.participant', ['class' => 'form-control', 'type' => 'text']);
-                    echo $this->Form->control('res_project_participants.'.$key.'.link', ['class' => 'form-control']);
+                    echo $this->Form->control('res_project_participants.'.$key.'.participant', ['label' => false, 'class' => 'form-control', 'type' => 'text', 'templates' => ['inputContainer' => '<div class="col-md-6 to_rem_'.$key.'"><div class="form-group" >{{content}}</div></div>']]);
+
+                    echo $this->Form->control('res_project_participants.'.$key.'.link', ['label' => false, 'class' => 'form-control', 'templates' => ['inputContainer' => '<div class="col-md-6 to_rem_'.$key.'"><div class="input-group">{{content}}<div class="input-group-btn"><button id='.$key.' class="btn btn-info btn-sm remove_field"><div class="fa fa-minus"></div></div></div></div>']]);
                 }
                 ?>
             </div>
@@ -33,5 +40,10 @@
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
         <?= $this->Form->end() ?>
 </div>
+
+<script type="text/javascript">
+    <?php end($resProject->res_project_participants) ?>
+    var x = <?= key($resProject->res_project_participants)+1 ?>;
+</script>
 
 <?= $this->Html->script('dynamic-inputs.js') ?>

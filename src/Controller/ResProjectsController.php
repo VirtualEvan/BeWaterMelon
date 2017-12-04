@@ -89,30 +89,32 @@ class ResProjectsController extends AppController
         $resProject = $this->ResProjects->newEntity();
         if ($this->request->is('post')) {
             $resProject = $this->ResProjects->patchEntity($resProject, $this->request->getData());
-            if ($this->ResProjects->save($resProject)) {
                 if (!empty($this->request->data['upload']['name'])) {
-                    $file = $this->request->data['upload'];
-                    $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
-                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+                    if ($this->ResProjects->save($resProject)) {
+                        $file = $this->request->data['upload'];
+                        $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+                        $allowedExtensions = array('jpg', 'jpeg', 'png');
 
-                    $imgName = $resProject->id;
+                        $imgName = $resProject->id;
 
-                    if (in_array($extension, $allowedExtensions)) {
-                        //do the actual uploading of the file. First arg is the tmp name, second arg is
-                        //where we are putting it
-                        move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/res_projects/' . $imgName);
-                    }
-                    else {
-                      $this->Flash->error(__('Invalid image format.'));
+                        if (in_array($extension, $allowedExtensions)) {
+                            //do the actual uploading of the file. First arg is the tmp name, second arg is
+                            //where we are putting it
+                            move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/res_projects/' . $imgName);
+                        }
+                        else {
+                            $this->Flash->error(__('Invalid image format.'));
+                        }
+
+                        $this->Flash->success(__('The project has been saved.'));
+                        return $this->redirect(['action' => 'index']);
                     }
                 }
                 else{
                     $this->Flash->error(__('Image must be selected.'));
                     return $this->redirect($this->referer());
                 }
-                $this->Flash->success(__('The project has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            }
+
             $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
         $this->set(compact('resProject'));
@@ -151,10 +153,6 @@ class ResProjectsController extends AppController
                     else {
                       $this->Flash->error(__('Invalid image format.'));
                     }
-                }
-                else{
-                    $this->Flash->error(__('Image must be selected.'));
-                    return $this->redirect($this->referer());
                 }
                 $this->Flash->success(__('The project has been saved.'));
 

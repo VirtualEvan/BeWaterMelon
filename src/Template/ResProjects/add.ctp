@@ -30,4 +30,8 @@
         <?= $this->Form->end() ?>
 </div>
 
+<script type="text/javascript">
+    var x = 1;
+</script>
+
 <?= $this->Html->script('dynamic-inputs.js') ?>
