@@ -10,12 +10,12 @@
             <legend><?= __('Edit Colleague') ?></legend>
             <?php
                 echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,45}']);
-                echo $this->Form->control('doctor', ['class' => 'form-control']);
                 echo $this->Form->control('department', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
                 echo $this->Form->control('position', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
                 echo $this->Form->control('company', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
                 echo $this->Form->control('email', ['class' => 'form-control']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
+                echo $this->Form->control('doctor', ['class' => 'checkbox']);
                 echo $this->Form->input('upload', ['label' => __('Image'), 'class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
                 ?>
         </div>

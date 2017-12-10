@@ -50,6 +50,15 @@ class ColGroupsController extends AppController
 
         $this->set(compact('colGroups'));
         $this->set('_serialize', ['colGroups']);
+
+        $related = array(
+            [ 'name' => __('Member of'), 'controller' => 'col_members'],
+            [ 'name' => __('Colleagues'), 'controller' => 'col_colleagues'],
+            [ 'name' => __('Groups'), 'controller' => 'col_groups'],
+            [ 'name' => __('Institutions'), 'controller' => 'col_institutions'],
+            [ 'name' => __('Companies'), 'controller' => 'col_companies'],
+        );
+        $this->set(compact('related'));
     }
 
     /**
