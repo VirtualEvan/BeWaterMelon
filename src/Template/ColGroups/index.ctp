@@ -5,14 +5,16 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
+
 <div class='container'>
-    <h4> <?= __('Groups') ?> </h4>
-    <?php
-    if($currentuser['rol'] == 'admin'){
-      echo $this->Html->link(null, ['controller' => 'col_groups', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
-    }
-    ?>
-    <hr/>
+<h4> <?= __('Groups') ?> </h4>
+<?php
+if($currentuser['rol'] == 'admin'){
+  echo $this->Html->link(null, ['controller' => 'col_groups', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+}
+?>
+<hr/>
+<div class="row">
     <?php foreach ($colGroups as $colGroup): ?>
         <div class="container">
             <div class="row">
@@ -31,11 +33,18 @@
                     <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '150px', 'width' => '150px']), $colGroup->link, ['escape' => false]) ?>
                 </div>
                 <div class="col-md-6">
-                    <h5> <?= h($colGroup->name) ?> </h5>
-                    <h6> <?= h($colGroup->department) ?> </h6>
-                    <h6> <?= h($colGroup->company) ?> </h6>
+                    <div class="row">
+                        <h5> <?= h($colGroup->name) ?> </h5>
+                    </div>
+                    <div class="row">
+                        <h6> <?= h($colGroup->department) ?> </h6>
+                    </div>
+                    <div class="row">
+                        <h6> <?= h($colGroup->company) ?> </h6>
+                    </div>
                 </div>
             </div>
         </div>
     <?php endforeach; ?>
+</div>
 </div>
