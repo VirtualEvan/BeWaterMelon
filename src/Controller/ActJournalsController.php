@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ActJournals Controller
@@ -12,6 +13,26 @@ use App\Controller\AppController;
  */
 class ActJournalsController extends AppController
 {
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            return true;
+        }
+
+        // Deny everything else
+        return parent::isAuthorized($user);
+    }
 
     /**
      * Index method
@@ -24,6 +45,13 @@ class ActJournalsController extends AppController
 
         $this->set(compact('actJournals'));
         $this->set('_serialize', ['actJournals']);
+
+        $related = array(
+            [ 'name' => __('Editorials'), 'controller' => 'act_editorial_boards'],
+            [ 'name' => __('Journals'), 'controller' => 'act_journals'],
+            [ 'name' => __('Conferences'), 'controller' => 'act_conferences'],
+        );
+        $this->set(compact('related'));
     }
 
     /**
@@ -54,11 +82,11 @@ class ActJournalsController extends AppController
         if ($this->request->is('post')) {
             $actJournal = $this->ActJournals->patchEntity($actJournal, $this->request->getData());
             if ($this->ActJournals->save($actJournal)) {
-                $this->Flash->success(__('The act journal has been saved.'));
+                $this->Flash->success(__('The journal has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act journal could not be saved. Please, try again.'));
+            $this->Flash->error(__('The journal could not be saved. Please, try again.'));
         }
         $this->set(compact('actJournal'));
         $this->set('_serialize', ['actJournal']);
@@ -79,11 +107,11 @@ class ActJournalsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $actJournal = $this->ActJournals->patchEntity($actJournal, $this->request->getData());
             if ($this->ActJournals->save($actJournal)) {
-                $this->Flash->success(__('The act journal has been saved.'));
+                $this->Flash->success(__('The journal has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act journal could not be saved. Please, try again.'));
+            $this->Flash->error(__('The journal could not be saved. Please, try again.'));
         }
         $this->set(compact('actJournal'));
         $this->set('_serialize', ['actJournal']);
@@ -101,9 +129,9 @@ class ActJournalsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $actJournal = $this->ActJournals->get($id);
         if ($this->ActJournals->delete($actJournal)) {
-            $this->Flash->success(__('The act journal has been deleted.'));
+            $this->Flash->success(__('The journal has been deleted.'));
         } else {
-            $this->Flash->error(__('The act journal could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The journal could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

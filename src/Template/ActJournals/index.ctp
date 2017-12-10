@@ -3,59 +3,47 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\ActJournal[]|\Cake\Collection\CollectionInterface $actJournals
  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Act Journal'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="actJournals index large-9 medium-8 columns content">
-    <h3><?= __('Act Journals') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('link') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('online_issn') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('online_issn_year') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impacr_factor') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impact_factor_quartile') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('impact_factor_year') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('print_issn') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($actJournals as $actJournal): ?>
-            <tr>
-                <td><?= $this->Number->format($actJournal->id) ?></td>
-                <td><?= h($actJournal->name) ?></td>
-                <td><?= h($actJournal->link) ?></td>
-                <td><?= h($actJournal->online_issn) ?></td>
-                <td><?= h($actJournal->online_issn_year) ?></td>
-                <td><?= $this->Number->format($actJournal->impacr_factor) ?></td>
-                <td><?= h($actJournal->impact_factor_quartile) ?></td>
-                <td><?= h($actJournal->impact_factor_year) ?></td>
-                <td><?= h($actJournal->print_issn) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $actJournal->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $actJournal->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $actJournal->id], ['confirm' => __('Are you sure you want to delete # {0}?', $actJournal->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
-</div>
+ $currentuser = $this->request->session()->read('Auth.User');
+ ?>
+ <div class='container part'>
+     <h4> <?= __('Journals') ?> </h4>
+     <?php
+     if($currentuser['rol'] == 'admin'){
+         echo $this->Html->link(null, ['controller' => 'act_journals', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
+     }
+     ?>
+     <hr/>
+     <div class="row">
+         <?php foreach ($actJournals as $actJournal): ?>
+             <div class="container">
+                 <div class="row">
+                     <?php if($currentuser['rol'] == 'admin'): ?>
+                         <div class="col-md-1">
+                                 <?= $this->Html->link(null, ['controller' => 'act_journals', 'action' => 'edit', $actJournal->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                 <?= $this->Form->postLink(null, ['controller' => 'act_journals', 'action' => 'delete', $actJournal->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                         </div>
+                     <?php endif; ?>
+                     <div class="col-md-11 my-auto p-0">
+                         <?php
+                             if (substr($actJournal->link, 0, 4) != "http"){
+                               $actJournal->link = "http://".$actJournal->link;
+                             }
+                             echo $this->Html->link($actJournal->name, $actJournal->link);
+                             echo ', ISSN: ';
+                             if(!empty($actJournal->print_issn)){
+                                 echo $actJournal->print_issn . ' (Print), ';
+                             }
+                             echo $actJournal->online_issn . ' (Online) ';
+                             echo '(' . __('since') . ' ' . $actJournal->online_issn_year .')';
+                             echo '<br>';
+                             echo 'Impact Factor (' . $actJournal->impact_factor_year . '): ';
+                             echo $actJournal->impact_factor;
+                             echo ' [Q' . $actJournal->impact_factor_quartile . ']';
+
+                         ?>
+                     </div>
+                 </div>
+             </div>
+         <?php endforeach; ?>
+     </div>
+ </div>

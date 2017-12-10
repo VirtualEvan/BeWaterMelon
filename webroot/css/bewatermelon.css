@@ -30,3 +30,7 @@ textarea {
     text-decoration: none;
     color: black;
 }
+
+input:invalid {
+    color: red;
+}

@@ -47,4 +47,4 @@
     var x = <?= key($resProject->res_project_participants)+1 ?>;
 </script>
 
-<?= $this->Html->script('dynamic-inputs.js') ?>
+<?= $this->Html->script('dynamic-inputs-projects.js') ?>

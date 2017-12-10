@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * ActEditorialBoards Controller
@@ -12,6 +13,25 @@ use App\Controller\AppController;
  */
 class ActEditorialBoardsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            return true;
+        }
+
+        // Deny everything else
+        return parent::isAuthorized($user);
+    }
 
     /**
      * Index method
@@ -24,6 +44,13 @@ class ActEditorialBoardsController extends AppController
 
         $this->set(compact('actEditorialBoards'));
         $this->set('_serialize', ['actEditorialBoards']);
+
+        $related = array(
+            [ 'name' => __('Editorials'), 'controller' => 'act_editorial_boards'],
+            [ 'name' => __('Journals'), 'controller' => 'act_journals'],
+            [ 'name' => __('Conferences'), 'controller' => 'act_conferences'],
+        );
+        $this->set(compact('related'));
     }
 
     /**

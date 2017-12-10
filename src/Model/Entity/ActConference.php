@@ -28,7 +28,6 @@ class ActConference extends Entity
     protected $_accessible = [
         'acronym' => true,
         'name' => true,
-        'link' => true,
         'act_conference_years' => true
     ];
 }

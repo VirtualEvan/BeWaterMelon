@@ -74,7 +74,6 @@ class PplUsersController extends AppController
         // TODO: quitar password de aquí
         // Members
         $pplUsers = $this->paginate($this->PplUsers);
-        unset($pplUser->password);
         $this->set(compact('pplUsers'));
         $this->set('_serialize', ['pplUsers']);
 

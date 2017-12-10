@@ -35,4 +35,4 @@
     var x = 1;
 </script>
 
-<?= $this->Html->script('dynamic-inputs.js') ?>
+<?= $this->Html->script('dynamic-inputs-projects.js') ?>
