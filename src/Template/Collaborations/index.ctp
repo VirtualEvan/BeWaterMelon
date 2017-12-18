@@ -20,7 +20,7 @@
                                     <?= $this->Form->postLink(null, ['controller' => 'col_members', 'action' => 'delete', $colMember->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                             </div>
                         <?php endif; ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 ml-2">
                             <?php
                             if (substr($colMember->link, 0, 4) != "http"){
                               $colMember->link = "http://".$colMember->link;
@@ -57,7 +57,7 @@
                                             <?= $this->Form->postLink(null, ['controller' => 'col_colleagues', 'action' => 'delete', $colColleague->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                     </div>
                                 <?php endif; ?>
-                                <div class="col-md-4">
+                                <div class="col-md-4 ml-2">
                                         <?= $this->Html->image('col_colleagues/'.$colColleague['id'], ['height' => '100px', 'width' => '100px']); ?>
                                 </div>
                                 <div class="col-md-6">
@@ -108,21 +108,23 @@
     <hr/>
     <div class="row">
         <?php foreach ($colGroups as $colGroup): ?>
-            <div class="container">
-                <div class="row">
+            <div class="col-md-6">
+                <div class="card-block">
+                    <div class="container">
+                        <div class="row">
                     <?php if($currentuser['rol'] == 'admin'): ?>
                         <div class="col-md-1">
                                 <?= $this->Html->link(null, ['controller' => 'col_groups', 'action' => 'edit', $colGroup->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                                 <?= $this->Form->postLink(null, ['controller' => 'col_groups', 'action' => 'delete', $colGroup->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                         </div>
                     <?php endif; ?>
-                    <div class="col-md-3">
+                    <div class="col-md-4 ml-2">
                         <?php
                         if (substr($colGroup->link, 0, 4) != "http"){
                           $colGroup->link = "http://".$colGroup->link;
                         }
                         ?>
-                        <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '150px', 'width' => '150px']), $colGroup->link, ['escape' => false]) ?>
+                        <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '100px', 'width' => '100px']), $colGroup->link, ['escape' => false]) ?>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
@@ -134,6 +136,8 @@
                         <div class="row">
                             <h6> <?= h($colGroup->company) ?> </h6>
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -161,7 +165,7 @@
                                     <?= $this->Form->postLink(null, ['controller' => 'col_institutions', 'action' => 'delete', $colInstitution->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                             </div>
                         <?php endif; ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 ml-2">
                             <?php
                             if (substr($colInstitution->link, 0, 4) != "http"){
                               $colInstitution->link = "http://".$colInstitution->link;
@@ -197,7 +201,7 @@
                                     <?= $this->Form->postLink(null, ['controller' => 'col_companies', 'action' => 'delete', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                             </div>
                         <?php endif; ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 ml-2">
                             <?php
                             if (substr($colCompany->link, 0, 4) != "http"){
                               $colCompany->link = "http://".$colCompany->link;
