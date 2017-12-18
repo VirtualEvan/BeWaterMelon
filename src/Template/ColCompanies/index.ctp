@@ -14,7 +14,7 @@
     ?>
     <hr/>
     <div class="row">
-        <?php foreach ($colCompanies as $colCompanie): ?>
+        <?php foreach ($colCompanies as $colCompany): ?>
             <div class="col-md-4">
                 <div class="container">
                     <div class="row">
@@ -24,7 +24,7 @@
                                     <?= $this->Form->postLink(null, ['controller' => 'col_companies', 'action' => 'delete', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                             </div>
                         <?php endif; ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 ml-2">
                             <?php
                             if (substr($colCompany->link, 0, 4) != "http"){
                               $colCompany->link = "http://".$colCompany->link;
