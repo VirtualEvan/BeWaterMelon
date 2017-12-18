@@ -11,11 +11,11 @@
 /webroot/img/pro_products/*
 /webroot/img/res_contracts/*
 /webroot/img/res_projects/*
-#/webroot/img/col_members/*
-#/webroot/img/col_colleagues/*
-#/webroot/img/col_groups/*
-#/webroot/img/col_institutions/*
-#/webroot/img/col_companies/*
+/webroot/img/col_members/*
+/webroot/img/col_colleagues/*
+/webroot/img/col_groups/*
+/webroot/img/col_institutions/*
+/webroot/img/col_companies/*
 /webroot/wbt/*
 
 # OS generated files #
