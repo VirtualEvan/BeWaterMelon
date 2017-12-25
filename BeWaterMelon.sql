@@ -471,7 +471,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `BeWaterMelon`.`pre_presses` ;
 
 CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`pre_presses` (
-  `id` INT(5) NOT NULL,
+  `id` INT(5) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   `date` DATE NOT NULL,
   `source` VARCHAR(100) NOT NULL,

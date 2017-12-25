@@ -4,29 +4,24 @@
  * @var \App\Model\Entity\PrePress $prePress
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $prePress->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $prePress->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Pre Presses'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="prePresses form large-9 medium-8 columns content">
-    <?= $this->Form->create($prePress) ?>
-    <fieldset>
-        <legend><?= __('Edit Pre Press') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('date');
-            echo $this->Form->control('source');
-            echo $this->Form->control('link');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+<div class="container">
+    <?= $this->Form->create($prePress, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'edit']) ?>
+        <div class="row">
+            <legend><?= __('Add Press') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
+            ?>
+            <div class="col-md-6">
+                <div class="form-group" >
+                    <label for="date"> <?= __('Date') ?> </label>
+                    <input type="date" name="date" class="form-control">
+                </div>
+            </div>
+            <?php
+                echo $this->Form->control('source', ['class' => 'form-control', 'pattern' => '[A-Za-z/ ]{3,100}']);
+                echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
+            ?>
+        </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
     <?= $this->Form->end() ?>
 </div>

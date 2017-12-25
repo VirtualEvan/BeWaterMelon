@@ -25,7 +25,7 @@
             <?= $this->Html->link(__('People'), ['controller' => 'people','action' => 'index'], ['class' => 'nav-link ' . $active['People']]) ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Press') ?></a>
+              <?= $this->Html->link(__('Press'), ['controller' => 'pre_presses','action' => 'index'], ['class' => 'nav-link ' . $active['Press']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index'], ['class' => 'nav-link ' . $active['Publications']]) ?>
