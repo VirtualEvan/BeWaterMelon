@@ -7,7 +7,7 @@
       'People' => '',
       'Press' => '',
       'Publications' => '',
-      'Pctivities' => '',
+      'Activities' => '',
       'R & D' => '',
       'Products' => '',
       'Teaching' => '',
@@ -31,7 +31,7 @@
             <?= $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index'], ['class' => 'nav-link ' . $active['Publications']]) ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Activities') ?></a>
+              <?= $this->Html->link(__('Activities'), ['controller' => 'activities','action' => 'index'], ['class' => 'nav-link ' . $active['Activities']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('R & D'), ['controller' => 'research','action' => 'index'], ['class' => 'nav-link ' . $active['R & D']]) ?>

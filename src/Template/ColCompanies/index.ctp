@@ -18,13 +18,7 @@
             <div class="col-md-4">
                 <div class="container">
                     <div class="row">
-                        <?php if($currentuser['rol'] == 'admin'): ?>
-                            <div class="col-md-1">
-                                    <?= $this->Html->link(null, ['controller' => 'col_companies', 'action' => 'edit', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
-                                    <?= $this->Form->postLink(null, ['controller' => 'col_companies', 'action' => 'delete', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
-                            </div>
-                        <?php endif; ?>
-                        <div class="col-md-3 ml-2">
+                        <div class="mx-auto text-center mb-2">
                             <?php
                             if (substr($colCompany->link, 0, 4) != "http"){
                               $colCompany->link = "http://".$colCompany->link;
@@ -32,6 +26,14 @@
                             ?>
                             <?= $this->Html->link($this->Html->image('col_companies/'.$colCompany['id'], ['height' => '150px', 'width' => '150px']), $colCompany->link, ['escape' => false]) ?>
                         </div>
+                    </div>
+                    <div class="row">
+                        <?php if($currentuser['rol'] == 'admin'): ?>
+                            <div class="mx-auto text-center">
+                                <?= $this->Html->link(null, ['controller' => 'col_companies', 'action' => 'edit', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                <?= $this->Form->postLink(null, ['controller' => 'col_companies', 'action' => 'delete', $colCompany->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

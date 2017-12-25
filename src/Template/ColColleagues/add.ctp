@@ -15,9 +15,14 @@
                 echo $this->Form->control('company', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
                 echo $this->Form->control('email', ['class' => 'form-control']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
-                echo $this->Form->control('doctor', ['class' => 'checkbox']);
                 echo $this->Form->input('upload', ['label' => __('Image'), 'class' => 'form-control', 'type' => 'file', 'enctype' => 'multipart/form-data']);
                 ?>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="doctor"> <?= __('Doctor') ?> </label>
+                        <?= $this->Form->control('doctor', ['label' => false]) ?>
+                    </div>
+                </div>
         </div>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
     <?= $this->Form->end() ?>
