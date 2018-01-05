@@ -50,7 +50,7 @@ class PubJournalsController extends AppController
      */
     public function index()
     {
-        $pubJournals = $this->paginate($this->PubJournals);
+        $pubJournals = $this->PubJournals->find('all');
 
         $this->set(compact('pubJournals'));
         $this->set('_serialize', ['pubJournals']);

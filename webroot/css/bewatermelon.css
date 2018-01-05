@@ -34,3 +34,46 @@ textarea {
 input:invalid {
     color: red;
 }
+
+.pagination {
+    font-size: 90%;
+}
+
+.pagination a {
+    text-decoration: none;
+	/*border: solid 1px #AAE;*/
+	color: #000;
+	background-color: #E9E9E9;
+
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    padding: 2px 10px;
+    margin-right: 5px;
+	margin-bottom: 5px;
+    border-radius: 4px;
+}
+span.prev, span.next, a.prev, a.next {
+    display: block;
+    float: left;
+    padding: 3px 5px;
+    margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.pagination a:hover
+{
+	background-color: #5bc0de;
+}
+
+.pagination .current {
+    background: #5bc0de;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:transparent;
+	background:#fff;
+}
