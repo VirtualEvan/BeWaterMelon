@@ -40,7 +40,7 @@ class PrePressesController extends AppController
      */
     public function index()
     {
-        $prePresses = $this->paginate($this->PrePresses);
+        $prePresses = $this->PrePresses->find('all');
 
         $this->set(compact('prePresses'));
         $this->set('_serialize', ['prePresses']);
