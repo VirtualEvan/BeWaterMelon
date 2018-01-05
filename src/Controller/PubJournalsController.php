@@ -64,7 +64,7 @@ class PubJournalsController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
+        $authors = $this->PplUsers->find('all');
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
     }

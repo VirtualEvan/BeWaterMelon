@@ -49,14 +49,14 @@ class PubConferencesController extends AppController
      */
     public function index()
     {
-        $pubConferences = $this->paginate($this->PubConferences);
+        $pubConferences = $this->PubConferences->find('all');
 
         $this->set(compact('pubConferences'));
         $this->set('_serialize', ['pubConferences']);
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
+        $authors = $this->PplUsers->find('all');
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
 

@@ -37,6 +37,7 @@ input:invalid {
 
 .pagination {
     font-size: 90%;
+    margin-bottom: 20px;
 }
 
 .pagination a {

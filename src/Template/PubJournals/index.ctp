@@ -5,9 +5,6 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div id="PaginationJournals" class="pagination">
-
-</div>
 
 <div class='container part'>
     <h4> <?= __('Journals') ?> </h4>
@@ -17,8 +14,9 @@
     }
     ?>
     <hr/>
-    <div class="row" id="SearchresultJournals">
-    </div>
+    <div id="PaginationJournals" class="pagination"></div>
+
+    <div id="SearchresultJournals"></div>
 </div>
 
 <div id="hiddenresultJournals" class="container" style="display: none;">

@@ -28,25 +28,25 @@ class PublicationsController extends AppController
     {
         //Journals
         $this->loadModel('PubJournals');
-        $pubJournals = $this->paginate($this->PubJournals);
+        $pubJournals = $this->PubJournals->find('all');
         $this->set(compact('pubJournals'));
         $this->set('_serialize', ['pubJournals']);
 
         //Conferences
         $this->loadModel('PubConferences');
-        $pubConferences = $this->paginate($this->PubConferences);
+        $pubConferences = $this->PubConferences->find('all');
         $this->set(compact('pubConferences'));
         $this->set('_serialize', ['pubConferences']);
 
         //Books
         $this->loadModel('PubBooks');
-        $pubBooks = $this->paginate($this->PubBooks);
+        $pubBooks = $this->PubBooks->find('all');
         $this->set(compact('pubBooks'));
         $this->set('_serialize', ['pubBooks']);
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
+        $authors = $this->PplUsers->find('all');
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
 

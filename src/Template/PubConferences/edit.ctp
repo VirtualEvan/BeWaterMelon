@@ -15,7 +15,14 @@
             <?php
                 echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
                 echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
-                echo $this->Form->control('date', ['class' => 'form-control']);
+                ?>
+                <div class="col-md-6">
+                    <div class="form-group" >
+                        <label for="date"> <?= __('Date') ?> </label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                </div>
+                <?php
                 echo $this->Form->control('city', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
                 echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);

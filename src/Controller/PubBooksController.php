@@ -49,14 +49,14 @@ class PubBooksController extends AppController
      */
     public function index()
     {
-        $pubBooks = $this->paginate($this->PubBooks);
+        $pubBooks = $this->PubBooks->find('all');
 
         $this->set(compact('pubBooks'));
         $this->set('_serialize', ['pubBooks']);
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
+        $authors = $this->PplUsers->find('all');
         $this->set(compact('authors'));
         $this->set('_serialize', ['authors']);
 
