@@ -57,7 +57,8 @@ class CouCourseDegreeSubjectsTable extends Table
     {
         $validator
             ->scalar('year')
-            ->allowEmpty('year', 'create');
+            ->requirePresence('year', 'create')
+            ->notEmpty('year');
 
         return $validator;
     }

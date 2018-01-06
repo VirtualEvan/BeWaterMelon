@@ -40,7 +40,7 @@
             <?= $this->Html->link(__('Products'), ['controller' => 'pro_products','action' => 'index'], ['class' => 'nav-link ' . $active['Products']]) ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Teaching') ?></a>
+            <?= $this->Html->link(__('Teaching'), ['controller' => 'courses','action' => 'index'], ['class' => 'nav-link ' . $active['Teaching']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('Collaborations'), ['controller' => 'collaborations','action' => 'index'], ['class' => 'nav-link ' . $active['Collaborations']]) ?>

@@ -12,7 +12,7 @@ use App\Controller\AppController;
  */
 class CouDegreesController extends AppController
 {
-
+    
     /**
      * Index method
      *

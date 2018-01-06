@@ -27,6 +27,7 @@ class CouCourseDegreeSubject extends Entity
      */
     protected $_accessible = [
         'cou_degree' => true,
-        'cou_subject' => true
+        'cou_subject' => true,
+        'year' => true
     ];
 }

@@ -3,33 +3,18 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\CouSubject $couSubject
  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $couSubject->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $couSubject->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Cou Subjects'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Ppl Users'), ['controller' => 'PplUsers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ppl User'), ['controller' => 'PplUsers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Cou Course Degree Subjects'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Cou Course Degree Subject'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="couSubjects form large-9 medium-8 columns content">
-    <?= $this->Form->create($couSubject) ?>
-    <fieldset>
-        <legend><?= __('Edit Cou Subject') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('ppl_user_id', ['options' => $pplUsers]);
-            echo $this->Form->control('abbreviation');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+ ?>
+ <div class="container">
+     <?= $this->Form->create($couSubject, ['templates' => ['inputContainer' => '<div class="col-md-6"><div class="form-group" >{{content}}</div></div>'], 'name' => 'edit']) ?>
+         <div class="row">
+             <legend><?= __('Edit Subject') ?></legend>
+             <?php
+
+                 echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
+                 echo $this->Form->control('abbreviation', ['class' => 'form-control', 'pattern' => '[A-Z]{2,4}']);
+                 echo $this->Form->control('ppl_user_id', ['options' => $pplUsers, 'label' => 'Teacher']);
+             ?>
+         </div>
+     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>
+     <?= $this->Form->end() ?>
+ </div>

@@ -406,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`cou_course_degree_subjects` (
   CONSTRAINT `subject`
     FOREIGN KEY (`cou_subject_id`)
     REFERENCES `BeWaterMelon`.`cou_subjects` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
