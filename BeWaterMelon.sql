@@ -401,7 +401,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`cou_course_degree_subjects` (
   CONSTRAINT `degree`
     FOREIGN KEY (`cou_degree_id`)
     REFERENCES `BeWaterMelon`.`cou_degrees` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `subject`
     FOREIGN KEY (`cou_subject_id`)

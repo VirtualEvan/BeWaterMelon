@@ -15,9 +15,14 @@
                         <table>
                             <tr>
                                 <th>
-                                    <h4><?= h($couDegree->name) ?></h4>
-                                    <?= $this->Html->link(null, ['controller' => 'cou_course_degree_subjects', 'action' => 'edit', $couDegree->cou_degree_id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
-                                    <?= $this->Form->postLink(null, ['controller' => 'cou_course_degree_subjects', 'action' => 'delete', $couDegree->cou_degree_id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                                    <?php
+                                    if (substr($couDegree->link, 0, 4) != "http"){
+                                      $couDegree->link = "http://".$couDegree->link;
+                                    }
+                                    ?>
+                                    <h4><?= $this->Html->link($couDegree->name, $couDegree->link) ?></h4>
+                                    <?= $this->Html->link(null, ['controller' => 'cou_course_degree_subjects', 'action' => 'edit', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                    <?= $this->Form->postLink(null, ['controller' => 'cou_degrees', 'action' => 'delete', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                     <hr/>
                                 </th>
                             </tr>

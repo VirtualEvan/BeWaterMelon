@@ -79,15 +79,26 @@ class CouCourseDegreeSubjectsController extends AppController
      */
     public function add()
     {
+        $this->loadModel('CouDegrees');
         $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->newEntity();
         if ($this->request->is('post')) {
-            $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->patchEntity($couCourseDegreeSubject, $this->request->getData());
-            if ($this->CouCourseDegreeSubjects->save($couCourseDegreeSubject)) {
-                $this->Flash->success(__('The cou course degree subject has been saved.'));
+            $couDegree = $this->CouDegrees->newEntity();
+            $couDegree = $this->CouDegrees->patchEntity($couDegree, $this->request->getData()['cou_degree']);
+            $this->CouDegrees->save($couDegree);
 
-                return $this->redirect(['action' => 'index']);
+            foreach($this->request->getData()['cou_subject_id'] as $id_subject){
+                $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->newEntity();
+                $couCourseDegreeSubject->cou_subject_id = $id_subject;
+                $couCourseDegreeSubject->cou_degree_id = $couDegree->id;
+                $couCourseDegreeSubject->year =$this->request->getData()['year'];
+                if (!$this->CouCourseDegreeSubjects->save($couCourseDegreeSubject)) {
+                    $this->Flash->error(__('The degree could not be saved. Please, try again.'));
+                    return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+                }
             }
-            $this->Flash->error(__('The cou course degree subject could not be saved. Please, try again.'));
+            $this->Flash->success(__('The degree has been saved.'));
+            return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+
         }
         $couDegrees = $this->CouCourseDegreeSubjects->CouDegrees->find('list', ['limit' => 200]);
         $couSubjects = $this->CouCourseDegreeSubjects->CouSubjects->find('list', ['limit' => 200]);
@@ -95,7 +106,7 @@ class CouCourseDegreeSubjectsController extends AppController
         $this->set('_serialize', ['couCourseDegreeSubject']);
 
         $this->loadModel('CouSubjects');
-        $subjects = $this->paginate($this->CouSubjects);
+        $subjects = $this->CouSubjects->find('all');
         $this->set(compact('subjects'));
         $this->set('_serialize', ['subjects']);
     }
@@ -109,22 +120,46 @@ class CouCourseDegreeSubjectsController extends AppController
      */
     public function edit($id = null)
     {
-        $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->get($id, [
+        $this->loadModel('CouDegrees');
+        $couDegree = $this->CouDegrees->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->patchEntity($couCourseDegreeSubject, $this->request->getData());
-            if ($this->CouCourseDegreeSubjects->save($couCourseDegreeSubject)) {
-                $this->Flash->success(__('The cou course degree subject has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->find('all', [
+                'conditions' => ['cou_degree_id' => $id],
+                'contain' => []
+            ]);
+
+            foreach($couCourseDegreeSubject as $x){
+                $this->CouCourseDegreeSubjects->delete($x);
             }
-            $this->Flash->error(__('The cou course degree subject could not be saved. Please, try again.'));
+
+            $couDegree = $this->CouDegrees->patchEntity($couDegree, $this->request->getData()['cou_degree']);
+            $this->CouDegrees->save($couDegree);
+
+            foreach($this->request->getData()['cou_subject_id'] as $id_subject){
+                //debug($this->request->getData());die;
+                $couCourseDegreeSubjectNew = $this->CouCourseDegreeSubjects->newEntity();
+                $couCourseDegreeSubjectNew ->cou_subject_id = $id_subject;
+                $couCourseDegreeSubjectNew->cou_degree_id = $id;
+                $couCourseDegreeSubjectNew->year =$this->request->getData()['year'];
+                if (!$this->CouCourseDegreeSubjects->save($couCourseDegreeSubjectNew)) {
+                    $this->Flash->error(__('The degree could not be saved. Please, try again.'));
+                    return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+                }
+            }
+            $this->Flash->success(__('The degree has been saved.'));
+            return $this->redirect(['controller' => 'courses', 'action' => 'index']);
         }
-        $couDegrees = $this->CouCourseDegreeSubjects->CouDegrees->find('list', ['limit' => 200]);
-        $couSubjects = $this->CouCourseDegreeSubjects->CouSubjects->find('list', ['limit' => 200]);
-        $this->set(compact('couCourseDegreeSubject', 'couDegrees', 'couSubjects'));
-        $this->set('_serialize', ['couCourseDegreeSubject']);
+
+        $this->set(compact('couDegree'));
+        $this->set('_serialize', ['couDegree']);
+
+        $this->loadModel('CouSubjects');
+        $subjects = $this->CouSubjects->find('all');
+        $this->set(compact('subjects'));
+        $this->set('_serialize', ['subjects']);
     }
 
     /**

@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * CouDegrees Controller
  *
@@ -12,7 +12,32 @@ use App\Controller\AppController;
  */
 class CouDegreesController extends AppController
 {
-    
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['index', 'view', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admins can manage users
+        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+            if ($user['rol'] == 'admin') {
+                return true;
+            }
+        }
+
+        // Registered users can edit their own info
+        if ($this->request->action === 'edit') {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId == $user['id']) {
+                return true;
+            }
+        }
+    }
     /**
      * Index method
      *
@@ -62,6 +87,7 @@ class CouDegreesController extends AppController
         }
         $this->set(compact('couDegree'));
         $this->set('_serialize', ['couDegree']);
+
     }
 
     /**
@@ -87,6 +113,16 @@ class CouDegreesController extends AppController
         }
         $this->set(compact('couDegree'));
         $this->set('_serialize', ['couDegree']);
+
+        $this->loadModel('CouSubjects');
+        $subjects = $this->CouSubjects->find('all');
+        $this->set(compact('subjects'));
+        $this->set('_serialize', ['subjects']);
+
+        $this->loadModel('CouCourseDegreeSubjects');
+        $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->find('all');
+        $this->set(compact('couCourseDegreeSubject'));
+        $this->set('_serialize', ['couCourseDegreeSubject']);
     }
 
     /**
@@ -101,11 +137,11 @@ class CouDegreesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $couDegree = $this->CouDegrees->get($id);
         if ($this->CouDegrees->delete($couDegree)) {
-            $this->Flash->success(__('The cou degree has been deleted.'));
+            $this->Flash->success(__('The degree has been deleted.'));
         } else {
-            $this->Flash->error(__('The cou degree could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The degree could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'courses', 'action' => 'index']);
     }
 }
