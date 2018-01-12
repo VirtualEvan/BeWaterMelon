@@ -36,6 +36,14 @@ class CoursesController extends AppController
          $couCourseDegreeSubjects = $this->paginate($this->CouCourseDegreeSubjects);
          $this->set(compact('couCourseDegreeSubjects'));
          $this->set('_serialize', ['couCourseDegreeSubjects']);
+
+         $related = array();
+
+         foreach($couDegrees as $couDegree)
+         {
+            array_push($related, [ 'name' => $couDegree->name, 'href' => ['controller' => 'courses', 'action' => 'index', '#' => $couDegree->id]]);
+         }
+         $this->set(compact('related'));
      }
 }
 

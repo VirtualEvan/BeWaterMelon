@@ -16,9 +16,15 @@
             <?= $this->Html->link(__('Related'),['action' => '#'] , ['class' => 'list-group-item active']) ?>
 
             <?php
-                foreach ($related as $rel){
+            foreach ($related as $rel){
+                if(!array_key_exists("href", $rel)){
                     echo $this->Html->link($rel['name'],['controller' => $rel['controller']] , ['class' => 'list-group-item']);
                 }
+                else {
+                    echo $this->Html->link($rel['name'],$rel['href'] , ['class' => 'list-group-item']);
+                }
+            }
+
             ?>
         </div>
     <?php endif; ?>
