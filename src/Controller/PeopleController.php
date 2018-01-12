@@ -28,37 +28,37 @@ class PeopleController extends AppController
     {
         // Members
         $this->loadModel('PplUsers');
-        $pplUsers = $this->paginate($this->PplUsers);
+        $pplUsers = $this->PplUsers->find('all');
         $this->set(compact('pplUsers'));
         $this->set('_serialize', ['pplUsers']);
 
         // Phds
         $this->loadModel('PplPhds');
-        $pplPhds = $this->paginate($this->PplPhds);
+        $pplPhds = $this->PplPhds->find('all');
         $this->set(compact('pplPhds'));
         $this->set('_serialize', ['pplPhds']);
 
         // Postdoc
         $this->loadModel('PplPostdocs');
-        $pplPostdocs = $this->paginate($this->PplPostdocs);
+        $pplPostdocs = $this->PplPostdocs->find('all');
         $this->set(compact('pplPostdocs'));
         $this->set('_serialize', ['pplPostdocs']);
 
         // Visitors
         $this->loadModel('PplVisitors');
-        $pplVisitors = $this->paginate($this->PplVisitors);
+        $pplVisitors = $this->PplVisitors->find('all');
         $this->set(compact('pplVisitors'));
         $this->set('_serialize', ['pplVisitors']);
 
         // Past phds
         $this->loadModel('PplPastPhds');
-        $pplPastPhds = $this->paginate($this->PplPastPhds);
+        $pplPastPhds = $this->PplPastPhds->find('all');
         $this->set(compact('pplPastPhds'));
         $this->set('_serialize', ['pplPastPhds']);
 
         // Collaborators
         $this->loadModel('PplCollaborators');
-        $pplCollaborators = $this->paginate($this->PplCollaborators);
+        $pplCollaborators = $this->PplCollaborators->find('all');
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
 

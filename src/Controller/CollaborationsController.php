@@ -26,31 +26,31 @@ class CollaborationsController extends AppController
      {
          //Members
          $this->loadModel('ColMembers');
-         $colMembers = $this->paginate($this->ColMembers);
+         $colMembers = $this->ColMembers->find('all');
          $this->set(compact('colMembers'));
          $this->set('_serialize', ['colMembers']);
 
          //Colleagues
          $this->loadModel('ColColleagues');
-         $colColleagues = $this->paginate($this->ColColleagues);
+         $colColleagues = $this->ColColleagues->find('all');
          $this->set(compact('colColleagues'));
          $this->set('_serialize', ['colColleagues']);
 
          //Groups
          $this->loadModel('ColGroups');
-         $colGroups = $this->paginate($this->ColGroups);
+         $colGroups = $this->ColGroups->find('all');
          $this->set(compact('colGroups'));
          $this->set('_serialize', ['colGroups']);
 
          //Institutions
          $this->loadModel('ColInstitutions');
-         $colInstitutions = $this->paginate($this->ColInstitutions);
+         $colInstitutions = $this->ColInstitutions->find('all');
          $this->set(compact('colInstitutions'));
          $this->set('_serialize', ['colInstitutions']);
 
          //Companies
          $this->loadModel('ColCompanies');
-         $colCompanies = $this->paginate($this->ColCompanies);
+         $colCompanies = $this->ColCompanies->find('all');
          $this->set(compact('colCompanies'));
          $this->set('_serialize', ['colCompanies']);
 

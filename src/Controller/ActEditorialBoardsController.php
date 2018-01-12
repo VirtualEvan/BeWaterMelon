@@ -40,7 +40,7 @@ class ActEditorialBoardsController extends AppController
      */
     public function index()
     {
-        $actEditorialBoards = $this->paginate($this->ActEditorialBoards);
+        $actEditorialBoards = $this->ActEditorialBoards->find('all');
 
         $this->set(compact('actEditorialBoards'));
         $this->set('_serialize', ['actEditorialBoards']);

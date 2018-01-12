@@ -46,7 +46,7 @@ class ColMembersController extends AppController
      */
     public function index()
     {
-        $colMembers = $this->paginate($this->ColMembers);
+        $colMembers = $this->ColMembers->find('all');
 
         $this->set(compact('colMembers'));
         $this->set('_serialize', ['colMembers']);

@@ -46,7 +46,7 @@ class ColGroupsController extends AppController
      */
     public function index()
     {
-        $colGroups = $this->paginate($this->ColGroups);
+        $colGroups = $this->ColGroups->find('all');
 
         $this->set(compact('colGroups'));
         $this->set('_serialize', ['colGroups']);

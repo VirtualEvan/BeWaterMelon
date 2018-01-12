@@ -46,7 +46,7 @@ class ColColleaguesController extends AppController
      */
     public function index()
     {
-        $colColleagues = $this->paginate($this->ColColleagues);
+        $colColleagues = $this->ColColleagues->find('all');
 
         $this->set(compact('colColleagues'));
         $this->set('_serialize', ['colColleagues']);

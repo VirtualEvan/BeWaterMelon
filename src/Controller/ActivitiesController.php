@@ -27,13 +27,13 @@ class ActivitiesController extends AppController
     {
         //Editorials
         $this->loadModel('ActEditorialBoards');
-        $actEditorialBoards = $this->paginate($this->ActEditorialBoards);
+        $actEditorialBoards = $this->ActEditorialBoards->find('all');
         $this->set(compact('actEditorialBoards'));
         $this->set('_serialize', ['actEditorialBoards']);
 
         //Journals
         $this->loadModel('ActJournals');
-        $actJournals = $this->paginate($this->ActJournals);
+        $actJournals = $this->ActJournals->find('all');
         $this->set(compact('actJournals'));
         $this->set('_serialize', ['actJournals']);
 

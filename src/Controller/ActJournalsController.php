@@ -41,7 +41,7 @@ class ActJournalsController extends AppController
      */
     public function index()
     {
-        $actJournals = $this->paginate($this->ActJournals);
+        $actJournals = $this->ActJournals->find('all');
 
         $this->set(compact('actJournals'));
         $this->set('_serialize', ['actJournals']);
