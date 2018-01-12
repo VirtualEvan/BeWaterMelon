@@ -8,7 +8,7 @@
 /vendor/*
 /webroot/img/ppl_phds/*
 /webroot/img/ppl_users/*
-#/webroot/img/pro_products/*
+/webroot/img/pro_products/*
 /webroot/img/res_contracts/*
 /webroot/img/res_projects/*
 /webroot/img/col_members/*
