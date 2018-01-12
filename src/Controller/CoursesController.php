@@ -33,7 +33,7 @@ class CoursesController extends AppController
              'contain' => ['CouSubjects.PplUsers'],
              'group' => array('cou_degree_id', 'cou_subject_id', 'year')
          ];
-         $couCourseDegreeSubjects = $this->CouCourseDegreeSubjects->find('all');
+         $couCourseDegreeSubjects = $this->paginate($this->CouCourseDegreeSubjects);
          $this->set(compact('couCourseDegreeSubjects'));
          $this->set('_serialize', ['couCourseDegreeSubjects']);
 
