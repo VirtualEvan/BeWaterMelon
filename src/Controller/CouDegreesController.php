@@ -45,7 +45,7 @@ class CouDegreesController extends AppController
      */
     public function index()
     {
-        $couDegrees = $this->paginate($this->CouDegrees);
+        $couDegrees = $this->CouDegrees->find('all');
 
         $this->set(compact('couDegrees'));
         $this->set('_serialize', ['couDegrees']);

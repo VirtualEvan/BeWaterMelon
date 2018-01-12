@@ -43,7 +43,7 @@ class ActConferenceYearsController extends AppController
         $this->paginate = [
             'contain' => ['ActConferences']
         ];
-        $actConferenceYears = $this->paginate($this->ActConferenceYears);
+        $actConferenceYears = $this->ActConferenceYears->find('all');
 
         $this->set(compact('actConferenceYears'));
         $this->set('_serialize', ['actConferenceYears']);

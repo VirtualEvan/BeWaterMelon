@@ -48,7 +48,7 @@ class CouSubjectsController extends AppController
         $this->paginate = [
             'contain' => ['PplUsers']
         ];
-        $couSubjects = $this->paginate($this->CouSubjects);
+        $couSubjects = $this->CouSubjects->find('all');
         $this->set(compact('couSubjects'));
         $this->set('_serialize', ['couSubjects']);
     }

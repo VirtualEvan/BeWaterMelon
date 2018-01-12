@@ -24,7 +24,7 @@ class CoursesController extends AppController
      public function index()
      {
          $this->loadModel('CouDegrees');
-         $couDegrees = $this->paginate($this->CouDegrees);
+         $couDegrees = $this->CouDegrees->find('all');
          $this->set(compact('couDegrees'));
          $this->set('_serialize', ['couDegrees']);
 
@@ -33,7 +33,7 @@ class CoursesController extends AppController
              'contain' => ['CouSubjects.PplUsers'],
              'group' => array('cou_degree_id', 'cou_subject_id', 'year')
          ];
-         $couCourseDegreeSubjects = $this->paginate($this->CouCourseDegreeSubjects);
+         $couCourseDegreeSubjects = $this->CouCourseDegreeSubjects->find('all');
          $this->set(compact('couCourseDegreeSubjects'));
          $this->set('_serialize', ['couCourseDegreeSubjects']);
      }

@@ -46,7 +46,7 @@ class ColCompaniesController extends AppController
      */
     public function index()
     {
-        $colCompanies = $this->paginate($this->ColCompanies);
+        $colCompanies = $this->ColCompanies->find('all');
 
         $this->set(compact('colCompanies'));
         $this->set('_serialize', ['colCompanies']);

@@ -51,7 +51,7 @@ class PplCollaboratorsController extends AppController
      */
     public function index()
     {
-        $pplCollaborators = $this->paginate($this->PplCollaborators);
+        $pplCollaborators = $this->PplCollaborators->find('all');
 
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
@@ -128,7 +128,7 @@ class PplCollaboratorsController extends AppController
             $this->Flash->error(__('The collaborator could not be saved. Please, try again.'));
         }
 
-        $pplCollaborators = $this->paginate($this->PplCollaborators);
+        $pplCollaborators = $this->PplCollaborators->find('all');
         $this->set(compact('pplCollaborators'));
         $this->set('_serialize', ['pplCollaborators']);
 

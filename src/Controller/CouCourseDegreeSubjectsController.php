@@ -49,7 +49,7 @@ class CouCourseDegreeSubjectsController extends AppController
         $this->paginate = [
             'contain' => ['CouDegrees', 'CouSubjects']
         ];
-        $couCourseDegreeSubjects = $this->paginate($this->CouCourseDegreeSubjects);
+        $couCourseDegreeSubjects = $this->CouCourseDegreeSubjects->find('all');
 
         $this->set(compact('couCourseDegreeSubjects'));
         $this->set('_serialize', ['couCourseDegreeSubjects']);

@@ -46,7 +46,7 @@ class ColInstitutionsController extends AppController
      */
     public function index()
     {
-        $colInstitutions = $this->paginate($this->ColInstitutions);
+        $colInstitutions = $this->ColInstitutions->find('all');
 
         $this->set(compact('colInstitutions'));
         $this->set('_serialize', ['colInstitutions']);
