@@ -20,7 +20,7 @@
                                   $colMember->link = "http://".$colMember->link;
                                 }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px']), $colMember->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colMember->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">
@@ -57,7 +57,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 mx-auto text-center">
-                            <?= $this->Html->image('col_colleagues/'.$colColleague['id'], ['height' => '100px', 'width' => '100px']); ?>
+                            <?= $this->Html->image('col_colleagues/'.$colColleague['id'], ['height' => '100px', 'width' => '100px', 'class' => 'col-img']); ?>
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@
                                   $colGroup->link = "http://".$colGroup->link;
                                 }
                                 ?>
-                                <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '100px', 'width' => '100px']), $colGroup->link, ['escape' => false]) ?>
+                                <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '100px', 'width' => '100px', 'class' => 'col-img']), $colGroup->link, ['escape' => false]) ?>
                             </div>
                             <div class="col-md-8">
                                 <table>
@@ -204,7 +204,7 @@
                                   $colInstitution->link = "http://".$colInstitution->link;
                                 }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_institutions/'.$colInstitution['id'], ['height' => '150px', 'width' => '150px']), $colInstitution->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_institutions/'.$colInstitution['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colInstitution->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">
@@ -246,7 +246,7 @@
                               $colCompany->link = "http://".$colCompany->link;
                             }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_companies/'.$colCompany['id'], ['height' => '150px', 'width' => '150px']), $colCompany->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_companies/'.$colCompany['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colCompany->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">

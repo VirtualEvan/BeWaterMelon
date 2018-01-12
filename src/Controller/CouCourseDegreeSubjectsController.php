@@ -58,7 +58,7 @@ class CouCourseDegreeSubjectsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Cou Course Degree Subject id.
+     * @param string|null $id Course Degree Subject id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -114,7 +114,7 @@ class CouCourseDegreeSubjectsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Cou Course Degree Subject id.
+     * @param string|null $id Course Degree Subject id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -165,7 +165,7 @@ class CouCourseDegreeSubjectsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Cou Course Degree Subject id.
+     * @param string|null $id Course Degree Subject id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -174,9 +174,9 @@ class CouCourseDegreeSubjectsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->get($id);
         if ($this->CouCourseDegreeSubjects->delete($couCourseDegreeSubject)) {
-            $this->Flash->success(__('The cou course degree subject has been deleted.'));
+            $this->Flash->success(__('The course degree subject has been deleted.'));
         } else {
-            $this->Flash->error(__('The cou course degree subject could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The course degree subject could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

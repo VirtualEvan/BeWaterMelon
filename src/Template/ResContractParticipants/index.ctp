@@ -7,13 +7,13 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Res Contract Participant'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Res Contracts'), ['controller' => 'ResContracts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Res Contract'), ['controller' => 'ResContracts', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Contract Participant'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Contracts'), ['controller' => 'ResContracts', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'ResContracts', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="resContractParticipants index large-9 medium-8 columns content">
-    <h3><?= __('Res Contract Participants') ?></h3>
+    <h3><?= __('Contract Participants') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

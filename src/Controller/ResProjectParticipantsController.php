@@ -32,7 +32,7 @@ class ResProjectParticipantsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Res Project Participant id.
+     * @param string|null $id Project Participant id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -57,11 +57,11 @@ class ResProjectParticipantsController extends AppController
         if ($this->request->is('post')) {
             $resProjectParticipant = $this->ResProjectParticipants->patchEntity($resProjectParticipant, $this->request->getData());
             if ($this->ResProjectParticipants->save($resProjectParticipant)) {
-                $this->Flash->success(__('The res project participant has been saved.'));
+                $this->Flash->success(__('The project participant has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res project participant could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project participant could not be saved. Please, try again.'));
         }
         $resProjects = $this->ResProjectParticipants->ResProjects->find('list', ['limit' => 200]);
         $this->set(compact('resProjectParticipant', 'resProjects'));
@@ -71,7 +71,7 @@ class ResProjectParticipantsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Res Project Participant id.
+     * @param string|null $id Project Participant id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -83,11 +83,11 @@ class ResProjectParticipantsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resProjectParticipant = $this->ResProjectParticipants->patchEntity($resProjectParticipant, $this->request->getData());
             if ($this->ResProjectParticipants->save($resProjectParticipant)) {
-                $this->Flash->success(__('The res project participant has been saved.'));
+                $this->Flash->success(__('The project participant has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res project participant could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project participant could not be saved. Please, try again.'));
         }
         $resProjects = $this->ResProjectParticipants->ResProjects->find('list', ['limit' => 200]);
         $this->set(compact('resProjectParticipant', 'resProjects'));
@@ -97,7 +97,7 @@ class ResProjectParticipantsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Res Project Participant id.
+     * @param string|null $id Project Participant id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -106,9 +106,9 @@ class ResProjectParticipantsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resProjectParticipant = $this->ResProjectParticipants->get($id);
         if ($this->ResProjectParticipants->delete($resProjectParticipant)) {
-            $this->Flash->success(__('The res project participant has been deleted.'));
+            $this->Flash->success(__('The project participant has been deleted.'));
         } else {
-            $this->Flash->error(__('The res project participant could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The project participant could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -65,7 +65,7 @@ class ResProjectsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Res Project id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -124,7 +124,7 @@ class ResProjectsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Res Project id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -167,7 +167,7 @@ class ResProjectsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Res Project id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

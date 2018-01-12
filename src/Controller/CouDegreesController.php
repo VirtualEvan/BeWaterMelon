@@ -54,7 +54,7 @@ class CouDegreesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Cou Degree id.
+     * @param string|null $id Degree id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -79,11 +79,11 @@ class CouDegreesController extends AppController
         if ($this->request->is('post')) {
             $couDegree = $this->CouDegrees->patchEntity($couDegree, $this->request->getData());
             if ($this->CouDegrees->save($couDegree)) {
-                $this->Flash->success(__('The cou degree has been saved.'));
+                $this->Flash->success(__('The degree has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The cou degree could not be saved. Please, try again.'));
+            $this->Flash->error(__('The degree could not be saved. Please, try again.'));
         }
         $this->set(compact('couDegree'));
         $this->set('_serialize', ['couDegree']);
@@ -93,7 +93,7 @@ class CouDegreesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Cou Degree id.
+     * @param string|null $id Degree id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -105,11 +105,11 @@ class CouDegreesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $couDegree = $this->CouDegrees->patchEntity($couDegree, $this->request->getData());
             if ($this->CouDegrees->save($couDegree)) {
-                $this->Flash->success(__('The cou degree has been saved.'));
+                $this->Flash->success(__('The degree has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The cou degree could not be saved. Please, try again.'));
+            $this->Flash->error(__('The degree could not be saved. Please, try again.'));
         }
         $this->set(compact('couDegree'));
         $this->set('_serialize', ['couDegree']);
@@ -128,7 +128,7 @@ class CouDegreesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Cou Degree id.
+     * @param string|null $id Degree id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

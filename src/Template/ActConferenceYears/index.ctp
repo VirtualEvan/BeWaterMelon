@@ -7,13 +7,13 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Act Conference Year'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Act Conferences'), ['controller' => 'ActConferences', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Act Conference'), ['controller' => 'ActConferences', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Conference Year'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Conferences'), ['controller' => 'ActConferences', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Conference'), ['controller' => 'ActConferences', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="actConferenceYears index large-9 medium-8 columns content">
-    <h3><?= __('Act Conference Years') ?></h3>
+    <h3><?= __('Conference Years') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

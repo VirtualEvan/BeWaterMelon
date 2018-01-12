@@ -52,7 +52,7 @@ class ActConferenceYearsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Act Conference Year id.
+     * @param string|null $id Conference Year id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -77,11 +77,11 @@ class ActConferenceYearsController extends AppController
         if ($this->request->is('post')) {
             $actConferenceYear = $this->ActConferenceYears->patchEntity($actConferenceYear, $this->request->getData());
             if ($this->ActConferenceYears->save($actConferenceYear)) {
-                $this->Flash->success(__('The act conference year has been saved.'));
+                $this->Flash->success(__('The conference year has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act conference year could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference year could not be saved. Please, try again.'));
         }
         $actConferences = $this->ActConferenceYears->ActConferences->find('list', ['limit' => 200]);
         $this->set(compact('actConferenceYear', 'actConferences'));
@@ -91,7 +91,7 @@ class ActConferenceYearsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Act Conference Year id.
+     * @param string|null $id Conference Year id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -103,11 +103,11 @@ class ActConferenceYearsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $actConferenceYear = $this->ActConferenceYears->patchEntity($actConferenceYear, $this->request->getData());
             if ($this->ActConferenceYears->save($actConferenceYear)) {
-                $this->Flash->success(__('The act conference year has been saved.'));
+                $this->Flash->success(__('The conference year has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act conference year could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference year could not be saved. Please, try again.'));
         }
         $actConferences = $this->ActConferenceYears->ActConferences->find('list', ['limit' => 200]);
         $this->set(compact('actConferenceYear', 'actConferences'));
@@ -117,7 +117,7 @@ class ActConferenceYearsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Act Conference Year id.
+     * @param string|null $id Conference Year id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -126,9 +126,9 @@ class ActConferenceYearsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $actConferenceYear = $this->ActConferenceYears->get($id);
         if ($this->ActConferenceYears->delete($actConferenceYear)) {
-            $this->Flash->success(__('The act conference year has been deleted.'));
+            $this->Flash->success(__('The conference year has been deleted.'));
         } else {
-            $this->Flash->error(__('The act conference year could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The conference year could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

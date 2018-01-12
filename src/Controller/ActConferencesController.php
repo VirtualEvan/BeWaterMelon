@@ -57,7 +57,7 @@ class ActConferencesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Act Conference id.
+     * @param string|null $id Conference id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -82,11 +82,11 @@ class ActConferencesController extends AppController
         if ($this->request->is('post')) {
             $actConference = $this->ActConferences->patchEntity($actConference, $this->request->getData());
             if ($this->ActConferences->save($actConference)) {
-                $this->Flash->success(__('The act conference has been saved.'));
+                $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
         }
         $this->set(compact('actConference'));
         $this->set('_serialize', ['actConference']);
@@ -95,7 +95,7 @@ class ActConferencesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Act Conference id.
+     * @param string|null $id Conference id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -107,11 +107,11 @@ class ActConferencesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $actConference = $this->ActConferences->patchEntity($actConference, $this->request->getData());
             if ($this->ActConferences->save($actConference)) {
-                $this->Flash->success(__('The act conference has been saved.'));
+                $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
         }
         $this->set(compact('actConference'));
         $this->set('_serialize', ['actConference']);
@@ -120,7 +120,7 @@ class ActConferencesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Act Conference id.
+     * @param string|null $id Conference id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -129,9 +129,9 @@ class ActConferencesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $actConference = $this->ActConferences->get($id);
         if ($this->ActConferences->delete($actConference)) {
-            $this->Flash->success(__('The act conference has been deleted.'));
+            $this->Flash->success(__('The conference has been deleted.'));
         } else {
-            $this->Flash->error(__('The act conference could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The conference could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

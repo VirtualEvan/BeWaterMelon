@@ -24,7 +24,7 @@
                               $colCompany->link = "http://".$colCompany->link;
                             }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_companies/'.$colCompany['id'], ['height' => '150px', 'width' => '150px']), $colCompany->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_companies/'.$colCompany['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colCompany->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">

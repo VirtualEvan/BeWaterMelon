@@ -44,7 +44,7 @@
 
     <?php if (!empty($pplUser->cou_subjects)): ?>
         <div class="container">
-            <h4><?= __('Related Cou Subjects') ?></h4>
+            <h4><?= __('Related Subjects') ?></h4>
             <table class="table-striped">
                 <tr>
                     <th scope="col"><?= __('Id') ?></th>

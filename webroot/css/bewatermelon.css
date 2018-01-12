@@ -20,6 +20,8 @@ header {
     background: linear-gradient(180deg, white, #A0A0A0);
     border-radius: 25px;
     margin-bottom: 25px;
+    display: flex;
+    align-items: center;
 }
 
 textarea {
@@ -77,4 +79,28 @@ span.prev, span.next, a.prev, a.next {
 	color:#999;
 	border-color:transparent;
 	background:#fff;
+}
+
+.locale {
+    float: left;
+    width: 50%;
+    align-items: right
+}
+
+.bwm {
+    float: left;
+    width: 50%;
+}
+
+.localeimg {
+    float: right    ;
+    margin-top: 3px;
+    margin-right: 3px;
+    width: 18px;
+    height: 16px;
+}
+
+.col-img {
+    border-radius: 20px;
+    margin-bottom: 20px;
 }

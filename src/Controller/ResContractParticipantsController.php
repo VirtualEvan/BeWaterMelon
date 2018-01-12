@@ -32,7 +32,7 @@ class ResContractParticipantsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Res Contract Participant id.
+     * @param string|null $id Contract Participant id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -57,11 +57,11 @@ class ResContractParticipantsController extends AppController
         if ($this->request->is('post')) {
             $resContractParticipant = $this->ResContractParticipants->patchEntity($resContractParticipant, $this->request->getData());
             if ($this->ResContractParticipants->save($resContractParticipant)) {
-                $this->Flash->success(__('The res contract participant has been saved.'));
+                $this->Flash->success(__('The contract participant has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res contract participant could not be saved. Please, try again.'));
+            $this->Flash->error(__('The contract participant could not be saved. Please, try again.'));
         }
         $resContracts = $this->ResContractParticipants->ResContracts->find('list', ['limit' => 200]);
         $this->set(compact('resContractParticipant', 'resContracts'));
@@ -71,7 +71,7 @@ class ResContractParticipantsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Res Contract Participant id.
+     * @param string|null $id Contract Participant id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -83,11 +83,11 @@ class ResContractParticipantsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $resContractParticipant = $this->ResContractParticipants->patchEntity($resContractParticipant, $this->request->getData());
             if ($this->ResContractParticipants->save($resContractParticipant)) {
-                $this->Flash->success(__('The res contract participant has been saved.'));
+                $this->Flash->success(__('The contract participant has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The res contract participant could not be saved. Please, try again.'));
+            $this->Flash->error(__('The contract participant could not be saved. Please, try again.'));
         }
         $resContracts = $this->ResContractParticipants->ResContracts->find('list', ['limit' => 200]);
         $this->set(compact('resContractParticipant', 'resContracts'));
@@ -97,7 +97,7 @@ class ResContractParticipantsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Res Contract Participant id.
+     * @param string|null $id Contract Participant id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -106,9 +106,9 @@ class ResContractParticipantsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $resContractParticipant = $this->ResContractParticipants->get($id);
         if ($this->ResContractParticipants->delete($resContractParticipant)) {
-            $this->Flash->success(__('The res contract participant has been deleted.'));
+            $this->Flash->success(__('The contract participant has been deleted.'));
         } else {
-            $this->Flash->error(__('The res contract participant could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The contract participant could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

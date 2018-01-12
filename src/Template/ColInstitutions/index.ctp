@@ -25,7 +25,7 @@
                                   $colInstitution->link = "http://".$colInstitution->link;
                                 }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_institutions/'.$colInstitution['id'], ['height' => '150px', 'width' => '150px']), $colInstitution->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_institutions/'.$colInstitution['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colInstitution->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">

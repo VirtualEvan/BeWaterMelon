@@ -56,7 +56,7 @@ class CouSubjectsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Cou Subject id.
+     * @param string|null $id Subject id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -96,7 +96,7 @@ class CouSubjectsController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Cou Subject id.
+     * @param string|null $id Subject id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -108,7 +108,7 @@ class CouSubjectsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $couSubject = $this->CouSubjects->patchEntity($couSubject, $this->request->getData());
             if ($this->CouSubjects->save($couSubject)) {
-                $this->Flash->success(__('The cou subject has been saved.'));
+                $this->Flash->success(__('The subject has been saved.'));
 
                 return $this->redirect(['controller' => 'courses', 'action' => 'index']);
             }
@@ -123,7 +123,7 @@ class CouSubjectsController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Cou Subject id.
+     * @param string|null $id Subject id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

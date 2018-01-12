@@ -81,11 +81,11 @@ class ActEditorialBoardsController extends AppController
         if ($this->request->is('post')) {
             $actEditorialBoard = $this->ActEditorialBoards->patchEntity($actEditorialBoard, $this->request->getData());
             if ($this->ActEditorialBoards->save($actEditorialBoard)) {
-                $this->Flash->success(__('The act editorial board has been saved.'));
+                $this->Flash->success(__('The editorial board has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act editorial board could not be saved. Please, try again.'));
+            $this->Flash->error(__('The editorial board could not be saved. Please, try again.'));
         }
         $this->set(compact('actEditorialBoard'));
         $this->set('_serialize', ['actEditorialBoard']);
@@ -106,11 +106,11 @@ class ActEditorialBoardsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $actEditorialBoard = $this->ActEditorialBoards->patchEntity($actEditorialBoard, $this->request->getData());
             if ($this->ActEditorialBoards->save($actEditorialBoard)) {
-                $this->Flash->success(__('The act editorial board has been saved.'));
+                $this->Flash->success(__('The editorial board has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The act editorial board could not be saved. Please, try again.'));
+            $this->Flash->error(__('The editorial board could not be saved. Please, try again.'));
         }
         $this->set(compact('actEditorialBoard'));
         $this->set('_serialize', ['actEditorialBoard']);
@@ -128,9 +128,9 @@ class ActEditorialBoardsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $actEditorialBoard = $this->ActEditorialBoards->get($id);
         if ($this->ActEditorialBoards->delete($actEditorialBoard)) {
-            $this->Flash->success(__('The act editorial board has been deleted.'));
+            $this->Flash->success(__('The editorial board has been deleted.'));
         } else {
-            $this->Flash->error(__('The act editorial board could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The editorial board could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

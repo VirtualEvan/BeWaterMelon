@@ -13,15 +13,15 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $actConferenceYear->act_conference_id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Act Conference Years'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Act Conferences'), ['controller' => 'ActConferences', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Act Conference'), ['controller' => 'ActConferences', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Conference Years'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Conferences'), ['controller' => 'ActConferences', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Conference'), ['controller' => 'ActConferences', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="actConferenceYears form large-9 medium-8 columns content">
     <?= $this->Form->create($actConferenceYear) ?>
     <fieldset>
-        <legend><?= __('Edit Act Conference Year') ?></legend>
+        <legend><?= __('Edit Conference Year') ?></legend>
         <?php
             echo $this->Form->control('link');
         ?>

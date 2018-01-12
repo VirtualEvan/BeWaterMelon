@@ -32,7 +32,7 @@
                                   $colGroup->link = "http://".$colGroup->link;
                                 }
                                 ?>
-                                <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '100px', 'width' => '100px']), $colGroup->link, ['escape' => false]) ?>
+                                <?= $this->Html->link($this->Html->image('col_groups/'.$colGroup['id'], ['height' => '100px', 'width' => '100px', 'class' => 'col-img']), $colGroup->link, ['escape' => false]) ?>
                             </div>
                             <div class="col-md-8">
                                 <table>

@@ -24,7 +24,7 @@
                                   $colMember->link = "http://".$colMember->link;
                                 }
                             ?>
-                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px']), $colMember->link, ['escape' => false]) ?>
+                            <?= $this->Html->link($this->Html->image('col_members/'.$colMember['id'], ['height' => '150px', 'width' => '150px', 'class' => 'col-img']), $colMember->link, ['escape' => false]) ?>
                         </div>
                     </div>
                     <div class="row">

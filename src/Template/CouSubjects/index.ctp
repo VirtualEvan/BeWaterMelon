@@ -7,15 +7,15 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Cou Subject'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Subject'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ppl Users'), ['controller' => 'PplUsers', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Ppl User'), ['controller' => 'PplUsers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Cou Course Degree Subjects'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Cou Course Degree Subject'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Course Degree Subjects'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Course Degree Subject'), ['controller' => 'CouCourseDegreeSubjects', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="couSubjects index large-9 medium-8 columns content">
-    <h3><?= __('Cou Subjects') ?></h3>
+    <h3><?= __('Subjects') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

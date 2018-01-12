@@ -7,13 +7,13 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Res Project Participant'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Res Projects'), ['controller' => 'ResProjects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Res Project'), ['controller' => 'ResProjects', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Project Participant'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Projects'), ['controller' => 'ResProjects', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Project'), ['controller' => 'ResProjects', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="resProjectParticipants index large-9 medium-8 columns content">
-    <h3><?= __('Res Project Participants') ?></h3>
+    <h3><?= __('Project Participants') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

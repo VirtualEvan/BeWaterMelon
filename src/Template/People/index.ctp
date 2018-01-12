@@ -76,9 +76,9 @@
                                 <?php endif; ?>
                                 <div class="col-md-4">
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_phds/' . $pplPhd['id'])): ?>
-                                        <?= $this->Html->link($this->Html->image('ppl_phds/'.$pplPhd['id'], ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_phds', 'action' => 'view', $pplPhd->id], ['escape' => false]); ?>
+                                        <?= $this->Html->image('ppl_phds/'.$pplPhd['id'], ['height' => '100px', 'width' => '100px']); ?>
                                     <?php else: ?>
-                                        <?= $this->Html->link($this->Html->image('profile_img.svg', ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_phds', 'action' => 'view', $pplPhd->id], ['escape' => false]); ?>
+                                        <?= $this->Html->image('profile_img.svg', ['height' => '100px', 'width' => '100px']); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
