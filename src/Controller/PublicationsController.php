@@ -46,9 +46,9 @@ class PublicationsController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all');
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->PplUsers->find('all');
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
 
         $related = array(
             [ 'name' => __('Journals'), 'controller' => 'pub_journals'],

@@ -56,9 +56,9 @@ class PubConferencesController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all');
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->PplUsers->find('all');
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
 
         $related = array(
             [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
@@ -95,7 +95,7 @@ class PubConferencesController extends AppController
         $pubConference = $this->PubConferences->newEntity();
         if ($this->request->is('post')) {
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
-            $pubConference->author = implode(',', $this->request->getData()['author']);
+            $pubConference->author = implode(',', $this->request->getData()['pplUser']);
             if ($this->PubConferences->save($pubConference)) {
                 $this->Flash->success(__('The conference has been saved.'));
 
@@ -108,9 +108,9 @@ class PubConferencesController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->paginate($this->PplUsers);
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
     }
 
     /**
@@ -140,9 +140,9 @@ class PubConferencesController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->paginate($this->PplUsers);
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
     }
 
     /**

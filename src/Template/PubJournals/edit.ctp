@@ -4,8 +4,8 @@
  * @var \App\Model\Entity\PubJournal $pubJournal
  */
 
-foreach ($authors as $author) {
-    $aut[$author->id] = $author->name . ' ' . $author->lastname;
+foreach ($pplUsers as $pplUser) {
+    $aut[$pplUser->id] = $pplUser->name . ' ' . $pplUser->lastname;
 }
 ?>
 
@@ -14,7 +14,7 @@ foreach ($authors as $author) {
         <div class="row">
             <legend><?= __('Edit Journal') ?></legend>
             <?php
-            echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
+            echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
             echo $this->Form->control('publication_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
             echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
             echo $this->Form->control('location', ['class' => 'form-control', 'pattern' => '.{3,40}']);

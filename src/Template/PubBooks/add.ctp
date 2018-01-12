@@ -4,8 +4,8 @@
  * @var \App\Model\Entity\PubBook $pubBook
  */
 
- foreach ($authors as $author) {
-     $aut[$author->id] = $author->name . ' ' . $author->lastname;
+ foreach ($pplUsers as $pplUser) {
+     $aut[$pplUser->id] = $pplUser->name . ' ' . $pplUser->lastname;
  }
 ?>
 <div class="contanier">
@@ -14,7 +14,7 @@
             <legend><?= __('Add Book') ?></legend>
             <?php
                 echo $this->Form->control('book_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
-                echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
+                echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
                 echo $this->Form->control('editorial', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
                 echo $this->Form->control('year', ['class' => 'form-control', 'pattern' => '[0-9]{4}', 'label' => __('Year').' ('.__('yyyy').')']);
                 echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);

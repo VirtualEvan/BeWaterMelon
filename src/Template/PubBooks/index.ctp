@@ -27,9 +27,9 @@
                 </div>
             <?php endif; ?>
             <div class="col-md-11 my-auto p-0">
-                <?php foreach($authors as $autor)
-                    if(in_array($autor->id, explode(',', $pubBook->author))){
-                        echo $this->Html->link($autor->name . ' ' . $autor->lastname, ['controller' => 'ppl_users', 'action' => 'view', $autor->id]);
+                <?php foreach($pplUsers as $pplUser)
+                    if(in_array($pplUser->id, explode(',', $pubBook->author))){
+                        echo $this->Html->link($pplUser->name . ' ' . $pplUser->lastname, ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id]);
                         echo ', ';
                     }
                 ?>

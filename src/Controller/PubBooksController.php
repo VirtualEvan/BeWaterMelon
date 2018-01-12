@@ -56,9 +56,9 @@ class PubBooksController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->PplUsers->find('all');
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->PplUsers->find('all');
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
 
         $related = array(
             [ 'name' => __('Journals'), 'controller' => 'pub_journals'],
@@ -95,7 +95,7 @@ class PubBooksController extends AppController
         $pubBook = $this->PubBooks->newEntity();
         if ($this->request->is('post')) {
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
-            $pubBook->author = implode(',', $this->request->getData()['author']);
+            $pubBook->author = implode(',', $this->request->getData()['pplUser']);
             if ($this->PubBooks->save($pubBook)) {
                 $this->Flash->success(__('The book has been saved.'));
 
@@ -108,9 +108,9 @@ class PubBooksController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->paginate($this->PplUsers);
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
     }
 
     /**
@@ -127,7 +127,7 @@ class PubBooksController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubBook = $this->PubBooks->patchEntity($pubBook, $this->request->getData());
-            $pubBook->author = implode(',', $this->request->getData()['author']);
+            $pubBook->author = implode(',', $this->request->getData()['pplUser']);
             if ($this->PubBooks->save($pubBook)) {
                 $this->Flash->success(__('The book has been saved.'));
 
@@ -140,9 +140,9 @@ class PubBooksController extends AppController
 
         //Authors
         $this->loadModel('PplUsers');
-        $authors = $this->paginate($this->PplUsers);
-        $this->set(compact('authors'));
-        $this->set('_serialize', ['authors']);
+        $pplUsers = $this->paginate($this->PplUsers);
+        $this->set(compact('pplUsers'));
+        $this->set('_serialize', ['pplUsers']);
     }
 
     /**

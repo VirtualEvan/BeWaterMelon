@@ -106,24 +106,64 @@ class AppController extends Controller
 
     public function search()
     {
-        $controller = $this->loadModel($this->request->params['controller']);
-
+        $keyword = $this->request->data['search'];
         $db = ConnectionManager::get('default');
         $collection = $db->schemaCollection();
-        $columns = $collection->describe($controller->table())->columns();
 
-        //debug($this->request);die;
-        $keyword = $this->request->data['search'];
-        $conditions = array("OR" => []);
-        foreach ($columns as $column) {
-            array_push($conditions['OR'], "$column LIKE '%$keyword%'");
+        switch ($this->request->params['controller']) {
+            case "People":
+                $controllers = ['pplUsers', 'pplPhds', 'pplPostdocs', 'pplVisitors', 'pplPastPhds', 'pplCollaborators'];
+                break;
+            case "Publications":
+                $controllers = ['pubJournals', 'pplUsers', 'pubConferences', 'pubBooks'];
+                break;
+            case "Activities":
+                $controllers = ['actEditorialBoards', 'actJournals', ['actConferences', ['actConferenceYears']]];
+                break;
+            case "Research":
+                $controllers = [['resProjects', ['resProjectParticipants']], ['resContracts',['resContractParticipants']], 'resPatents'];
+                break;
+            case "Courses":
+                $controllers = ['couSubjects', ['couCourseDegreeSubjects', ['CouSubjects.PplUsers']], 'couDegrees'];
+                break;
+            case "Collaborations":
+                $controllers = ['colMembers', 'colColleagues', 'colGroups', 'colInstitutions', 'colCompanies'];
+                break;
+            default:
+               $controllers = [$this->request->params['controller']];
         }
 
-        ${lcfirst($controller->alias())} = $controller->find('all', ['conditions' => $conditions])->all();
+        foreach ($controllers as $controller) {
+            if(is_array($controller)){
+                $model = $this->loadModel($controller[0]);
 
-        $this->set(compact(lcfirst($controller->alias())));
-        $this->set('_serialize', [lcfirst($controller->alias())]);
-        $this->render('index');
+                $columns = $collection->describe($model->table())->columns();
+
+                $conditions = array("OR" => []);
+                foreach ($columns as $column) {
+                    array_push($conditions['OR'], "$column LIKE '%$keyword%'");
+                }
+
+                ${lcfirst($model->alias())} = $model->find('all', ['conditions' => $conditions])->contain($controller[1])->all();
+            }
+            else {
+                $model = $this->loadModel($controller);
+
+                $columns = $collection->describe($model->table())->columns();
+
+                $conditions = array("OR" => []);
+                foreach ($columns as $column) {
+                    array_push($conditions['OR'], "$column LIKE '%$keyword%'");
+                }
+
+                //debug($model->associations());die;
+                ${lcfirst($model->alias())} = $model->find('all', ['conditions' => $conditions])->all();
+            }
+
+            $this->set(compact(lcfirst($model->alias())));
+            $this->set('_serialize', [lcfirst($model->alias())]);
+            $this->render('index');
+        }
     }
 
     /**

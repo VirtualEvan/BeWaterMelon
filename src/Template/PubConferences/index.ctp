@@ -28,9 +28,9 @@
                 </div>
             <?php endif; ?>
             <div class="col-md-11 my-auto p-0">
-                <?php foreach($authors as $autor)
-                    if(in_array($autor->id, explode(',', $pubConference->author))){
-                        echo $autor->name . ' ' . $autor->lastname;
+                <?php foreach($pplUsers as $pplUser)
+                    if(in_array($pplUser->id, explode(',', $pubConference->author))){
+                        echo $pplUser->name . ' ' . $pplUser->lastname;
                         echo ', ';
                     }
                 ?>

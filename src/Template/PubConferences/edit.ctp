@@ -4,8 +4,8 @@
  * @var \App\Model\Entity\PubConference $pubConference
  */
 
- foreach ($authors as $author) {
-     $aut[$author->id] = $author->name . ' ' . $author->lastname;
+ foreach ($pplUsers as $pplUser) {
+     $aut[$pplUser->id] = $pplUser->name . ' ' . $pplUser->lastname;
  }
  ?>
 <div class="container">
@@ -13,7 +13,7 @@
         <div class="row">
             <legend><?= __('Edit Conference') ?></legend>
             <?php
-                echo $this->Form->input('author', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
+                echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
                 echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
                 ?>
                 <div class="col-md-6">
