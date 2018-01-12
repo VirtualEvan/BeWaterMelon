@@ -18,7 +18,7 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\I18n\I18n;
 use Cake\Core\Configure;
-
+use Cake\Datasource\ConnectionManager;
 /**
  * Application Controller
  *
@@ -91,7 +91,7 @@ class AppController extends Controller
      */
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['setLanguage']);
+        $this->Auth->allow(['setLanguage', 'search']);
 
         if( !$this->request->session()->read('Config.language') !== NULL){
           I18n::locale($this->request->session()->read('Config.language'));
@@ -102,6 +102,28 @@ class AppController extends Controller
         $this->request->session()->write('Config.language', $language);
 
         $this->redirect($this->referer());
+    }
+
+    public function search()
+    {
+        $controller = $this->loadModel($this->request->params['controller']);
+
+        $db = ConnectionManager::get('default');
+        $collection = $db->schemaCollection();
+        $columns = $collection->describe($controller->table())->columns();
+
+        //debug($this->request);die;
+        $keyword = $this->request->data['search'];
+        $conditions = array("OR" => []);
+        foreach ($columns as $column) {
+            array_push($conditions['OR'], "$column LIKE '%$keyword%'");
+        }
+
+        ${lcfirst($controller->alias())} = $controller->find('all', ['conditions' => $conditions])->all();
+
+        $this->set(compact(lcfirst($controller->alias())));
+        $this->set('_serialize', [lcfirst($controller->alias())]);
+        $this->render('index');
     }
 
     /**

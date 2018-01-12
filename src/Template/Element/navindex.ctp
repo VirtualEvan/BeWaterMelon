@@ -1,15 +1,33 @@
 <?php
   //$currentuser = $this->request->session()->read('Auth.User');
   use Cake\I18n\I18n;
-?>
 
+  $active = array(
+      'home' => '',
+      'People' => '',
+      'PrePresses' => '',
+      'Publications' => '',
+      'Activities' => '',
+      'Research' => '',
+      'ProProducts' => '',
+      'Courses' => '',
+      'Collaborations' => '',
+  );
+  $active[$this->request->params['controller']] = 'active';
+?>
 <nav class="col-md-3 sidebar-offcanvas">
-    <form class="input-group mb-3">
-        <input class="form-control" type="text" placeholder="<?= __('Search') ?>">
-        <span class="input-group-btn">
-            <button class="btn btn-outline-info" type="submit"><div class="fa fa-search"></div></button>
-        </span>
-    </form>
+    <?= $this->Form->create(null, ['templates' => ['inputContainer' => '{{content}}'], 'class' => 'input-group mb-3', 'url' => ['controller' => $this->request->params['controller'], 'action' => 'search']]); ?>
+        <div class="input-group mb-3">
+            <?= $this->Form->input('search', array(
+                'label' => false,
+                'placeholder' => __('Search'),
+                'class' => 'form-control'
+            )) ?>
+            <span class="input-group-btn">
+                <?= $this->Form->button("<div class=\"fa fa-search\"></div>", array('class' => 'btn btn-outline-info', 'templates' => ['inputContainer' => "{{content}}"])); ?>
+            </span>
+        </div>
+    <?= $this->Form->end(); ?>
 
     <?php if (!empty($related)): ?>
         <div class="list-group">

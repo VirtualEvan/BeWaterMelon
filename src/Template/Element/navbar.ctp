@@ -5,12 +5,12 @@
   $active = array(
       'home' => '',
       'People' => '',
-      'Press' => '',
+      'PrePresses' => '',
       'Publications' => '',
       'Activities' => '',
-      'R & D' => '',
-      'Products' => '',
-      'Teaching' => '',
+      'Research' => '',
+      'ProProducts' => '',
+      'Courses' => '',
       'Collaborations' => '',
   );
   $active[$this->request->params['controller']] = 'active'
@@ -25,7 +25,7 @@
             <?= $this->Html->link(__('People'), ['controller' => 'people','action' => 'index'], ['class' => 'nav-link ' . $active['People']]) ?>
           </li>
           <li class="nav-item">
-              <?= $this->Html->link(__('Press'), ['controller' => 'pre_presses','action' => 'index'], ['class' => 'nav-link ' . $active['Press']]) ?>
+              <?= $this->Html->link(__('Press'), ['controller' => 'pre_presses','action' => 'index'], ['class' => 'nav-link ' . $active['PrePresses']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('Publications'), ['controller' => 'publications','action' => 'index'], ['class' => 'nav-link ' . $active['Publications']]) ?>
@@ -34,13 +34,13 @@
               <?= $this->Html->link(__('Activities'), ['controller' => 'activities','action' => 'index'], ['class' => 'nav-link ' . $active['Activities']]) ?>
           </li>
           <li class="nav-item">
-            <?= $this->Html->link(__('R & D'), ['controller' => 'research','action' => 'index'], ['class' => 'nav-link ' . $active['R & D']]) ?>
+            <?= $this->Html->link(__('R & D'), ['controller' => 'research','action' => 'index'], ['class' => 'nav-link ' . $active['Research']]) ?>
           </li>
           <li class="nav-item">
-            <?= $this->Html->link(__('Products'), ['controller' => 'pro_products','action' => 'index'], ['class' => 'nav-link ' . $active['Products']]) ?>
+            <?= $this->Html->link(__('Products'), ['controller' => 'pro_products','action' => 'index'], ['class' => 'nav-link ' . $active['ProProducts']]) ?>
           </li>
           <li class="nav-item">
-            <?= $this->Html->link(__('Teaching'), ['controller' => 'courses','action' => 'index'], ['class' => 'nav-link ' . $active['Teaching']]) ?>
+            <?= $this->Html->link(__('Teaching'), ['controller' => 'courses','action' => 'index'], ['class' => 'nav-link ' . $active['Courses']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('Collaborations'), ['controller' => 'collaborations','action' => 'index'], ['class' => 'nav-link ' . $active['Collaborations']]) ?>
