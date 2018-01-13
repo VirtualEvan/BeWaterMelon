@@ -16,26 +16,26 @@ msgstr ""
 
 #: Controller/ActConferenceYearsController.php:80;106
 msgid "The conference year has been saved."
-msgstr ""
+msgstr "El año de la conferencia se ha guardado."
 
 #: Controller/ActConferenceYearsController.php:84;110
 msgid "The conference year could not be saved. Please, try again."
-msgstr ""
+msgstr "El año de la conferencia no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ActConferenceYearsController.php:129
 msgid "The conference year has been deleted."
-msgstr ""
+msgstr "El año de la conferencia se ha eliminado."
 
 #: Controller/ActConferenceYearsController.php:131
 msgid "The conference year could not be deleted. Please, try again."
-msgstr ""
+msgstr "El año de la conferencia no se pudo eliminar. Por favor, inténtelo de nuevo"
 
 #: Controller/ActConferencesController.php:50
 #: Controller/ActEditorialBoardsController.php:49
 #: Controller/ActJournalsController.php:50
 #: Controller/ActivitiesController.php:47
 msgid "Editorials"
-msgstr ""
+msgstr "Editoriales"
 
 #: Controller/ActConferencesController.php:51
 #: Controller/ActEditorialBoardsController.php:50
@@ -50,7 +50,7 @@ msgstr ""
 #: Template/PubJournals/index.ctp:10
 #: Template/Publications/index.ctp:3
 msgid "Journals"
-msgstr ""
+msgstr Revistas""
 
 #: Controller/ActConferencesController.php:52
 #: Controller/ActEditorialBoardsController.php:51
@@ -65,63 +65,63 @@ msgstr ""
 #: Template/PubConferences/index.ctp:10
 #: Template/Publications/index.ctp:47
 msgid "Conferences"
-msgstr ""
+msgstr "Conferencias"
 
 #: Controller/ActConferencesController.php:85;110
 #: Controller/PubConferencesController.php:100;132
 msgid "The conference has been saved."
-msgstr ""
+msgstr "La conferencia se ha guardado."
 
 #: Controller/ActConferencesController.php:89;114
 #: Controller/PubConferencesController.php:104;136
 msgid "The conference could not be saved. Please, try again."
-msgstr ""
+msgstr "La conferencia no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ActConferencesController.php:132
 #: Controller/PubConferencesController.php:160
 msgid "The conference has been deleted."
-msgstr ""
+msgstr "La conferencia se ha eliminado."
 
 #: Controller/ActConferencesController.php:134
 #: Controller/PubConferencesController.php:162
 msgid "The conference could not be deleted. Please, try again."
-msgstr ""
+msgstr "La conferencia no se pudo eliminar. Por favor, inténtelo de nuevo"
 
 #: Controller/ActEditorialBoardsController.php:84;109
 msgid "The editorial board has been saved."
-msgstr ""
+msgstr "El comité editorial se ha guardado."
 
 #: Controller/ActEditorialBoardsController.php:88;113
 msgid "The editorial board could not be saved. Please, try again."
-msgstr ""
+msgstr "El comité editorial no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ActEditorialBoardsController.php:131
 msgid "The editorial board has been deleted."
-msgstr ""
+msgstr "El comité editorial se ha eliminado."
 
 #: Controller/ActEditorialBoardsController.php:133
 msgid "The editorial board could not be deleted. Please, try again."
-msgstr ""
+msgstr "El comité editorial no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ActJournalsController.php:85;110
 #: Controller/PubJournalsController.php:102;134
 msgid "The journal has been saved."
-msgstr ""
+msgstr "La revista se ha guardado."
 
 #: Controller/ActJournalsController.php:89;114
 #: Controller/PubJournalsController.php:106;138
 msgid "The journal could not be saved. Please, try again."
-msgstr ""
+msgstr "La revista no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ActJournalsController.php:132
 #: Controller/PubJournalsController.php:162
 msgid "The journal has been deleted."
-msgstr ""
+msgstr "La revista se ha eliminado."
 
 #: Controller/ActJournalsController.php:134
 #: Controller/PubJournalsController.php:164
 msgid "The journal could not be deleted. Please, try again."
-msgstr ""
+msgstr "La revista no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColColleaguesController.php:55
 #: Controller/ColCompaniesController.php:55
@@ -132,7 +132,7 @@ msgstr ""
 #: Template/ColMembers/index.ctp:9
 #: Template/Collaborations/index.ctp:5
 msgid "Member of"
-msgstr ""
+msgstr "Miembro de "
 
 #: Controller/ColColleaguesController.php:56
 #: Controller/ColCompaniesController.php:56
@@ -143,7 +143,7 @@ msgstr ""
 #: Template/ColColleagues/index.ctp:10
 #: Template/Collaborations/index.ctp:47
 msgid "Colleagues"
-msgstr ""
+msgstr "Personas colaboradoras"
 
 #: Controller/ColColleaguesController.php:57
 #: Controller/ColCompaniesController.php:57
@@ -154,7 +154,7 @@ msgstr ""
 #: Template/ColGroups/index.ctp:10
 #: Template/Collaborations/index.ctp:133
 msgid "Groups"
-msgstr ""
+msgstr "Grupos"
 
 #: Controller/ColColleaguesController.php:58
 #: Controller/ColCompaniesController.php:58
@@ -165,7 +165,7 @@ msgstr ""
 #: Template/ColInstitutions/index.ctp:10
 #: Template/Collaborations/index.ctp:189
 msgid "Institutions"
-msgstr ""
+msgstr "Instituciones"
 
 #: Controller/ColColleaguesController.php:59
 #: Controller/ColCompaniesController.php:59
@@ -176,7 +176,7 @@ msgstr ""
 #: Template/ColCompanies/index.ctp:9
 #: Template/Collaborations/index.ctp:231
 msgid "Companies"
-msgstr ""
+msgstr "Compañías"
 
 #: Controller/ColColleaguesController.php:105;150
 #: Controller/ColCompaniesController.php:105;150
@@ -189,11 +189,11 @@ msgstr ""
 #: Controller/ResContractsController.php:107;153
 #: Controller/ResProjectsController.php:106;154
 msgid "Invalid image format."
-msgstr ""
+msgstr "Formato de imagen inválido."
 
 #: Controller/ColColleaguesController.php:108;153
 msgid "The colleague has been saved."
-msgstr ""
+msgstr "La pesona colaboradora se ha guardado."
 
 #: Controller/ColColleaguesController.php:113
 #: Controller/ColCompaniesController.php:113
@@ -208,121 +208,121 @@ msgstr ""
 
 #: Controller/ColColleaguesController.php:116;157
 msgid "The colleague could not be saved. Please, try again."
-msgstr ""
+msgstr "La persona colaboradora no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColColleaguesController.php:179
 msgid "The colleague has been deleted."
-msgstr ""
+msgstr "La persona colaboradora se ha eliminado."
 
 #: Controller/ColColleaguesController.php:181
 msgid "The colleague could not be deleted. Please, try again."
-msgstr ""
+msgstr "La persona colaboradora no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColCompaniesController.php:108;153
 msgid "The company has been saved."
-msgstr ""
+msgstr "La compañía se ha guardado."
 
 #: Controller/ColCompaniesController.php:116;157
 msgid "The company could not be saved. Please, try again."
-msgstr ""
+msgstr "La compañía no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColCompaniesController.php:179
 msgid "The company has been deleted."
-msgstr ""
+msgstr "La compañía se ha eliminado."
 
 #: Controller/ColCompaniesController.php:181
 msgid "The company could not be deleted. Please, try again."
-msgstr ""
+msgstr "La compañía no se pudo eliminar. Pora favor, inténtelo de nuevo,"
 
 #: Controller/ColGroupsController.php:108;153
 msgid "The group has been saved."
-msgstr ""
+msgstr "El grupo se ha guardado."
 
 #: Controller/ColGroupsController.php:116;157
 msgid "The group could not be saved. Please, try again."
-msgstr ""
+msgstr "El grupo no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColGroupsController.php:179
 msgid "The group has been deleted."
-msgstr ""
+msgstr "El grupo se ha eliminado."
 
 #: Controller/ColGroupsController.php:181
 msgid "The group could not be deleted. Please, try again."
-msgstr ""
+msgstr "El grupo no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColInstitutionsController.php:108;153
 msgid "The institution has been saved."
-msgstr ""
+msgstr "La institución ha sido eliminada."
 
 #: Controller/ColInstitutionsController.php:116;157
 msgid "The institution could not be saved. Please, try again."
-msgstr ""
+msgstr "La institución no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColInstitutionsController.php:179
 msgid "The institution has been deleted."
-msgstr ""
+msgstr "La institución se ha eliminado."
 
 #: Controller/ColInstitutionsController.php:181
 msgid "The institution could not be deleted. Please, try again."
-msgstr ""
+msgstr "La institución no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColMembersController.php:108;153
 msgid "The member has been saved."
-msgstr ""
+msgstr "El miembro se ha guardado."
 
 #: Controller/ColMembersController.php:116;157
 msgid "The member could not be saved. Please, try again."
-msgstr ""
+msgstr "El miembro no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ColMembersController.php:179
 msgid "The member has been deleted."
-msgstr ""
+msgstr "El miembro se ha eliminado."
 
 #: Controller/ColMembersController.php:181
 msgid "The member could not be deleted. Please, try again."
-msgstr ""
+msgstr "El miembro no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/CouCourseDegreeSubjectsController.php:95;148
 #: Controller/CouDegreesController.php:86;112
 msgid "The degree could not be saved. Please, try again."
-msgstr ""
+msgstr "El grado no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/CouCourseDegreeSubjectsController.php:99;152
 #: Controller/CouDegreesController.php:82;108
 msgid "The degree has been saved."
-msgstr ""
+msgstr "El grado se ha guardado."
 
 #: Controller/CouCourseDegreeSubjectsController.php:177
 msgid "The course degree subject has been deleted."
-msgstr ""
+msgstr "La asignatura del grado se ha eliminado."
 
 #: Controller/CouCourseDegreeSubjectsController.php:179
 msgid "The course degree subject could not be deleted. Please, try again."
-msgstr ""
+msgstr "La asignatura del grado no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/CouDegreesController.php:140
 msgid "The degree has been deleted."
-msgstr ""
+msgstr "El grado se ha eliminado."
 
 #: Controller/CouDegreesController.php:142
 msgid "The degree could not be deleted. Please, try again."
-msgstr ""
+msgstr "El grado no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/CouSubjectsController.php:84;111
 msgid "The subject has been saved."
-msgstr ""
+msgstr "La asignatura se ha guardado."
 
 #: Controller/CouSubjectsController.php:88;115
 msgid "The subject could not be saved. Please, try again."
-msgstr ""
+msgstr "La asignatura no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/CouSubjectsController.php:135
 msgid "The subject has been deleted."
-msgstr ""
+msgstr "La asignatura se ha eliminado."
 
 #: Controller/CouSubjectsController.php:137
 msgid "The subject could not be deleted. Please, try again."
-msgstr ""
+msgstr "La asignatura no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PeopleController.php:66
 #: Controller/PplCollaboratorsController.php:60
@@ -334,7 +334,7 @@ msgstr ""
 #: Template/People/index.ctp:9
 #: Template/PplUsers/index.ctp:9
 msgid "Members"
-msgstr ""
+msgstr "Miembros"
 
 #: Controller/PeopleController.php:67
 #: Controller/PplCollaboratorsController.php:61
@@ -346,7 +346,7 @@ msgstr ""
 #: Template/People/index.ctp:57
 #: Template/PplPhds/index.ctp:10
 msgid "PhD Students"
-msgstr ""
+msgstr "Estudiantes de doctorado"
 
 #: Controller/PeopleController.php:68
 #: Controller/PplCollaboratorsController.php:62
@@ -356,7 +356,7 @@ msgstr ""
 #: Controller/PplUsersController.php:113
 #: Controller/PplVisitorsController.php:62
 msgid "Postdoc"
-msgstr ""
+msgstr "Estudiantes de postdoctorado"
 
 #: Controller/PeopleController.php:69
 #: Controller/PplCollaboratorsController.php:63
@@ -368,7 +368,7 @@ msgstr ""
 #: Template/People/index.ctp:139
 #: Template/PplVisitors/index.ctp:10
 msgid "Visitors"
-msgstr ""
+msgstr "Visitantes"
 
 #: Controller/PeopleController.php:70
 #: Controller/PplCollaboratorsController.php:64
@@ -380,7 +380,7 @@ msgstr ""
 #: Template/People/index.ctp:176
 #: Template/PplPastPhds/index.ctp:10
 msgid "Past PhD Students"
-msgstr ""
+msgstr "Antiguos estudiantes de doctorado"
 
 #: Controller/PeopleController.php:71
 #: Controller/PplCollaboratorsController.php:65
@@ -392,143 +392,143 @@ msgstr ""
 #: Template/People/index.ctp:219
 #: Template/PplCollaborators/index.ctp:10
 msgid "Collaborators"
-msgstr ""
+msgstr "Colaboradores"
 
 #: Controller/PplCollaboratorsController.php:98
 msgid "The ppl collaborator has been saved."
-msgstr ""
+msgstr "El colaborador se ha guardado."
 
 #: Controller/PplCollaboratorsController.php:102;128
 msgid "The collaborator could not be saved. Please, try again."
-msgstr ""
+msgstr "El colaborador no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplCollaboratorsController.php:124
 msgid "The collaborator has been saved."
-msgstr ""
+msgstr "El colaborador se ha guardado."
 
 #: Controller/PplCollaboratorsController.php:160
 msgid "The collaborator has been deleted."
-msgstr ""
+msgstr "El colaborador se ha eliminado."
 
 #: Controller/PplCollaboratorsController.php:162
 msgid "The collaborator could not be deleted. Please, try again."
-msgstr ""
+msgstr "El colaborador no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplPastPhdsController.php:90;115
 msgid "The past phd has been saved."
-msgstr ""
+msgstr "El antiguo estudiante de doctorado se ha guardado."
 
 #: Controller/PplPastPhdsController.php:94;119
 msgid "The past phd could not be saved. Please, try again."
-msgstr ""
+msgstr "El antiguo estudiante de doctorado no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplPastPhdsController.php:137
 msgid "The past phd has been deleted."
-msgstr ""
+msgstr "El antiguo estudiante de doctorado se ha eliminado."
 
 #: Controller/PplPastPhdsController.php:139
 msgid "The past phd could not be deleted. Please, try again."
-msgstr ""
+msgstr "El antiguo estudiante de doctorado no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplPhdsController.php:108;151
 msgid "The phd has been saved."
-msgstr ""
+msgstr "El estudiante de doctorado se ha guardado."
 
 #: Controller/PplPhdsController.php:112;155
 msgid "The phd could not be saved. Please, try again."
-msgstr ""
+msgstr "El estudiante de doctorado no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplPhdsController.php:177
 msgid "The phd has been deleted."
-msgstr ""
+msgstr "El estudiante de doctorado se ha eliminado."
 
 #: Controller/PplPhdsController.php:179
 msgid "The phd could not be deleted. Please, try again."
-msgstr ""
+msgstr "El estudiante de doctorado no se pudo eliminar"
 
 #: Controller/PplPostdocsController.php:90;115
 msgid "The postdoc has been saved."
-msgstr ""
+msgstr "El estudiante de postdoctorado se ha guardado."
 
 #: Controller/PplPostdocsController.php:94;119
 msgid "The postdoc could not be saved. Please, try again."
-msgstr ""
+msgstr "El estudiante de postdoctorado no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplPostdocsController.php:151
 msgid "The postdoc has been deleted."
-msgstr ""
+msgstr "El estudiante de postdoctorado se ha eliminado."
 
 #: Controller/PplPostdocsController.php:153
 msgid "The postdoc could not be deleted. Please, try again."
-msgstr ""
+msgstr "El estudiante de postdoctorado no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplUsersController.php:56
 msgid "Invalid username or password, try again"
-msgstr ""
+msgstr "Nombre de usuario o contraseña incorrecto, inténtelo de nuevo"
 
 #: Controller/PplUsersController.php:169;213
 msgid "The user has been saved."
-msgstr ""
+msgstr "El usuario se ha guardado."
 
 #: Controller/PplUsersController.php:173;217
 msgid "The user could not be saved. Please, try again."
-msgstr ""
+msgstr "El usuario no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplUsersController.php:239
 msgid "The user has been deleted."
-msgstr ""
+msgstr "El usuario se ha eliminado."
 
 #: Controller/PplUsersController.php:241
 msgid "The user could not be deleted. Please, try again."
-msgstr ""
+msgstr "El usuario no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplVisitorsController.php:98;123
 msgid "The visitor has been saved."
-msgstr ""
+msgstr "El visitante se ha guardado."
 
 #: Controller/PplVisitorsController.php:102;127
 msgid "The visitor could not be saved. Please, try again."
-msgstr ""
+msgstr "El visitante no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PplVisitorsController.php:158
 msgid "The visitor has been deleted."
-msgstr ""
+msgstr "El visitante se ha eliminado."
 
 #: Controller/PplVisitorsController.php:160
 msgid "The visitor could not be deleted. Please, try again."
-msgstr ""
+msgstr "El visitante no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PrePressesController.php:77;102
 msgid "The press has been saved."
-msgstr ""
+msgstr "La prensa se ha guardado."
 
 #: Controller/PrePressesController.php:81;106
 msgid "The press could not be saved. Please, try again."
-msgstr ""
+msgstr "La prensa no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PrePressesController.php:124
 msgid "The press has been deleted."
-msgstr ""
+msgstr "La prensa se ha eliminado."
 
 #: Controller/PrePressesController.php:126
 msgid "The press could not be deleted. Please, try again."
-msgstr ""
+msgstr "La prensa no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ProProductsController.php:98;143
 msgid "The product has been saved."
-msgstr ""
+msgstr "El producto se ha guardado."
 
 #: Controller/ProProductsController.php:106;147
 msgid "The product could not be saved. Please, try again."
-msgstr ""
+msgstr "El producto no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ProProductsController.php:169
 msgid "The product has been deleted."
-msgstr ""
+msgstr "El producto se ha eliminado."
 
 #: Controller/ProProductsController.php:171
 msgid "The product could not be deleted. Please, try again."
-msgstr ""
+msgstr "El producto no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/PubBooksController.php:66
 #: Controller/PubConferencesController.php:66
@@ -537,39 +537,39 @@ msgstr ""
 #: Template/PubBooks/index.ctp:9
 #: Template/Publications/index.ctp:89
 msgid "Books"
-msgstr ""
+msgstr "Libros"
 
 #: Controller/PubBooksController.php:100;132
 msgid "The book has been saved."
-msgstr ""
+msgstr "El libro se ha guardado."
 
 #: Controller/PubBooksController.php:104;136
 msgid "The book could not be saved. Please, try again."
-msgstr ""
+msgstr "El libro no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/PubBooksController.php:160
 msgid "The book has been deleted."
-msgstr ""
+msgstr "El libro se ha eliminado."
 
 #: Controller/PubBooksController.php:162
 msgid "The book could not be deleted. Please, try again."
-msgstr ""
+msgstr "El libro no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResContractParticipantsController.php:60;86
 msgid "The contract participant has been saved."
-msgstr ""
+msgstr "El participante del contrato se ha guardado."
 
 #: Controller/ResContractParticipantsController.php:64;90
 msgid "The contract participant could not be saved. Please, try again."
-msgstr ""
+msgstr "El participante del contrato no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResContractParticipantsController.php:109
 msgid "The contract participant has been deleted."
-msgstr ""
+msgstr "El participante del contrato se ha eliminado."
 
 #: Controller/ResContractParticipantsController.php:111
 msgid "The contract participant could not be deleted. Please, try again."
-msgstr ""
+msgstr "El participante del contrato no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResContractsController.php:59
 #: Controller/ResProjectsController.php:58
@@ -577,7 +577,7 @@ msgstr ""
 #: Template/ResProjects/index.ctp:9
 #: Template/Research/index.ctp:4
 msgid "Projects"
-msgstr ""
+msgstr "Proyectos"
 
 #: Controller/ResContractsController.php:60
 #: Controller/ResProjectsController.php:59
@@ -585,7 +585,7 @@ msgstr ""
 #: Template/ResContracts/index.ctp:9
 #: Template/Research/index.ctp:66
 msgid "Contracts"
-msgstr ""
+msgstr "Contratos"
 
 #: Controller/ResContractsController.php:61
 #: Controller/ResProjectsController.php:60
@@ -593,71 +593,71 @@ msgstr ""
 #: Template/ResPatents/index.ctp:9
 #: Template/Research/index.ctp:128
 msgid "Patents"
-msgstr ""
+msgstr "Patentes"
 
 #: Controller/ResContractsController.php:110;156
 msgid "The contract has been saved."
-msgstr ""
+msgstr "El contrato se ha guardado."
 
 #: Controller/ResContractsController.php:118;160
 msgid "The contract could not be saved. Please, try again."
-msgstr ""
+msgstr "El contrato no se pudo guardar. Por favor, inténtalo de nuevo."
 
 #: Controller/ResContractsController.php:182
 msgid "The contract has been deleted."
-msgstr ""
+msgstr "El contracto se ha eliminado."
 
 #: Controller/ResContractsController.php:184
 msgid "The contract could not be deleted. Please, try again."
-msgstr ""
+msgstr "El contrato no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResPatentsController.php:87;112
 msgid "The patent has been saved."
-msgstr ""
+msgstr "La patente se ha guardado."
 
 #: Controller/ResPatentsController.php:91;116
 msgid "The patent could not be saved. Please, try again."
-msgstr ""
+msgstr "La patente no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResPatentsController.php:134
 msgid "The patent has been deleted."
-msgstr ""
+msgstr "La patente se ha eliminado."
 
 #: Controller/ResPatentsController.php:136
 msgid "The patent could not be deleted. Please, try again."
-msgstr ""
+msgstr "La patente no se pudo eliminar. Pora favor, inténtelo de nuevo."
 
 #: Controller/ResProjectParticipantsController.php:60;86
 msgid "The project participant has been saved."
-msgstr ""
+msgstr "El participante del proyecto se ha guardado."
 
 #: Controller/ResProjectParticipantsController.php:64;90
 msgid "The project participant could not be saved. Please, try again."
-msgstr ""
+msgstr "El participante del proyecto no se pudo eliminar. Pora favor, inténtelo de nuevo"
 
 #: Controller/ResProjectParticipantsController.php:109
 msgid "The project participant has been deleted."
-msgstr ""
+msgstr "El participante del proyecto se ha eliminado."
 
 #: Controller/ResProjectParticipantsController.php:111
 msgid "The project participant could not be deleted. Please, try again."
-msgstr ""
+msgstr "El participante del proyecto no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResProjectsController.php:109;157
 msgid "The project has been saved."
-msgstr ""
+msgstr "El proyecto se ha guardado."
 
 #: Controller/ResProjectsController.php:118;161
 msgid "The project could not be saved. Please, try again."
-msgstr ""
+msgstr "El proyecto no se pudo guardar. Por favor, inténtelo de nuevo."
 
 #: Controller/ResProjectsController.php:183
 msgid "The project has been deleted."
-msgstr ""
+msgstr "El proyecto se ha elimiando."
 
 #: Controller/ResProjectsController.php:185
 msgid "The project could not be deleted. Please, try again."
-msgstr ""
+msgstr "El proyecto no se pudo eliminar. Por favor, inténtelo de nuevo."
 
 #: Template/ActConferenceYears/add.ctp:9
 #: Template/ActConferenceYears/edit.ctp:9
@@ -674,28 +674,28 @@ msgstr ""
 #: Template/ResProjectParticipants/edit.ctp:9
 #: Template/ResProjectParticipants/index.ctp:9;23
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: Template/ActConferenceYears/add.ctp:10
 #: Template/ActConferenceYears/edit.ctp:16
 msgid "List Conference Years"
-msgstr ""
+msgstr "Listar Años de Conferencia"
 
 #: Template/ActConferenceYears/add.ctp:11
 #: Template/ActConferenceYears/edit.ctp:17
 #: Template/ActConferenceYears/index.ctp:11
 msgid "List Conferences"
-msgstr ""
+msgstr "Listar Conferencias"
 
 #: Template/ActConferenceYears/add.ctp:12
 #: Template/ActConferenceYears/edit.ctp:18
 #: Template/ActConferenceYears/index.ctp:12
 msgid "New Conference"
-msgstr ""
+msgstr "Nueva Conferencia"
 
 #: Template/ActConferenceYears/add.ctp:18
 msgid "Add Conference Year"
-msgstr ""
+msgstr "Añadir Año de Conferencia"
 
 #: Template/ActConferenceYears/add.ctp:23
 #: Template/ActConferenceYears/edit.ctp:29
@@ -755,7 +755,7 @@ msgstr ""
 #: Template/ResProjects/edit.ctp:41
 #: View/Helper/FormHelper.php:1919
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: Template/ActConferenceYears/edit.ctp:11
 #: Template/ActConferenceYears/index.ctp:35
@@ -768,7 +768,7 @@ msgstr ""
 #: Template/ResProjectParticipants/edit.ctp:11
 #: Template/ResProjectParticipants/index.ctp:35
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: Template/ActConferenceYears/edit.ctp:13
 #: Template/ActConferenceYears/index.ctp:35
@@ -781,19 +781,19 @@ msgstr ""
 #: Template/ResProjectParticipants/edit.ctp:13
 #: Template/ResProjectParticipants/index.ctp:35
 msgid "Are you sure you want to delete # {0}?"
-msgstr ""
+msgstr "¿Está seguro de que desea eliminar # {0}?"
 
 #: Template/ActConferenceYears/edit.ctp:24
 msgid "Edit Conference Year"
-msgstr ""
+msgstr "Editar Año de conferencia"
 
 #: Template/ActConferenceYears/index.ctp:10
 msgid "New Conference Year"
-msgstr ""
+msgstr "Nuevo Año de Conferencia"
 
 #: Template/ActConferenceYears/index.ctp:16
 msgid "Conference Years"
-msgstr ""
+msgstr "Años de Conferencia"
 
 #: Template/ActConferenceYears/index.ctp:33
 #: Template/CouCourseDegreeSubjects/index.ctp:35
@@ -804,7 +804,7 @@ msgstr ""
 #: Template/ResProjectParticipants/index.ctp:33
 #: View/Helper/PaginatorHelper.php:1214
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: Template/ActConferenceYears/index.ctp:34
 #: Template/CouCourseDegreeSubjects/index.ctp:36
@@ -814,7 +814,7 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:34
 #: Template/ResProjectParticipants/index.ctp:34
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: Template/ActConferenceYears/index.ctp:43
 #: Template/CouCourseDegreeSubjects/index.ctp:45
@@ -823,7 +823,7 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:43
 #: Template/ResProjectParticipants/index.ctp:43
 msgid "first"
-msgstr ""
+msgstr "primero"
 
 #: Template/ActConferenceYears/index.ctp:44
 #: Template/CouCourseDegreeSubjects/index.ctp:46
@@ -832,7 +832,7 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:44
 #: Template/ResProjectParticipants/index.ctp:44
 msgid "previous"
-msgstr ""
+msgstr "anterior"
 
 #: Template/ActConferenceYears/index.ctp:46
 #: Template/CouCourseDegreeSubjects/index.ctp:48
@@ -841,7 +841,7 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:46
 #: Template/ResProjectParticipants/index.ctp:46
 msgid "next"
-msgstr ""
+msgstr "siguiente"
 
 #: Template/ActConferenceYears/index.ctp:47
 #: Template/CouCourseDegreeSubjects/index.ctp:49
@@ -850,7 +850,7 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:47
 #: Template/ResProjectParticipants/index.ctp:47
 msgid "last"
-msgstr ""
+msgstr "último"
 
 #: Template/ActConferenceYears/index.ctp:49
 #: Template/CouCourseDegreeSubjects/index.ctp:51
@@ -859,21 +859,21 @@ msgstr ""
 #: Template/ResContractParticipants/index.ctp:49
 #: Template/ResProjectParticipants/index.ctp:49
 msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
-msgstr ""
+msgstr "Página {{page}} de {{pages}}, mostrando {{current}} registro(s) de un total de {{count}} "
 
 #: Template/ActConferences/add.ctp:10
 #: Template/PubConferences/add.ctp:14
 msgid "Add Conference"
-msgstr ""
+msgstr "Añadir Conferencia"
 
 #: Template/ActConferences/edit.ctp:10
 #: Template/PubConferences/edit.ctp:14
 msgid "Edit Conference"
-msgstr ""
+msgstr "Editar Conferencia"
 
 #: Template/ActEditorialBoards/add.ctp:10
 msgid "Add Editorial Board"
-msgstr ""
+msgstr "Añadir Comité Editorial"
 
 #: Template/ActEditorialBoards/add.ctp:14
 #: Template/ActEditorialBoards/edit.ctp:14
@@ -882,7 +882,7 @@ msgstr ""
 #: Template/PubJournals/add.ctp:22
 #: Template/PubJournals/edit.ctp:22
 msgid "Online ISSN"
-msgstr ""
+msgstr "ISSN Online"
 
 #: Template/ActEditorialBoards/add.ctp:14;20
 #: Template/ActEditorialBoards/edit.ctp:14;20
@@ -891,14 +891,14 @@ msgstr ""
 #: Template/PubJournals/add.ctp:22;24
 #: Template/PubJournals/edit.ctp:22;24
 msgid "xxxx-xxxx"
-msgstr ""
+msgstr "xxxx-xxxx"
 
 #: Template/ActEditorialBoards/add.ctp:15
 #: Template/ActEditorialBoards/edit.ctp:15
 #: Template/ActJournals/add.ctp:16
 #: Template/ActJournals/edit.ctp:16
 msgid "Online ISSN Year"
-msgstr ""
+msgstr "Año del ISSN online"
 
 #: Template/ActEditorialBoards/add.ctp:15;18;23
 #: Template/ActEditorialBoards/edit.ctp:15;18;23
@@ -915,39 +915,39 @@ msgstr ""
 #: Template/ResPatents/add.ctp:15
 #: Template/ResPatents/edit.ctp:15
 msgid "yyyy"
-msgstr ""
+msgstr "aaaa"
 
 #: Template/ActEditorialBoards/add.ctp:16
 #: Template/ActEditorialBoards/edit.ctp:16
 msgid "H-Index"
-msgstr ""
+msgstr "Ínice h"
 
 #: Template/ActEditorialBoards/add.ctp:16
 #: Template/ActEditorialBoards/edit.ctp:16
 msgid "xx"
-msgstr ""
+msgstr "xx"
 
 #: Template/ActEditorialBoards/add.ctp:17
 #: Template/ActEditorialBoards/edit.ctp:17
 msgid "SJR"
-msgstr ""
+msgstr "SJR"
 
 #: Template/ActEditorialBoards/add.ctp:17;21
 #: Template/ActEditorialBoards/edit.ctp:17;21
 #: Template/ActJournals/add.ctp:17
 #: Template/ActJournals/edit.ctp:17
 msgid "x.xxx"
-msgstr ""
+msgstr "x.xxx"
 
 #: Template/ActEditorialBoards/add.ctp:18
 #: Template/ActEditorialBoards/edit.ctp:18
 msgid "SJR Year"
-msgstr ""
+msgstr "Año de SJR"
 
 #: Template/ActEditorialBoards/add.ctp:19
 #: Template/ActEditorialBoards/edit.ctp:19
 msgid "SJR Quartile"
-msgstr ""
+msgstr "Cuartil de SJR"
 
 #: Template/ActEditorialBoards/add.ctp:20
 #: Template/ActEditorialBoards/edit.ctp:20
@@ -956,55 +956,55 @@ msgstr ""
 #: Template/PubJournals/add.ctp:24
 #: Template/PubJournals/edit.ctp:24
 msgid "Print ISSN"
-msgstr ""
+msgstr "ISSN Impreso"
 
 #: Template/ActEditorialBoards/add.ctp:21
 #: Template/ActEditorialBoards/edit.ctp:21
 #: Template/ActJournals/add.ctp:17
 #: Template/ActJournals/edit.ctp:17
 msgid "Impact factor"
-msgstr ""
+msgstr "Factor de impacto"
 
 #: Template/ActEditorialBoards/add.ctp:23
 #: Template/ActEditorialBoards/edit.ctp:23
 #: Template/ActJournals/add.ctp:19
 #: Template/ActJournals/edit.ctp:19
 msgid "Impact Factor Year"
-msgstr ""
+msgstr "Año del factor de impacto"
 
 #: Template/ActEditorialBoards/edit.ctp:10
 msgid "Edit Editorial Board"
-msgstr ""
+msgstr "Editar Comité Editorial"
 
 #: Template/ActEditorialBoards/index.ctp:9
 #: Template/Activities/index.ctp:7
 msgid "Editorial Boards"
-msgstr ""
+msgstr "Comités Editorial"
 
 #: Template/ActEditorialBoards/index.ctp:37
 #: Template/ActJournals/index.ctp:37
 #: Template/Activities/index.ctp:35;85
 msgid "since"
-msgstr ""
+msgstr "desde"
 
 #: Template/ActEditorialBoards/index.ctp:47
 #: Template/Activities/index.ctp:45
 msgid "SJR Best Quartile: Q"
-msgstr ""
+msgstr "Mejor Cuartil SJR: Q"
 
 #: Template/ActJournals/add.ctp:11
 #: Template/PubJournals/add.ctp:15
 msgid "Add Journal"
-msgstr ""
+msgstr "Añadir Revista"
 
 #: Template/ActJournals/edit.ctp:11
 #: Template/PubJournals/edit.ctp:15
 msgid "Edit Journal"
-msgstr ""
+msgstr "Editar Revista"
 
 #: Template/ColColleagues/add.ctp:10
 msgid "Add Colleague"
-msgstr ""
+msgstr "Añadir persona colaboradora"
 
 #: Template/ColColleagues/add.ctp:18
 #: Template/ColColleagues/edit.ctp:18
@@ -1026,366 +1026,366 @@ msgstr ""
 #: Template/ResProjects/add.ctp:27
 #: Template/ResProjects/edit.ctp:38
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: Template/ColColleagues/add.ctp:22
 #: Template/ColColleagues/edit.ctp:22
 msgid "Doctor"
-msgstr ""
+msgstr "Doctor"
 
 #: Template/ColColleagues/edit.ctp:10
 msgid "Edit Colleague"
-msgstr ""
+msgstr "Editar Persona Colaboradora"
 
 #: Template/ColCompanies/add.ctp:10
 msgid "Add Company"
-msgstr ""
+msgstr "Añadir Compañía"
 
 #: Template/ColCompanies/edit.ctp:10
 msgid "Edit Company"
-msgstr ""
+msgstr "Editar Compañía"
 
 #: Template/ColGroups/add.ctp:10
 msgid "Add Group"
-msgstr ""
+msgstr "Añadir Grupo"
 
 #: Template/ColGroups/edit.ctp:10
 msgid "Edit Group"
-msgstr ""
+msgstr "Editar Grupo"
 
 #: Template/ColInstitutions/add.ctp:10
 msgid "Add Institution"
-msgstr ""
+msgstr "Añadir Institución"
 
 #: Template/ColInstitutions/edit.ctp:10
 msgid "Edit Institution"
-msgstr ""
+msgstr "Editar Institución"
 
 #: Template/ColMembers/add.ctp:10
 msgid "Add Member"
-msgstr ""
+msgstr "Añadir Miembro"
 
 #: Template/ColMembers/edit.ctp:10
 msgid "Edit Member"
-msgstr ""
+msgstr "Editar Miembro"
 
 #: Template/CouCourseDegreeSubjects/add.ctp:14
 #: Template/CouDegrees/add.ctp:18
 msgid "Add Degree"
-msgstr ""
+msgstr "Añadir Grado"
 
 #: Template/CouCourseDegreeSubjects/edit.ctp:14
 #: Template/CouDegrees/edit.ctp:14
 msgid "Edit Degree"
-msgstr ""
+msgstr "Editar Grado"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:10
 #: Template/CouDegrees/add.ctp:12
 #: Template/CouDegrees/index.ctp:12
 #: Template/CouSubjects/index.ctp:14
 msgid "New Course Degree Subject"
-msgstr ""
+msgstr "Nueva Asignatura de Grado"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:11
 #: Template/CouDegrees/add.ctp:10
 msgid "List Degrees"
-msgstr ""
+msgstr "Listar Grados"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:12
 #: Template/CouDegrees/index.ctp:10
 msgid "New Degree"
-msgstr ""
+msgstr "Nuevo Grado"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:13
 msgid "List Subjects"
-msgstr ""
+msgstr "Listar asignaturas"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:14
 #: Template/CouSubjects/index.ctp:10
 msgid "New Subject"
-msgstr ""
+msgstr "Nueva Asignatura"
 
 #: Template/CouCourseDegreeSubjects/index.ctp:18
 msgid "Course Degree Subjects"
-msgstr ""
+msgstr "Asignaturas de Grado"
 
 #: Template/CouDegrees/add.ctp:11
 #: Template/CouDegrees/index.ctp:11
 #: Template/CouSubjects/index.ctp:13
 msgid "List Course Degree Subjects"
-msgstr ""
+msgstr "Listar Asignaturas de Grado"
 
 #: Template/CouDegrees/index.ctp:16
 msgid "Degrees"
-msgstr ""
+msgstr "Grados"
 
 #: Template/CouSubjects/add.ctp:11
 #: Template/Courses/index.ctp:7
 msgid "Add Subject"
-msgstr ""
+msgstr "Añadir Asignaturas"
 
 #: Template/CouSubjects/edit.ctp:10
 msgid "Edit Subject"
-msgstr ""
+msgstr "Editar Asignaturas"
 
 #: Template/CouSubjects/index.ctp:11
 msgid "List Ppl Users"
-msgstr ""
+msgstr "Listar usuarios"
 
 #: Template/CouSubjects/index.ctp:12
 msgid "New Ppl User"
-msgstr ""
+msgstr "Nuevo usuario"
 
 #: Template/CouSubjects/index.ctp:18
 msgid "Subjects"
-msgstr ""
+msgstr "Asignaturas"
 
 #: Template/Courses/index.ctp:6
 msgid "Add Course"
-msgstr ""
+msgstr "Añadir curso"
 
 #: Template/Element/footer.ctp:11;36
 #: Template/PplUsers/login.ctp:20
 msgid "Login"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: Template/Element/footer.ctp:23
 #: Template/PplUsers/login.ctp:7
 msgid "Please sign in"
-msgstr ""
+msgstr "Por favor inicie sesión"
 
 #: Template/Element/footer.ctp:30
 #: Template/PplUsers/login.ctp:14
 msgid "E-mail"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: Template/Element/footer.ctp:31
 #: Template/PplUsers/login.ctp:15
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: Template/Element/footer.ctp:39
 #: Template/PplUsers/login.ctp:23
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: Template/Element/navbar.ctp:22
 #: View/Helper/HtmlHelper.php:795
 msgid "Home"
-msgstr ""
+msgstr "Principal"
 
 #: Template/Element/navbar.ctp:25
 msgid "People"
-msgstr ""
+msgstr "Gente"
 
 #: Template/Element/navbar.ctp:28
 #: Template/PrePresses/index.ctp:11
 msgid "Press"
-msgstr ""
+msgstr "Prensa"
 
 #: Template/Element/navbar.ctp:31
 msgid "Publications"
-msgstr ""
+msgstr "Publicaciones"
 
 #: Template/Element/navbar.ctp:34
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #: Template/Element/navbar.ctp:37
 msgid "R & D"
-msgstr ""
+msgstr "I+D"
 
 #: Template/Element/navbar.ctp:40
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: Template/Element/navbar.ctp:43
 msgid "Teaching"
-msgstr ""
+msgstr "Enseñanza"
 
 #: Template/Element/navbar.ctp:46
 msgid "Collaborations"
-msgstr ""
+msgstr "Colaboraciones"
 
 #: Template/Element/navindex.ctp:8
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: Template/Element/navindex.ctp:16
 msgid "Related"
-msgstr ""
+msgstr "Relacionado"
 
 #: Template/Layout/default.ctp:45
 msgid " Back"
-msgstr ""
+msgstr " Volver"
 
 #: Template/Layout/error.ctp:35
 #: Template/Error/error400.ctp:36
 #: Template/Error/error500.ctp:41
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: Template/Layout/error.ctp:43
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: Template/People/index.ctp:107
 #: Template/PplPostdocs/index.ctp:10
 msgid "Postdocs"
-msgstr ""
+msgstr "Estudiantes de postdoctorado"
 
 #: Template/PplCollaborators/add.ctp:11
 msgid "Add Collaborator"
-msgstr ""
+msgstr "Añadir Colaborador"
 
 #: Template/PplCollaborators/edit.ctp:10
 msgid "Select Collaborator"
-msgstr ""
+msgstr "Seleccionar Colaborador"
 
 #: Template/PplCollaborators/edit.ctp:18
 msgid "Edit Collaborator"
-msgstr ""
+msgstr "Editar Colaborador"
 
 #: Template/PplPastPhds/add.ctp:10
 msgid "Add Past PhD Student"
-msgstr ""
+msgstr "Añadir antiguo estudiante de doctorado"
 
 #: Template/PplPastPhds/add.ctp:14
 #: Template/PplPastPhds/edit.ctp:14
 msgid "Thesis Date"
-msgstr ""
+msgstr "Año de finalización de la tesis"
 
 #: Template/PplPastPhds/edit.ctp:10
 msgid "Edit Past PhD Student"
-msgstr ""
+msgstr "Editar antiguo estudiante de doctorado"
 
 #: Template/PplPhds/add.ctp:10
 msgid "Add PhD"
-msgstr ""
+msgstr "Añadir usuario de doctorado"
 
 #: Template/PplPhds/edit.ctp:10
 msgid "Edit PhD"
-msgstr ""
+msgstr "Editar estudiante de doctorado"
 
 #: Template/PplPostdocs/add.ctp:11
 msgid "Add Postdoc"
-msgstr ""
+msgstr "Añadir estudiante de postdoctorado"
 
 #: Template/PplPostdocs/edit.ctp:9
 msgid "Select Postdoc"
-msgstr ""
+msgstr "Seleccionar estudiante de postdoctorado"
 
 #: Template/PplPostdocs/edit.ctp:16
 msgid "Edit Postdoc"
-msgstr ""
+msgstr "Editar estudiante de postdoctorado"
 
 #: Template/PplUsers/add.ctp:11
 msgid "Add User"
-msgstr ""
+msgstr "Añadir Usuario"
 
 #: Template/PplUsers/edit.ctp:11
 msgid "Edit User"
-msgstr ""
+msgstr "Editar Usuario"
 
 #: Template/PplUsers/view.ctp:12;51
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: Template/PplUsers/view.ctp:16
 msgid "Lastname"
-msgstr ""
+msgstr "Apellidos"
 
 #: Template/PplUsers/view.ctp:20
 msgid "Rol"
-msgstr ""
+msgstr "Rol"
 
 #: Template/PplUsers/view.ctp:24
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: Template/PplUsers/view.ctp:28
 msgid "Phone"
-msgstr ""
+msgstr "Teléfono"
 
 #: Template/PplUsers/view.ctp:32
 msgid "Bio"
-msgstr ""
+msgstr "Biografía"
 
 #: Template/PplUsers/view.ctp:36
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: Template/PplUsers/view.ctp:40
 msgid "Link"
-msgstr ""
+msgstr "Enlace"
 
 #: Template/PplUsers/view.ctp:47
 msgid "Related Subjects"
-msgstr ""
+msgstr "Asignaturas relacionadas"
 
 #: Template/PplUsers/view.ctp:50
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: Template/PplUsers/view.ctp:52
 msgid "Ppl User Id"
-msgstr ""
+msgstr "Id de usuario"
 
 #: Template/PplUsers/view.ctp:53
 msgid "Abbreviation"
-msgstr ""
+msgstr "Abreviatura"
 
 #: Template/PplVisitors/add.ctp:11
 msgid "Add Visitor"
-msgstr ""
+msgstr "Añadir visitante"
 
 #: Template/PplVisitors/edit.ctp:9
 msgid "Select Visitor"
-msgstr ""
+msgstr "Seleccionar Visitante"
 
 #: Template/PplVisitors/edit.ctp:15
 msgid "Edit Visitor"
-msgstr ""
+msgstr "Editar Visitante"
 
 #: Template/PrePresses/add.ctp:11
 #: Template/PrePresses/edit.ctp:10
 msgid "Add Press"
-msgstr ""
+msgstr "Añadir Prensa"
 
 #: Template/PrePresses/add.ctp:17
 #: Template/PrePresses/edit.ctp:16
 #: Template/PubConferences/add.ctp:21
 #: Template/PubConferences/edit.ctp:21
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: Template/ProProducts/add.ctp:10
 #: Template/ProProducts/index.ctp:11
 msgid "Add Product"
-msgstr ""
+msgstr "Añadir Producto"
 
 #: Template/ProProducts/add.ctp:14;15
 #: Template/ProProducts/edit.ctp:14;15
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: Template/ProProducts/add.ctp:14
 #: Template/ProProducts/edit.ctp:14
 msgid "Max. 500"
-msgstr ""
+msgstr "Máx. 500"
 
 #: Template/ProProducts/add.ctp:15
 #: Template/ProProducts/edit.ctp:15
 msgid "Max. 5000"
-msgstr ""
+msgstr "Máx. 5000"
 
 #: Template/ProProducts/edit.ctp:10
 msgid "Edit Product"
-msgstr ""
+msgstr "Editar producto"
 
 #: Template/PubBooks/add.ctp:14
 msgid "Add Book"
-msgstr ""
+msgstr "Añadir Libro"
 
 #: Template/PubBooks/add.ctp:19
 #: Template/PubBooks/edit.ctp:19
@@ -1394,462 +1394,462 @@ msgstr ""
 #: Template/ResPatents/add.ctp:15
 #: Template/ResPatents/edit.ctp:15
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 #: Template/PubBooks/add.ctp:21
 #: Template/PubBooks/edit.ctp:21
 #: Template/PubBooks/index.ctp:37
 #: Template/Publications/index.ctp:117
 msgid "ISBN"
-msgstr ""
+msgstr "ISBN"
 
 #: Template/PubBooks/add.ctp:21
 #: Template/PubBooks/edit.ctp:21
 msgid "Ex: xxx-x-xxx-xxxxx-x"
-msgstr ""
+msgstr "Ej: xxx-x-xxx-xxxxx-x"
 
 #: Template/PubBooks/add.ctp:23
 #: Template/PubBooks/edit.ctp:23
 msgid "Physical Identifier"
-msgstr ""
+msgstr "Identificador físico"
 
 #: Template/PubBooks/add.ctp:23
 #: Template/PubBooks/edit.ctp:23
 msgid "8 num."
-msgstr ""
+msgstr "8 num."
 
 #: Template/PubBooks/edit.ctp:14
 msgid "Edit Book"
-msgstr ""
+msgstr "Editar libro"
 
 #: Template/PubBooks/index.ctp:38
 #: Template/Publications/index.ctp:118
 msgid "Physical identifier:"
-msgstr ""
+msgstr "Identificador físico:"
 
 #: Template/PubJournals/index.ctp:46
 #: Template/Publications/index.ctp:38
 msgid "e-ISSN"
-msgstr ""
+msgstr "e-ISSN"
 
 #: Template/PubJournals/index.ctp:47
 #: Template/Publications/index.ctp:39
 msgid "ISSN:"
-msgstr ""
+msgstr "ISSN:"
 
 #: Template/ResContractParticipants/add.ctp:10
 #: Template/ResContractParticipants/edit.ctp:16
 msgid "List Contract Participants"
-msgstr ""
+msgstr "Listar Participantes de Contrato"
 
 #: Template/ResContractParticipants/add.ctp:11
 #: Template/ResContractParticipants/edit.ctp:17
 #: Template/ResContractParticipants/index.ctp:11
 msgid "List Contracts"
-msgstr ""
+msgstr "Listar Contratos"
 
 #: Template/ResContractParticipants/add.ctp:12
 #: Template/ResContractParticipants/edit.ctp:18
 #: Template/ResContractParticipants/index.ctp:12
 msgid "New Contract"
-msgstr ""
+msgstr "Nuevo contrato"
 
 #: Template/ResContractParticipants/add.ctp:18
 msgid "Add Contract Participant"
-msgstr ""
+msgstr "Añadir Participante de Contrato"
 
 #: Template/ResContractParticipants/edit.ctp:24
 msgid "Edit Contract Participant"
-msgstr ""
+msgstr "Editar Participante de Contrato"
 
 #: Template/ResContractParticipants/index.ctp:10
 msgid "New Contract Participant"
-msgstr ""
+msgstr "Nuevo Participante de Contrato"
 
 #: Template/ResContractParticipants/index.ctp:16
 msgid "Contract Participants"
-msgstr ""
+msgstr "Participantes de Contrato"
 
 #: Template/ResContracts/add.ctp:10
 msgid "Add Contract"
-msgstr ""
+msgstr "Añadir Contrato"
 
 #: Template/ResContracts/add.ctp:23
 #: Template/ResContracts/edit.ctp:32
 #: Template/ResProjects/add.ctp:25
 #: Template/ResProjects/edit.ctp:36
 msgid "Scheduling"
-msgstr ""
+msgstr "Programación"
 
 #: Template/ResContracts/edit.ctp:10
 msgid "Edit Contract"
-msgstr ""
+msgstr "Editar Contrato"
 
 #: Template/ResContracts/index.ctp:32
 #: Template/ResPatents/index.ctp:32
 #: Template/ResProjects/index.ctp:33
 #: Template/Research/index.ctp:27;89;151
 msgid "Code: "
-msgstr ""
+msgstr "Código"
 
 #: Template/ResContracts/index.ctp:36
 #: Template/ResProjects/index.ctp:37
 #: Template/Research/index.ctp:31;93
 msgid "Participants: "
-msgstr ""
+msgstr "Participantes"
 
 #: Template/ResContracts/index.ctp:53
 #: Template/ResProjects/index.ctp:54
 #: Template/Research/index.ctp:48;110
 msgid "Scheduling: "
-msgstr ""
+msgstr "Programación"
 
 #: Template/ResContracts/index.ctp:57
 #: Template/ResProjects/index.ctp:58
 #: Template/Research/index.ctp:52;114
 msgid "Founded by: "
-msgstr ""
+msgstr "Financiado por:"
 
 #: Template/ResPatents/add.ctp:11
 msgid "Add Patent"
-msgstr ""
+msgstr "Añadir Patente"
 
 #: Template/ResPatents/add.ctp:14
 #: Template/ResPatents/edit.ctp:14
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #: Template/ResPatents/add.ctp:14
 #: Template/ResPatents/edit.ctp:14
 msgid "Pxxxxxxxxx"
-msgstr ""
+msgstr "Pxxxxxxxxx"
 
 #: Template/ResPatents/edit.ctp:11
 msgid "Edit Patent"
-msgstr ""
+msgstr "Editar patente"
 
 #: Template/ResPatents/index.ctp:39
 #: Template/Research/index.ctp:158
 msgid "Year: "
-msgstr ""
+msgstr "Año"
 
 #: Template/ResProjectParticipants/add.ctp:10
 #: Template/ResProjectParticipants/edit.ctp:16
 msgid "List Project Participants"
-msgstr ""
+msgstr "Listar Participantes de Proyecto"
 
 #: Template/ResProjectParticipants/add.ctp:11
 #: Template/ResProjectParticipants/edit.ctp:17
 #: Template/ResProjectParticipants/index.ctp:11
 msgid "List Projects"
-msgstr ""
+msgstr "Listar Proyectos"
 
 #: Template/ResProjectParticipants/add.ctp:12
 #: Template/ResProjectParticipants/edit.ctp:18
 #: Template/ResProjectParticipants/index.ctp:12
 msgid "New Project"
-msgstr ""
+msgstr "Nuevo Proyecto"
 
 #: Template/ResProjectParticipants/add.ctp:18
 msgid "Add Project Participant"
-msgstr ""
+msgstr "Añadir Participante de Proyecto"
 
 #: Template/ResProjectParticipants/edit.ctp:24
 msgid "Edit Project Participant"
-msgstr ""
+msgstr "Editar Participantes de Proyecto"
 
 #: Template/ResProjectParticipants/index.ctp:10
 msgid "New Project Participant"
-msgstr ""
+msgstr "Nuevo Participante de Proyecto"
 
 #: Template/ResProjectParticipants/index.ctp:16
 msgid "Project Participants"
-msgstr ""
+msgstr "Participantes de Proyecto"
 
 #: Template/ResProjects/add.ctp:10
 msgid "Add Project"
-msgstr ""
+msgstr "Añadir proyecto"
 
 #: Template/ResProjects/add.ctp:24
 #: Template/ResProjects/edit.ctp:35
 msgid "yyyy - yyyy"
-msgstr ""
+msgstr "aaaa - aaaa"
 
 #: Template/ResProjects/edit.ctp:10
 msgid "Edit Project"
-msgstr ""
+msgstr "Editar proyecto"
 
 #: Template/Error/error400.ctp:37
 msgid "The requested address {0} was not found on this server."
-msgstr ""
+msgstr "La dirección solicitada {0} no se encontró en este servidor."
 
 #: Template/Error/error500.ctp:39
 msgid "An Internal Error Has Occurred"
-msgstr ""
+msgstr "Ha ocurrido un error interno."
 
 #: Controller/Component/AuthComponent.php:496
 msgid "You are not authorized to access that location."
-msgstr ""
+msgstr "Usted no está autorizado para acceder a esa ubicación."
 
 #: Controller/Component/CsrfComponent.php:157
 #: Http/Middleware/CsrfProtectionMiddleware.php:190
 msgid "Missing CSRF token cookie"
-msgstr ""
+msgstr "Falta token CSRF"
 
 #: Controller/Component/CsrfComponent.php:161
 #: Http/Middleware/CsrfProtectionMiddleware.php:194
 msgid "CSRF token mismatch."
-msgstr ""
+msgstr "El CSRF token no coincide"
 
 #: Error/ExceptionRenderer.php:258
 msgid "Not Found"
-msgstr ""
+msgstr "No encontrado"
 
 #: Error/ExceptionRenderer.php:260
 msgid "An Internal Error Has Occurred."
-msgstr ""
+msgstr "Ha ocurrido un error interno"
 
 #: Http/Response.php:2400
 msgid "The requested file contains `..` and will not be read."
-msgstr ""
+msgstr "El archivo solicitado contiene `..` y no se leerá.  "
 
 #: Http/Response.php:2411
 msgid "The requested file was not found"
-msgstr ""
+msgstr "No se encontró el archivo solicidato."
 
 #: I18n/Number.php:90
 msgid "{0,number,#,###.##} KB"
-msgstr ""
+msgstr "{0,number,#,###.##} KB"
 
 #: I18n/Number.php:92
 msgid "{0,number,#,###.##} MB"
-msgstr ""
+msgstr "{0,number,#,###.##} MB"
 
 #: I18n/Number.php:94
 msgid "{0,number,#,###.##} GB"
-msgstr ""
+msgstr "{0,number,#,###.##} GB"
 
 #: I18n/Number.php:96
 msgid "{0,number,#,###.##} TB"
-msgstr ""
+msgstr "{0,number,#,###.##} TB"
 
 #: I18n/Number.php:88
 msgid "{0,number,integer} Byte"
 msgid_plural "{0,number,integer} Bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0,number,integer} Byte"
+msgstr[1] "{0,number,integer} Bytes"
 
 #: I18n/RelativeTimeFormatter.php:80
 msgid "{0} from now"
-msgstr ""
+msgstr "{0} desde ahora"
 
 #: I18n/RelativeTimeFormatter.php:80
 msgid "{0} ago"
-msgstr ""
+msgstr "hace {0}"
 
 #: I18n/RelativeTimeFormatter.php:83
 msgid "{0} after"
-msgstr ""
+msgstr "{0} después"
 
 #: I18n/RelativeTimeFormatter.php:83
 msgid "{0} before"
-msgstr ""
+msgstr "{0} antes"
 
 #: I18n/RelativeTimeFormatter.php:114
 msgid "just now"
-msgstr ""
+msgstr "justo ahora"
 
 #: I18n/RelativeTimeFormatter.php:151
 msgid "about a second ago"
-msgstr ""
+msgstr "hace aproximadamente un segundo"
 
 #: I18n/RelativeTimeFormatter.php:152
 msgid "about a minute ago"
-msgstr ""
+msgstr "hace aproximadamente un minuto"
 
 #: I18n/RelativeTimeFormatter.php:153
 msgid "about an hour ago"
-msgstr ""
+msgstr "hace aproximadamente una hora"
 
 #: I18n/RelativeTimeFormatter.php:154;332
 msgid "about a day ago"
-msgstr ""
+msgstr "hace aproximadamente un día"
 
 #: I18n/RelativeTimeFormatter.php:155;333
 msgid "about a week ago"
-msgstr ""
+msgstr "hace aproximadamente una semana"
 
 #: I18n/RelativeTimeFormatter.php:156;334
 msgid "about a month ago"
-msgstr ""
+msgstr "hace aproximadamente un mes"
 
 #: I18n/RelativeTimeFormatter.php:157;335
 msgid "about a year ago"
-msgstr ""
+msgstr "hace aproximadamente un año"
 
 #: I18n/RelativeTimeFormatter.php:168
 msgid "in about a second"
-msgstr ""
+msgstr "en aproximadamente un segundo"
 
 #: I18n/RelativeTimeFormatter.php:169
 msgid "in about a minute"
-msgstr ""
+msgstr "en aproximadamente un minuto"
 
 #: I18n/RelativeTimeFormatter.php:170
 msgid "in about an hour"
-msgstr ""
+msgstr "en aproximadamente una hora"
 
 #: I18n/RelativeTimeFormatter.php:171;346
 msgid "in about a day"
-msgstr ""
+msgstr "en aproximadamente un día"
 
 #: I18n/RelativeTimeFormatter.php:172;347
 msgid "in about a week"
-msgstr ""
+msgstr "en aproximadamente una semana"
 
 #: I18n/RelativeTimeFormatter.php:173;348
 msgid "in about a month"
-msgstr ""
+msgstr "en aproximadamente un mes"
 
 #: I18n/RelativeTimeFormatter.php:174;349
 msgid "in about a year"
-msgstr ""
+msgstr "en aproximadamente un año"
 
 #: I18n/RelativeTimeFormatter.php:304
 msgid "today"
-msgstr ""
+msgstr "hoy"
 
 #: I18n/RelativeTimeFormatter.php:370
 msgid "%s ago"
-msgstr ""
+msgstr "hace %s"
 
 #: I18n/RelativeTimeFormatter.php:371
 msgid "on %s"
-msgstr ""
+msgstr "en %s"
 
 #: I18n/RelativeTimeFormatter.php:47;126;316
 msgid "{0} year"
 msgid_plural "{0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} año"
+msgstr[1] "{0} años"
 
 #: I18n/RelativeTimeFormatter.php:51;129;319
 msgid "{0} month"
 msgid_plural "{0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} mes"
+msgstr[1] "{0} meses"
 
 #: I18n/RelativeTimeFormatter.php:57;132;322
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} semana"
+msgstr[1] "{0} semanas"
 
 #: I18n/RelativeTimeFormatter.php:59;135;325
 msgid "{0} day"
 msgid_plural "{0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} día"
+msgstr[1] "{0} días"
 
 #: I18n/RelativeTimeFormatter.php:64;138
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} hora"
+msgstr[1] "{0} horas"
 
 #: I18n/RelativeTimeFormatter.php:68;141
 msgid "{0} minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} minuto"
+msgstr[1] "{0} minutos"
 
 #: I18n/RelativeTimeFormatter.php:72;144
 msgid "{0} second"
 msgid_plural "{0} seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} segundo"
+msgstr[1] "{0} segundos"
 
 #: ORM/RulesChecker.php:57
 msgid "This value is already in use"
-msgstr ""
+msgstr "Este valor ya está en uso"
 
 #: ORM/RulesChecker.php:104
 msgid "This value does not exist"
-msgstr ""
+msgstr "Este valor no existe"
 
 #: ORM/RulesChecker.php:128
 msgid "The count does not match {0}{1}"
-msgstr ""
+msgstr "El recuento no coincide {0}{1}"
 
 #: Utility/Text.php:902
 msgid "and"
-msgstr ""
+msgstr "y"
 
 #: Validation/Validator.php:111
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo es obligatorio"
 
 #: Validation/Validator.php:112
 msgid "This field cannot be left empty"
-msgstr ""
+msgstr "Este campo no puede estar vacío"
 
 #: Validation/Validator.php:1885
 msgid "The provided value is invalid"
-msgstr ""
+msgstr "El valor proporcionado es inválido"
 
 #: View/Helper/FormHelper.php:1039
 msgid "New %s"
-msgstr ""
+msgstr "Nuevo %s"
 
 #: View/Helper/FormHelper.php:1042
 msgid "Edit %s"
-msgstr ""
+msgstr "Editar %s"
 
 #: View/Widget/DateTimeWidget.php:540
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: View/Widget/DateTimeWidget.php:541
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: View/Widget/DateTimeWidget.php:542
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: View/Widget/DateTimeWidget.php:543
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: View/Widget/DateTimeWidget.php:544
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: View/Widget/DateTimeWidget.php:545
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: View/Widget/DateTimeWidget.php:546
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: View/Widget/DateTimeWidget.php:547
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: View/Widget/DateTimeWidget.php:548
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 #: View/Widget/DateTimeWidget.php:549
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 #: View/Widget/DateTimeWidget.php:550
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 #: View/Widget/DateTimeWidget.php:551
 msgid "December"
-msgstr ""
+msgstr "Diciembre"
 
