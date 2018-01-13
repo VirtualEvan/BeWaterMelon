@@ -50,7 +50,7 @@ msgstr "Editoriales"
 #: Template/PubJournals/index.ctp:10
 #: Template/Publications/index.ctp:3
 msgid "Journals"
-msgstr Revistas""
+msgstr "Revistas"
 
 #: Controller/ActConferencesController.php:52
 #: Controller/ActEditorialBoardsController.php:51
@@ -204,7 +204,7 @@ msgstr "La pesona colaboradora se ha guardado."
 #: Controller/ResContractsController.php:115
 #: Controller/ResProjectsController.php:114
 msgid "Image must be selected."
-msgstr ""
+msgstr "Debe elegirse una imagen"
 
 #: Controller/ColColleaguesController.php:116;157
 msgid "The colleague could not be saved. Please, try again."
