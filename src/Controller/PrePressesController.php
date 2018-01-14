@@ -118,7 +118,7 @@ class PrePressesController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $prePress = $this->PrePresses->get($id);
         if ($this->PrePresses->delete($prePress)) {
             $this->Flash->success(__('The press has been deleted.'));

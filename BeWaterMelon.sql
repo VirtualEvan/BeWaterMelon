@@ -368,7 +368,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`cou_subjects` (
   CONSTRAINT `teacher`
     FOREIGN KEY (`ppl_user_id`)
     REFERENCES `BeWaterMelon`.`ppl_users` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
@@ -461,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `BeWaterMelon`.`res_contract_participants` (
     FOREIGN KEY (`res_contract_id`)
     REFERENCES `BeWaterMelon`.`res_contracts` (`id`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

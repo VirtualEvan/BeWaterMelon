@@ -129,7 +129,7 @@ class CouSubjectsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $couSubject = $this->CouSubjects->get($id);
         if ($this->CouSubjects->delete($couSubject)) {
             $this->Flash->success(__('The subject has been deleted.'));
