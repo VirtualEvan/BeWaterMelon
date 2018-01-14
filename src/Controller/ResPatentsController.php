@@ -54,6 +54,13 @@ class ResPatentsController extends AppController
 
         $this->set(compact('resPatents'));
         $this->set('_serialize', ['resPatents']);
+
+        $related = array(
+            [ 'name' => __('Projects'), 'controller' => 'res_projects'],
+            [ 'name' => __('Contracts'), 'controller' => 'res_contracts'],
+            [ 'name' => __('Patents'), 'controller' => 'res_patents'],
+        );
+        $this->set(compact('related'));
     }
 
     /**
