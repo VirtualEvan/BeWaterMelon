@@ -18,7 +18,7 @@ $collaborators[0] = __('Select Collaborator');
                 <?= __('Edit Collaborator') ?>
                 <?php
                     if(!$pplCollaborator->isNew()){
-                        echo $this->Form->postLink(null, ['controller' => 'ppl_collaborators', 'action' => 'delete', $pplCollaborator->id], ['class' => 'btn btn-danger fa fa-trash']);
+                        echo $this->Html->link(null, ['controller' => 'ppl_collaborators', 'action' => 'delete', $pplCollaborator->id], ['class' => 'btn btn-info btn-sm fa fa-trash']);
                     }
                 ?>
                 <?= $this->Form->select('collaborator', $collaborators, ['class' => 'form-control', 'default' => 0, 'disabled' => array(0), 'onchange' => "window.location.replace('/ppl-collaborators/edit/'+this.value)"]) ?>

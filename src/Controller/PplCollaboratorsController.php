@@ -154,7 +154,7 @@ class PplCollaboratorsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pplCollaborator = $this->PplCollaborators->get($id);
         if ($this->PplCollaborators->delete($pplCollaborator)) {
             $this->Flash->success(__('The collaborator has been deleted.'));

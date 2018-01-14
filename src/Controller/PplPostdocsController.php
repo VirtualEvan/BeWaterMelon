@@ -145,7 +145,7 @@ class PplPostdocsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pplPostdoc = $this->PplPostdocs->get($id);
         if ($this->PplPostdocs->delete($pplPostdoc)) {
             $this->Flash->success(__('The postdoc has been deleted.'));
