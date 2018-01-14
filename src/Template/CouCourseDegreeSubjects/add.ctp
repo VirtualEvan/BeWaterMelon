@@ -3,6 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\CouCourseDegreeSubject $couCourseDegreeSubject
  */
+
+$subj = array();
+
  foreach ($subjects as $subject) {
      $subj[$subject->id] = $subject->name;
  }

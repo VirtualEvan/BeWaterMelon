@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\PubConference $pubConference
  */
-
+$aut = array();
  foreach ($pplUsers as $pplUser) {
      $aut[$pplUser->id] = $pplUser->name . ' ' . $pplUser->lastname;
  }

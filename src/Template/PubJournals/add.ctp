@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\PubJournal $pubJournal
  */
+$aut = array();
 
 foreach ($pplUsers as $pplUser) {
     $aut[$pplUser->id] = $pplUser->name . ' ' . $pplUser->lastname;
