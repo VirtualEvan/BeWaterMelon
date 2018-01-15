@@ -18,7 +18,7 @@
                         echo $this->Html->link(null, ['controller' => 'ppl_visitors', 'action' => 'delete', $pplVisitor->id], ['class' => 'btn btn-info btn-sm fa fa-trash']);
                     }
                 ?>
-                <?php $url = $this->Url->build(["controller" => "PplUsers","action" => "edit"]); ?>
+                <?php $url = $this->Url->build(["controller" => "PplVisitors","action" => "edit"]); ?>
                 <?= $this->Form->select('visitor', $visitors, ['class' => 'form-control', 'default' => 0, 'disabled' => array(0), 'onchange' => "window.location.replace('$url'+ '/' +this.value)"]) ?>
             </legend>
             <?php
