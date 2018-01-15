@@ -20,8 +20,12 @@
 3. Run `php composer.phar install`.
 
 ### Installation sctript
-#### TODO
-
+1- Execute with privileges
+2- Set composer permissions (y)
+3- MySQL password may be asked
+```sh
+$ sh -/install.sh
+```
 ## Configuration
 
 Read and edit `config/app.php` and setup the `'Datasources'` and any other
