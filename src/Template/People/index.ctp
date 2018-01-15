@@ -19,12 +19,16 @@
                 <div class="card-block">
                     <div class="container">
                         <div class="row">
-                                <?php if($currentuser['rol'] == 'admin' || $currentuser['id'] == $pplUser->id): ?>
-                                    <div class="col-md-1 p-0">
-                                            <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
-                                            <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
-                                    </div>
-                                <?php endif; ?>
+                            <?php if($currentuser['rol'] == 'admin'): ?>
+                                <div class="col-md-1 p-0">
+                                        <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                        <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                                </div>
+                            <?php elseif($currentuser['id'] == $pplUser->id): ?>
+                                <div class="col-md-1 p-0">
+                                        <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
+                                </div>
+                            <?php endif; ?>
                                 <div class="col-md-4">
                                     <?php if(file_exists(WWW_ROOT . 'img/ppl_users/' . $pplUser['id'])): ?>
                                       <?= $this->Html->link($this->Html->image('ppl_users/'.$pplUser['id'], ['height' => '100px', 'width' => '100px']), ['controller' => 'ppl_users', 'action' => 'view', $pplUser->id], ['escape' => false]); ?>
