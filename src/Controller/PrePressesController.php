@@ -19,7 +19,7 @@ class PrePressesController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
@@ -44,23 +44,6 @@ class PrePressesController extends AppController
 
         $this->set(compact('prePresses'));
         $this->set('_serialize', ['prePresses']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Pre Press id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $prePress = $this->PrePresses->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('prePress', $prePress);
-        $this->set('_serialize', ['prePress']);
     }
 
     /**

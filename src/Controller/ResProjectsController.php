@@ -19,7 +19,7 @@ class ResProjectsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
@@ -60,23 +60,6 @@ class ResProjectsController extends AppController
             [ 'name' => __('Patents'), 'controller' => 'res_patents'],
         );
         $this->set(compact('related'));
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Project id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $resProject = $this->ResProjects->get($id, [
-            'contain' => ['ResProjectParticipants']
-        ]);
-
-        $this->set('resProject', $resProject);
-        $this->set('_serialize', ['resProject']);
     }
 
     /**

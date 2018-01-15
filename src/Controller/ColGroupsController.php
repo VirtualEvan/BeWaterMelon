@@ -19,7 +19,7 @@ class ColGroupsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
@@ -38,27 +38,6 @@ class ColGroupsController extends AppController
                 return true;
             }
         }
-    }
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-    public function index()
-    {
-        $colGroups = $this->ColGroups->find('all');
-
-        $this->set(compact('colGroups'));
-        $this->set('_serialize', ['colGroups']);
-
-        $related = array(
-            [ 'name' => __('Member of'), 'controller' => 'col_members'],
-            [ 'name' => __('Colleagues'), 'controller' => 'col_colleagues'],
-            [ 'name' => __('Groups'), 'controller' => 'col_groups'],
-            [ 'name' => __('Institutions'), 'controller' => 'col_institutions'],
-            [ 'name' => __('Companies'), 'controller' => 'col_companies'],
-        );
-        $this->set(compact('related'));
     }
 
     /**

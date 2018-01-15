@@ -55,23 +55,6 @@ class ActConferencesController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Conference id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $actConference = $this->ActConferences->get($id, [
-            'contain' => ['ActConferenceYears']
-        ]);
-
-        $this->set('actConference', $actConference);
-        $this->set('_serialize', ['actConference']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.

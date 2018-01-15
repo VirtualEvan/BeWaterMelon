@@ -62,23 +62,6 @@ class ColInstitutionsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Col Institution id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $colInstitution = $this->ColInstitutions->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('colInstitution', $colInstitution);
-        $this->set('_serialize', ['colInstitution']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.

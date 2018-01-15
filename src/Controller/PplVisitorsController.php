@@ -20,7 +20,7 @@ class PplVisitorsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
@@ -65,23 +65,6 @@ class PplVisitorsController extends AppController
             [ 'name' => __('Collaborators'), 'controller' => 'ppl_collaborators']
         );
         $this->set(compact('related'));
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Ppl Visitor id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $pplVisitor = $this->PplVisitors->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('pplVisitor', $pplVisitor);
-        $this->set('_serialize', ['pplVisitor']);
     }
 
     /**

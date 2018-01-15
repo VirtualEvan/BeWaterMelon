@@ -24,7 +24,7 @@ class ResPatentsController extends AppController
          // Allow users to register and logout.
          // You should not add the "login" action to allow list. Doing so would
          // cause problems with normal functioning of AuthComponent.
-         $this->Auth->allow(['index', 'view', 'logout']);
+         $this->Auth->allow(['index', 'logout']);
      }
 
      public function isAuthorized($user)
@@ -61,23 +61,6 @@ class ResPatentsController extends AppController
             [ 'name' => __('Patents'), 'controller' => 'res_patents'],
         );
         $this->set(compact('related'));
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Res Patent id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $resPatent = $this->ResPatents->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('resPatent', $resPatent);
-        $this->set('_serialize', ['resPatent']);
     }
 
     /**

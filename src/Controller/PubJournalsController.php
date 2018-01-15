@@ -20,7 +20,7 @@ class PubJournalsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
@@ -67,23 +67,6 @@ class PubJournalsController extends AppController
         $pplUsers = $this->PplUsers->find('all');
         $this->set(compact('pplUsers'));
         $this->set('_serialize', ['pplUsers']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Pub Journal id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $pubJournal = $this->PubJournals->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('pubJournal', $pubJournal);
-        $this->set('_serialize', ['pubJournal']);
     }
 
     /**
