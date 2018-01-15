@@ -1,7 +1,11 @@
 #!/bin/bash
 
+echo "";
 echo "***INSTALLING REQUIREMENTS***";
 echo "";
+
+echo "Updating packages";
+apt-get update -y;
 
 echo "Installing git";
 apt-get install -y git;
@@ -32,6 +36,10 @@ apt-get install -y mysql-server;
 
 echo "Installing php7.0-mysql";
 apt-get install -y php7.0-mysql;
+
+echo "";
+echo "***CONFIGURING SYSTEM***";
+echo "";
 
 echo "Enabling mod_rewrite";
 a2enmod rewrite;
@@ -71,6 +79,10 @@ sed -i "s/'username' => 'my_app'/'username' => 'bwm'/g" /var/www/BeWaterMelon/co
 sed -i "s/'password' => 'secret'/'password' => 'bwm'/g" /var/www/BeWaterMelon/config/app.php
 sed -i "s/'database' => 'my_app'/'database' => 'BeWaterMelon'/g" /var/www/BeWaterMelon/config/app.php
 
+echo "";
+echo "***DONE***";
+echo "";
+
 echo "Launching BeWaterMelon in";
 sleep 1;
 echo "3";
@@ -80,6 +92,7 @@ sleep 1;
 echo "1";
 sleep 1;
 
+echo "";
 echo "tds";
 xdg-open http://bewatermelon.com
 
