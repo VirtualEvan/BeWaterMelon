@@ -99,7 +99,7 @@ class PubConferencesController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
-            $pubConference->author = implode(',', $this->request->getData()['author']);
+            $pubConference->author = implode(',', $this->request->getData()['pplUser']);
             if ($this->PubConferences->save($pubConference)) {
                 $this->Flash->success(__('The conference has been saved.'));
 

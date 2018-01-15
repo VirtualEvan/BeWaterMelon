@@ -101,7 +101,7 @@ class PubJournalsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
-            $pubJournal->author = implode(',', $this->request->getData()['pplUsers']);
+            $pubJournal->author = implode(',', $this->request->getData()['pplUser']);
             if ($this->PubJournals->save($pubJournal)) {
                 $this->Flash->success(__('The journal has been saved.'));
 
