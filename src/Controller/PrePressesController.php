@@ -24,7 +24,6 @@ class PrePressesController extends AppController
 
     public function isAuthorized($user)
     {
-        // Admins can manage users
         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
             return true;
         }

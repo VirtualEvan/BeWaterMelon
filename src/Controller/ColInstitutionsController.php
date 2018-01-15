@@ -19,25 +19,18 @@ class ColInstitutionsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'view', 'logout']);
+        $this->Auth->allow(['index', 'logout']);
     }
 
     public function isAuthorized($user)
     {
-        // Admins can manage users
         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
             if ($user['rol'] == 'admin') {
                 return true;
             }
         }
-
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
-        }
+        // Deny everything else
+        return parent::isAuthorized($user);
     }
     /**
      * Index method

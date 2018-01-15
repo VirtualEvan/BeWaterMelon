@@ -24,20 +24,12 @@ class CouCourseDegreeSubjectsController extends AppController
 
     public function isAuthorized($user)
     {
-        // Admins can manage users
         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
-            if ($user['rol'] == 'admin') {
-                return true;
-            }
+            return true;
         }
 
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
-        }
+        // Deny everything else
+        return parent::isAuthorized($user);
     }
     /**
      * Index method
