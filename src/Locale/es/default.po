@@ -1917,3 +1917,6 @@ msgstr "aaaa/mm/dd"
 
 msgid "Book Name"
 msgstr "Nombre del libro"
+
+msgid "Subjects"
+msgstr "Asignaturas"
