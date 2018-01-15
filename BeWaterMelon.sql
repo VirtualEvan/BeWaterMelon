@@ -13,6 +13,12 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 DROP SCHEMA IF EXISTS `BeWaterMelon` ;
 
 -- -----------------------------------------------------
+-- User bwm
+-- -----------------------------------------------------
+CREATE USER 'bwm'@'localhost' IDENTIFIED BY 'bwm';
+GRANT ALL ON `BeWaterMelon`.* TO 'bwm'@'localhost';
+
+-- -----------------------------------------------------
 -- Schema BeWaterMelon
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `BeWaterMelon` DEFAULT CHARACTER SET utf8 ;
