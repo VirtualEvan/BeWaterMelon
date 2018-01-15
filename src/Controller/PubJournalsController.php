@@ -139,7 +139,7 @@ class PubJournalsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pubJournal = $this->PubJournals->get($id);
         if ($this->PubJournals->delete($pubJournal)) {
             $this->Flash->success(__('The journal has been deleted.'));

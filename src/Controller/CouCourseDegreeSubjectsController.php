@@ -154,7 +154,7 @@ class CouCourseDegreeSubjectsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->get($id);
         if ($this->CouCourseDegreeSubjects->delete($couCourseDegreeSubject)) {
             $this->Flash->success(__('The course degree subject has been deleted.'));

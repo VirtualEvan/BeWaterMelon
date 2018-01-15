@@ -16,7 +16,7 @@
                 <?= __('Edit Postdoc') ?>
                 <?php
                     if(!$pplPostdoc->isNew()){
-                        echo $this->Form->postLink(null, ['controller' => 'ppl_postdocs', 'action' => 'delete', $pplPostdoc->id], ['class' => 'btn btn-danger fa fa-trash']);
+                        echo $this->Html->link(null, ['controller' => 'ppl_postdocs', 'action' => 'delete', $pplPostdoc->id], ['class' => 'btn btn-info btn-sm fa fa-trash']);
                     }
                 ?>
                 <?= $this->Form->select('postdocs', $postdocs, ['class' => 'form-control', 'default' => 0, 'disabled' => array(0), 'onchange' => "window.location.replace('/ppl-postdocs/edit/'+this.value)"]) ?>

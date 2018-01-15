@@ -137,7 +137,7 @@ class PubBooksController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pubBook = $this->PubBooks->get($id);
         if ($this->PubBooks->delete($pubBook)) {
             $this->Flash->success(__('The book has been deleted.'));

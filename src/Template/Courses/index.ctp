@@ -33,7 +33,7 @@
                                             <h4><?= $this->Html->link($couDegree->name, $couDegree->link) ?></h4>
                                             <?php if($currentuser['rol'] == 'admin'): ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_course_degree_subjects', 'action' => 'edit', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
-                                                <?= $this->Form->postLink(null, ['controller' => 'cou_degrees', 'action' => 'delete', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                                                <?= $this->Html->link(null, ['controller' => 'cou_degrees', 'action' => 'delete', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                             <?php endif; ?>
                                             <hr/>
                                         </div>
@@ -42,7 +42,7 @@
                                         <div class="col-md-11 my-auto p-0">
                                             <?php if($currentuser['rol'] == 'admin'): ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_subjects', 'action' => 'edit', $couCourseDegreeSubject->cou_subject_id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1 ml-2']) ?>
-                                                <?= $this->Form->postLink(null, ['controller' => 'cou_subjects', 'action' => 'delete', $couCourseDegreeSubject->cou_subject_id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
+                                                <?= $this->Html->link(null, ['controller' => 'cou_subjects', 'action' => 'delete', $couCourseDegreeSubject->cou_subject_id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                             <?php endif; ?>
                                             <?= '['. h($couCourseDegreeSubject->cou_subject->abbreviation) .'] '. h($couCourseDegreeSubject->cou_subject->name) .': '. h($couCourseDegreeSubject->cou_subject->ppl_user->name) .' '. h($couCourseDegreeSubject->cou_subject->ppl_user->lastname)?>
                                         </div>

@@ -135,7 +135,7 @@ class PplVisitorsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pplVisitor = $this->PplVisitors->get($id);
         if ($this->PplVisitors->delete($pplVisitor)) {
             $this->Flash->success(__('The visitor has been deleted.'));

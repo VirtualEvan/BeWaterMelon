@@ -137,7 +137,7 @@ class PubConferencesController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        //$this->request->allowMethod(['post', 'delete']);
         $pubConference = $this->PubConferences->get($id);
         if ($this->PubConferences->delete($pubConference)) {
             $this->Flash->success(__('The conference has been deleted.'));
