@@ -3,7 +3,7 @@
   use Cake\I18n\I18n;
 
   $active = array(
-      'home' => '',
+      'Home' => '',
       'People' => '',
       'PrePresses' => '',
       'Publications' => '',
@@ -19,7 +19,7 @@
 <nav class='mx-auto'>
     <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="#"><?= __('Home') ?></a>
+            <?= $this->Html->link(__('Home'), ['controller' => 'home','action' => 'index'], ['class' => 'nav-link ' . $active['Home']]) ?>
           </li>
           <li class="nav-item">
             <?= $this->Html->link(__('People'), ['controller' => 'people','action' => 'index'], ['class' => 'nav-link ' . $active['People']]) ?>

@@ -1587,6 +1587,18 @@ msgstr "La dirección solicitada {0} no se encontró en este servidor."
 msgid "An Internal Error Has Occurred"
 msgstr "Ha ocurrido un error interno."
 
+#: Template/Home/index.ctp:9
+msgid "Group History"
+msgstr "Historia del grupo"
+
+#: Template/Home/index.ctp:14
+msgid "There are no projects yet"
+msgstr "Todavía no hay proyectos"
+
+#: Template/Home/index.ctp:19
+msgid "Start Year"
+msgstr "Año de comienzo"
+
 #: Controller/Component/AuthComponent.php:496
 msgid "You are not authorized to access that location."
 msgstr "Usted no está autorizado para acceder a esa ubicación."
@@ -1852,4 +1864,3 @@ msgstr "Noviembre"
 #: View/Widget/DateTimeWidget.php:551
 msgid "December"
 msgstr "Diciembre"
-
