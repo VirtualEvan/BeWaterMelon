@@ -104,3 +104,12 @@ span.prev, span.next, a.prev, a.next {
     border-radius: 20px;
     margin-bottom: 20px;
 }
+
+.home {
+    padding: 2% 2% 80px 2% ;
+    height: 400px;
+}
+
+.carousel-inner > .carousel-item > img {
+    margin: 0 auto;
+}
