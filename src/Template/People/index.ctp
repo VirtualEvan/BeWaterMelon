@@ -19,7 +19,7 @@
                 <div class="card-block">
                     <div class="container">
                         <div class="row">
-                                <?php if($currentuser['rol'] == 'admin'): ?>
+                                <?php if($currentuser['rol'] == 'admin' || $currentuser['id'] == $pplUser->id): ?>
                                     <div class="col-md-1 p-0">
                                             <?= $this->Html->link(null, ['controller' => 'ppl_users', 'action' => 'edit', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                                             <?= $this->Form->postLink(null, ['controller' => 'ppl_users', 'action' => 'delete', $pplUser->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
