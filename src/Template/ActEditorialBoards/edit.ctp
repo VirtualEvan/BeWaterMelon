@@ -9,7 +9,7 @@
         <div class="row">
             <legend><?= __('Edit Editorial Board') ?></legend>
             <?php
-                echo $this->Form->control('journal_name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
+                echo $this->Form->control('journal_name', ['label'=> __('Journal name'), 'class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                 echo $this->Form->control('online_issn', ['label' => __('Online ISSN') . ' (' . __('xxxx-xxxx') . ')','class' => 'form-control', 'pattern' =>'[0-9]{4}-[0-9]{3}[0-9X]{1}']);
                 echo $this->Form->control('online_issn_year', ['label' => __('Online ISSN Year') . ' (' . __('yyyy') . ')', 'class' => 'form-control', 'pattern' =>'[0-9]{4}']);

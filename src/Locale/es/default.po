@@ -1853,3 +1853,67 @@ msgstr "Noviembre"
 msgid "December"
 msgstr "Diciembre"
 
+
+#: Missing
+msgid "Thesis name"
+msgstr "Nombre de tesis"
+
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+msgid "Thesis link"
+msgstr "Enlace a la tesis"
+
+msgid "Source"
+msgstr "Fuente"
+
+msgid "Journal name"
+msgstr "Nombre de la revista"
+
+msgid "Publication name"
+msgstr "Nombre de la publicación"
+
+msgid "Location"
+msgstr "Lugar"
+
+msgid "Authors"
+msgstr "Autores"
+
+msgid "Country"
+msgstr "País"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Impact Factor Quartile"
+msgstr "Quartil de factor de impacto"
+
+msgid "Acronym"
+msgstr "Acrónimo"
+
+msgid "Participant"
+msgstr "Participante"
+
+msgid "Sponsor Link"
+msgstr "Enlace de patrocinador"
+
+msgid "Subjects"
+msgstr "Asignaturas"
+
+msgid "Teacher"
+msgstr "Profesor"
+
+msgid "Position"
+msgstr "Posición"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "Company"
+msgstr "Compañía"
+
+msgid "yyyy/mm/dd"
+msgstr "aaaa/mm/dd"
+
+msgid "Book Name"
+msgstr "Nombre del libro"

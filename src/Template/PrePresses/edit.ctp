@@ -13,12 +13,12 @@
             ?>
             <div class="col-md-6">
                 <div class="form-group" >
-                    <label for="date"> <?= __('Date') ?> </label>
+                    <label for="date"> <?= __('Date') ?> (<?= __('yyyy/mm/dd') ?>)</label>
                     <input type="date" name="date" class="form-control">
                 </div>
             </div>
             <?php
-                echo $this->Form->control('source', ['class' => 'form-control', 'pattern' => '[A-Za-z/ ]{3,100}']);
+                echo $this->Form->control('source', ['label'=> __('Source'), 'class' => 'form-control', 'pattern' => '[A-Za-z/ ]{3,100}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
         </div>
