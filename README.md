@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
 ## Requirements
+
 1. HTTP Server
 2. PHP 5.6.0 or greater
 3. mbstring PHP extension
@@ -21,11 +22,13 @@
 
 ### Installation sctript
 1- Execute with privileges
-2- Set composer permissions (y)
-3- MySQL password may be asked
+2- Introduce GitHub credentials
+3- Set composer permissions (y)
+4- Introduce MySQL password for root user
 ```sh
 $ sh -/install.sh
 ```
+
 ## Configuration
 
 Read and edit `config/app.php` and setup the `'Datasources'` and any other
