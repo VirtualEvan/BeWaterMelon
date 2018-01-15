@@ -1920,3 +1920,9 @@ msgstr "Nombre del libro"
 
 msgid "Subjects"
 msgstr "Asignaturas"
+
+msgid "Please, select an author."
+msgstr "Por favor, seleccione un autor."
+
+msgid "The conference could not be saved. Please, check your data."
+msgstr "La conferencia no pudo ser guardada, compruebe los datos introducidos."

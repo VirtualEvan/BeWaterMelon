@@ -67,13 +67,20 @@ class PubConferencesController extends AppController
         $pubConference = $this->PubConferences->newEntity();
         if ($this->request->is('post')) {
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
-            $pubConference->author = implode(',', $this->request->getData()['pplUser']);
+
+            if(isset($this->request->getData()['pplUser']) && !empty($this->request->getData()['pplUser'])){
+                $pubConference->author = implode(',', $this->request->getData()['pplUser']);
+            }
+            else{
+                $this->Flash->error(__('Please, select an author.'));
+            }
+
             if ($this->PubConferences->save($pubConference)) {
                 $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, check your data.'));
         }
         $this->set(compact('pubConference'));
         $this->set('_serialize', ['pubConference']);
@@ -99,13 +106,16 @@ class PubConferencesController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubConference = $this->PubConferences->patchEntity($pubConference, $this->request->getData());
-            $pubConference->author = implode(',', $this->request->getData()['author']);
+            if(isset($this->request->getData()['pplUser']) && !empty($this->request->getData()['pplUser'])){
+                $pubConference->author = implode(',', $this->request->getData()['pplUser']);
+            }
+
             if ($this->PubConferences->save($pubConference)) {
                 $this->Flash->success(__('The conference has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The conference could not be saved. Please, try again.'));
+            $this->Flash->error(__('The conference could not be saved. Please, check your data.'));
         }
         $this->set(compact('pubConference'));
         $this->set('_serialize', ['pubConference']);
