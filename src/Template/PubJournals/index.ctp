@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\PubJournal[]|\Cake\Collection\CollectionInterface $pubJournals
  */
  $currentuser = $this->request->session()->read('Auth.User');
- debug($pubJournals);
 ?>
 
 <div class='container part'>
