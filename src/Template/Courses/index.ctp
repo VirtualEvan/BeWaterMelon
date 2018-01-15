@@ -3,7 +3,7 @@
 <div>
     <div class="mb-3">
         <?php
-        if($currentuser['rol'] == 'admin'){
+        if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
             echo $this->Html->link(__('Add Course'), ['controller' => 'cou_course_degree_subjects', 'action' => 'add'], ['class' => 'btn btn-info btn-sm mr-1']);
             echo $this->Html->link(__('Add Subject'), ['controller' => 'cou_subjects', 'action' => 'add'], ['class' => 'btn btn-info btn-sm']);
         }
@@ -31,7 +31,7 @@
                                             ?>
                                             <a name = "<?= $couDegree->id ?>"></a>
                                             <h4><?= $this->Html->link($couDegree->name, $couDegree->link) ?></h4>
-                                            <?php if($currentuser['rol'] == 'admin'): ?>
+                                            <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_course_degree_subjects', 'action' => 'edit', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_degrees', 'action' => 'delete', $couDegree->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                             <?php endif; ?>
@@ -40,7 +40,7 @@
                                     <?php $first = false; endif; ?>
                                     <div class="row">
                                         <div class="col-md-11 my-auto p-0">
-                                            <?php if($currentuser['rol'] == 'admin'): ?>
+                                            <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_subjects', 'action' => 'edit', $couCourseDegreeSubject->cou_subject_id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1 ml-2']) ?>
                                                 <?= $this->Html->link(null, ['controller' => 'cou_subjects', 'action' => 'delete', $couCourseDegreeSubject->cou_subject_id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
                                             <?php endif; ?>

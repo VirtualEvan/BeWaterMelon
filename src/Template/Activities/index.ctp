@@ -6,7 +6,7 @@
 <div class='container part'>
     <h4> <?= __('Editorial Boards') ?> </h4>
     <?php
-    if($currentuser['rol'] == 'admin'){
+    if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
         echo $this->Html->link(null, ['controller' => 'act_editorial_boards', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
     }
     ?>
@@ -15,7 +15,7 @@
         <?php foreach ($actEditorialBoards as $actEditorialBoard): ?>
             <div class="container">
                 <div class="row">
-                    <?php if($currentuser['rol'] == 'admin'): ?>
+                    <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                         <div class="col-md-1">
                                 <?= $this->Html->link(null, ['controller' => 'act_editorial_boards', 'action' => 'edit', $actEditorialBoard->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                                 <?= $this->Form->postLink(null, ['controller' => 'act_editorial_boards', 'action' => 'delete', $actEditorialBoard->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>

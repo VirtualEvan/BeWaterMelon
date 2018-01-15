@@ -4,12 +4,13 @@
  * @var \App\Model\Entity\PubJournal[]|\Cake\Collection\CollectionInterface $pubJournals
  */
  $currentuser = $this->request->session()->read('Auth.User');
+ debug($pubJournals);
 ?>
 
 <div class='container part'>
     <h4> <?= __('Journals') ?> </h4>
     <?php
-    if($currentuser['rol'] == 'admin'){
+    if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
         echo $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
     }
     ?>
@@ -22,7 +23,7 @@
 <div id="hiddenresultJournals" class="container" style="display: none;">
 <?php foreach ($pubJournals as $pubJournal): ?>
         <div class="row result pag<?= 2018-$pubJournal->publication_date ?>">
-            <?php if($currentuser['rol'] == 'admin'): ?>
+            <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                 <div class="col-md-1">
                         <?= $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'edit', $pubJournal->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                         <?= $this->Html->link(null, ['controller' => 'pub_journals', 'action' => 'delete', $pubJournal->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>

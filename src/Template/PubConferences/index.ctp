@@ -9,7 +9,7 @@
 <div class='container part'>
     <h4> <?= __('Conferences') ?> </h4>
     <?php
-    if($currentuser['rol'] == 'admin'){
+    if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
         echo $this->Html->link(null, ['controller' => 'pub_conferences', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
     }
     ?>
@@ -21,7 +21,7 @@
 <div id="hiddenresultConferences" class="container" style="display: none;">
     <?php foreach ($pubConferences as $pubConference): ?>
         <div class="row result pag<?= 2018-date('Y',strtotime($pubConference->date)) ?>">
-            <?php if($currentuser['rol'] == 'admin'): ?>
+            <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                 <div class="col-md-1">
                         <?= $this->Html->link(null, ['controller' => 'pub_conferences', 'action' => 'edit', $pubConference->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                         <?= $this->Html->link(null, ['controller' => 'pub_conferences', 'action' => 'delete', $pubConference->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>
