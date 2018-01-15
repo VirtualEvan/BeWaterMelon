@@ -1864,9 +1864,6 @@ msgstr "Noviembre"
 #: View/Widget/DateTimeWidget.php:551
 msgid "December"
 msgstr "Diciembre"
-<<<<<<< HEAD
-=======
-
 
 #: Missing
 msgid "Thesis name"
@@ -1940,4 +1937,3 @@ msgstr "Por favor, seleccione un autor."
 
 msgid "The conference could not be saved. Please, check your data."
 msgstr "La conferencia no pudo ser guardada, compruebe los datos introducidos."
->>>>>>> 280ca89bf56813a559161bb2b858519677cf58bf
