@@ -30,13 +30,8 @@ class ProProductsController extends AppController
             }
         }
 
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
-        }
+        // Deny everything else
+        return parent::isAuthorized($user);
     }
     /**
      * Index method

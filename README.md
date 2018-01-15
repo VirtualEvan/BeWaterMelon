@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
 ## Requirements
+
 1. HTTP Server
 2. PHP 5.6.0 or greater
 3. mbstring PHP extension
@@ -20,7 +21,13 @@
 3. Run `php composer.phar install`.
 
 ### Installation sctript
-#### TODO
+1- Execute with privileges
+2- Introduce GitHub credentials
+3- Set composer permissions (y)
+4- Introduce MySQL password for root user
+```sh
+$ sh -/install.sh
+```
 
 ## Configuration
 

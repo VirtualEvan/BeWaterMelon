@@ -6,44 +6,45 @@
 ?>
 
 <div class="container">
-    <h3><?= h($pplUser->name) ?></h3>
-    <table class="table-striped">
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($pplUser->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Lastname') ?></th>
-            <td><?= h($pplUser->lastname) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Rol') ?></th>
-            <td><?= h($pplUser->rol) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Email') ?></th>
-            <td><?= h($pplUser->email) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Phone') ?></th>
-            <td><?= h($pplUser->phone) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Bio') ?></th>
-            <td><?= h($pplUser->bio) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Fax') ?></th>
-            <td><?= h($pplUser->fax) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Link') ?></th>
-            <td><?= h($pplUser->link) ?></td>
-        </tr>
-    </table>
-
+    <div class="container part">
+        <h3><?= h($pplUser->name) ?></h3>
+        <table class="table-striped">
+            <tr>
+                <th scope="row"><?= __('Name') ?></th>
+                <td><?= h($pplUser->name) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Lastname') ?></th>
+                <td><?= h($pplUser->lastname) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Rol') ?></th>
+                <td><?= h($pplUser->rol) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Email') ?></th>
+                <td><?= h($pplUser->email) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Phone') ?></th>
+                <td><?= h($pplUser->phone) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Bio') ?></th>
+                <td><?= h($pplUser->bio) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Fax') ?></th>
+                <td><?= h($pplUser->fax) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Link') ?></th>
+                <td><?= h($pplUser->link) ?></td>
+            </tr>
+        </table>
+    </div>
     <?php if (!empty($pplUser->cou_subjects)): ?>
-        <div class="container">
+        <div class="container part">
             <h4><?= __('Related Subjects') ?></h4>
             <table class="table-striped">
                 <tr>

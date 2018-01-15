@@ -16,9 +16,9 @@ foreach ($pplUsers as $pplUser) {
             <legend><?= __('Add Journal') ?></legend>
             <?php
                 echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
-                echo $this->Form->control('publication_name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
-                echo $this->Form->control('location', ['class' => 'form-control', 'pattern' => '.{3,40}']);
+                echo $this->Form->control('publication_name', ['label'=> __('Publication name'), 'class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
+                echo $this->Form->control('name', ['label' => __('Journal name'), 'class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
+                echo $this->Form->control('location', ['label'=> __('Location'), 'class' => 'form-control', 'pattern' => '.{3,40}']);
                 echo $this->Form->control('publication_date', ['class' => 'form-control', 'pattern' => '[0-9]{4}', 'label' => __('Year').' ('.__('yyyy').')']);
                 echo $this->Form->control('online_issn', ['class' => 'form-control', 'pattern' => '[0-9]{4}-[0-9]{4}', 'label' => __('Online ISSN').' ('.__('xxxx-xxxx').')']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);

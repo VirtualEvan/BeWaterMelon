@@ -19,25 +19,17 @@ class CouCourseDegreeSubjectsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'logout']);
+        $this->Auth->allow(['logout']);
     }
 
     public function isAuthorized($user)
     {
-        // Admins can manage users
         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
-            if ($user['rol'] == 'admin') {
-                return true;
-            }
+            return true;
         }
 
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
-        }
+        // Deny everything else
+        return parent::isAuthorized($user);
     }
     /**
      * Index method
@@ -69,14 +61,16 @@ class CouCourseDegreeSubjectsController extends AppController
             $couDegree = $this->CouDegrees->patchEntity($couDegree, $this->request->getData()['cou_degree']);
             $this->CouDegrees->save($couDegree);
 
-            foreach($this->request->getData()['cou_subject_id'] as $id_subject){
-                $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->newEntity();
-                $couCourseDegreeSubject->cou_subject_id = $id_subject;
-                $couCourseDegreeSubject->cou_degree_id = $couDegree->id;
-                $couCourseDegreeSubject->year =$this->request->getData()['year'];
-                if (!$this->CouCourseDegreeSubjects->save($couCourseDegreeSubject)) {
-                    $this->Flash->error(__('The degree could not be saved. Please, try again.'));
-                    return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+            if(!empty($this->request->getData()['cou_subject_id'])){
+                foreach($this->request->getData()['cou_subject_id'] as $id_subject){
+                    $couCourseDegreeSubject = $this->CouCourseDegreeSubjects->newEntity();
+                    $couCourseDegreeSubject->cou_subject_id = $id_subject;
+                    $couCourseDegreeSubject->cou_degree_id = $couDegree->id;
+                    $couCourseDegreeSubject->year =$this->request->getData()['year'];
+                    if (!$this->CouCourseDegreeSubjects->save($couCourseDegreeSubject)) {
+                        $this->Flash->error(__('The degree could not be saved. Please, try again.'));
+                        return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+                    }
                 }
             }
             $this->Flash->success(__('The degree has been saved.'));

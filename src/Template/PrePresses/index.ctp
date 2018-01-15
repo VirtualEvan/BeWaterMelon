@@ -10,7 +10,7 @@
 <div class='container part'>
     <h4> <?= __('Press') ?> </h4>
     <?php
-    if($currentuser['rol'] == 'admin'){
+    if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
         echo $this->Html->link(null, ['controller' => 'pre_presses', 'action' => 'add'], ['class' => 'btn btn-info btn-sm fa fa-plus']);
     }
     ?>
@@ -23,7 +23,7 @@
     <?php foreach ($prePresses as $prePress): ?>
         <div class="container result pag<?= 2018-date('Y',strtotime($prePress->date)) ?>">
             <div class="row">
-                <?php if($currentuser['rol'] == 'admin'): ?>
+                <?php if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'): ?>
                     <div class="col-md-1">
                             <?= $this->Html->link(null, ['controller' => 'pre_presses', 'action' => 'edit', $prePress->id], ['class' => 'btn btn-info btn-sm fa fa-pencil mb-1']) ?>
                             <?= $this->Html->link(null, ['controller' => 'pre_presses', 'action' => 'delete', $prePress->id], ['class' => 'btn btn-info btn-sm fa fa-trash mb-1']) ?>

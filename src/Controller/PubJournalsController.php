@@ -25,19 +25,8 @@ class PubJournalsController extends AppController
 
     public function isAuthorized($user)
     {
-        // Admins can manage users
         if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
-            if ($user['rol'] == 'admin') {
-                return true;
-            }
-        }
-
-        // Registered users can edit their own info
-        if ($this->request->action === 'edit') {
-            $userId = (int)$this->request->params['pass'][0];
-            if ($userId == $user['id']) {
-                return true;
-            }
+            return true;
         }
 
         // Deny everything else
@@ -80,7 +69,13 @@ class PubJournalsController extends AppController
         //var_dump($pubJournal);
         if ($this->request->is('post')) {
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
-            $pubJournal->author = implode(',', $this->request->getData()['pplUser']);
+            if(isset($this->request->getData()['pplUser']) && !empty($this->request->getData()['pplUser'])){
+                $pubJournal->author = implode(',', $this->request->getData()['pplUser']);
+            }
+            else{
+                $this->Flash->error(__('Please, select an author.'));
+            }
+
             if ($this->PubJournals->save($pubJournal)) {
                 $this->Flash->success(__('The journal has been saved.'));
 
@@ -112,7 +107,10 @@ class PubJournalsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pubJournal = $this->PubJournals->patchEntity($pubJournal, $this->request->getData());
-            $pubJournal->author = implode(',', $this->request->getData()['pplUsers']);
+            if(isset($this->request->getData()['pplUser']) && !empty($this->request->getData()['pplUser'])){
+                $pubJournal->author = implode(',', $this->request->getData()['pplUser']);
+            }
+
             if ($this->PubJournals->save($pubJournal)) {
                 $this->Flash->success(__('The journal has been saved.'));
 
