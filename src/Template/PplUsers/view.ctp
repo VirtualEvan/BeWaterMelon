@@ -47,20 +47,15 @@
             <h4><?= __('Related Subjects') ?></h4>
             <table class="table-striped">
                 <tr>
-                    <th scope="col"><?= __('Id') ?></th>
                     <th scope="col"><?= __('Name') ?></th>
-                    <th scope="col"><?= __('Ppl User Id') ?></th>
                     <th scope="col"><?= __('Abbreviation') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($pplUser->cou_subjects as $couSubjects): ?>
                 <tr>
-                    <td><?= h($couSubjects->id) ?></td>
                     <td><?= h($couSubjects->name) ?></td>
-                    <td><?= h($couSubjects->ppl_user_id) ?></td>
                     <td><?= h($couSubjects->abbreviation) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'CouSubjects', 'action' => 'view', $couSubjects->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'CouSubjects', 'action' => 'edit', $couSubjects->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'CouSubjects', 'action' => 'delete', $couSubjects->id], ['confirm' => __('Are you sure you want to delete # {0}?', $couSubjects->id)]) ?>
                     </td>
