@@ -18,7 +18,7 @@ $aut = array();
                 ?>
                 <div class="col-md-6">
                     <div class="form-group" >
-                        <label for="date"> <?= __('Date') ?> </label>
+                        <label for="date"> <?= __('Date') ?> (<?= __('yyyy/mm/dd') ?>) </label>
                         <input type="date" name="date" class="form-control">
                     </div>
                 </div>

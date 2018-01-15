@@ -5,7 +5,7 @@
 
 <footer class="col-md-12 footer text-center">
     <?php if ($currentuser): ?>
-        <?= $this->Html->link('Logout', ['controller' => 'ppl_users', 'action' => 'logout'], ['class' => 'btn btn-secondary']); ?>
+        <?= $this->Html->link(__('Logout'), ['controller' => 'ppl_users', 'action' => 'logout'], ['class' => 'btn btn-secondary']); ?>
     <?php else: ?>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
             <?= __('Login') ?>
