@@ -54,11 +54,11 @@ class AppController extends Controller
                 'action' => 'login'
             ],
             'loginRedirect' => [
-                'controller' => 'ppl_users',
+                'controller' => 'home',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'ppl_users',
+                'controller' => 'home',
                 'action' => 'index'
             ],
             'authenticate' => [
