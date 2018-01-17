@@ -5,8 +5,8 @@
  */
  $currentuser = $this->request->session()->read('Auth.User');
 ?>
-<div class="card  card-home part">
-    <div id="carousel" class="carousel slide" data-ride="carousel">
+<div class="card card-home part">
+    <div id="carousel" class="carousel slide part" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
           <?= $this->Html->image('home/0.jpg', ['class' => 'd-block img-fluid', 'alt' => 'First slide']); ?>
