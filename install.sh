@@ -37,6 +37,9 @@ apt-get install -y mysql-server;
 echo "Installing php7.0-mysql";
 apt-get install -y php7.0-mysql;
 
+echo "Installing xdg-utils";
+apt-get install -y xdg-utils;
+
 echo "";
 echo "***CONFIGURING SYSTEM***";
 echo "";
@@ -48,7 +51,6 @@ echo "Downloading BeWaterMelon source code"
 cd /var/www;
 git clone https://github.com/VirtualEvan/BeWaterMelon.git;
 cd BeWaterMelon;
-ls .;
 
 echo "Downloading virtualhost tool"
 git clone https://github.com/RoverWire/virtualhost.git;
@@ -63,7 +65,7 @@ echo "Adding execution permissions to composer.phar";
 chmod +x ./composer.phar;
 
 echo "Installing composer"
-./composer.phar install;
+php ./composer.phar install;
 
 echo "Removing virtualhost tool"
 rm -rf ./virtualhost/
@@ -91,9 +93,6 @@ echo "2";
 sleep 1;
 echo "1";
 sleep 1;
-
 echo "";
-echo "tds";
+
 xdg-open http://bewatermelon.com
-
-
