@@ -51,11 +51,8 @@ echo "Downloading BeWaterMelon source code"
 git clone https://github.com/VirtualEvan/BeWaterMelon.git /var/www/html/BeWaterMelon
 cd /var/www/html/BeWaterMelon;
 
-echo "Creating 000-default.conf bakup"
-cp /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf_bak;
-
-echo "Creating apache Directory for BeWaterMelon"
-sed -i '/DocumentRoot \/var\/www\/html/r install_files/directory.conf' /etc/apache2/sites-enabled/000-default.conf
+echo "Creating virtualhost"
+cp ./install_files/bewatermelon.conf /etc/apache2/sites-enabled/;
 
 echo "Restarting apache2"
 systemctl restart apache2
@@ -91,4 +88,4 @@ echo "1";
 sleep 1;
 echo "";
 
-xdg-open http://localhost/BeWaterMelon
+xdg-open http://localhost:8080/BeWaterMelon
