@@ -67,15 +67,15 @@ echo "Installing composer"
 php ./composer.phar install;
 
 echo "Loading database"
-mysql -u root -p -e "source /var/www/BeWaterMelon/BeWaterMelon.sql"
+mysql -u root -p -e "source /var/www/html/BeWaterMelon/BeWaterMelon.sql"
 
 echo "Changing img folders's owner"
-chown -R www-data:www-data /var/www/BeWaterMelon/webroot/img/*;
+chown -R www-data:www-data /var/www/html/BeWaterMelon/webroot/img/*;
 
 echo "Editing config/app.php"
-sed -i "s/'username' => 'my_app'/'username' => 'bwm'/g" /var/www/BeWaterMelon/config/app.php
-sed -i "s/'password' => 'secret'/'password' => 'bwm'/g" /var/www/BeWaterMelon/config/app.php
-sed -i "s/'database' => 'my_app'/'database' => 'BeWaterMelon'/g" /var/www/BeWaterMelon/config/app.php
+sed -i "s/'username' => 'my_app'/'username' => 'bwm'/g" /var/www/html/BeWaterMelon/config/app.php
+sed -i "s/'password' => 'secret'/'password' => 'bwm'/g" /var/www/html/BeWaterMelon/config/app.php
+sed -i "s/'database' => 'my_app'/'database' => 'BeWaterMelon'/g" /var/www/html/BeWaterMelon/config/app.php
 
 echo "";
 echo "***DONE***";
