@@ -16,7 +16,7 @@ foreach ($pplUsers as $pplUser) {
             <legend><?= __('Add Journal') ?></legend>
             <?php
                 echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
-                echo $this->Form->control('publication_name', ['label'=> __('Publication name'), 'class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
+                echo $this->Form->control('publication_name', ['label'=> __('Publication name'), 'class' => 'form-control', 'pattern' => '[A-Za-z/áéíóúüñ ]{3,200}']);
                 echo $this->Form->control('name', ['label' => __('Journal name'), 'class' => 'form-control', 'pattern' => '[A-Za-z0-9áéíóúüñ ]{3,100}']);
                 echo $this->Form->control('location', ['label'=> __('Location'), 'class' => 'form-control', 'pattern' => '.{3,40}']);
                 echo $this->Form->control('publication_date', ['class' => 'form-control', 'pattern' => '[0-9]{4}', 'label' => __('Year').' ('.__('yyyy').')']);

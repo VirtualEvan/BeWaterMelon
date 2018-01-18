@@ -14,7 +14,7 @@ $aut = array();
             <legend><?= __('Edit Conference') ?></legend>
             <?php
                 echo $this->Form->input('pplUser', ['label' => __('Authors'), 'class' => 'selectpicker form-control', 'data-live-search' => 'true', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $aut]);
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,200}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9áéíóúüñ ]{3,200}']);
                 ?>
                 <div class="col-md-6">
                     <div class="form-group" >
