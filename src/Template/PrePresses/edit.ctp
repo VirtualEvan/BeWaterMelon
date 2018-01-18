@@ -18,7 +18,7 @@
                 </div>
             </div>
             <?php
-                echo $this->Form->control('source', ['label'=> __('Source'), 'class' => 'form-control', 'pattern' => '[A-Za-z/ ]{3,100}']);
+                echo $this->Form->control('source', ['label'=> __('Source'), 'class' => 'form-control', 'pattern' => '[A-Za-z/áéíóúüñ ]{3,100}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
         </div>
