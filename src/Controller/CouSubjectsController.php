@@ -18,12 +18,12 @@ class CouSubjectsController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['index', 'logout']);
+        $this->Auth->allow(['logout']);
     }
 
     public function isAuthorized($user)
     {
-        if (in_array($this->request->action, ['add', 'edit', 'delete'])) {
+        if (in_array($this->request->action, ['index', 'add', 'edit', 'delete'])) {
             return true;
         }
 
@@ -37,10 +37,7 @@ class CouSubjectsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['PplUsers']
-        ];
-        $couSubjects = $this->CouSubjects->find('all');
+        $couSubjects = $this->CouSubjects->find('all')->contain(['PplUsers']);
         $this->set(compact('couSubjects'));
         $this->set('_serialize', ['couSubjects']);
     }
@@ -58,7 +55,7 @@ class CouSubjectsController extends AppController
             if ($this->CouSubjects->save($couSubject)) {
                 $this->Flash->success(__('The subject has been saved.'));
 
-                return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+                return $this->redirect(['controller' => 'cou_subjects', 'action' => 'index']);
             }
             $this->Flash->error(__('The subject could not be saved. Please, try again.'));
         }
@@ -85,7 +82,7 @@ class CouSubjectsController extends AppController
             if ($this->CouSubjects->save($couSubject)) {
                 $this->Flash->success(__('The subject has been saved.'));
 
-                return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+                return $this->redirect(['controller' => 'cou_subjects', 'action' => 'index']);
             }
             $this->Flash->error(__('The subject could not be saved. Please, try again.'));
         }
@@ -112,6 +109,6 @@ class CouSubjectsController extends AppController
             $this->Flash->error(__('The subject could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['controller' => 'courses', 'action' => 'index']);
+        return $this->redirect(['controller' => 'cou_subjects', 'action' => 'index']);
     }
 }

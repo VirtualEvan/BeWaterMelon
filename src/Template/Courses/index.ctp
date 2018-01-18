@@ -5,7 +5,8 @@
         <?php
         if($currentuser['rol'] == 'admin' || $currentuser['rol'] == 'reg'){
             echo $this->Html->link(__('Add Course'), ['controller' => 'cou_course_degree_subjects', 'action' => 'add'], ['class' => 'btn btn-info btn-sm mr-1']);
-            echo $this->Html->link(__('Add Subject'), ['controller' => 'cou_subjects', 'action' => 'add'], ['class' => 'btn btn-info btn-sm']);
+            echo $this->Html->link(__('Add Subject'), ['controller' => 'cou_subjects', 'action' => 'add'], ['class' => 'btn btn-info btn-sm mr-1']);
+            echo $this->Html->link(__('Manage Subjects'), ['controller' => 'cou_subjects', 'action' => 'index'], ['class' => 'btn btn-info btn-sm']);
         }
         ?>
     </div>

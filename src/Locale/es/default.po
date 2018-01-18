@@ -1937,3 +1937,6 @@ msgstr "Por favor, seleccione un autor."
 
 msgid "The conference could not be saved. Please, check your data."
 msgstr "La conferencia no pudo ser guardada, compruebe los datos introducidos."
+
+msgid "Manage Subjects"
+msgstr "Administrar Asignaturas"
