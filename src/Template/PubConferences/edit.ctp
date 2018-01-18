@@ -23,8 +23,8 @@ $aut = array();
                     </div>
                 </div>
                 <?php
-                echo $this->Form->control('city', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
-                echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,45}']);
+                echo $this->Form->control('city', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,45}']);
+                echo $this->Form->control('country', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,45}']);
                 echo $this->Form->control('link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
             ?>
         </div>

@@ -10,7 +10,7 @@
             <legend><?= __('Add Conference') ?></legend>
             <?php
                 echo $this->Form->control('acronym', ['class' => 'form-control']);
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,100}']);
             ?>
 
             <?= $this->Form->button(null, ['escape' => true, 'class' => 'btn btn-info btn-sm fa fa-plus add_field_button ml-3']) ?>

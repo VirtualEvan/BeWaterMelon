@@ -9,7 +9,7 @@
         <div class="row">
             <legend><?= __('Add Press') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,100}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,100}']);
             ?>
             <div class="col-md-6">
                 <div class="form-group" >
