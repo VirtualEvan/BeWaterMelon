@@ -16,7 +16,7 @@ $subj = array();
         <div class="row">
             <legend><?= __('Add Degree') ?></legend>
             <?php
-                echo $this->Form->control('cou_degree.name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
+                echo $this->Form->control('cou_degree.name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9áéíóúüñ ]{3,100}']);
                 echo $this->Form->control('cou_degree.link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                 echo $this->Form->input('cou_subject_id', ['class' => 'selectpicker form-control', 'data-live-search' => 'true', 'label' => 'Subjects', 'data-live-search-placeholder' =>'Search', 'multiple' => 'multiple','type' => 'select','options' => $subj]);
                 echo $this->Form->control('year', ['label' => __('Year') . ' (' . __('yyyy') . ')', 'class' => 'form-control', 'type' => 'text', 'pattern' => '[0-9]{4}']);

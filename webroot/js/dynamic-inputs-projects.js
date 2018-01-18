@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $(add_button).click(function(e) { //on add input button click
         e.preventDefault();
-        $(wrapper).append('<div class="col-md-6 to_rem_' + x + '"><div class="form-group"><input type="text" name="res_project_participants[' + x + '][participant]" class="form-control" required="required" maxlength="200" pattern = "[A-Za-z ]{3,20}"></div></div>');
+        $(wrapper).append('<div class="col-md-6 to_rem_' + x + '"><div class="form-group"><input type="text" name="res_project_participants[' + x + '][participant]" class="form-control" required="required" maxlength="200" pattern = "[A-Za-záéíóúüñ ]{3,20}"></div></div>');
         $(wrapper).append('<div class="col-md-6 to_rem_' + x + '"><div class="input-group"><input type="text" name="res_project_participants[' + x + '][link]" class="form-control" required="required" maxlength="200" pattern = "(((https?)://)?(\\S*?\\.\\S*?))([\\s)\\[\\]{},;\':<]|\\.\\s|$)"><div class="input-group-btn"><button id=' + x + ' class="btn btn-info btn-sm remove_field"><div class="fa fa-minus"></div></div></div></div>');
         x++;
     });

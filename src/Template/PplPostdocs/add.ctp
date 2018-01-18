@@ -10,8 +10,8 @@
         <fieldset>
             <legend><?= __('Add Postdoc') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
-                echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
+                echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-info']) ?>

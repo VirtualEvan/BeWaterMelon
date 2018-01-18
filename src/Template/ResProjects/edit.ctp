@@ -10,7 +10,7 @@
             <legend><?= __('Edit Project') ?></legend>
 
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                 echo $this->Form->control('code', ['class' => 'form-control']);
             ?>
 
@@ -18,13 +18,13 @@
             <div class="input_fields_wrap col-md-12 row m-0 p-0">
 
                 <?php
-                    echo $this->Form->control('res_project_participants.0.participant', ['class' => 'form-control', 'type' => 'text', 'pattern' => '[A-Za-z ]{3,20}']);
+                    echo $this->Form->control('res_project_participants.0.participant', ['class' => 'form-control', 'type' => 'text', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                     echo $this->Form->control('res_project_participants.0.link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                     unset($resProject->res_project_participants[0]);
                  ?>
 
                 <?php foreach ($resProject->res_project_participants as $key => $projectParticipants) {
-                    echo $this->Form->control('res_project_participants.'.$key.'.participant', ['label' => false, 'class' => 'form-control', 'type' => 'text', 'templates' => ['inputContainer' => '<div class="col-md-6 to_rem_'.$key.'"><div class="form-group" >{{content}}</div></div>'], 'pattern' => '[A-Za-z ]{3,20}']);
+                    echo $this->Form->control('res_project_participants.'.$key.'.participant', ['label' => false, 'class' => 'form-control', 'type' => 'text', 'templates' => ['inputContainer' => '<div class="col-md-6 to_rem_'.$key.'"><div class="form-group" >{{content}}</div></div>'], 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
 
                     echo $this->Form->control('res_project_participants.'.$key.'.link', ['label' => false, 'class' => 'form-control', 'templates' => ['inputContainer' => '<div class="col-md-6 to_rem_'.$key.'"><div class="input-group">{{content}}<div class="input-group-btn"><button id='.$key.' class="btn btn-info btn-sm remove_field"><div class="fa fa-minus"></div></div></div></div>'], 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                 }

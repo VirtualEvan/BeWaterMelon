@@ -10,7 +10,7 @@
         <div class="row">
             <legend><?= __('Edit User') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                 echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '.{3,20}']);
                 echo $this->Form->input('rol', ['class' => 'form-control', 'default' => $pplUser->rol, 'options' => ['admin' => 'Admin', 'reg' => 'Registered']]);
                 echo $this->Form->control('email', ['class' => 'form-control']);

@@ -25,8 +25,8 @@ $collaborators[0] = __('Select Collaborator');
                 <?= $this->Form->select('collaborator', $collaborators, ['class' => 'form-control', 'default' => 0, 'disabled' => array(0), 'onchange' => "window.location.replace('$url'+ '/' +this.value)"]) ?>
             </legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
-                echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
+                echo $this->Form->control('lastname', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                 echo $this->Form->control('doctor', ['class' => 'form-control']);
             ?>
         </fieldset>

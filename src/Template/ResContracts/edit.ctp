@@ -9,14 +9,14 @@
         <div class="row">
             <legend><?= __('Edit Contract') ?></legend>
             <?php
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z ]{3,20}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                 echo $this->Form->control('code', ['class' => 'form-control']);
             ?>
 
             <?= $this->Form->button(null, ['escape' => true, 'class' => 'btn btn-info btn-sm fa fa-plus add_field_button ml-3']) ?>
             <div class="input_fields_wrap col-md-12 row m-0 p-0">
                 <?php
-                    echo $this->Form->control('res_contract_participants.0.participant', ['class' => 'form-control', 'type' => 'text', 'pattern' => '[A-Za-z ]{3,20}']);
+                    echo $this->Form->control('res_contract_participants.0.participant', ['class' => 'form-control', 'type' => 'text', 'pattern' => '[A-Za-záéíóúüñ ]{3,20}']);
                     echo $this->Form->control('res_contract_participants.0.link', ['class' => 'form-control', 'pattern' => '(((https?)://)?(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)']);
                     unset($resContract->res_contract_participants[0]);
                 ?>

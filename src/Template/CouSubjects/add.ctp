@@ -11,7 +11,7 @@
             <legend><?= __('Add Subject') ?></legend>
             <?php
 
-                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9 ]{3,100}']);
+                echo $this->Form->control('name', ['class' => 'form-control', 'pattern' => '[A-Za-z0-9áéíóúüñ ]{3,100}']);
                 echo $this->Form->control('abbreviation', ['class' => 'form-control', 'pattern' => '[A-Z]{2,4}']);
                 echo $this->Form->control('ppl_user_id', ['class' => 'form-control', 'options' => $pplUsers, 'label' => 'Teacher']);
             ?>
